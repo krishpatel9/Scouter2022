@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="MySeekBar" parent="Widget.AppCompat.SeekBar.Discrete">
+        <item name="android:progressBackgroundTint">#D05A5A5A</item>
+        <item name="android:progressTint">#B3B3B3</item>
+        <item name="android:colorControlActivated">#EBEBEB</item>
+    </style>
+
+    <style name="MyRGButton" parent = "Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="buttonTint">#EBEBEB</item>
+        <item name="android:textColor">#EBEBEB</item>
+    </style>
+</resources>
