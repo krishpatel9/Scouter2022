@@ -73,12 +73,13 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <CheckBox
-                android:id="@+id/checkbox_fouls"
+                android:id="@+id/checkbox_fouls2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:buttonTint="@color/white"
                 android:gravity="center"
+                android:minHeight="48dp"
                 android:scaleX="1.70"
                 android:scaleY="1.70" />
 
