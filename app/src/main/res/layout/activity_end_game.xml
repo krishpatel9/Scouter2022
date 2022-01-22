@@ -7,7 +7,7 @@
     tools:context=".EndGameActivity">
 
     <View
-        android:id="@+id/bg"
+        android:id="@+id/bg_scouterApp"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/gradient_bg"
@@ -23,9 +23,9 @@
         android:textSize="45dp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/bg"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_scouterApp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bg" />
+        app:layout_constraintTop_toTopOf="@+id/bg_scouterApp" />
 
     <ScrollView
         android:id="@+id/scrollView2"
