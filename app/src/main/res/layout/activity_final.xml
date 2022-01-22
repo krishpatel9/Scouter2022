@@ -17,13 +17,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/scouterAppTitle_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scouter App"
         android:layout_marginStart="30dp"
+        android:text="Scouter App"
+        android:textColor="@color/white"
         android:textSize="45dp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bg" />
@@ -84,7 +85,7 @@
                 android:scaleY="1.70" />
 
             <TextView
-                android:id="@+id/endGameAttempted_textView"
+                android:id="@+id/finalFouls_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fouls"
@@ -503,19 +504,20 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg_phase"
                 android:padding="10dp">
+
                 <TextView
                     android:id="@+id/phase_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Phase 1"
+                    android:text="Final"
                     android:textColor="@color/white"
                     android:textSize="34sp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!--            <ImageButton-->

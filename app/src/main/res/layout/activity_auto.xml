@@ -6,4 +6,497 @@
     android:layout_height="match_parent"
     tools:context=".AutoActivity">
 
+    <View
+        android:id="@+id/TopView"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/top_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scouter App"
+        android:textColor="#ffffff"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TopView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.150"
+        app:layout_constraintStart_toStartOf="@+id/TopView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.500" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shootingAttemptedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TopView">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="0dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/card_bg"
+            android:foregroundGravity="center"
+            android:padding="15dp"
+            app:columnCount="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CheckBox
+                android:id="@+id/checkbox_fouls2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:buttonTint="@color/white"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:scaleX="1.70"
+                android:scaleY="1.70" />
+
+            <TextView
+                android:id="@+id/finalFouls_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shooting Attempted?"
+                android:textColor="@color/white"
+                android:textSize="23sp" />
+
+
+        </androidx.gridlayout.widget.GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/exitedTarmacLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shootingAttemptedLayout">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/tarmacGridLayout"
+            android:layout_width="0dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/card_bg"
+            android:foregroundGravity="center"
+            android:padding="15dp"
+            app:columnCount="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CheckBox
+                android:id="@+id/checkbox_tarmac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:buttonTint="@color/white"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:scaleX="1.70"
+                android:scaleY="1.70" />
+
+            <TextView
+                android:id="@+id/tarmac_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exited Tarmac?"
+                android:textColor="@color/white"
+                android:textSize="23sp" />
+
+
+        </androidx.gridlayout.widget.GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/Hub"
+        android:layout_width="523.5dp"
+        android:layout_height="427.5dp"
+        android:background="@drawable/hub_image"
+        app:layout_constraintBottom_toTopOf="@+id/PhaseViewBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exitedTarmacLayout" />
+
+    <View
+        android:id="@+id/ScoredView1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="344dp"
+        android:background="@drawable/card_bg"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/ScoredTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scored"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ScoredView1"
+        app:layout_constraintEnd_toEndOf="@+id/ScoredView1"
+        app:layout_constraintStart_toStartOf="@+id/ScoredView1"
+        app:layout_constraintTop_toTopOf="@+id/ScoredView1" />
+
+    <TextView
+        android:id="@+id/Score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="1dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/ScoredView1"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/MissedView1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="357dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="67dp"
+        android:background="@drawable/card_bg"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/MissedTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Missed"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/MissedView1"
+        app:layout_constraintEnd_toEndOf="@+id/MissedView1"
+        app:layout_constraintStart_toStartOf="@+id/MissedView1"
+        app:layout_constraintTop_toTopOf="@+id/MissedView1" />
+
+    <TextView
+        android:id="@+id/Miss1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="54dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toEndOf="@+id/MissedView1"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/Scoredcard_bg"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="202dp"
+        android:layout_marginEnd="265dp"
+        android:background="@drawable/card_bg"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/ScoredTextcard_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scored"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/Scoredcard_bg"
+        app:layout_constraintEnd_toEndOf="@+id/Scoredcard_bg"
+        app:layout_constraintStart_toStartOf="@+id/Scoredcard_bg"
+        app:layout_constraintTop_toTopOf="@+id/Scoredcard_bg" />
+
+    <TextView
+        android:id="@+id/Score2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="212dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/Scoredcard_bg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/Missedcard_bg"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="281dp"
+        android:layout_marginTop="202dp"
+        android:layout_marginEnd="143dp"
+        android:background="@drawable/card_bg"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/MissedTextcard_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Missed"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/Missedcard_bg"
+        app:layout_constraintEnd_toEndOf="@+id/Missedcard_bg"
+        app:layout_constraintStart_toStartOf="@+id/Missedcard_bg"
+        app:layout_constraintTop_toTopOf="@+id/Missedcard_bg" />
+
+    <TextView
+        android:id="@+id/Miss2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="112dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/Missedcard_bg"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/ScoredView3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="344dp"
+        android:background="@drawable/view3"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/ScoredTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scored"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ScoredView3"
+        app:layout_constraintEnd_toEndOf="@+id/ScoredView3"
+        app:layout_constraintStart_toStartOf="@+id/ScoredView3"
+        app:layout_constraintTop_toTopOf="@+id/ScoredView3" />
+
+    <TextView
+        android:id="@+id/Score3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="1dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/ScoredView3"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/MissedView3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="357dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="67dp"
+        android:background="@drawable/view3"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/MissedTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Missed"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/MissedView3"
+        app:layout_constraintEnd_toEndOf="@+id/MissedView3"
+        app:layout_constraintStart_toStartOf="@+id/MissedView3"
+        app:layout_constraintTop_toTopOf="@+id/MissedView3" />
+
+    <TextView
+        android:id="@+id/Miss3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="54dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toEndOf="@+id/MissedView3"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/ScoredView4"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="265dp"
+        android:background="@drawable/view3"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/ScoredTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scored"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ScoredView4"
+        app:layout_constraintEnd_toEndOf="@+id/ScoredView4"
+        app:layout_constraintStart_toStartOf="@+id/ScoredView4"
+        app:layout_constraintTop_toTopOf="@+id/ScoredView4" />
+
+    <TextView
+        android:id="@+id/Score4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="272dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/ScoredView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/MissedView4"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="281dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="143dp"
+        android:background="@drawable/view3"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintStart_toStartOf="@+id/Hub"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <TextView
+        android:id="@+id/MissedTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Missed"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/MissedView4"
+        app:layout_constraintEnd_toEndOf="@+id/MissedView4"
+        app:layout_constraintStart_toStartOf="@+id/MissedView4"
+        app:layout_constraintTop_toTopOf="@+id/MissedView4" />
+
+    <TextView
+        android:id="@+id/Miss4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="112dp"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/MissedView4"
+        app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+    <View
+        android:id="@+id/PhaseViewBar"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bottom_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/PhaseView"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:background="@drawable/card_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/PhaseViewBar"
+        app:layout_constraintTop_toTopOf="@+id/PhaseViewBar" />
+
+    <TextView
+        android:id="@+id/PhaseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Autonomous"
+        android:textColor="#ffffff"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/PhaseView"
+        app:layout_constraintEnd_toEndOf="@+id/PhaseView"
+        app:layout_constraintStart_toStartOf="@+id/PhaseView"
+        app:layout_constraintTop_toTopOf="@+id/PhaseView" />
+
+    <ImageView
+        android:id="@+id/RightArrowButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#C52736"
+        android:src="@drawable/ic_baseline_arrow_right"
+        app:layout_constraintBottom_toBottomOf="@+id/PhaseViewBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.200"
+        app:layout_constraintStart_toEndOf="@+id/PhaseView"
+        app:layout_constraintTop_toTopOf="@+id/PhaseViewBar"
+        app:layout_constraintVertical_bias="0.500" />
+
+    <ImageView
+        android:id="@+id/LeftArrowButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#C52736"
+        android:src="@drawable/ic_baseline_arrow_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/PhaseView"
+        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/PhaseViewBar"
+        app:layout_constraintVertical_bias="0.500" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
