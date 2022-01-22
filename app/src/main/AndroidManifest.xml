@@ -10,19 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Socuter2022">
         <activity
-            android:name="com.example.scouter2022.FinalActivity"
+            android:name=".QRCodeActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.scouter2022.EndGameActivity"
+            android:name=".FinalActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.scouter2022.TeleActivity"
+            android:name=".EndGameActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.scouter2022.AutoActivity"
+            android:name=".TeleActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.scouter2022.MainActivity"
+            android:name=".AutoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

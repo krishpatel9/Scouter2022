@@ -7,7 +7,7 @@
     tools:context=".EndGameActivity">
 
     <View
-        android:id="@+id/bg_scouterApp"
+        android:id="@+id/bg"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/gradient_bg"
@@ -23,9 +23,9 @@
         android:textSize="45dp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/bg_scouterApp"
+        app:layout_constraintBottom_toBottomOf="@+id/bg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bg_scouterApp" />
+        app:layout_constraintTop_toTopOf="@+id/bg" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -192,19 +192,17 @@
 
             </androidx.gridlayout.widget.GridLayout>
 
-            <androidx.gridlayout.widget.GridLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/gridLayout4"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/card_bg"
                 app:layout_constraintEnd_toEndOf="@+id/gridLayout3"
                 app:layout_constraintStart_toStartOf="@+id/gridLayout3"
                 app:layout_constraintTop_toBottomOf="@id/gridLayout3"
-                app:rowCount="2"
-                android:padding="10dp"
-                tools:columnCount="1">
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -213,8 +211,11 @@
                     android:gravity="center"
                     android:text="Finishing Ring"
                     android:textColor="@color/white"
-                    app:layout_column="0"
                     android:textSize="23sp"
+                    app:layout_column="0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_gravity="center|center_horizontal"
                     app:layout_row="0" />
 
@@ -228,9 +229,11 @@
                     android:textColor="@color/white"
                     android:theme="@style/MySeekBar"
                     app:layout_column="0"
+                    app:layout_constraintBottom_toTopOf="@+id/ll"
                     app:layout_gravity="center"
                     app:layout_row="1"
-                    app:tickMarkTint="@color/white" />
+                    app:tickMarkTint="@color/white"
+                    tools:layout_editor_absoluteX="9dp" />
 
                 <LinearLayout
                     android:id="@+id/ll"
@@ -238,22 +241,25 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:weightSum="2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_gravity="center">
 
                     <TextView
                         android:id="@+id/txtSize1"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="Low"
                         android:textColor="@color/white"
                         android:textSize="18sp"
-                        android:translationX="-15dp" />
+                        android:translationX="-35dp" />
 
                     <TextView
                         android:id="@+id/textSize_30"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:focusable="false"
@@ -261,11 +267,11 @@
                         android:text="Mid"
                         android:textColor="@color/white"
                         android:textSize="18sp"
-                        android:translationX="15dp" />
+                        android:translationX="35dp" />
 
                 </LinearLayout>
 
-            </androidx.gridlayout.widget.GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.gridlayout.widget.GridLayout
                 android:id="@+id/gridLayout5"
@@ -410,19 +416,19 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg_phase"
                 android:padding="10dp">
-            <TextView
-                android:id="@+id/phase_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:text="Phase 1"
-                android:textColor="@color/white"
-                android:textSize="34sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/phase_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Phase 1"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
