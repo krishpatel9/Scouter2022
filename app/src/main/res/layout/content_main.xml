@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contraintLayout"
+    android:background="#000"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/Main_BG"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@color/colorHint" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:alpha=".75"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/card_bg"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/matchDetailTitleID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Match Details"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/teamNumberID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/team"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:hint="Team Number"
+            android:inputType="number"
+            android:maxLength="5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/matchDetailTitleID" />
+
+        <TextView
+            android:id="@+id/teamNumberHintID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team Number"
+            android:textColor="@color/colorHint"
+            app:layout_constraintStart_toStartOf="@+id/teamNumberID"
+            app:layout_constraintTop_toBottomOf="@+id/teamNumberID" />
+
+        <EditText
+            android:id="@+id/matchNumberID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/robot"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:hint="Match Number"
+            android:inputType="number"
+            android:maxLength="3"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teamNumberHintID" />
+
+        <TextView
+            android:id="@+id/matchNumberHintID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Match Number"
+            android:textColor="@color/colorHint"
+            app:layout_constraintStart_toStartOf="@+id/matchNumberID"
+            app:layout_constraintTop_toBottomOf="@+id/matchNumberID" />
+
+        <ImageView
+            android:id="@+id/teleAllianceFlagID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/teamRadioGroupID"
+            app:layout_constraintStart_toStartOf="@+id/matchNumberID"
+            app:layout_constraintTop_toBottomOf="@+id/matchNumberHintID"
+            app:srcCompat="@drawable/flag_icon" />
+
+        <TextView
+            android:id="@+id/allianceHintID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/team_alliance"
+            android:textColor="@color/colorHint"
+            app:layout_constraintStart_toStartOf="@+id/teleAllianceFlagID"
+            app:layout_constraintTop_toBottomOf="@+id/teamRadioGroupID" />
+
+        <RadioGroup
+            android:id="@+id/teamRadioGroupID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation='horizontal'
+            app:layout_constrainedHeight="false"
+            app:layout_constraintStart_toEndOf="@+id/teleAllianceFlagID"
+            app:layout_constraintTop_toBottomOf="@+id/matchNumberHintID">
+
+            <RadioButton
+                android:id="@+id/redTeamID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorWhite"
+                android:foregroundTint="@color/colorHint"
+                android:shadowColor="@color/white"
+                android:text="Red"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/blueTeamID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorWhite"
+                android:text="Blue"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <Button
+            android:id="@+id/autoSearchBtnID"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_grid_disabled"
+            app:icon="@drawable/search_black"
+            android:drawablePadding="10dp"
+            android:enabled="false"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:text="Search"
+            android:textColor="@color/colorTextDisabledButton"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/autoButtonID" />
+
+        <Button
+            android:id="@+id/autoButtonID"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_grid_disabled"
+            android:drawablePadding="8dp"
+            android:enabled="false"
+            android:labelFor="@+id/matchDetailTitleID"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="2dp"
+            android:text="Proceed to Auto"
+            android:textColor="@color/colorTextDisabledButton"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:icon="@drawable/arrow_right_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/allianceHintID" />
+
+        <Button
+            android:id="@+id/autoClearBtnID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_grid_disabled"
+            app:icon="@drawable/cross_black"
+            android:drawablePadding="10dp"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:text="Clear"
+            android:textColor="@color/colorTextDisabledButton"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/autoButtonID" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

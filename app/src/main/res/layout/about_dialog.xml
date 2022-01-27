@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="20dp">
+
+  <TextView
+      android:id="@+id/aboutApplicationID"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@drawable/card_bg"
+      android:padding="3dp"
+      android:text="@string/about_app_title"
+      android:textAlignment="center"
+      android:textColor="@color/colorText"
+      android:textSize="22sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <ImageView
+    android:id="@+id/rocketID"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="28dp"
+    android:layout_marginEnd="172dp"
+    android:layout_marginRight="172dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.91"
+    app:layout_constraintStart_toEndOf="@+id/robotScoutID"
+    app:layout_constraintTop_toTopOf="@+id/robotScoutID"
+    app:srcCompat="@drawable/rocket_small" />
+
+  <ImageView
+    android:id="@+id/robotScoutID"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/aboutApplicationID"
+    app:srcCompat="@drawable/colored_robot_100" />
+
+  <TextView
+    android:id="@+id/versionNameID"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="TextView"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/robotScoutID"
+    tools:text="Version: XXX" />
+
+  <TextView
+    android:id="@+id/versionCodeID"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/versionNameID"
+    tools:text="Revision Code: X.XX" />
+
+  <TextView
+      android:id="@+id/aboutTitleID"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:background="@drawable/card_bg"
+      android:padding="3dp"
+      android:textAlignment="center"
+      android:textColor="@color/colorText"
+      android:textSize="22sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/versionCodeID"
+      tools:text="Development Team Title" />
+
+  <TextView
+      android:id="@+id/aboutTextViewID"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="16dp"
+      android:autoLink="web"
+      android:paddingStart="16dp"
+      android:paddingLeft="16dp"
+      android:paddingEnd="16dp"
+      android:paddingRight="16dp"
+      android:textAlignment="center"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/aboutTitleID"
+      tools:text="Krish Patel" />
+
+  <Button
+      android:id="@+id/aboutBtnID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="8dp"
+      android:background="@drawable/round_grid_red"
+      android:paddingStart="20dp"
+      android:paddingLeft="20dp"
+      android:paddingTop="10dp"
+      android:paddingEnd="20dp"
+      android:paddingRight="20dp"
+      android:paddingBottom="10dp"
+      android:text="@string/about_ok"
+      android:textAlignment="center"
+      android:textColor="@color/colorText"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/aboutTextViewID" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

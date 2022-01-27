@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Socuter2022">
         <activity
+            android:name=".ManageMatchActivity"
+            android:exported="false" />
+        <activity
             android:name=".QRCodeActivity"
             android:exported="false" />
         <activity

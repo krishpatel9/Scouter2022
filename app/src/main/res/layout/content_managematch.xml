@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/constraintLayout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="10dp"
+  tools:context=".ManageMatchActivity">
+
+  <GridLayout
+    android:id="@+id/gridLayoutID"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="8dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <Button
+      android:id="@+id/selectAllID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_marginRight="10dp"
+      android:drawableLeft="@drawable/select_all"
+      android:text="@string/managematch_select_btn"
+      android:textStyle="bold" />
+
+    <Button
+      android:id="@+id/deselectAllID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_marginRight="10dp"
+      android:drawableLeft="@drawable/deselect_all"
+      android:text="@string/managematch_deselect_btn"
+      android:textStyle="bold" />
+
+    <Button
+      android:id="@+id/removeSelectedID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginEnd="10dp"
+      android:layout_marginRight="10dp"
+      android:drawableLeft="@drawable/cross"
+      android:text="@string/managematch_remove_selected_btn"
+      android:textStyle="bold" />
+
+  </GridLayout>
+
+  <TextView
+      android:id="@+id/listViewTitleID"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="8dp"
+      android:background="@drawable/card_bg"
+      android:padding="6dp"
+      android:text="@string/managematch_listview_title"
+      android:textAlignment="center"
+      android:textAllCaps="true"
+      android:textColor="@color/colorText"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/gridLayoutID" />
+
+  <ListView
+      android:id="@+id/listViewID"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_margin="10dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="32dp"
+      android:padding="5dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/listViewTitleID"
+      app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

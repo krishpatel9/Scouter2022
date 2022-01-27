@@ -1,8 +1,109 @@
 <resources>
     <string name="app_name">Socuter2022</string>
-    <string name="yes">YES</string>
     <string name="end_game_attempted">End Game Attempted?</string>
-    <string name="no">NO</string>
     <string name="contact_ring">Contact Ring</string>
     <string name="tech">Tech</string>
+
+    <string name="app_short_name">SCOUTER</string>
+    <string name="app_dev_team">Hillsborough High School RoboRaiders</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="blue_alliance">Blue</string>
+    <string name="red_alliance">Red</string>
+    <string name="match_details">Match Details</string>
+    <string name="team_number">Team Number</string>
+    <string name="match_number">Match Number</string>
+    <string name="team_number_hint">Team Number</string>
+    <string name="match_number_hint">Match Number</string>
+    <string name="auto_btn">Proceed to Autonomous</string>
+    <string name="auto_search_btn">Search</string>
+    <string name="auto_clear_btn">Clear</string>
+    <string name="auto_match_found_title">Warning: Match Found</string>
+    <string name="main_warning_dialog">Team/Match details currently exist.  Do you wish to use existing data or overwrite?</string>
+    <string name="main_use_existing_btn">Use Existing</string>
+    <string name="main_overwrite_btn">Overwrite</string>
+
+    <string name="ALLIANCE_RED_FLAG">RED</string>
+    <string name="ALLIANCE_BLUE_FLAG">BLUE</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="top">TOP</string>
+    <string name="middle">MID</string>
+    <string name="bottom">BOT</string>
+    <string name="high">HIGH</string>
+    <string name="low">LOW</string>
+    <string name="success">SUCCESS</string>
+    <string name="failure">FAILURE</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+
+    // Auto Strings
+    <string name="auto_title">Autonomous</string>
+    <string name="auto_crossline">Leave Initiation Line</string>
+    <string name="auto_teleop_btn">Continue to Tele-Op</string>
+
+    // TeleOp Strings
+    <string name="teleop_title">Tele-Op</string>
+    <string name="teleop_button">CONTINUE TO ENDGAME</string>
+
+    // EndGame Strings
+    <string name="endgame_title">End Game</string>
+    <string name="endgame_did_not_attempt">End Game Attempted?</string>
+    <string name="endgame_hang">Hang</string>
+    <string name="endgame_park">Park</string>
+    <string name="endgame_save_match">Save Match</string>
+    <string name="endgame_qr_code">Generate QRcode</string>
+
+    // Search Dialog Strings
+    <string name="search_dialog_title">Search Team/Match</string>
+    <string name="search_ok">OK</string>
+    <string name="search_cancel">CANCEL</string>
+
+    // Not Found Dialog Strings
+    <string name="notfound_title">Match Not Found</string>
+    <string name="notfound_ok_button">Ok</string>
+    <string name="notfound_message">Team/Match details currently do NOT exist.  Please click \'OK\' to continue.</string>
+
+    // Manage Match Strings
+    <string name="managematch_title">Manage Match Data</string>
+    <string name="managematch_select_btn">Select All</string>
+    <string name="managematch_deselect_btn">Deselect All</string>
+    <string name="managematch_remove_selected_btn">Remove Selected</string>
+    <string name="managematch_listview_title">Team / Match Stored Data</string>
+    <string name="manage_dialog_title">Confirm Match Removal</string>
+    <string name="manage_dialog_main">You are about to remove selected matches from local storage</string>
+    <string name="manage_dialog_confirm">Are you sure you want to continue?</string>
+    <string name="manage_yes_btn">Yes</string>
+    <string name="manage_no_btn">No</string>
+
+    // About Strings
+    <string name="about_app_title">About FRC Scouter 2022</string>
+    <string name="about_team_title"><![CDATA[Hillsborough High School Robo Raiders<br/>Development Team]]></string>
+    <string name="about_team_details"><![CDATA[Krish Patel]]></string>
+
+    <string name="about_ok">Ok</string>
+
+    // Add'l Software Strings
+    <string name="software_app_title">Additional Software</string>
+    <string name="software_details">There is a companion software that is required to be installed on your team\'s PC.  Download the tournament collector 2020 Zip file onto your PC.</string>
+    <string name="software_url">https://www.roboraiders.com/resources/strategy-app</string>
+
+    // Misc Strings
+    <string name="generate_code_title">Generate Code / QR Code</string>
+    <string name="team_alliance">Team Alliance</string>
+    <string name="endGame_clear">Clear</string>
+    <string name="ZERO">0</string>
+    <string name="endGame_side">Side</string>
+    <string name="endGame_mid">Mid</string>
+    <string name="fail">FAIL</string>
+    <string name="team75">Team 75</string>
+    <string name="data">Data</string>
+    <string name="generate">Generate</string>
+
+
 </resources>

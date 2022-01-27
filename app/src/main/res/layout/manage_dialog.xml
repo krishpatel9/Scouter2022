@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="20dp">
+
+  <TextView
+      android:id="@+id/dialogManageTitleID"
+      android:layout_width="0dp"
+      android:layout_height="42dp"
+      android:background="@drawable/card_bg"
+      android:padding="5dp"
+      android:text="@string/manage_dialog_title"
+      android:textAlignment="center"
+      android:textColor="@color/colorText"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+    android:id="@+id/dialogMacAddressID"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="24dp"
+    android:layout_marginRight="24dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="8dp"
+    android:text="@string/manage_dialog_main"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/notFoundImageView2"
+    app:layout_constraintTop_toBottomOf="@+id/dialogManageTitleID" />
+
+  <ImageView
+    android:id="@+id/notFoundImageView2"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginLeft="24dp"
+    android:layout_marginTop="8dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/dialogManageTitleID"
+    app:srcCompat="@drawable/trash" />
+
+  <TextView
+    android:id="@+id/notFoundTextID"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="32dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="16dp"
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp"
+    android:text="@string/manage_dialog_confirm"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/dialogMacAddressID" />
+
+  <Button
+      android:id="@+id/dialogManageYesBtnID"
+      android:layout_width="wrap_content"
+      android:layout_height="48dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginEnd="8dp"
+      android:background="@drawable/round_grid_green"
+      android:paddingStart="20dp"
+      android:paddingLeft="20dp"
+      android:paddingTop="5dp"
+      android:paddingEnd="20dp"
+      android:paddingRight="20dp"
+      android:paddingBottom="5dp"
+      android:text="@string/manage_yes_btn"
+      android:textColor="@color/colorText"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toStartOf="@+id/guideline2"
+      app:layout_constraintHorizontal_bias="0.85"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/notFoundTextID" />
+
+  <Button
+      android:id="@+id/dialogManageNoBtnID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:background="@drawable/round_grid_red"
+      android:paddingStart="20dp"
+      android:paddingLeft="20dp"
+      android:paddingTop="5dp"
+      android:paddingEnd="20dp"
+      android:paddingRight="20dp"
+      android:paddingBottom="5dp"
+      android:text="@string/manage_no_btn"
+      android:textColor="@color/colorText"
+      android:textStyle="bold"
+      app:layout_constraintBaseline_toBaselineOf="@+id/dialogManageYesBtnID"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.15"
+      app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.scouter2022;
+package com.example.scouter2022.model;
 
 import android.util.Log;
 

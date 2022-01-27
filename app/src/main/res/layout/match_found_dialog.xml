@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="20dp">
+
+  <TextView
+      android:id="@+id/dialogTitleID"
+      android:layout_width="0dp"
+      android:layout_height="42dp"
+      android:background="@drawable/card_bg"
+      android:padding="5dp"
+      android:text="@string/auto_match_found_title"
+      android:textAlignment="center"
+      android:textColor="@color/colorText"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/dialogTeamID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="8dp"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/dialogTitleID"
+      tools:text="Team Number:" />
+
+  <TextView
+      android:id="@+id/dialogMatchID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginLeft="8dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginRight="8dp"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/dialogTeamID"
+      tools:text="Match Number:" />
+
+  <ImageView
+      android:id="@+id/dialogImageViewID"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginStart="76dp"
+      android:layout_marginLeft="76dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginRight="8dp"
+      app:layout_constraintEnd_toStartOf="@+id/dialogTeamID"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/dialogTeamID"
+      app:srcCompat="@drawable/warning_icon_64" />
+
+  <TextView
+      android:id="@+id/dialogTextID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="32dp"
+      android:paddingStart="16dp"
+      android:paddingLeft="16dp"
+      android:paddingEnd="16dp"
+      android:paddingRight="16dp"
+      android:text="@string/main_warning_dialog"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/dialogMatchID" />
+
+  <Button
+      android:id="@+id/dialogExistingBtnID"
+      android:layout_width="wrap_content"
+      android:layout_height="48dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="24dp"
+      android:background="@drawable/round_grid_green"
+      android:paddingStart="20dp"
+      android:paddingLeft="20dp"
+      android:paddingTop="5dp"
+      android:paddingEnd="20dp"
+      android:paddingRight="20dp"
+      android:paddingBottom="5dp"
+      android:text="@string/main_use_existing_btn"
+      android:textColor="@color/colorText"
+      android:textStyle="bold"
+      app:layout_constraintStart_toStartOf="@+id/dialogImageViewID"
+      app:layout_constraintTop_toBottomOf="@+id/dialogTextID" />
+
+  <Button
+      android:id="@+id/dialogOverwriteBtnID"
+      android:layout_width="wrap_content"
+      android:layout_height="48dp"
+      android:layout_marginStart="8dp"
+      android:background="@drawable/round_grid_red"
+      android:paddingStart="20dp"
+      android:paddingLeft="20dp"
+      android:paddingTop="5dp"
+      android:paddingEnd="20dp"
+      android:paddingRight="20dp"
+      android:paddingBottom="5dp"
+      android:text="@string/main_overwrite_btn"
+      android:textColor="@color/colorText"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/dialogExistingBtnID"
+      app:layout_constraintTop_toTopOf="@+id/dialogExistingBtnID" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
