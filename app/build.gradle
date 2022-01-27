@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.socuter2022"
+        applicationId "com.example.scouter2022"
         minSdk 21
         targetSdk 31
         versionCode 1
