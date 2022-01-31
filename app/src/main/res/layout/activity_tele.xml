@@ -7,39 +7,78 @@
     tools:context=".TeleActivity">
 
     <View
-        android:id="@+id/TopView"
+        android:id="@+id/teleTopView"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@drawable/top_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/teamNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Team: ####"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/matchNumTextView"
+        app:layout_constraintStart_toStartOf="@+id/matchNumTextView" />
 
     <TextView
+        android:id="@+id/matchNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match: ####"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/teleTitleView"
+        app:layout_constraintEnd_toEndOf="@+id/teleTopView"
+        app:layout_constraintStart_toEndOf="@+id/teleTitleView"
+        app:layout_constraintTop_toTopOf="@+id/teleTitleView" />
+
+    <TextView
+        android:id="@+id/colorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:drawableRight="@drawable/flag_blue"
+        android:drawablePadding="4dp"
+        android:text="#### Alliance"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/matchNumTextView"
+        app:layout_constraintTop_toBottomOf="@+id/matchNumTextView" />
+
+    <TextView
+        android:id="@+id/teleTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scouter App"
         android:textColor="#ffffff"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/TopView"
+        app:layout_constraintBottom_toBottomOf="@+id/teleTopView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.150"
-        app:layout_constraintStart_toStartOf="@+id/TopView"
+        app:layout_constraintStart_toStartOf="@+id/teleTopView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.500" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/shootingAttemptedLayout"
+        android:id="@+id/TeleshootingAttemptedLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TopView">
+        app:layout_constraintTop_toBottomOf="@id/teleTopView">
 
         <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/gridLayout"
+            android:id="@+id/teleShootingGridLayout"
             android:layout_width="0dp"
             android:layout_height="68dp"
             android:layout_marginStart="32dp"
@@ -53,7 +92,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <CheckBox
-                android:id="@+id/checkbox_fouls2"
+                android:id="@+id/tele_checkbox_shooting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -64,7 +103,7 @@
                 android:scaleY="1.70" />
 
             <TextView
-                android:id="@+id/finalFouls_textView"
+                android:id="@+id/TelefinalFouls_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shooting Attempted?"
@@ -76,42 +115,42 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:id="@+id/Hub"
+        android:id="@+id/TeleHub"
         android:layout_width="523.5dp"
         android:layout_height="427.5dp"
         android:background="@drawable/hub_image"
-        app:layout_constraintBottom_toTopOf="@+id/PhaseViewBar"
+        app:layout_constraintBottom_toTopOf="@+id/autoPhaseViewBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shootingAttemptedLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/TeleshootingAttemptedLayout" />
 
     <View
-        android:id="@+id/ScoredView1"
+        android:id="@+id/TeleScoredView1"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="344dp"
         android:background="@drawable/card_bg"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/ScoredTextView1"
+        android:id="@+id/TeleScoredTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scored"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ScoredView1"
-        app:layout_constraintEnd_toEndOf="@+id/ScoredView1"
-        app:layout_constraintStart_toStartOf="@+id/ScoredView1"
-        app:layout_constraintTop_toTopOf="@+id/ScoredView1" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleScoredView1"
+        app:layout_constraintEnd_toEndOf="@+id/TeleScoredView1"
+        app:layout_constraintStart_toStartOf="@+id/TeleScoredView1"
+        app:layout_constraintTop_toTopOf="@+id/TeleScoredView1" />
 
     <TextView
-        android:id="@+id/Score1"
+        android:id="@+id/TeleScore1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="66dp"
@@ -120,37 +159,37 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ScoredView1"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toStartOf="@+id/TeleScoredView1"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/MissedView1"
+        android:id="@+id/TeleMissedView1"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="357dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="67dp"
         android:background="@drawable/card_bg"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/MissedTextView1"
+        android:id="@+id/TeleMissedTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Missed"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/MissedView1"
-        app:layout_constraintEnd_toEndOf="@+id/MissedView1"
-        app:layout_constraintStart_toStartOf="@+id/MissedView1"
-        app:layout_constraintTop_toTopOf="@+id/MissedView1" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleMissedView1"
+        app:layout_constraintEnd_toEndOf="@+id/TeleMissedView1"
+        app:layout_constraintStart_toStartOf="@+id/TeleMissedView1"
+        app:layout_constraintTop_toTopOf="@+id/TeleMissedView1" />
 
     <TextView
-        android:id="@+id/Miss1"
+        android:id="@+id/TeleMiss1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="66dp"
@@ -158,37 +197,37 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toEndOf="@+id/MissedView1"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toEndOf="@+id/TeleMissedView1"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/Scoredcard_bg"
+        android:id="@+id/TeleScoredView2"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="159dp"
         android:layout_marginTop="202dp"
         android:layout_marginEnd="265dp"
         android:background="@drawable/card_bg"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/ScoredTextcard_bg"
+        android:id="@+id/TeleScoredTextcard_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scored"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/Scoredcard_bg"
-        app:layout_constraintEnd_toEndOf="@+id/Scoredcard_bg"
-        app:layout_constraintStart_toStartOf="@+id/Scoredcard_bg"
-        app:layout_constraintTop_toTopOf="@+id/Scoredcard_bg" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleScoredView2"
+        app:layout_constraintEnd_toEndOf="@+id/TeleScoredView2"
+        app:layout_constraintStart_toStartOf="@+id/TeleScoredView2"
+        app:layout_constraintTop_toTopOf="@+id/TeleScoredView2" />
 
     <TextView
-        android:id="@+id/Score2"
+        android:id="@+id/TeleScore2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="127dp"
@@ -196,38 +235,38 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/Scoredcard_bg"
+        app:layout_constraintEnd_toStartOf="@+id/TeleScoredView2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/Missedcard_bg"
+        android:id="@+id/TeleMissedView2"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="281dp"
         android:layout_marginTop="202dp"
         android:layout_marginEnd="143dp"
         android:background="@drawable/card_bg"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/MissedTextcard_bg"
+        android:id="@+id/TeleMissedTextcard_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Missed"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/Missedcard_bg"
-        app:layout_constraintEnd_toEndOf="@+id/Missedcard_bg"
-        app:layout_constraintStart_toStartOf="@+id/Missedcard_bg"
-        app:layout_constraintTop_toTopOf="@+id/Missedcard_bg" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleMissedView2"
+        app:layout_constraintEnd_toEndOf="@+id/TeleMissedView2"
+        app:layout_constraintStart_toStartOf="@+id/TeleMissedView2"
+        app:layout_constraintTop_toTopOf="@+id/TeleMissedView2" />
 
     <TextView
-        android:id="@+id/Miss2"
+        android:id="@+id/TeleMiss2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="212dp"
@@ -235,38 +274,38 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/Missedcard_bg"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintStart_toEndOf="@+id/TeleMissedView2"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/ScoredView3"
+        android:id="@+id/TeleScoredView3"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="113dp"
         android:layout_marginEnd="344dp"
         android:background="@drawable/view3"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/ScoredTextView3"
+        android:id="@+id/TeleScoredTextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scored"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ScoredView3"
-        app:layout_constraintEnd_toEndOf="@+id/ScoredView3"
-        app:layout_constraintStart_toStartOf="@+id/ScoredView3"
-        app:layout_constraintTop_toTopOf="@+id/ScoredView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleScoredView3"
+        app:layout_constraintEnd_toEndOf="@+id/TeleScoredView3"
+        app:layout_constraintStart_toStartOf="@+id/TeleScoredView3"
+        app:layout_constraintTop_toTopOf="@+id/TeleScoredView3" />
 
     <TextView
-        android:id="@+id/Score3"
+        android:id="@+id/TeleScore3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="66dp"
@@ -275,37 +314,37 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ScoredView3"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toStartOf="@+id/TeleScoredView3"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/MissedView3"
+        android:id="@+id/TeleMissedView3"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="357dp"
         android:layout_marginTop="113dp"
         android:layout_marginEnd="67dp"
         android:background="@drawable/view3"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/MissedTextView3"
+        android:id="@+id/TeleMissedTextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Missed"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/MissedView3"
-        app:layout_constraintEnd_toEndOf="@+id/MissedView3"
-        app:layout_constraintStart_toStartOf="@+id/MissedView3"
-        app:layout_constraintTop_toTopOf="@+id/MissedView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleMissedView3"
+        app:layout_constraintEnd_toEndOf="@+id/TeleMissedView3"
+        app:layout_constraintStart_toStartOf="@+id/TeleMissedView3"
+        app:layout_constraintTop_toTopOf="@+id/TeleMissedView3" />
 
     <TextView
-        android:id="@+id/Miss3"
+        android:id="@+id/TeleMiss3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="123dp"
@@ -313,37 +352,37 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toEndOf="@+id/MissedView3"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toEndOf="@+id/TeleMissedView3"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/ScoredView4"
+        android:id="@+id/TeleScoredView4"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="159dp"
         android:layout_marginTop="264dp"
         android:layout_marginEnd="265dp"
         android:background="@drawable/view3"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/ScoredTextView4"
+        android:id="@+id/TeleScoredTextView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scored"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ScoredView4"
-        app:layout_constraintEnd_toEndOf="@+id/ScoredView4"
-        app:layout_constraintStart_toStartOf="@+id/ScoredView4"
-        app:layout_constraintTop_toTopOf="@+id/ScoredView4" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleScoredView4"
+        app:layout_constraintEnd_toEndOf="@+id/TeleScoredView4"
+        app:layout_constraintStart_toStartOf="@+id/TeleScoredView4"
+        app:layout_constraintTop_toTopOf="@+id/TeleScoredView4" />
 
     <TextView
-        android:id="@+id/Score4"
+        android:id="@+id/TeleScore4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="127dp"
@@ -351,38 +390,38 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/ScoredView4"
+        app:layout_constraintEnd_toStartOf="@+id/TeleScoredView4"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/MissedView4"
+        android:id="@+id/TeleMissedView4"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="281dp"
         android:layout_marginTop="264dp"
         android:layout_marginEnd="143dp"
         android:background="@drawable/view3"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
+        app:layout_constraintStart_toStartOf="@+id/TeleHub"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <TextView
-        android:id="@+id/MissedTextView4"
+        android:id="@+id/TeleMissedTextView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Missed"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/MissedView4"
-        app:layout_constraintEnd_toEndOf="@+id/MissedView4"
-        app:layout_constraintStart_toStartOf="@+id/MissedView4"
-        app:layout_constraintTop_toTopOf="@+id/MissedView4" />
+        app:layout_constraintBottom_toBottomOf="@+id/TeleMissedView4"
+        app:layout_constraintEnd_toEndOf="@+id/TeleMissedView4"
+        app:layout_constraintStart_toStartOf="@+id/TeleMissedView4"
+        app:layout_constraintTop_toTopOf="@+id/TeleMissedView4" />
 
     <TextView
-        android:id="@+id/Miss4"
+        android:id="@+id/TeleMiss4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="272dp"
@@ -390,13 +429,13 @@
         android:text="0"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
+        app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/MissedView4"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        app:layout_constraintStart_toEndOf="@+id/TeleMissedView4"
+        app:layout_constraintTop_toTopOf="@+id/TeleHub" />
 
     <View
-        android:id="@+id/PhaseViewBar"
+        android:id="@+id/TelePhaseViewBar"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@drawable/bottom_view"
@@ -405,52 +444,52 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/PhaseView"
+        android:id="@+id/TelePhaseView"
         android:layout_width="150dp"
         android:layout_height="55dp"
-        android:background="@drawable/card_bg"
+        android:background="@color/zxing_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/PhaseViewBar"
-        app:layout_constraintTop_toTopOf="@+id/PhaseViewBar" />
+        app:layout_constraintStart_toStartOf="@+id/TelePhaseViewBar"
+        app:layout_constraintTop_toTopOf="@+id/TelePhaseViewBar" />
 
     <TextView
-        android:id="@+id/PhaseTextView"
+        android:id="@+id/TelePhaseTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tele-Op"
         android:textColor="#ffffff"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/PhaseView"
-        app:layout_constraintEnd_toEndOf="@+id/PhaseView"
-        app:layout_constraintStart_toStartOf="@+id/PhaseView"
-        app:layout_constraintTop_toTopOf="@+id/PhaseView" />
+        app:layout_constraintBottom_toBottomOf="@+id/TelePhaseView"
+        app:layout_constraintEnd_toEndOf="@+id/TelePhaseView"
+        app:layout_constraintStart_toStartOf="@+id/TelePhaseView"
+        app:layout_constraintTop_toTopOf="@+id/TelePhaseView" />
 
     <ImageView
-        android:id="@+id/RightArrowButton"
+        android:id="@+id/TeleToEndGame"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:backgroundTint="#C52736"
         android:src="@drawable/ic_baseline_arrow_right"
-        app:layout_constraintBottom_toBottomOf="@+id/PhaseViewBar"
+        app:layout_constraintBottom_toBottomOf="@+id/TelePhaseViewBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.200"
-        app:layout_constraintStart_toEndOf="@+id/PhaseView"
-        app:layout_constraintTop_toTopOf="@+id/PhaseViewBar"
+        app:layout_constraintStart_toEndOf="@+id/TelePhaseView"
+        app:layout_constraintTop_toTopOf="@+id/TelePhaseViewBar"
         app:layout_constraintVertical_bias="0.500" />
 
     <ImageView
-        android:id="@+id/LeftArrowButton"
+        android:id="@+id/TeleToAuto"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:backgroundTint="#C52736"
         android:src="@drawable/ic_baseline_arrow_left"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/PhaseView"
+        app:layout_constraintEnd_toStartOf="@+id/TelePhaseView"
         app:layout_constraintHorizontal_bias="0.800"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/PhaseViewBar"
+        app:layout_constraintTop_toTopOf="@+id/TelePhaseViewBar"
         app:layout_constraintVertical_bias="0.500" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

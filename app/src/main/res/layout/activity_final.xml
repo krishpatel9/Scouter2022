@@ -8,16 +8,53 @@
 
 
     <View
-        android:id="@+id/bg"
+        android:id="@+id/finalTopView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/gradient_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/finalTeamNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Team: ####"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/finalMatchNumTextView"
+        app:layout_constraintStart_toStartOf="@+id/finalMatchNumTextView" />
 
     <TextView
-        android:id="@+id/scouterAppTitle_textView"
+        android:id="@+id/finalMatchNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match: ####"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/finalTitleView"
+        app:layout_constraintEnd_toEndOf="@+id/finalTopView"
+        app:layout_constraintStart_toEndOf="@+id/finalTitleView"
+        app:layout_constraintTop_toTopOf="@+id/finalTitleView" />
+
+    <TextView
+        android:id="@+id/finalColorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:drawableRight="@drawable/flag_blue"
+        android:drawablePadding="4dp"
+        android:text="#### Alliance"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/finalMatchNumTextView"
+        app:layout_constraintTop_toBottomOf="@+id/finalMatchNumTextView" />
+    <TextView
+        android:id="@+id/finalTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -25,9 +62,9 @@
         android:textColor="@color/white"
         android:textSize="45dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/bg"
+        app:layout_constraintBottom_toBottomOf="@+id/finalTopView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bg" />
+        app:layout_constraintTop_toTopOf="@+id/finalTopView" />
 
 <!--    <androidx.cardview.widget.CardView-->
 <!--        android:layout_width="match_parent"-->
@@ -57,10 +94,10 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg">
+        app:layout_constraintTop_toBottomOf="@+id/finalTopView">
 
         <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/gridLayout"
+            android:id="@+id/finalFoulsCheckGridLayout"
             android:layout_width="0dp"
             android:layout_height="68dp"
             android:layout_marginStart="32dp"
@@ -74,7 +111,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <CheckBox
-                android:id="@+id/checkbox_fouls2"
+                android:id="@+id/finalFoulsCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -97,7 +134,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fouls_layout"
+        android:id="@+id/finalFoulsContraintLayout"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginTop="30dp"
@@ -113,34 +150,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fouls"
-            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/foulsLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:orientation="vertical">
 
                 <View
-                    android:id="@+id/view"
+                    android:id="@+id/finalYellowView"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="35dp"
                     android:background="@drawable/text_bg"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -148,94 +189,34 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tech"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/view"
-                    app:layout_constraintEnd_toEndOf="@+id/view"
-                    app:layout_constraintStart_toStartOf="@+id/view"
-                    app:layout_constraintTop_toTopOf="@+id/view" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toStartOf="@+id/view"
-                    app:layout_constraintTop_toBottomOf="@id/view">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/remove" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="1"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/add" />
-
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:orientation="vertical">
-
-                <View
-                    android:id="@+id/yellow_view"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="0dp"
-                    android:background="@drawable/text_bg"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
+                    android:id="@+id/yellowtext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Yellow"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/yellow_view"
-                    app:layout_constraintEnd_toEndOf="@+id/yellow_view"
-                    app:layout_constraintStart_toStartOf="@+id/yellow_view"
-                    app:layout_constraintTop_toTopOf="@+id/yellow_view" />
+                    app:layout_constraintBottom_toBottomOf="@+id/finalYellowView"
+                    app:layout_constraintEnd_toEndOf="@+id/finalYellowView"
+                    app:layout_constraintStart_toStartOf="@+id/finalYellowView"
+                    app:layout_constraintTop_toTopOf="@+id/finalYellowView" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toStartOf="@+id/yellow_view"
-                    app:layout_constraintTop_toBottomOf="@id/yellow_view">
+                    app:layout_constraintEnd_toEndOf="@+id/finalYellowView"
+                    app:layout_constraintStart_toStartOf="@+id/finalYellowView"
+                    app:layout_constraintTop_toBottomOf="@id/finalYellowView">
 
                     <ImageView
+                        android:id="@+id/finalYellowMinusView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/remove" />
 
                     <TextView
+                        android:id="@+id/finalYellowTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -245,6 +226,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
+                        android:id="@+id/finalYellowPlusView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -258,15 +240,14 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
                 android:orientation="vertical">
 
                 <View
-                    android:id="@+id/red_view"
+                    android:id="@+id/finalRedView"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@drawable/text_bg"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -280,25 +261,27 @@
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/red_view"
-                    app:layout_constraintEnd_toEndOf="@+id/red_view"
-                    app:layout_constraintStart_toStartOf="@+id/red_view"
-                    app:layout_constraintTop_toTopOf="@+id/red_view" />
+                    app:layout_constraintBottom_toBottomOf="@+id/finalRedView"
+                    app:layout_constraintEnd_toEndOf="@+id/finalRedView"
+                    app:layout_constraintStart_toStartOf="@+id/finalRedView"
+                    app:layout_constraintTop_toTopOf="@+id/finalRedView" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toStartOf="@+id/red_view"
-                    app:layout_constraintTop_toBottomOf="@id/red_view">
+                    app:layout_constraintEnd_toEndOf="@+id/finalRedView"
+                    app:layout_constraintStart_toStartOf="@+id/finalRedView"
+                    app:layout_constraintTop_toBottomOf="@id/finalRedView">
 
                     <ImageView
+                        android:id="@+id/finalRedMinusView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/remove" />
 
                     <TextView
+                        android:id="@+id/finalRedTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -308,6 +291,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
+                        android:id="@+id/finalRedPlusView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -317,6 +301,71 @@
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/finalTechView"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/text_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tech"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/finalTechView"
+                    app:layout_constraintEnd_toEndOf="@+id/finalTechView"
+                    app:layout_constraintStart_toStartOf="@+id/finalTechView"
+                    app:layout_constraintTop_toTopOf="@+id/finalTechView" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="@+id/finalTechView"
+                    app:layout_constraintStart_toStartOf="@+id/finalTechView"
+                    app:layout_constraintTop_toBottomOf="@id/finalTechView">
+
+                    <ImageView
+                        android:id="@+id/finalTechMinusView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/remove" />
+
+                    <TextView
+                        android:id="@+id/finalTechTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/finalTechPlusView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/add" />
+
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </LinearLayout>
 
@@ -329,9 +378,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fouls_layout">
+        app:layout_constraintTop_toBottomOf="@+id/finalFoulsContraintLayout">
 
         <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/finalDisabledGridLayout"
             android:layout_width="0dp"
             android:layout_height="68dp"
             android:layout_marginStart="32dp"
@@ -345,7 +395,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <CheckBox
-                android:id="@+id/checkbox_disabled"
+                android:id="@+id/finalDisabledCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -376,6 +426,7 @@
         app:layout_constraintTop_toBottomOf="@+id/disabled_layout">
 
         <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/finalDisqualifiedGridLayout"
             android:layout_width="0dp"
             android:layout_height="68dp"
             android:layout_marginStart="32dp"
@@ -389,14 +440,16 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <CheckBox
-                android:id="@+id/disqualified_disabled"
+                android:id="@+id/finalDisqualifiedCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:buttonTint="@color/white"
                 android:gravity="center"
+                android:minHeight="48dp"
                 android:scaleX="1.70"
-                android:scaleY="1.70" />
+                android:scaleY="1.70"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/disqualified_text"
@@ -411,7 +464,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/winning_layout"
+        android:id="@+id/finalWinningContraintLayout"
         android:layout_width="383dp"
         android:layout_marginTop="30dp"
         android:layout_height="115dp"
@@ -445,33 +498,62 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/winning_alliance_text">
 
-            
-            <Button
-                android:layout_width="149dp"
-                android:layout_height="44dp"
-                android:text="Blue"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginStart="0dp"
-                android:textAllCaps="false"
-                android:elevation="10dp"
-                android:background="@drawable/blue_button_bg" />
 
-            <Button
-                android:layout_width="149dp"
-                android:layout_height="44dp"
-                android:text="Red"
-                android:layout_marginStart="20dp"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:elevation="10dp"
-                android:background="@drawable/red_button_bg" />
+            <RadioGroup
+                android:id="@+id/finalWinningAlliance_RG"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <Button
+                    android:id="@+id/finalBlueWinBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="0dp"
+                    android:background="@drawable/blue_button_bg"
+                    android:elevation="10dp"
+                    android:text="Blue"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <Button
+                    android:id="@+id/finalRedWinBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/red_button_bg"
+                    android:elevation="10dp"
+                    android:text="Red"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                <Button
+                    android:id="@+id/finalDrawWinBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/red_button_bg"
+                    android:elevation="10dp"
+                    android:text="Draw"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </RadioGroup>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/FinalPhaseViewBar"
         android:layout_width="0dp"
         android:layout_height="140dp"
         android:background="@drawable/card_bg"
@@ -495,14 +577,15 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/FinalToEndGame"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/arrow_left"/>
+                android:src="@drawable/arrow_left" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/text_bg_phase"
+                android:background="@color/zxing_transparent"
                 android:padding="10dp">
 
                 <TextView
@@ -528,9 +611,10 @@
             <!--                app:srcCompat="@android:drawable/ic_media_next" />-->
 
             <ImageView
+                android:id="@+id/FinalToQr"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/arrow_right"/>
+                android:src="@drawable/arrow_right" />
 
         </LinearLayout>
 

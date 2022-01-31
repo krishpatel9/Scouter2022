@@ -8,16 +8,54 @@
     tools:context=".QRCodeActivity">
 
     <View
-        android:id="@+id/bg"
+        android:id="@+id/qrTopView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/gradient_bg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/teamNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Team: ####"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/matchNumTextView"
+        app:layout_constraintStart_toStartOf="@+id/matchNumTextView" />
 
     <TextView
-        android:id="@+id/scouterAppTitle_textView"
+        android:id="@+id/matchNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match: ####"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/qrTitleView"
+        app:layout_constraintEnd_toEndOf="@+id/qrTopView"
+        app:layout_constraintStart_toEndOf="@+id/qrTitleView"
+        app:layout_constraintTop_toTopOf="@+id/qrTitleView" />
+
+    <TextView
+        android:id="@+id/colorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:drawableRight="@drawable/flag_blue"
+        android:drawablePadding="4dp"
+        android:text="#### Alliance"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/matchNumTextView"
+        app:layout_constraintTop_toBottomOf="@+id/matchNumTextView" />
+    <TextView
+        android:id="@+id/qrTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -25,13 +63,13 @@
         android:textColor="@color/white"
         android:textSize="45dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/bg"
+        app:layout_constraintBottom_toBottomOf="@+id/qrTopView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bg" />
+        app:layout_constraintTop_toTopOf="@+id/qrTopView" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/gridLayout"
+        android:id="@+id/shootingGridLayout"
         android:layout_width="0dp"
         android:layout_height="138dp"
         android:layout_marginStart="32dp"
@@ -44,10 +82,10 @@
         app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg">
+        app:layout_constraintTop_toBottomOf="@+id/qrTopView">
 
         <TextView
-            android:id="@+id/finalFouls_textView"
+            android:id="@+id/qrFouls_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Match:"
@@ -77,7 +115,7 @@
             app:layout_constraintBottom_toTopOf="@+id/endGameAttempted_textView3"
             app:layout_constraintEnd_toEndOf="@+id/endGameAttempted_textView3"
             app:layout_constraintStart_toStartOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintTop_toBottomOf="@+id/finalFouls_textView" />
+            app:layout_constraintTop_toBottomOf="@+id/qrFouls_textView" />
 
         <TextView
             android:id="@+id/teamNum_textView"
@@ -127,10 +165,10 @@
         android:padding="15dp"
         app:columnCount="2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+        app:layout_constraintTop_toBottomOf="@+id/shootingGridLayout">
 
         <View
-            android:id="@+id/view"
+            android:id="@+id/finalTechView"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:background="@drawable/text_bg_phase"
@@ -281,7 +319,7 @@
         app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/FoulsLayout"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+        app:layout_constraintTop_toBottomOf="@+id/shootingGridLayout">
 
         <TextView
             android:id="@+id/disqualified_textView"
