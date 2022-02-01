@@ -12,10 +12,12 @@
         android:layout_height="125dp"
         android:background="@drawable/top_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/teamNumTextView"
+        android:id="@+id/qrTeamNumTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
@@ -23,11 +25,11 @@
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/matchNumTextView"
-        app:layout_constraintStart_toStartOf="@+id/matchNumTextView" />
+        app:layout_constraintBottom_toTopOf="@+id/qrMatchNumTextView"
+        app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView" />
 
     <TextView
-        android:id="@+id/matchNumTextView"
+        android:id="@+id/qrMatchNumTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Match: ####"
@@ -40,7 +42,7 @@
         app:layout_constraintTop_toTopOf="@+id/teleTitleView" />
 
     <TextView
-        android:id="@+id/colorTextView"
+        android:id="@+id/qrColorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -50,8 +52,8 @@
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/matchNumTextView"
-        app:layout_constraintTop_toBottomOf="@+id/matchNumTextView" />
+        app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView"
+        app:layout_constraintTop_toBottomOf="@+id/qrMatchNumTextView" />
 
     <TextView
         android:id="@+id/teleTitleView"
@@ -108,7 +110,10 @@
                 android:layout_height="wrap_content"
                 android:text="Shooting Attempted?"
                 android:textColor="@color/white"
-                android:textSize="23sp" />
+                android:textSize="23sp"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                app:layout_gravity="center_vertical|fill_vertical" />
 
 
         </androidx.gridlayout.widget.GridLayout>
@@ -119,7 +124,7 @@
         android:layout_width="523.5dp"
         android:layout_height="427.5dp"
         android:background="@drawable/hub_image"
-        app:layout_constraintBottom_toTopOf="@+id/autoPhaseViewBar"
+        app:layout_constraintBottom_toTopOf="@+id/TelePhaseViewBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TeleshootingAttemptedLayout" />

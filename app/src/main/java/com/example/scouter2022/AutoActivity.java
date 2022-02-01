@@ -74,9 +74,9 @@ public class AutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_auto);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
-        autoTeamNumber = findViewById(R.id.teamNumTextView);
-        autoMatchNumber = findViewById(R.id.matchNumTextView);
-        autoAllianceColor = findViewById(R.id.colorTextView);
+        autoTeamNumber = findViewById(R.id.qrTeamNumTextView);
+        autoMatchNumber = findViewById(R.id.qrMatchNumTextView);
+        autoAllianceColor = findViewById(R.id.qrColorTextView);
 
         shootingCheckBox = findViewById(R.id.checkbox_shooting);
         tarmacCheckBox = findViewById(R.id.checkbox_tarmac);
@@ -100,7 +100,7 @@ public class AutoActivity extends AppCompatActivity {
         missed_away_top_view = findViewById(R.id.autoMissedView3);
         missed_away_bot_view = findViewById(R.id.autoMissedView4);
 
-        shootingGrid = findViewById(R.id.shootingGridLayout);
+        shootingGrid = findViewById(R.id.qrInfoLayout);
         tarmacGrid = findViewById(R.id.tarmacGridLayout);
         phaseBarView = findViewById(R.id.autoPhaseViewBar);
         topView = findViewById(R.id.autoTopView);

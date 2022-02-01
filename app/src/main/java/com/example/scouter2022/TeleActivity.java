@@ -73,9 +73,9 @@ public class TeleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tele);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
-        teleTeamNumber = findViewById(R.id.teamNumTextView);
-        teleMatchNumber = findViewById(R.id.matchNumTextView);
-        teleAllianceColor = findViewById(R.id.colorTextView);
+        teleTeamNumber = findViewById(R.id.qrTeamNumTextView);
+        teleMatchNumber = findViewById(R.id.qrMatchNumTextView);
+        teleAllianceColor = findViewById(R.id.qrColorTextView);
 
         shootingCheckBox = findViewById(R.id.tele_checkbox_shooting);
 

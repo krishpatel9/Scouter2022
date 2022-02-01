@@ -10,7 +10,7 @@
         android:id="@+id/endGameTopView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/gradient_bg"
+        android:background="@drawable/top_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,12 +57,13 @@
         android:id="@+id/endGameTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:text="Scouter App"
         android:textColor="@color/white"
-        android:textSize="45dp"
+        android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/endGameTopView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/endGameTopView" />
 

@@ -45,7 +45,7 @@ public class TransferCode {
     private int final_numRedFouls = 0;      // 4 bits
     private int final_disabled = 0;         // 1 bits
     private int final_disqualified = 0;     // 1 bits
-    private int final_winningAlliance = 0;  // 1 bits
+    private int final_winningAlliance = -1;  // 1 bits
 
     private String[] map = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     private static String mapString = "ABCDEFGHJKLMNOPRSTUWXYZ123456789";
