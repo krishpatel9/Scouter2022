@@ -8,34 +8,199 @@
     tools:context=".QRCodeActivity">
 
     <View
-        android:id="@+id/bg"
+        android:id="@+id/qrTopView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/gradient_bg"
+        android:background="@drawable/top_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/scouterAppTitle_textView"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/qrTopView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/qrTopView">
+
+        <ImageView
+            android:id="@+id/QRtoFinal"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/arrow_left" />
+
+        <TextView
+            android:id="@+id/phase_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:text="QR Code"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <!--            <ImageButton-->
+        <!--                android:id="@+id/imageButton"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                app:srcCompat="@android:drawable/ic_media_next" />-->
+
+        <ImageView
+            android:id="@+id/QRtoMain"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colorWhite"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:src="@drawable/save_icon" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/qrTitleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Scouter App"
         android:textColor="@color/white"
-        android:textSize="45dp"
+        android:textSize="50dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/bg"
+        app:layout_constraintBottom_toBottomOf="@+id/qrTopView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bg" />
+        app:layout_constraintTop_toTopOf="@+id/qrTopView" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/gridLayout"
+        android:id="@+id/qrInfoLayout"
         android:layout_width="0dp"
-        android:layout_height="138dp"
+        android:layout_height="160dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/card_bg"
+        android:elevation="20dp"
+        android:foregroundGravity="center"
+        android:padding="15dp"
+        app:columnCount="2"
+        app:layout_constraintEnd_toStartOf="@+id/qrFoulsLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrTopView">
+
+        <View
+            android:id="@+id/qrInfo_View"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/text_bg_phase"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/info_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Match\nInfo"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/qrInfo_View"
+            app:layout_constraintEnd_toEndOf="@+id/qrInfo_View"
+            app:layout_constraintStart_toStartOf="@+id/qrInfo_View"
+            app:layout_constraintTop_toTopOf="@+id/qrInfo_View" />
+
+        <TextView
+            android:id="@+id/qrFouls_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Match:"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toTopOf="@+id/endGameAttempted_textView3"
+            app:layout_constraintEnd_toEndOf="@+id/endGameAttempted_textView3"
+            app:layout_constraintTop_toBottomOf="@+id/winningAlliance_textView" />
+
+        <TextView
+            android:id="@+id/qrMatchNumTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="01"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/qrColorTextView"
+            app:layout_constraintStart_toEndOf="@+id/endGameAttempted_textView3"
+            app:layout_constraintStart_toStartOf="@+id/qrColorTextView"
+            app:layout_constraintTop_toBottomOf="@+id/qrTeamNumTextView" />
+
+        <TextView
+            android:id="@+id/winningAlliance_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Team:"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            app:layout_constraintEnd_toEndOf="@+id/qrFouls_textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/endGameAttempted_textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="Winning Alliance:"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/qrColorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:text="Red"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:drawableRight="@drawable/flag_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/endGameAttempted_textView3" />
+
+        <TextView
+            android:id="@+id/qrTeamNumTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="####"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/qrFoulsLayout"
+        android:layout_width="180dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/card_bg"
         android:elevation="20dp"
@@ -43,95 +208,11 @@
         android:padding="15dp"
         app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg">
-
-        <TextView
-            android:id="@+id/finalFouls_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Match:"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            app:layout_constraintEnd_toEndOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintStart_toStartOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/matchNum_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="01"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            app:layout_constraintEnd_toEndOf="@+id/teamNum_textView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/winningAlliance_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Team:"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toTopOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintEnd_toEndOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintStart_toStartOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintTop_toBottomOf="@+id/finalFouls_textView" />
-
-        <TextView
-            android:id="@+id/teamNum_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="01"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toTopOf="@+id/redOrBlue_textView"
-            app:layout_constraintEnd_toEndOf="@+id/redOrBlue_textView"
-            app:layout_constraintTop_toBottomOf="@+id/matchNum_textView" />
-
-        <TextView
-            android:id="@+id/endGameAttempted_textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="Winning Alliace:"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/redOrBlue_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:text="Red"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/endGameAttempted_textView3" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/FoulsLayout"
-        android:layout_width="180dp"
-        android:layout_height="161dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/card_bg"
-        android:elevation="20dp"
-        android:foregroundGravity="center"
-        android:padding="15dp"
-        app:columnCount="2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+        app:layout_constraintTop_toBottomOf="@+id/qrTopView">
 
         <View
-            android:id="@+id/view"
-            android:layout_width="80dp"
+            android:id="@+id/qrFouls_View"
+            android:layout_width="90dp"
             android:layout_height="30dp"
             android:background="@drawable/text_bg_phase"
             app:layout_constraintEnd_toEndOf="parent"
@@ -146,9 +227,10 @@
             android:textColor="@color/white"
             android:textSize="23sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/qrFouls_View"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/qrFouls_View" />
 
         <TextView
             android:id="@+id/yellowFouls_textView"
@@ -195,6 +277,7 @@
             android:text="0"
             android:textColor="@color/white"
             android:textSize="23sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fouls_textView" />
 
@@ -207,6 +290,7 @@
             android:text="0"
             android:textColor="@color/white"
             android:textSize="23sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/NumYellowFouls_textView" />
 
@@ -219,6 +303,7 @@
             android:text="0"
             android:textColor="@color/white"
             android:textSize="23sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/NumRedFouls_textView" />
 
@@ -226,19 +311,19 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/DisabledLayout"
+        android:id="@+id/qrDisabledLayout"
         android:layout_width="0dp"
         android:layout_height="68dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/card_bg"
         android:elevation="20dp"
         android:foregroundGravity="center"
         android:padding="15dp"
         app:columnCount="2"
-        app:layout_constraintBottom_toBottomOf="@+id/FoulsLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/FoulsLayout">
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/qrInfoLayout"
+        app:layout_constraintTop_toBottomOf="@+id/qrInfoLayout">
 
         <TextView
             android:id="@+id/disabled_textView"
@@ -260,6 +345,7 @@
             android:text="No"
             android:textColor="@color/white"
             android:textSize="23sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/disabled_textView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -268,20 +354,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/DisqualifiedLayout"
+        android:id="@+id/qrDisqualifiedLayout"
         android:layout_width="0dp"
         android:layout_height="68dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/card_bg"
         android:elevation="20dp"
         android:foregroundGravity="center"
         android:padding="15dp"
         app:columnCount="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/FoulsLayout"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+        app:layout_constraintEnd_toEndOf="@+id/qrFoulsLayout"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/qrFoulsLayout">
 
         <TextView
             android:id="@+id/disqualified_textView"
@@ -303,6 +388,7 @@
             android:text="No"
             android:textColor="@color/white"
             android:textSize="23sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/disqualified_textView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -312,14 +398,23 @@
 
     <ImageView
         android:id="@+id/QRcode_imageView"
-        android:layout_width="450dp"
-        android:layout_height="450dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:cropToPadding="false"
         android:elevation="20dp"
+        android:padding="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FoulsLayout"
+        app:layout_constraintTop_toBottomOf="@+id/qrDisabledLayout"
         app:srcCompat="@color/purple_200" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

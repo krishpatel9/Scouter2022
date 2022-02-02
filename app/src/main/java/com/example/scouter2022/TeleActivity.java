@@ -1,112 +1,410 @@
 package com.example.scouter2022;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.gridlayout.widget.GridLayout;
+
+import com.example.scouter2022.model.TransferCode;
+import com.example.scouter2022.util.Defaults;
+import com.example.scouter2022.util.PreferenceUtility;
+import com.google.gson.Gson;
+
+import java.util.Map;
+
 public class TeleActivity extends AppCompatActivity {
-    int scored_red_top = 0;
-    int missed_red_top = 0;
-    int scored_blue_top = 0;
-    int missed_blue_top = 0;
-    int scored_red_bottom = 0;
-    int missed_red_bottom = 0;
-    int scored_blue_bottom = 0;
-    int missed_blue_bottom = 0;
+    private static final String TAG = "TeleActivity";
+    private TextView teleTeamNumber;
+    private TextView teleMatchNumber;
+    private TextView teleAllianceColor;
+
+    private GridLayout shootingGrid;
+    private View phaseBarView;
+    private View topView;
+
+    private CheckBox shootingCheckBox;
+    private CheckBox tarmacCheckBox;
+    private TextView scored_home_top_text;
+    private TextView scored_home_bot_text;
+    private TextView scored_away_top_text;
+    private TextView scored_away_bot_text;
+    private TextView missed_home_top_text;
+    private TextView missed_home_bot_text;
+    private TextView missed_away_top_text;
+    private TextView missed_away_bot_text;
+
+    private View scored_home_top_view;
+    private View scored_home_bot_view;
+    private View scored_away_top_view;
+    private View scored_away_bot_view;
+    private View missed_home_top_view;
+    private View missed_home_bot_view;
+    private View missed_away_top_view;
+    private View missed_away_bot_view;
+
+    private ImageView toEndGame;
+    private ImageView toAuto;
+
+    int crossTarmac = 0;
+    int shootAttempted = 0;
+    int scored_home_top = 0;
+    int missed_home_top = 0;
+    int scored_away_top = 0;
+    int missed_away_top = 0;
+    int scored_home_bot = 0;
+    int missed_home_bot = 0;
+    int scored_away_bot = 0;
+    int missed_away_bot = 0;
+
+
+    private TransferCode tcode;
+    private Map<String, TransferCode> allMatches;
+    private String INSTANCE_STATE = "INSTANCE_STATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tele);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
+        teleTeamNumber = findViewById(R.id.qrTeamNumTextView);
+        teleMatchNumber = findViewById(R.id.qrMatchNumTextView);
+        teleAllianceColor = findViewById(R.id.qrColorTextView);
 
-        View scored_red_top_button = findViewById(R.id.TeleScoredView1);
-        TextView scored_red_top_text = findViewById(R.id.TeleScore1);
+        shootingCheckBox = findViewById(R.id.tele_checkbox_shooting);
 
-        scored_red_top_button.setOnClickListener(new View.OnClickListener() {
+        scored_home_top_text = findViewById(R.id.TeleScore1);
+        scored_home_bot_text = findViewById(R.id.TeleScore2);
+        scored_away_top_text = findViewById(R.id.TeleScore3);
+        scored_away_bot_text = findViewById(R.id.TeleScore4);
+
+        missed_home_top_text = findViewById(R.id.TeleMiss1);
+        missed_home_bot_text = findViewById(R.id.TeleMiss2);
+        missed_away_top_text = findViewById(R.id.TeleMiss3);
+        missed_away_bot_text = findViewById(R.id.TeleMiss4);
+
+        scored_home_top_view = findViewById(R.id.TeleScoredView1);
+        scored_home_bot_view = findViewById(R.id.TeleScoredView2);
+        scored_away_top_view = findViewById(R.id.TeleScoredView3);
+        scored_away_bot_view = findViewById(R.id.TeleScoredView4);
+
+        missed_home_top_view = findViewById(R.id.TeleMissedView1);
+        missed_home_bot_view = findViewById(R.id.TeleMissedView2);
+        missed_away_top_view = findViewById(R.id.TeleMissedView3);
+        missed_away_bot_view = findViewById(R.id.TeleMissedView4);
+
+        shootingGrid = findViewById(R.id.teleShootingGridLayout);
+        phaseBarView = findViewById(R.id.TelePhaseViewBar);
+        topView = findViewById(R.id.teleTopView);
+
+        toEndGame = findViewById(R.id.TeleToEndGame);
+        toAuto = findViewById(R.id.TeleToAuto);
+        tcode = new TransferCode();
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            String json = intent.getStringExtra("code");
+            Log.i(TAG, "onCreate: intent JSON ==> " + json);
+
+            Gson gson = new Gson();
+            tcode = gson.fromJson(json, TransferCode.class);
+            Log.i(TAG, "Existing TCODE from Intent..." + tcode.toString());
+
+
+            setAllValuesFromObject();
+            showAllValues();
+        }
+        teleTeamNumber.setText("Team Number: " + tcode.getTeamNumber());
+        teleMatchNumber.setText("Match Number: " + tcode.getMatchNumber());
+        setComponentBackground(tcode.getIsRed());
+
+
+        scored_home_top_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scored_red_top += 1;
-                scored_red_top_text.setText(String.valueOf(scored_red_top));
+                if(scored_home_top<= Defaults.MAX_CARGO_NUMBER) {
+                    scored_home_top += 1;
+                    tcode.setTele_allianceCargo_top_s(scored_home_top);
+                    scored_home_top_text.setText(String.valueOf(scored_home_top));
+                }
             }
         });
 
-        View missed_red_top_button = findViewById(R.id.TeleMissedView1);
-        TextView missed_red_top_text = findViewById(R.id.TeleMiss1);
-
-        missed_red_top_button.setOnClickListener(new View.OnClickListener() {
+        missed_home_top_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                missed_red_top += 1;
-                missed_red_top_text.setText(String.valueOf(missed_red_top));
+                if(missed_home_top<= Defaults.MAX_CARGO_NUMBER) {
+                    missed_home_top += 1;
+                    tcode.setTele_allianceCargo_top_f(missed_home_top);
+                    missed_home_top_text.setText(String.valueOf(missed_home_top));
+                }
             }
         });
 
-        View scored_blue_top_button = findViewById(R.id.TeleScoredView3);
-        TextView scored_blue_top_text = findViewById(R.id.TeleScore3);
-
-        scored_blue_top_button.setOnClickListener(new View.OnClickListener() {
+        scored_away_top_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scored_blue_top += 1;
-                scored_blue_top_text.setText(String.valueOf(scored_blue_top));
+                if(scored_away_top<= Defaults.MAX_CARGO_NUMBER) {
+                    scored_away_top += 1;
+                    tcode.setTele_opponentCargo_top_s(scored_away_top);
+                    scored_away_top_text.setText(String.valueOf(scored_away_top));
+                }
             }
         });
 
-        View missed_blue_top_button = findViewById(R.id.TeleMissedView3);
-        TextView missed_blue_top_text = findViewById(R.id.TeleMiss3);
-
-        missed_blue_top_button.setOnClickListener(new View.OnClickListener() {
+        missed_away_top_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                missed_blue_top += 1;
-                missed_blue_top_text.setText(String.valueOf(missed_blue_top));
+                if(missed_away_top<= Defaults.MAX_CARGO_NUMBER) {
+                    missed_away_top += 1;
+                    tcode.setTele_opponentCargo_top_f(missed_away_top);
+                    missed_away_top_text.setText(String.valueOf(missed_away_top));
+                }
             }
         });
 
-        View scored_red_bottom_button = findViewById(R.id.TeleScoredcard_bg);
-        TextView scored_red_bottom_text = findViewById(R.id.TeleScore2);
-
-        scored_red_bottom_button.setOnClickListener(new View.OnClickListener() {
+        scored_home_bot_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scored_red_bottom += 1;
-                scored_red_bottom_text.setText(String.valueOf(scored_red_bottom));
+                if(scored_home_bot<= Defaults.MAX_CARGO_NUMBER) {
+                    scored_home_bot += 1;
+                    tcode.setTele_allianceCargo_bot_s(scored_home_bot);
+                    scored_home_bot_text.setText(String.valueOf(scored_home_bot));
+                }
             }
         });
 
-        View missed_red_bottom_button = findViewById(R.id.TeleMissedcard_bg);
-        TextView missed_red_bottom_text = findViewById(R.id.TeleMiss2);
-
-        missed_red_bottom_button.setOnClickListener(new View.OnClickListener() {
+        missed_home_bot_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                missed_red_bottom += 1;
-                missed_red_bottom_text.setText(String.valueOf(missed_red_bottom));
+                if(missed_home_bot<= Defaults.MAX_CARGO_NUMBER) {
+                    missed_home_bot += 1;
+                    tcode.setTele_allianceCargo_bot_f(missed_home_bot);
+                    missed_home_bot_text.setText(String.valueOf(missed_home_bot));
+                }
             }
         });
 
-        View scored_blue_bottom_button = findViewById(R.id.TeleScoredView4);
-        TextView scored_blue_bottom_text = findViewById(R.id.TeleScore4);
 
-        scored_blue_bottom_button.setOnClickListener(new View.OnClickListener() {
+        scored_away_bot_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scored_blue_bottom += 1;
-                scored_blue_bottom_text.setText(String.valueOf(scored_blue_bottom));
+                if(scored_away_bot<= Defaults.MAX_CARGO_NUMBER) {
+                    scored_away_bot += 1;
+                    tcode.setTele_opponentCargo_bot_s(scored_away_bot);
+                    scored_away_bot_text.setText(String.valueOf(scored_away_bot));
+                }
             }
         });
 
-        View missed_blue_bottom_button = findViewById(R.id.TeleMissedView4);
-        TextView missed_blue_bottom_text = findViewById(R.id.TeleMiss4);
-
-        missed_blue_bottom_button.setOnClickListener(new View.OnClickListener() {
+        missed_away_bot_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                missed_blue_bottom += 1;
-                missed_blue_bottom_text.setText(String.valueOf(missed_blue_bottom));
+                if(missed_away_bot<= Defaults.MAX_CARGO_NUMBER) {
+                    missed_away_bot += 1;
+                    tcode.setTele_opponentCargo_bot_f(missed_away_bot);
+                    missed_away_bot_text.setText(String.valueOf(missed_away_bot));
+                }
             }
         });
+
+        shootingCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(((CheckBox) view).isChecked()){
+                    tcode.setTele_shoot_attempt(1);
+                } else {
+                    tcode.setTele_shoot_attempt(0);
+                }
+            }
+        });
+        toEndGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                proceedToEndGameActivity();
+            }
+        });  // End of TeleButton
+
+        toAuto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backToAutoActivity();
+            }
+        });  // End of TeleButton
+
+        showAllValues();
     }
+
+    private void proceedToEndGameActivity() {
+        Gson gson = new Gson();
+        String json = gson.toJson(tcode);
+
+        Log.i(TAG, "proceedToEndGameActivity: intent JSON ==> " + json);
+        saveMatch();
+
+        Intent intent = new Intent(TeleActivity.this, EndGameActivity.class);
+        intent.putExtra("code", json);
+        startActivity(intent);
+
+//        String key = tcode.getTeamNumber() + "/" + tcode.getMatchNumber();
+//        tcode = allMatches.get(key);
+//        Log.i(TAG, "After proceedTeleOpActivity(): " + tcode.toString());
+    }
+    private void backToAutoActivity(){
+        Gson gson = new Gson();
+        String json = gson.toJson(tcode);
+
+        Log.i(TAG, "backToAutoActivity: intent JSON ==> " + json);
+        saveMatch();
+
+        Intent intent = new Intent(TeleActivity.this, AutoActivity.class);
+        intent.putExtra("code", json);
+        startActivity(intent);
+
+//        String key = tcode.getTeamNumber() + "/" + tcode.getMatchNumber();
+//        tcode = allMatches.get(key);
+//        Log.i(TAG, "After proceedTeleOpActivity(): " + tcode.toString());
+    }
+    private void saveMatch() {
+        String key = tcode.getTeamNumber() + "/" + tcode.getMatchNumber();
+        Log.i(TAG, "saveMatch, KEY: " + key + ", TCODE..: " + tcode.toString());
+        allMatches.put(key, tcode);
+        PreferenceUtility.saveAllMatches(getApplicationContext(), allMatches);
+    }
+    private void showAllValues() {
+        if (tcode.getTele_shoot_attempt() == 1) {
+            shootingCheckBox.setChecked(true);
+        }
+
+        missed_away_top_text.setText(String.valueOf(missed_away_top));
+        missed_home_bot_text.setText(String.valueOf(missed_home_bot));
+        missed_home_top_text.setText(String.valueOf(missed_home_top));
+        missed_away_bot_text.setText(String.valueOf(missed_away_bot));
+        scored_away_top_text.setText(String.valueOf(scored_away_top));
+        scored_home_bot_text.setText(String.valueOf(scored_home_bot));
+        scored_home_top_text.setText(String.valueOf(scored_home_top));
+        scored_away_bot_text.setText(String.valueOf(scored_away_bot));
+
+    }
+    private void setAllValuesFromObject() {
+        scored_home_top = tcode.getTele_allianceCargo_top_s();
+        missed_home_top = tcode.getTele_allianceCargo_top_f();
+        scored_away_top = tcode.getTele_opponentCargo_top_s();
+        missed_away_top = tcode.getTele_opponentCargo_top_f();
+
+        scored_home_bot = tcode.getTele_allianceCargo_bot_s();
+        missed_home_bot = tcode.getTele_allianceCargo_bot_f();
+        scored_away_bot = tcode.getTele_opponentCargo_bot_s();
+        missed_away_bot = tcode.getTele_opponentCargo_bot_f();
+    }
+    private void setComponentBackground(int isRed) {
+        if (isRed == 1) {
+            teleAllianceColor.setText("Red Alliance");
+            topView.setScaleX(-1);
+            shootingGrid.setBackgroundResource(R.drawable.card_bg);
+            phaseBarView.setBackgroundResource(R.drawable.bottom_view);
+            scored_home_top_view.setBackgroundResource(R.drawable.card_bg);
+            scored_home_bot_view.setBackgroundResource(R.drawable.card_bg);
+            missed_home_top_view.setBackgroundResource(R.drawable.card_bg);
+            missed_home_bot_view.setBackgroundResource(R.drawable.card_bg);
+            scored_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
+            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
+            missed_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
+            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
+            teleAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
+
+        } else {
+            teleAllianceColor.setText("Blue Alliance");
+            topView.setScaleX(1);
+            shootingGrid.setBackgroundResource(R.drawable.card_bg_blue);
+            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
+            scored_home_top_view.setBackgroundResource(R.drawable.card_bg_blue);
+            scored_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
+            missed_home_top_view.setBackgroundResource(R.drawable.card_bg_blue);
+            missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
+            scored_away_top_view.setBackgroundResource(R.drawable.card_bg);
+            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg);
+            missed_away_top_view.setBackgroundResource(R.drawable.card_bg);
+            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg);
+            teleAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
+
+        }
+    }
+
+    protected void updateValues() {
+        Log.i(TAG, "updateValues: ");
+        if (tcode.getTele_shoot_attempt() == 1) {
+            shootingCheckBox.setChecked(true);
+        }
+        scored_home_top = tcode.getTele_allianceCargo_top_s();
+        missed_home_top = tcode.getTele_allianceCargo_top_f();
+        scored_away_top = tcode.getTele_opponentCargo_top_s();
+        missed_away_top = tcode.getTele_opponentCargo_top_f();
+
+        scored_home_bot = tcode.getTele_allianceCargo_bot_s();
+        missed_home_bot = tcode.getTele_allianceCargo_bot_f();
+        scored_away_bot = tcode.getTele_opponentCargo_bot_s();
+        missed_away_bot = tcode.getTele_opponentCargo_bot_f();
+
+    }
+    @Override
+    protected void onStart() {
+        Log.i(TAG, "onStart: ");
+        super.onStart();
+    }
+    @Override
+    protected void onRestart() {
+        Log.i(TAG, "onRestart: ");
+        super.onRestart();
+    }
+    @Override
+    protected void onDestroy() {
+        Log.i(TAG, "onDestroy: ");
+        super.onDestroy();
+    }
+    @Override
+    protected void onPause() {
+        Log.i(TAG, "onPause: ");
+        super.onPause();
+    }
+    @Override
+    public void onResume() {
+        Log.i(TAG, "onResume: Inside of TeleActivity...");
+        allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
+        String key = tcode.getTeamNumber() + "/" + tcode.getMatchNumber();
+        tcode = allMatches.get(key);
+
+        super.onResume();
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Log.i(TAG, "onSaveInstanceState: ");
+        Gson gson = new Gson();
+        String json = gson.toJson(tcode);
+        outState.putString(INSTANCE_STATE, json);
+        saveMatch();
+        super.onSaveInstanceState(outState);
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        Log.i(TAG, "onRestoreInstanceState: ");
+        super.onRestoreInstanceState(savedInstanceState);
+        String json = savedInstanceState.getString(INSTANCE_STATE);
+        Gson gson = new Gson();
+        tcode = gson.fromJson(json, TransferCode.class);
+        updateValues();
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        saveMatch();
+        onBackPressed();
+        return true;
+    }
+
 }

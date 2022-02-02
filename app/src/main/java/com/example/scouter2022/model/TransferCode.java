@@ -36,7 +36,7 @@ public class TransferCode {
     private int endgame_attempt = 0;   // 1 bit
     private int endgame_park = 0;        // 1 bits
     private int endgame_hang = 0;        // 4 bits
-    private int endgame_ringFirst = 0;     // 4 bits
+    private int endgame_ringContact = 0;     // 4 bits
     private int endgame_ringFinish = 0;        // 4 bits
 
     private int final_foulsCreated = 0;     // 1 bits
@@ -45,7 +45,7 @@ public class TransferCode {
     private int final_numRedFouls = 0;      // 4 bits
     private int final_disabled = 0;         // 1 bits
     private int final_disqualified = 0;     // 1 bits
-    private int final_winningAlliance = 0;  // 1 bits
+    private int final_winningAlliance = -1;  // 1 bits
 
     private String[] map = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     private static String mapString = "ABCDEFGHJKLMNOPRSTUWXYZ123456789";
@@ -255,12 +255,12 @@ public class TransferCode {
         this.endgame_hang = endgame_hang;
     }
 
-    public int getEndgame_ringFirst() {
-        return endgame_ringFirst;
+    public int getEndgame_ringContact() {
+        return endgame_ringContact;
     }
 
-    public void setEndgame_ringFirst(int endgame_ringFirst) {
-        this.endgame_ringFirst = endgame_ringFirst;
+    public void setEndgame_ringContact(int endgame_ringContact) {
+        this.endgame_ringContact = endgame_ringContact;
     }
 
     public int getEndgame_ringFinish() {
@@ -402,7 +402,7 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(endgame_attempt).substring(31, 32);
         s += TransferCode.GetIntBinaryString(endgame_park).substring(31, 32);
         s += TransferCode.GetIntBinaryString(endgame_hang).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(endgame_ringFirst).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(endgame_ringContact).substring(26, 32);
         s += TransferCode.GetIntBinaryString(endgame_ringFinish).substring(26, 32);
 
         s += TransferCode.GetIntBinaryString(final_winningAlliance).substring(31, 32);
@@ -506,7 +506,7 @@ public class TransferCode {
         offset++;
         tc.endgame_hang = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.endgame_ringFirst = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.endgame_ringContact = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
         tc.endgame_ringFinish = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
@@ -598,7 +598,7 @@ public class TransferCode {
             return false;
         if (endgame_hang != tc.endgame_hang)
             return false;
-        if (endgame_ringFirst != tc.endgame_ringFirst)
+        if (endgame_ringContact != tc.endgame_ringContact)
             return false;
         if (endgame_ringFinish != tc.endgame_ringFinish)
             return false;
@@ -651,7 +651,7 @@ public class TransferCode {
                 ", endgame_attempt=" + endgame_attempt +
                 ", endgame_park=" + endgame_park +
                 ", endgame_hang=" + endgame_hang +
-                ", endgame_ringFirst=" + endgame_ringFirst +
+                ", endgame_ringContact=" + endgame_ringContact +
                 ", endgame_ringFinish=" + endgame_ringFinish +
 
                 ", final_winningAlliance=" + final_winningAlliance +
@@ -691,7 +691,7 @@ public class TransferCode {
                 ", " + endgame_attempt +
                 ", " + endgame_park +
                 ", " + endgame_hang+
-                ", " + endgame_ringFirst +
+                ", " + endgame_ringContact +
                 ", " + endgame_ringFinish +
 
                 ", " + final_winningAlliance +
