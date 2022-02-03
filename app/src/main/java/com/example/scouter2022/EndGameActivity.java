@@ -69,16 +69,16 @@ public class EndGameActivity extends AppCompatActivity {
         attemptedGrid = findViewById(R.id.endGameAttemptedGridLayout);
         parkGrid = findViewById(R.id.endGameParkGridLayout);
         hangGrid = findViewById(R.id.endGameHangGridLayout);
-        finishingGrid = findViewById(R.id.endGameFinishingRingGridLayout);
-        contactGrid = findViewById(R.id.endGameContactRingGridLayout);
+        finishingGrid = findViewById(R.id.endGameContactRingGridLayout);
+        contactGrid = findViewById(R.id.endGameFinishingRingGridLayout);
 
 
 
         endGameAttempted_RG = findViewById(R.id.endGameAttempted_RG);
         park_RG = findViewById(R.id.endGamePark_RG);
         hang_RG = findViewById(R.id.endGameHang_RG);
-        finishingRing_SB = findViewById(R.id.seekBar_finishRing);
-        contactRing_SB = findViewById(R.id.seekBar_contactRing);
+        finishingRing_SB = findViewById(R.id.seekBar_contactRing);
+        contactRing_SB = findViewById(R.id.seekBar_finishingRing);
         phaseBarView = findViewById(R.id.EndGamePhaseViewBar);
         topView = findViewById(R.id.endGameTopView);
 

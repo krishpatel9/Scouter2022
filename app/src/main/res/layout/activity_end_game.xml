@@ -245,7 +245,7 @@
             </androidx.gridlayout.widget.GridLayout>
 
             <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/endGameFinishingRingGridLayout"
+                android:id="@+id/endGameContactRingGridLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -260,11 +260,11 @@
                 app:rowCount="2">
 
                 <TextView
-                    android:id="@+id/finishingRing_textView"
+                    android:id="@+id/contactRing_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Finishing Ring"
+                    android:text="Contact Ring"
                     android:textColor="@color/white"
                     android:textSize="23sp"
                     app:layout_column="0"
@@ -275,7 +275,7 @@
                     app:layout_row="0" />
 
                 <SeekBar
-                    android:id="@+id/seekBar_finishRing"
+                    android:id="@+id/seekBar_contactRing"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -329,33 +329,33 @@
             </androidx.gridlayout.widget.GridLayout>
 
             <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/endGameContactRingGridLayout"
+                android:id="@+id/endGameFinishingRingGridLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/card_bg"
                 app:columnCount="1"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/endGameFinishingRingGridLayout"
-                app:layout_constraintStart_toStartOf="@+id/endGameFinishingRingGridLayout"
-                app:layout_constraintTop_toBottomOf="@id/endGameFinishingRingGridLayout"
+                app:layout_constraintEnd_toEndOf="@+id/endGameContactRingGridLayout"
+                app:layout_constraintStart_toStartOf="@+id/endGameContactRingGridLayout"
+                app:layout_constraintTop_toBottomOf="@id/endGameContactRingGridLayout"
                 app:rowCount="2"
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/redOrBlue_textView"
+                    android:id="@+id/finishingRing_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/contact_ring"
+                    android:text="Finishing Ring"
                     android:textColor="@color/white"
-                    app:layout_column="0"
                     android:textSize="23sp"
+                    app:layout_column="0"
                     app:layout_gravity="center|center_horizontal"
                     app:layout_row="0" />
 
                 <SeekBar
-                    android:id="@+id/seekBar_contactRing"
+                    android:id="@+id/seekBar_finishingRing"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -441,22 +441,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/EndGamePhaseViewBar"
         android:layout_width="0dp"
-        android:layout_height="140dp"
+        android:layout_height="135dp"
         android:background="@drawable/card_bg"
         android:translationY="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="40dp"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:background="@color/zxing_transparent"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -464,38 +460,42 @@
 
             <ImageView
                 android:id="@+id/EndGameToTele"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/arrow_left" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/arrow_left"
+                app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+                app:layout_constraintEnd_toStartOf="@+id/phase_text"
+                app:layout_constraintTop_toTopOf="@+id/phase_text" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/phase_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/zxing_transparent"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/phase_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="End Game"
-                    android:textColor="@color/white"
-                    android:textSize="34sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:text="End Game"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/EndGameToFinal"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/arrow_right" />
-
-        </LinearLayout>
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/arrow_right"
+                app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+                app:layout_constraintStart_toEndOf="@+id/phase_text"
+                app:layout_constraintTop_toTopOf="@+id/phase_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
