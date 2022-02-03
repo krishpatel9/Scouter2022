@@ -43,16 +43,19 @@ public class FinalActivity extends AppCompatActivity {
     private ConstraintLayout foulsConstraint;
     private ConstraintLayout winningConstraint;
 
-    private TextView yellowTextView;
-    private TextView redTextView;
+    private TextView foulsTextView;
     private TextView techTextView;
     
-    private View yellowView;
-    private View redView;
-    private View techView;
-    private int numYellow,numRed,numTech;
     
-    private ImageView yellowPlusBtn, yellowMinusBtn, redPlusBtn, redMinusBtn, techPlusBtn, techMinusBtn;
+    private CheckBox yellowCardCheckBox;
+    private CheckBox redCardCheckBox;
+    private View foulView;
+    private View techView;
+    
+    
+    private int numFouls,numTech;
+    
+    private ImageView foulsPlusBtn, foulsMinusBtn, techPlusBtn, techMinusBtn;
     private CheckBox foulsCheck, disabledCheck, disqualifiedCheck;
     private RadioGroup winning_RG;
     private RadioButton redWinBtn;
@@ -86,15 +89,15 @@ public class FinalActivity extends AppCompatActivity {
         disqualifiedGrid = findViewById(R.id.finalDisqualifiedGridLayout);
         winningConstraint = findViewById(R.id.finalWinningContraintLayout);
         
-        yellowTextView = findViewById(R.id.finalYellowTextView);
-        yellowMinusBtn = findViewById(R.id.finalYellowMinusView);
-        yellowPlusBtn = findViewById(R.id.finalYellowPlusView);
-        yellowView = findViewById(R.id.finalYellowView);
+        foulsTextView = findViewById(R.id.finalFoulsTextView);
+        foulsMinusBtn = findViewById(R.id.finalFoulsMinusView);
+        foulsPlusBtn = findViewById(R.id.finalFoulsPlusView);
+        foulView = findViewById(R.id.finalRegFoulView);
 
-        redTextView = findViewById(R.id.finalRedTextView);
-        redMinusBtn = findViewById(R.id.finalRedMinusView);
-        redPlusBtn = findViewById(R.id.finalRedPlusView);
-        redView = findViewById(R.id.finalRedView);
+
+        yellowCardCheckBox = findViewById(R.id.yellowCardCheckBox);
+        redCardCheckBox = findViewById(R.id.redCardCheckBox);
+
 
         techTextView = findViewById(R.id.finalTechTextView);
         techMinusBtn = findViewById(R.id.finalTechMinusView);
@@ -168,50 +171,31 @@ public class FinalActivity extends AppCompatActivity {
                 saveMatch();
             }
         });
-        yellowPlusBtn.setOnClickListener(new View.OnClickListener() {
+        yellowCardCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(numYellow<= Defaults.MAX_FOULS) {
-                    numYellow += 1;
-                    tcode.setFinal_numYellowFouls(numYellow);
-                    yellowTextView.setText(String.valueOf(numYellow));
-                }
+                if(((CheckBox) view).isChecked()){
+                    tcode.setFinal_yellowCardCreated(1);
+                    yellowCardCheckBox.setAlpha(1.0f);
+                } else {
+                    tcode.setFinal_yellowCardCreated(0);
+                    yellowCardCheckBox.setAlpha(0.5f);                }
                 saveMatch();
             }
         });
-        yellowMinusBtn.setOnClickListener(new View.OnClickListener() {
+        redCardCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(numYellow > 0) {
-                    numYellow -= 1;
-                    tcode.setFinal_numYellowFouls(numYellow);
-                    yellowTextView.setText(String.valueOf(numYellow));
-                }
+                if(((CheckBox) view).isChecked()){
+                    tcode.setFinal_redCardCreated(1);
+                    redCardCheckBox.setAlpha(1.0f);
+                } else {
+                    tcode.setFinal_redCardCreated(0);
+                    redCardCheckBox.setAlpha(0.5f);                }
                 saveMatch();
             }
         });
-        redPlusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(numRed<= Defaults.MAX_FOULS) {
-                    numRed += 1;
-                    tcode.setFinal_numRedFouls(numRed);
-                    redTextView.setText(String.valueOf(numRed));
-                }
-                saveMatch();
-            }
-        });
-        redMinusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(numRed > 0) {
-                    numRed -= 1;
-                    tcode.setFinal_numRedFouls(numRed);
-                    redTextView.setText(String.valueOf(numRed));
-                }
-                saveMatch();
-            }
-        });
+
         techPlusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -234,6 +218,31 @@ public class FinalActivity extends AppCompatActivity {
                 saveMatch();
             }
         });
+
+        foulsPlusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(numFouls<= Defaults.MAX_FOULS) {
+                    numFouls += 1;
+                    tcode.setFinal_numRegFouls(numFouls);
+                    foulsTextView.setText(String.valueOf(numFouls));
+                }
+                saveMatch();
+            }
+        });
+        foulsMinusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(numFouls > 0) {
+                    numFouls -= 1;
+                    tcode.setFinal_numRegFouls(numFouls);
+                    foulsTextView.setText(String.valueOf(numFouls));
+                }
+                saveMatch();
+            }
+        });
+
+
         winning_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -343,8 +352,7 @@ public class FinalActivity extends AppCompatActivity {
         if (tcode.getFinal_foulsCreated() == 1) {
             foulsCheck.setChecked(true);
         }
-        yellowTextView.setText(String.valueOf(numYellow));
-        redTextView.setText(String.valueOf(numRed));
+        foulsTextView.setText(String.valueOf(numFouls));
         techTextView.setText(String.valueOf(numTech));
 
         if (tcode.getFinal_disabled() == 1) {
@@ -352,6 +360,21 @@ public class FinalActivity extends AppCompatActivity {
         }
         if (tcode.getFinal_disqualified() == 1) {
             disqualifiedCheck.setChecked(true);
+        }
+
+        if(tcode.getFinal_yellowCardCreated() == 1){
+            yellowCardCheckBox.setAlpha(1.0f);
+            yellowCardCheckBox.setChecked(true);
+        }else{
+            yellowCardCheckBox.setAlpha(0.5f);
+            yellowCardCheckBox.setChecked(false);
+        }
+        if(tcode.getFinal_redCardCreated() == 1){
+            redCardCheckBox.setAlpha(1.0f);
+            redCardCheckBox.setChecked(true);
+        }else{
+            redCardCheckBox.setAlpha(0.5f);
+            redCardCheckBox.setChecked(false);
         }
 
         if(tcode.getIsRed() == 0){                              //BLUE
@@ -396,8 +419,7 @@ public class FinalActivity extends AppCompatActivity {
         }
     }
     private void setAllValuesFromObject() {
-        numYellow = tcode.getFinal_numYellowFouls();
-        numRed = tcode.getFinal_numRedFouls();
+        numFouls = tcode.getFinal_yellowCardCreated();
         numTech = tcode.getFinal_numTechFouls();
     }
     private void setComponentBackground(int isRed) {
@@ -410,10 +432,12 @@ public class FinalActivity extends AppCompatActivity {
             foulsConstraint.setBackgroundResource(R.drawable.card_bg);
             winningConstraint.setBackgroundResource(R.drawable.card_bg);
             phaseBarView.setBackgroundResource(R.drawable.bottom_view);
-            redView.setBackgroundResource(R.drawable.red_button_bg);
-            yellowView.setBackgroundResource(R.drawable.red_button_bg);
+            foulView.setBackgroundResource(R.drawable.red_button_bg);
             techView.setBackgroundResource(R.drawable.red_button_bg);
-            
+
+
+            yellowCardCheckBox.setBackgroundResource(R.drawable.red_button_bg);
+            redCardCheckBox.setBackgroundResource(R.drawable.red_button_bg);
             blueWinBtn.setBackgroundResource(R.drawable.red_button_bg);
             redWinBtn.setBackgroundResource(R.drawable.red_button_bg);
             clearBtn1.setBackgroundResource(R.drawable.red_button_bg);
@@ -430,10 +454,10 @@ public class FinalActivity extends AppCompatActivity {
             winningConstraint.setBackgroundResource(R.drawable.card_bg_blue);
             phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
 
-            redView.setBackgroundResource(R.drawable.blue_button_bg);
-            yellowView.setBackgroundResource(R.drawable.blue_button_bg);
+            foulView.setBackgroundResource(R.drawable.blue_button_bg);
             techView.setBackgroundResource(R.drawable.blue_button_bg);
-
+            yellowCardCheckBox.setBackgroundResource(R.drawable.blue_button_bg);
+            redCardCheckBox.setBackgroundResource(R.drawable.blue_button_bg);
             blueWinBtn.setBackgroundResource(R.drawable.blue_button_bg);
             redWinBtn.setBackgroundResource(R.drawable.blue_button_bg);
             clearBtn1.setBackgroundResource(R.drawable.blue_button_bg);
@@ -447,8 +471,7 @@ public class FinalActivity extends AppCompatActivity {
         if (tcode.getFinal_foulsCreated() == 1) {
             foulsCheck.setChecked(true);
         }
-        numYellow = tcode.getFinal_numYellowFouls();
-        numRed = tcode.getFinal_numRedFouls();
+        numFouls = tcode.getFinal_yellowCardCreated();
         numTech = tcode.getFinal_numTechFouls();
 
         if (tcode.getFinal_disabled() == 1) {
@@ -456,6 +479,20 @@ public class FinalActivity extends AppCompatActivity {
         }
         if (tcode.getFinal_disqualified() == 1) {
             disqualifiedCheck.setChecked(true);
+        }
+        if(tcode.getFinal_yellowCardCreated() == 1){
+            yellowCardCheckBox.setAlpha(1.0f);
+            yellowCardCheckBox.setChecked(true);
+        }else{
+            yellowCardCheckBox.setAlpha(0.5f);
+            yellowCardCheckBox.setChecked(false);
+        }
+        if(tcode.getFinal_redCardCreated() == 1){
+            redCardCheckBox.setAlpha(1.0f);
+            redCardCheckBox.setChecked(true);
+        }else{
+            redCardCheckBox.setAlpha(0.5f);
+            redCardCheckBox.setChecked(false);
         }
 
         if(tcode.getIsRed() == 0){                              //BLUE

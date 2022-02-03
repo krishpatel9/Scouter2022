@@ -448,53 +448,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/TelePhaseView"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:background="@color/zxing_transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/TelePhaseViewBar"
-        app:layout_constraintTop_toTopOf="@+id/TelePhaseViewBar" />
-
-    <TextView
-        android:id="@+id/TelePhaseTextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tele-Op"
-        android:textColor="#ffffff"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/TelePhaseView"
-        app:layout_constraintEnd_toEndOf="@+id/TelePhaseView"
-        app:layout_constraintStart_toStartOf="@+id/TelePhaseView"
-        app:layout_constraintTop_toTopOf="@+id/TelePhaseView" />
-
-    <ImageView
-        android:id="@+id/TeleToEndGame"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#C52736"
-        android:src="@drawable/ic_baseline_arrow_right"
-        app:layout_constraintBottom_toBottomOf="@+id/TelePhaseViewBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.200"
-        app:layout_constraintStart_toEndOf="@+id/TelePhaseView"
-        app:layout_constraintTop_toTopOf="@+id/TelePhaseViewBar"
-        app:layout_constraintVertical_bias="0.500" />
-
-    <ImageView
-        android:id="@+id/TeleToAuto"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#C52736"
-        android:src="@drawable/ic_baseline_arrow_left"
+        android:background="@color/zxing_transparent"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/TelePhaseView"
-        app:layout_constraintHorizontal_bias="0.800"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/TelePhaseViewBar"
-        app:layout_constraintVertical_bias="0.500" />
+        app:layout_constraintTop_toTopOf="@+id/TelePhaseViewBar">
+
+        <ImageView
+            android:id="@+id/TeleToAuto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/arrow_left"
+            app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+            app:layout_constraintEnd_toStartOf="@+id/phase_text"
+            app:layout_constraintTop_toTopOf="@+id/phase_text" />
+
+        <TextView
+            android:id="@+id/phase_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:text="Tele-Op"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/TeleToEndGame"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/arrow_right"
+            app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+            app:layout_constraintStart_toEndOf="@+id/phase_text"
+            app:layout_constraintTop_toTopOf="@+id/phase_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

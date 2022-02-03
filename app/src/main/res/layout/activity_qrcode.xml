@@ -84,7 +84,7 @@
         android:layout_width="0dp"
         android:layout_height="160dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/card_bg"
         android:elevation="20dp"
@@ -173,11 +173,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="8dp"
+            android:drawableRight="@drawable/flag_red"
             android:text="Red"
             android:textColor="@color/white"
             android:textSize="23sp"
             android:textStyle="bold"
-            android:drawableRight="@drawable/flag_red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/endGameAttempted_textView3" />
 
@@ -198,9 +198,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/qrFoulsLayout"
-        android:layout_width="180dp"
+        android:layout_width="200dp"
         android:layout_height="160dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/card_bg"
         android:elevation="20dp"
@@ -233,43 +233,57 @@
             app:layout_constraintTop_toTopOf="@+id/qrFouls_View" />
 
         <TextView
-            android:id="@+id/yellowFouls_textView"
+            android:id="@+id/regFouls_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:text="Yellow:"
+            android:text="Fouls:"
             android:textColor="@color/white"
             android:textSize="23sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fouls_textView" />
-
-        <TextView
-            android:id="@+id/redFouls_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
-            android:text="Red:"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/yellowFouls_textView" />
 
         <TextView
             android:id="@+id/techFouls_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="Tech:"
             android:textColor="@color/white"
             android:textSize="23sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/redFouls_textView" />
+            app:layout_constraintTop_toBottomOf="@+id/regFouls_textView" />
 
         <TextView
-            android:id="@+id/NumYellowFouls_textView"
+            android:id="@+id/yellowFouls_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="14dp"
+            android:text="Yellow: Y/N"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/redFouls_textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/techFouls_textView" />
+
+        <TextView
+            android:id="@+id/redFouls_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="Red: Y/N"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NumTechFouls_textView" />
+
+        <TextView
+            android:id="@+id/NumRegFouls_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -280,19 +294,6 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fouls_textView" />
-
-        <TextView
-            android:id="@+id/NumRedFouls_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:text="0"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NumYellowFouls_textView" />
 
         <TextView
             android:id="@+id/NumTechFouls_textView"
@@ -305,7 +306,7 @@
             android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NumRedFouls_textView" />
+            app:layout_constraintTop_toBottomOf="@+id/NumRegFouls_textView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -314,7 +315,7 @@
         android:id="@+id/qrDisabledLayout"
         android:layout_width="0dp"
         android:layout_height="68dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/card_bg"
         android:elevation="20dp"
@@ -358,7 +359,7 @@
         android:layout_width="0dp"
         android:layout_height="68dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/card_bg"
         android:elevation="20dp"
         android:foregroundGravity="center"
@@ -415,6 +416,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/qrCodeTextView"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
+        android:text="Code"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/QRcode_imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

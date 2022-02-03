@@ -49,6 +49,11 @@ public class AutoActivity extends AppCompatActivity {
     private View missed_away_top_view;
     private View missed_away_bot_view;
 
+    private View human_missed_view;
+    private View human_scored_view;
+    private TextView human_missed_TextView;
+    private TextView human_scored_TextView;
+
     private ImageView toTele;
     private ImageView toMain;
 
@@ -62,6 +67,8 @@ public class AutoActivity extends AppCompatActivity {
     int missed_home_bot = 0;
     int scored_away_bot = 0;
     int missed_away_bot = 0;
+    int human_missed = 0;
+    int human_scored = 0;
 
 
     private TransferCode tcode;
@@ -95,10 +102,15 @@ public class AutoActivity extends AppCompatActivity {
         scored_away_top_view = findViewById(R.id.autoScoredView3);
         scored_away_bot_view = findViewById(R.id.autoScoredView4);
 
-        missed_home_top_view = findViewById(R.id.autoMissedView1);
+        missed_home_top_view = findViewById(R.id.autoMissedView);
         missed_home_bot_view = findViewById(R.id.autoMissedView2);
         missed_away_top_view = findViewById(R.id.autoMissedView3);
         missed_away_bot_view = findViewById(R.id.autoMissedView4);
+
+        human_missed_view = findViewById(R.id.autoHumanMissedView);
+        human_scored_view = findViewById(R.id.autoHumanScoredView);
+        human_missed_TextView = findViewById(R.id.autoHumanMissedTextView);
+        human_scored_TextView = findViewById(R.id.autoHumanScoredTextView);
 
         shootingGrid = findViewById(R.id.qrInfoLayout);
         tarmacGrid = findViewById(R.id.tarmacGridLayout);
@@ -126,7 +138,26 @@ public class AutoActivity extends AppCompatActivity {
         autoMatchNumber.setText("Match Number: " + tcode.getMatchNumber());
         setComponentBackground(tcode.getIsRed());
 
-
+        human_missed_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(human_missed<= Defaults.MAX_CARGO_NUMBER) {
+                    human_missed += 1;
+                    tcode.setAuto_humanMissed(human_missed);
+                    human_missed_TextView.setText(String.valueOf(human_missed));
+                }
+            }
+        });
+        human_scored_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(human_scored<= Defaults.MAX_CARGO_NUMBER) {
+                    human_scored += 1;
+                    tcode.setAuto_humanMissed(human_scored);
+                    human_scored_TextView.setText(String.valueOf(human_scored));
+                }
+            }
+        });
         scored_home_top_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -305,6 +336,8 @@ public class AutoActivity extends AppCompatActivity {
         scored_home_bot_text.setText(String.valueOf(scored_home_bot));
         scored_home_top_text.setText(String.valueOf(scored_home_top));
         scored_away_bot_text.setText(String.valueOf(scored_away_bot));
+        human_missed_TextView.setText(String.valueOf(human_missed));
+        human_scored_TextView.setText(String.valueOf(human_scored));
 
     }
     private void setAllValuesFromObject() {
@@ -317,6 +350,9 @@ public class AutoActivity extends AppCompatActivity {
         missed_home_bot = tcode.getAuto_allianceCargo_bot_f();
         scored_away_bot = tcode.getAuto_opponentCargo_bot_s();
         missed_away_bot = tcode.getAuto_opponentCargo_bot_f();
+
+        human_scored = tcode.getAuto_humanScored();
+        human_missed = tcode.getAuto_humanMissed();
     }
     private void setComponentBackground(int isRed) {
         if (isRed == 1) {
@@ -329,6 +365,8 @@ public class AutoActivity extends AppCompatActivity {
             scored_home_bot_view.setBackgroundResource(R.drawable.card_bg);
             missed_home_top_view.setBackgroundResource(R.drawable.card_bg);
             missed_home_bot_view.setBackgroundResource(R.drawable.card_bg);
+            human_scored_view.setBackgroundResource(R.drawable.card_bg);
+            human_missed_view.setBackgroundResource(R.drawable.card_bg);
             scored_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
             scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
@@ -345,6 +383,8 @@ public class AutoActivity extends AppCompatActivity {
             scored_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_home_top_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
+            human_scored_view.setBackgroundResource(R.drawable.card_bg_blue);
+            human_missed_view.setBackgroundResource(R.drawable.card_bg_blue);
             scored_away_top_view.setBackgroundResource(R.drawable.card_bg);
             scored_away_bot_view.setBackgroundResource(R.drawable.card_bg);
             missed_away_top_view.setBackgroundResource(R.drawable.card_bg);
@@ -371,6 +411,9 @@ public class AutoActivity extends AppCompatActivity {
         missed_home_bot = tcode.getAuto_allianceCargo_bot_f();
         scored_away_bot = tcode.getAuto_opponentCargo_bot_s();
         missed_away_bot = tcode.getAuto_opponentCargo_bot_f();
+
+        human_scored = tcode.getAuto_humanScored();
+        human_missed = tcode.getAuto_humanMissed();
 
     }
     @Override

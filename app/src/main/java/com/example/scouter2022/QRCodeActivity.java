@@ -31,11 +31,13 @@ public class QRCodeActivity extends AppCompatActivity {
     private Map<String, TransferCode> allMatches;
     private String INSTANCE_STATE = "INSTANCE_STATE";
 
-    private TextView yellowFoulsTextView;
+    private TextView regFoulsTextView;
     private TextView redFoulsTextView;
+    private TextView yellowCardTextView,redCardTextView;
     private TextView techFoulsTextView;
     private TextView disabledTextView;
     private TextView disqualifiedTextView;
+    private TextView codeTextView;
     private View phaseBarView;
     private View topView;
     private ImageView QRCODE;
@@ -57,15 +59,19 @@ public class QRCodeActivity extends AppCompatActivity {
         qrAllianceColor = findViewById(R.id.qrColorTextView);
         topView = findViewById(R.id.qrTopView);
 
-        yellowFoulsTextView = findViewById(R.id.NumYellowFouls_textView);
-        redFoulsTextView = findViewById(R.id.NumRedFouls_textView);
+        regFoulsTextView = findViewById(R.id.NumRegFouls_textView);
         techFoulsTextView = findViewById(R.id.NumTechFouls_textView);
+
+        yellowCardTextView = findViewById(R.id.yellowFouls_textView);
+
+        redCardTextView = findViewById(R.id.redFouls_textView);
+
         disabledTextView = findViewById(R.id.disabled_YN_textView);
         disqualifiedTextView = findViewById(R.id.disqualified_YN_textView);
         
         foulsView = findViewById(R.id.qrFouls_View);
         infoView = findViewById(R.id.qrInfo_View);
-        
+        codeTextView = findViewById(R.id.qrCodeTextView);
         layout1 = findViewById(R.id.qrInfoLayout);
         layout2 = findViewById(R.id.qrDisabledLayout);
         layout3 = findViewById(R.id.qrDisqualifiedLayout);
@@ -90,6 +96,12 @@ public class QRCodeActivity extends AppCompatActivity {
 
         setComponentBackground(tcode.getIsRed());
 
+        toFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backToFinalActivity();
+            }
+        });  // End of toFinal
         toMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,7 +138,7 @@ public class QRCodeActivity extends AppCompatActivity {
     private void showQRcode(){
         String alphaCode = tcode.GenerateCode(tcode.getBinaryString());
 
-//        codeTextView.setText(alphaCode);
+        codeTextView.setText(alphaCode);
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
@@ -140,9 +152,21 @@ public class QRCodeActivity extends AppCompatActivity {
     }
 
     private void showAllValues(){
-        yellowFoulsTextView.setText(String.valueOf(tcode.getFinal_numYellowFouls()));
-        redFoulsTextView.setText(String.valueOf(tcode.getFinal_numRedFouls()));
+        regFoulsTextView.setText(String.valueOf(tcode.getFinal_numRegFouls()));
         techFoulsTextView.setText(String.valueOf(tcode.getFinal_numTechFouls()));
+
+        if (tcode.getFinal_redCardCreated() == 1){
+            redCardTextView.setText("Red: Yes");
+        }else{
+            redCardTextView.setText("Red: No");
+        }
+
+        if (tcode.getFinal_yellowCardCreated() == 1){
+            yellowCardTextView.setText("Yellow: Yes");
+        }else{
+            yellowCardTextView.setText("Yellow: No");
+        }
+
         if(tcode.getFinal_disabled() == 1){
             disabledTextView.setText("Yes");
         }

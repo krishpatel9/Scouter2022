@@ -22,6 +22,9 @@ public class TransferCode {
     private int auto_opponentCargo_top_f = 0; // 4 bits
     private int auto_opponentCargo_bot_f = 0; // 4 bits
 
+    private int auto_humanMissed = 0;
+    private int auto_humanScored = 0;
+
     private int tele_shoot_attempt = 0;   // 1 bit
     private int tele_allianceCargo_top_s = 0; // 4 bits
     private int tele_allianceCargo_bot_s = 0; // 4 bits
@@ -41,8 +44,9 @@ public class TransferCode {
 
     private int final_foulsCreated = 0;     // 1 bits
     private int final_numTechFouls = 0;     // 4 bits
-    private int final_numYellowFouls = 0;   // 4 bits
-    private int final_numRedFouls = 0;      // 4 bits
+    private int final_numRegFouls = 0;      // 4 bits
+    private int final_yellowCardCreated = 0;   // 4 bits
+    private int final_redCardCreated = 0;      // 4 bits
     private int final_disabled = 0;         // 1 bits
     private int final_disqualified = 0;     // 1 bits
     private int final_winningAlliance = -1;  // 1 bits
@@ -93,6 +97,22 @@ public class TransferCode {
 
     public void setAuto_shoot_attempt(int auto_shoot_attempt) {
         this.auto_shoot_attempt = auto_shoot_attempt;
+    }
+
+    public int getAuto_humanMissed() {
+        return auto_humanMissed;
+    }
+
+    public void setAuto_humanMissed(int auto_humanMissed) {
+        this.auto_humanMissed = auto_humanMissed;
+    }
+
+    public int getAuto_humanScored() {
+        return auto_humanScored;
+    }
+
+    public void setAuto_humanScored(int auto_humanScored) {
+        this.auto_humanScored = auto_humanScored;
     }
 
     public int getAuto_allianceCargo_bot_f() {
@@ -287,20 +307,28 @@ public class TransferCode {
         this.final_numTechFouls = final_numTechFouls;
     }
 
-    public int getFinal_numYellowFouls() {
-        return final_numYellowFouls;
+    public int getFinal_numRegFouls() {
+        return final_numRegFouls;
     }
 
-    public void setFinal_numYellowFouls(int final_numYellowFouls) {
-        this.final_numYellowFouls = final_numYellowFouls;
+    public void setFinal_numRegFouls(int final_numRegFouls) {
+        this.final_numRegFouls = final_numRegFouls;
     }
 
-    public int getFinal_numRedFouls() {
-        return final_numRedFouls;
+    public int getFinal_yellowCardCreated() {
+        return final_yellowCardCreated;
     }
 
-    public void setFinal_numRedFouls(int final_numRedFouls) {
-        this.final_numRedFouls = final_numRedFouls;
+    public void setFinal_yellowCardCreated(int final_yellowCardCreated) {
+        this.final_yellowCardCreated = final_yellowCardCreated;
+    }
+
+    public int getFinal_redCardCreated() {
+        return final_redCardCreated;
+    }
+
+    public void setFinal_redCardCreated(int final_redCardCreated) {
+        this.final_redCardCreated = final_redCardCreated;
     }
 
     public int getFinal_disabled() {
@@ -385,7 +413,8 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_s).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_opponentCargo_top_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_f).substring(26, 32);
-
+        s += TransferCode.GetIntBinaryString(auto_humanMissed).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(auto_humanScored).substring(26, 32);
 
         s += TransferCode.GetIntBinaryString(tele_shoot_attempt).substring(31, 32);
 
@@ -406,13 +435,13 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(endgame_ringFinish).substring(26, 32);
 
         s += TransferCode.GetIntBinaryString(final_winningAlliance).substring(31, 32);
-        s += TransferCode.GetIntBinaryString(final_foulsCreated).substring(31, 32);
         s += TransferCode.GetIntBinaryString(final_disqualified).substring(31, 32);
         s += TransferCode.GetIntBinaryString(final_disabled).substring(31, 32);
-
-        s += TransferCode.GetIntBinaryString(final_numYellowFouls).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(final_numRedFouls).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(final_foulsCreated).substring(31, 32);
+        s += TransferCode.GetIntBinaryString(final_yellowCardCreated).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(final_redCardCreated).substring(26, 32);
         s += TransferCode.GetIntBinaryString(final_numTechFouls).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(final_numRegFouls).substring(26, 32);
 
         s += TransferCode.GetIntBinaryString(0).substring(27 , 32);//filler
         return s;
@@ -479,6 +508,10 @@ public class TransferCode {
         offset = offset + 6;
         tc.auto_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
+        tc.auto_humanMissed = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+        tc.auto_humanScored = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
 
         tc.tele_shoot_attempt = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
@@ -519,11 +552,13 @@ public class TransferCode {
         offset++;
         tc.final_disqualified = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
-        tc.final_numYellowFouls = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.final_yellowCardCreated = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.final_numRedFouls = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.final_redCardCreated = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
         tc.final_numTechFouls = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+        tc.final_numRegFouls = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
 
     }
@@ -571,6 +606,10 @@ public class TransferCode {
             return false;
         if (auto_opponentCargo_top_f != tc.auto_opponentCargo_top_f)
             return false;
+        if (auto_humanMissed != tc.auto_humanMissed)
+            return false;
+        if (auto_humanScored != tc.auto_humanScored)
+            return false;
 
         if (tele_shoot_attempt != tc.tele_shoot_attempt)
             return false;
@@ -605,13 +644,19 @@ public class TransferCode {
 
         if (final_winningAlliance != tc.final_winningAlliance)
             return false;
+        if (final_disabled != tc.final_disabled)
+            return false;
+        if (final_disqualified != tc.final_disqualified)
+            return false;
         if (final_foulsCreated != tc.final_foulsCreated)
             return false;
-        if (final_numYellowFouls != tc.final_numYellowFouls)
+        if (final_yellowCardCreated != tc.final_yellowCardCreated)
             return false;
-        if (final_numRedFouls != tc.final_numRedFouls)
+        if (final_redCardCreated != tc.final_redCardCreated)
             return false;
         if (final_numTechFouls != tc.final_numTechFouls)
+            return false;
+        if (final_numRegFouls!= tc.final_numRegFouls)
             return false;
         return true;
     }
@@ -637,6 +682,8 @@ public class TransferCode {
                 ", auto_allianceCargo_top_f=" + auto_allianceCargo_top_f +
                 ", auto_opponentCargo_bot_f=" + auto_opponentCargo_bot_f +
                 ", auto_opponentCargo_top_f=" + auto_opponentCargo_top_f +
+                ", auto_humanMissed=" + auto_humanMissed +
+                ", auto_humanScored=" + auto_humanScored +
 
                 ", tele_shoot_attempt=" + tele_shoot_attempt +
                 ", tele_allianceCargo_bot_s=" + tele_allianceCargo_bot_s +
@@ -655,10 +702,14 @@ public class TransferCode {
                 ", endgame_ringFinish=" + endgame_ringFinish +
 
                 ", final_winningAlliance=" + final_winningAlliance +
+                ", final_disabled=" + final_disabled +
+                ", final_disqualified=" + final_disqualified +
                 ", final_foulsCreated=" + final_foulsCreated +
-                ", final_numYellowFouls=" + final_numYellowFouls +
-                ", final_numRedFouls=" + final_numRedFouls +
+                ", final_yellowCardCreated=" + final_yellowCardCreated +
+                ", final_redCardCreated=" + final_redCardCreated +
                 ", final_numTechFouls=" + final_numTechFouls +
+                ", final_numRegFouls=" + final_numRegFouls +
+
 
                 '}';
     }
@@ -676,6 +727,8 @@ public class TransferCode {
                 ", " + auto_allianceCargo_top_f +
                 ", " + auto_opponentCargo_bot_f +
                 ", " + auto_opponentCargo_top_f +
+                ", " + auto_humanMissed +
+                ", " + auto_humanScored +
 
                 ", " + tele_shoot_attempt +
 
@@ -697,9 +750,10 @@ public class TransferCode {
                 ", " + final_winningAlliance +
                 ", " + final_disabled+
                 ", " + final_disqualified +
-                ", " + final_numYellowFouls +
-                ", " + final_numRedFouls +
-                ", " + final_numTechFouls
+                ", " + final_yellowCardCreated +
+                ", " + final_redCardCreated +
+                ", " + final_numTechFouls +
+                ", " + final_numRegFouls
                 ;
     }
 }
