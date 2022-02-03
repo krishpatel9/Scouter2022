@@ -109,8 +109,8 @@ public class AutoActivity extends AppCompatActivity {
 
         human_missed_view = findViewById(R.id.autoHumanMissedView);
         human_scored_view = findViewById(R.id.autoHumanScoredView);
-        human_missed_TextView = findViewById(R.id.autoHumanMissedTextView);
-        human_scored_TextView = findViewById(R.id.autoHumanScoredTextView);
+        human_missed_TextView = findViewById(R.id.humanMissedNumText);
+        human_scored_TextView = findViewById(R.id.humanScoredNumText);
 
         shootingGrid = findViewById(R.id.qrInfoLayout);
         tarmacGrid = findViewById(R.id.tarmacGridLayout);
