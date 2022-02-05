@@ -70,9 +70,9 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/EndGamePhaseViewBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,8 +155,8 @@
                 android:layout_height="68dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/card_bg"
-                app:columnCount="3"
                 android:padding="10dp"
+                app:columnCount="3"
                 app:layout_constraintEnd_toEndOf="@+id/endGameAttemptedGridLayout"
                 app:layout_constraintStart_toStartOf="@+id/endGameAttemptedGridLayout"
                 app:layout_constraintTop_toBottomOf="@+id/endGameAttemptedGridLayout">
@@ -166,8 +166,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Park"
-                    android:textSize="23sp"
                     android:textColor="@color/white"
+                    android:textSize="23sp"
                     app:layout_columnSpan="2"
                     app:layout_gravity="center" />
 
@@ -182,8 +182,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Success"
                         android:buttonTint="@color/white"
+                        android:text="Success"
                         android:textColor="@color/white" />
 
                     <RadioButton
@@ -191,8 +191,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Fail"
                         android:buttonTint="@color/white"
+                        android:text="Fail"
                         android:textColor="@color/white" />
                 </RadioGroup>
             </androidx.gridlayout.widget.GridLayout>
@@ -212,24 +212,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hang"
-                    android:textSize="23sp"
                     android:textColor="@color/white"
+                    android:textSize="23sp"
                     app:layout_gravity="center" />
 
                 <RadioGroup
                     android:id="@+id/endGameHang_RG"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    app:layout_gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    app:layout_gravity="center_vertical">
 
                     <RadioButton
                         android:id="@+id/endGameHangSuccess_RB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Success"
                         android:buttonTint="@color/white"
+                        android:text="Success"
                         android:textColor="@color/white" />
 
                     <RadioButton
@@ -237,8 +237,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Fail"
                         android:buttonTint="@color/white"
+                        android:text="Fail"
                         android:textColor="@color/white" />
                 </RadioGroup>
 
@@ -334,13 +334,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/card_bg"
+                android:padding="10dp"
                 app:columnCount="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/endGameContactRingGridLayout"
                 app:layout_constraintStart_toStartOf="@+id/endGameContactRingGridLayout"
                 app:layout_constraintTop_toBottomOf="@id/endGameContactRingGridLayout"
-                app:rowCount="2"
-                android:padding="10dp">
+                app:rowCount="2">
 
                 <TextView
                     android:id="@+id/finishingRing_textView"
