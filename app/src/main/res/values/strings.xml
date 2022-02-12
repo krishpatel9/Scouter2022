@@ -84,7 +84,7 @@
     // About Strings
     <string name="about_app_title">About FRC Scouter 2022</string>
     <string name="about_team_title"><![CDATA[Hillsborough High School Robo Raiders<br/>Development Team]]></string>
-    <string name="about_team_details"><![CDATA[Krish Patel]]></string>
+    <string name="about_team_details"><![CDATA[Manager: Shehzad Sultan<br/>Leads: Krish Patel & Riddhima Medatwal<br/>Contributers: Siddharth Kumar, Aahil Sudhin, Aayush Patel]]></string>
 
     <string name="about_ok">Ok</string>
 
