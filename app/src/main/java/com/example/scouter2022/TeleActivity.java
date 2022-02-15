@@ -71,7 +71,12 @@ public class TeleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tele);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try{
+            this.getSupportActionBar().hide();}
+        catch(NullPointerException e){
+        }
+
         allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
         teleTeamNumber = findViewById(R.id.qrTeamNumTextView);
         teleMatchNumber = findViewById(R.id.qrMatchNumTextView);
@@ -307,12 +312,12 @@ public class TeleActivity extends AppCompatActivity {
         if (isRed == 1) {
             teleAllianceColor.setText("Red Alliance");
             topView.setScaleX(-1);
-            shootingGrid.setBackgroundResource(R.drawable.card_bg);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view);
-            scored_home_top_view.setBackgroundResource(R.drawable.card_bg);
-            scored_home_bot_view.setBackgroundResource(R.drawable.card_bg);
-            missed_home_top_view.setBackgroundResource(R.drawable.card_bg);
-            missed_home_bot_view.setBackgroundResource(R.drawable.card_bg);
+            shootingGrid.setBackgroundResource(R.drawable.card_bg_red);
+            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
+            scored_home_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            scored_home_bot_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_home_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_red);
             scored_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
             scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
@@ -328,10 +333,10 @@ public class TeleActivity extends AppCompatActivity {
             scored_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_home_top_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
-            scored_away_top_view.setBackgroundResource(R.drawable.card_bg);
-            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg);
-            missed_away_top_view.setBackgroundResource(R.drawable.card_bg);
-            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg);
+            scored_away_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_away_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
             teleAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
 
         }

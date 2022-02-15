@@ -52,7 +52,11 @@ public class QRCodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try{
+            this.getSupportActionBar().hide();}
+        catch(NullPointerException e){
+        }
         allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
         qrTeamNumber = findViewById(R.id.qrTeamNumTextView);
         qrMatchNumber = findViewById(R.id.qrMatchNumTextView);
@@ -190,13 +194,13 @@ public class QRCodeActivity extends AppCompatActivity {
         if (isRed == 1) {
             qrAllianceColor.setText("Red");
             topView.setScaleX(-1);
-            layout1.setBackgroundResource(R.drawable.card_bg);
-            layout2.setBackgroundResource(R.drawable.card_bg);
-            layout3.setBackgroundResource(R.drawable.card_bg);
-            layout4.setBackgroundResource(R.drawable.card_bg);
+            layout1.setBackgroundResource(R.drawable.card_bg_red);
+            layout2.setBackgroundResource(R.drawable.card_bg_red);
+            layout3.setBackgroundResource(R.drawable.card_bg_red);
+            layout4.setBackgroundResource(R.drawable.card_bg_red);
 
-            infoView.setBackgroundResource(R.drawable.red_button_bg);
-            foulsView.setBackgroundResource(R.drawable.red_button_bg);
+            infoView.setBackgroundResource(R.drawable.button_bg_red);
+            foulsView.setBackgroundResource(R.drawable.button_bg_red);
             qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
 
         } else {
@@ -207,8 +211,8 @@ public class QRCodeActivity extends AppCompatActivity {
             layout3.setBackgroundResource(R.drawable.card_bg_blue);
             layout4.setBackgroundResource(R.drawable.card_bg_blue);
 
-            infoView.setBackgroundResource(R.drawable.blue_button_bg);
-            foulsView.setBackgroundResource(R.drawable.blue_button_bg);
+            infoView.setBackgroundResource(R.drawable.button_bg_blue);
+            foulsView.setBackgroundResource(R.drawable.button_bg_blue);
             qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
         }
         showQRcode();

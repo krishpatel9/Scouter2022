@@ -85,7 +85,7 @@
             android:layout_height="68dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/card_bg"
+            android:background="@drawable/card_bg_red"
             android:foregroundGravity="center"
             android:padding="15dp"
             app:columnCount="2"
@@ -136,7 +136,7 @@
         android:layout_marginStart="80dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="344dp"
-        android:background="@drawable/card_bg"
+        android:background="@drawable/card_bg_red"
         app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintStart_toStartOf="@+id/TeleHub"
         app:layout_constraintTop_toTopOf="@+id/TeleHub" />
@@ -175,7 +175,7 @@
         android:layout_marginStart="357dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="67dp"
-        android:background="@drawable/card_bg"
+        android:background="@drawable/card_bg_red"
         app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintStart_toStartOf="@+id/TeleHub"
         app:layout_constraintTop_toTopOf="@+id/TeleHub" />
@@ -213,7 +213,7 @@
         android:layout_marginStart="159dp"
         android:layout_marginTop="202dp"
         android:layout_marginEnd="265dp"
-        android:background="@drawable/card_bg"
+        android:background="@drawable/card_bg_red"
         app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintStart_toStartOf="@+id/TeleHub"
         app:layout_constraintTop_toTopOf="@+id/TeleHub" />
@@ -252,7 +252,7 @@
         android:layout_marginStart="281dp"
         android:layout_marginTop="202dp"
         android:layout_marginEnd="143dp"
-        android:background="@drawable/card_bg"
+        android:background="@drawable/card_bg_red"
         app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintStart_toStartOf="@+id/TeleHub"
         app:layout_constraintTop_toTopOf="@+id/TeleHub" />
@@ -443,7 +443,7 @@
         android:id="@+id/TelePhaseViewBar"
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:background="@drawable/bottom_view"
+        android:background="@drawable/bottom_view_red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
