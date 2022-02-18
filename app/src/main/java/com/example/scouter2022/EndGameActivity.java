@@ -60,7 +60,11 @@ public class EndGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try{
+            this.getSupportActionBar().hide();}
+        catch(NullPointerException e){
+        }
         allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
         endGameTeamNumber = findViewById(R.id.endGameTeamNumTextView);
         endGameMatchNumber = findViewById(R.id.endGameMatchNumTextView);
@@ -366,12 +370,12 @@ public class EndGameActivity extends AppCompatActivity {
         if (isRed == 1) {
             endGameAllianceColor.setText("Red Alliance");
             topView.setScaleX(-1);
-            attemptedGrid.setBackgroundResource(R.drawable.card_bg);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view);
-            parkGrid.setBackgroundResource(R.drawable.card_bg);
-            hangGrid.setBackgroundResource(R.drawable.card_bg);
-            finishingGrid.setBackgroundResource(R.drawable.card_bg);
-            contactGrid.setBackgroundResource(R.drawable.card_bg);
+            attemptedGrid.setBackgroundResource(R.drawable.card_bg_red);
+            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
+            parkGrid.setBackgroundResource(R.drawable.card_bg_red);
+            hangGrid.setBackgroundResource(R.drawable.card_bg_red);
+            finishingGrid.setBackgroundResource(R.drawable.card_bg_red);
+            contactGrid.setBackgroundResource(R.drawable.card_bg_red);
             endGameAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
 
         } else {

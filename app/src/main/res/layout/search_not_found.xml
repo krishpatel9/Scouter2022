@@ -10,7 +10,7 @@
       android:id="@+id/notFoundTitleID"
       android:layout_width="0dp"
       android:layout_height="42dp"
-      android:background="@drawable/card_bg"
+      android:background="@drawable/card_bg_red"
       android:padding="5dp"
       android:text="@string/notfound_title"
       android:textAlignment="center"

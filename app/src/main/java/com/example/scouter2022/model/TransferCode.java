@@ -51,6 +51,9 @@ public class TransferCode {
     private int final_disqualified = 0;     // 1 bits
     private int final_winningAlliance = -1;  // 1 bits
 
+    private int final_zone = 0; //1,2,or 3
+
+
     private String[] map = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     private static String mapString = "ABCDEFGHJKLMNOPRSTUWXYZ123456789";
 
@@ -355,6 +358,14 @@ public class TransferCode {
         this.final_winningAlliance = final_winningAlliance;
     }
 
+    public int getFinal_zone() {
+        return final_zone;
+    }
+
+    public void setFinal_zone(int final_zone) {
+        this.final_zone = final_zone;
+    }
+
     public String[] getMap() {
         return map;
     }
@@ -377,8 +388,6 @@ public class TransferCode {
         }
         return pos;
     }
-
-
 
     private TransferCode Decode(String code) {//loop thru code string, make binary string, use binary string to assign each field value
         int pos = 0;
@@ -442,6 +451,8 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(final_redCardCreated).substring(26, 32);
         s += TransferCode.GetIntBinaryString(final_numTechFouls).substring(26, 32);
         s += TransferCode.GetIntBinaryString(final_numRegFouls).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(final_zone).substring(26, 32);
+
 
         s += TransferCode.GetIntBinaryString(0).substring(27 , 32);//filler
         return s;
@@ -560,6 +571,8 @@ public class TransferCode {
         offset = offset + 6;
         tc.final_numRegFouls = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
+        tc.final_zone = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
 
     }
     public static void main(String[] args) {
@@ -658,6 +671,8 @@ public class TransferCode {
             return false;
         if (final_numRegFouls!= tc.final_numRegFouls)
             return false;
+        if (final_zone!= tc.final_zone)
+            return false;
         return true;
     }
     private int rangeCheck(int low, int high, int val) {
@@ -709,8 +724,7 @@ public class TransferCode {
                 ", final_redCardCreated=" + final_redCardCreated +
                 ", final_numTechFouls=" + final_numTechFouls +
                 ", final_numRegFouls=" + final_numRegFouls +
-
-
+                ", final_zone=" + final_zone +
                 '}';
     }
     public String toComma() {
@@ -753,8 +767,10 @@ public class TransferCode {
                 ", " + final_yellowCardCreated +
                 ", " + final_redCardCreated +
                 ", " + final_numTechFouls +
-                ", " + final_numRegFouls
-                ;
+                ", " + final_numRegFouls +
+                ", " + final_zone
+
+        ;
     }
 }
 

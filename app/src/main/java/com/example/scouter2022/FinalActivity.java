@@ -46,6 +46,8 @@ public class FinalActivity extends AppCompatActivity {
     private GridLayout disqualifiedGrid;
     private ConstraintLayout foulsConstraint;
     private ConstraintLayout winningConstraint;
+    private ConstraintLayout zoneContstraint;
+
 
     private TextView foulsTextView;
     private TextView techTextView;
@@ -60,11 +62,20 @@ public class FinalActivity extends AppCompatActivity {
     private int numFouls,numTech;
     
     private ImageView foulsPlusBtn, foulsMinusBtn, techPlusBtn, techMinusBtn;
+    private ImageView zoneClearBtn1;
+    private TextView zoneClearBtn2;
+
     private CheckBox foulsCheck, disabledCheck, disqualifiedCheck;
     private RadioGroup winning_RG;
     private RadioButton redWinBtn;
     private RadioButton blueWinBtn;
     private RadioButton tieBtn;
+    private RadioGroup zone_RG;
+    private RadioButton zone1btn;
+    private RadioButton zone2btn;
+    private RadioButton zone3btn;
+    private RadioButton zone4btn;
+
 
     private Button showEdit;
     private TransferCode tcode;
@@ -77,7 +88,11 @@ public class FinalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try{
+            this.getSupportActionBar().hide();}
+        catch(NullPointerException e){
+        }
         allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
         finalTeamNumber = findViewById(R.id.finalTeamNumTextView);
         finalMatchNumber = findViewById(R.id.finalMatchNumTextView);
@@ -104,7 +119,6 @@ public class FinalActivity extends AppCompatActivity {
         yellowCardCheckBox = findViewById(R.id.yellowCardCheckBox);
         redCardCheckBox = findViewById(R.id.redCardCheckBox);
 
-
         techTextView = findViewById(R.id.autoHTS);
         techMinusBtn = findViewById(R.id.autoHTSM);
         techPlusBtn = findViewById(R.id.autoHTSP);
@@ -121,9 +135,17 @@ public class FinalActivity extends AppCompatActivity {
         winning_RG = findViewById(R.id.finalWinningAlliance_RG);
         redWinBtn = findViewById(R.id.finalRedWinBtn);
         blueWinBtn = findViewById(R.id.finalBlueWinBtn);
-        tieBtn = findViewById(R.id.finalDrawWinBtn);
+        tieBtn = findViewById(R.id.finalTieBtn);
         showEdit = findViewById(R.id.showEditShotsBtn);
 
+        zone_RG = findViewById(R.id.finalZone_RG);
+        zone1btn = findViewById(R.id.finalZone1Btn);
+        zone2btn = findViewById(R.id.finalZone2Btn);
+        zone3btn = findViewById(R.id.finalZone3Btn);
+        zone4btn = findViewById(R.id.finalZone4Btn);
+        zoneClearBtn1 = findViewById(R.id.clear_zone);
+        zoneClearBtn2 = findViewById(R.id.zoneClearText);
+        zoneContstraint = findViewById(R.id.zoneSelectionLayout);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -283,7 +305,7 @@ public class FinalActivity extends AppCompatActivity {
                     blueWinBtn.setAlpha(1.0f);
                     saveMatch();
                 }
-                else if (checkedId == R.id.finalDrawWinBtn) {
+                else if (checkedId == R.id.finalTieBtn) {
                     Log.i(TAG, "winning_RG: finalTieWin");
                     if (tcode.getIsRed()==0){
                         tcode.setFinal_winningAlliance(2); // Tie
@@ -299,6 +321,51 @@ public class FinalActivity extends AppCompatActivity {
 
             }
         });
+        zone_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // 1 = Home Win     Away Loss
+                // 0 = Home Loss    Away Win
+                // 2 = Tie          Tie
+
+                if (checkedId == R.id.finalZone1Btn) {
+                    Log.i(TAG, "zone_RG: finalZone1Btn");
+                    tcode.setFinal_zone(1);
+                    zone1btn.setAlpha(1.0f);
+                    zone2btn.setAlpha(0.5f);
+                    zone3btn.setAlpha(0.5f);
+                    zone4btn.setAlpha(0.5f);
+                    saveMatch();
+                } else if (checkedId == R.id.finalZone2Btn) {
+                    Log.i(TAG, "zone_RG: finalZone2Btn");
+                    tcode.setFinal_zone(2);
+                    zone1btn.setAlpha(0.5f);
+                    zone2btn.setAlpha(1.0f);
+                    zone3btn.setAlpha(0.5f);
+                    zone4btn.setAlpha(0.5f);
+                    saveMatch();
+                }
+                else if (checkedId == R.id.finalZone3Btn) {
+                    Log.i(TAG, "zone_RG: finalZone3Btn");
+                    tcode.setFinal_zone(3);
+                    zone1btn.setAlpha(0.5f);
+                    zone2btn.setAlpha(0.5f);
+                    zone3btn.setAlpha(1.0f);
+                    zone4btn.setAlpha(0.5f);
+                    saveMatch();
+                }
+                else if (checkedId == R.id.finalZone4Btn) {
+                    Log.i(TAG, "zone_RG: finalZone4Btn");
+                    tcode.setFinal_zone(4);
+                    zone1btn.setAlpha(0.5f);
+                    zone2btn.setAlpha(0.5f);
+                    zone3btn.setAlpha(0.5f);
+                    zone4btn.setAlpha(1.0f);
+                    saveMatch();
+                }
+
+            }
+        });
         clearBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -307,6 +374,18 @@ public class FinalActivity extends AppCompatActivity {
                 redWinBtn.setAlpha(1.0f);
                 blueWinBtn.setAlpha(1.0f);
                 tieBtn.setAlpha(1.0f);
+                saveMatch();}
+        });
+
+        zoneClearBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tcode.setFinal_zone(0);
+                zone_RG.clearCheck();
+                zone1btn.setAlpha(1.0f);
+                zone2btn.setAlpha(1.0f);
+                zone3btn.setAlpha(1.0f);
+                zone4btn.setAlpha(1.0f);
                 saveMatch();}
         });
 
@@ -884,7 +963,7 @@ public class FinalActivity extends AppCompatActivity {
                 redWinBtn.setAlpha(1.0f);
             }
             else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalDrawWinBtn);
+                winning_RG.check(R.id.finalTieBtn);
                 redWinBtn.setAlpha(0.5f);
                 blueWinBtn.setAlpha(0.5f);
                 tieBtn.setAlpha(1.0f);
@@ -904,11 +983,42 @@ public class FinalActivity extends AppCompatActivity {
                 blueWinBtn.setAlpha(1.0f);
             }
             else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalDrawWinBtn);
+                winning_RG.check(R.id.finalTieBtn);
                 redWinBtn.setAlpha(0.5f);
                 blueWinBtn.setAlpha(0.5f);
                 tieBtn.setAlpha(1.0f);
             }
+        }
+
+        if(tcode.getFinal_zone() == 1){
+            zone1btn.setAlpha(1.0f);
+            zone2btn.setAlpha(0.5f);
+            zone3btn.setAlpha(0.5f);
+            zone4btn.setAlpha(0.5f);
+        }
+        else if(tcode.getFinal_zone() == 2){
+            zone1btn.setAlpha(0.5f);
+            zone2btn.setAlpha(1.0f);
+            zone3btn.setAlpha(0.5f);
+            zone4btn.setAlpha(0.5f);
+        }
+        else if(tcode.getFinal_zone() == 3){
+            zone1btn.setAlpha(0.5f);
+            zone2btn.setAlpha(0.5f);
+            zone3btn.setAlpha(1.0f);
+            zone4btn.setAlpha(0.5f);
+        }
+        else if(tcode.getFinal_zone() == 4){
+            zone1btn.setAlpha(0.5f);
+            zone2btn.setAlpha(0.5f);
+            zone3btn.setAlpha(0.5f);
+            zone4btn.setAlpha(1.0f);
+        }
+        else{
+            zone1btn.setAlpha(1.0f);
+            zone2btn.setAlpha(1.0f);
+            zone3btn.setAlpha(1.0f);
+            zone4btn.setAlpha(1.0f);
         }
     }
     private void setAllValuesFromObject() {
@@ -919,22 +1029,24 @@ public class FinalActivity extends AppCompatActivity {
         if (isRed == 1) {
             finalAllianceColor.setText("Red Alliance");
             topView.setScaleX(-1);
-            foulsGrid.setBackgroundResource(R.drawable.card_bg);
-            disabledGrid.setBackgroundResource(R.drawable.card_bg);
-            disqualifiedGrid.setBackgroundResource(R.drawable.card_bg);
-            foulsConstraint.setBackgroundResource(R.drawable.card_bg);
-            winningConstraint.setBackgroundResource(R.drawable.card_bg);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view);
-            foulView.setBackgroundResource(R.drawable.red_button_bg);
-            techView.setBackgroundResource(R.drawable.red_button_bg);
+            foulsGrid.setBackgroundResource(R.drawable.card_bg_red);
+            disabledGrid.setBackgroundResource(R.drawable.card_bg_red);
+            disqualifiedGrid.setBackgroundResource(R.drawable.card_bg_red);
+            foulsConstraint.setBackgroundResource(R.drawable.card_bg_red);
+            winningConstraint.setBackgroundResource(R.drawable.card_bg_red);
+            zoneContstraint.setBackgroundResource(R.drawable.card_bg_red);
+            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
+            foulView.setBackgroundResource(R.drawable.button_bg_red);
+            techView.setBackgroundResource(R.drawable.button_bg_red);
 
 
-            yellowCardCheckBox.setBackgroundResource(R.drawable.red_button_bg);
-            redCardCheckBox.setBackgroundResource(R.drawable.red_button_bg);
-            blueWinBtn.setBackgroundResource(R.drawable.red_button_bg);
-            redWinBtn.setBackgroundResource(R.drawable.red_button_bg);
-            clearBtn1.setBackgroundResource(R.drawable.red_button_bg);
-            tieBtn.setBackgroundResource(R.drawable.red_button_bg);
+            yellowCardCheckBox.setBackgroundResource(R.drawable.button_bg_red);
+            redCardCheckBox.setBackgroundResource(R.drawable.button_bg_red);
+            blueWinBtn.setBackgroundResource(R.drawable.button_bg_red);
+            redWinBtn.setBackgroundResource(R.drawable.button_bg_red);
+            clearBtn1.setBackgroundResource(R.drawable.button_bg_red);
+            zoneClearBtn1.setBackgroundResource(R.drawable.button_bg_red);
+            tieBtn.setBackgroundResource(R.drawable.button_bg_red);
             finalAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
 
         } else {
@@ -945,16 +1057,18 @@ public class FinalActivity extends AppCompatActivity {
             disqualifiedGrid.setBackgroundResource(R.drawable.card_bg_blue);
             foulsConstraint.setBackgroundResource(R.drawable.card_bg_blue);
             winningConstraint.setBackgroundResource(R.drawable.card_bg_blue);
+            zoneContstraint.setBackgroundResource(R.drawable.card_bg_blue);
             phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
 
-            foulView.setBackgroundResource(R.drawable.blue_button_bg);
-            techView.setBackgroundResource(R.drawable.blue_button_bg);
-            yellowCardCheckBox.setBackgroundResource(R.drawable.blue_button_bg);
-            redCardCheckBox.setBackgroundResource(R.drawable.blue_button_bg);
-            blueWinBtn.setBackgroundResource(R.drawable.blue_button_bg);
-            redWinBtn.setBackgroundResource(R.drawable.blue_button_bg);
-            clearBtn1.setBackgroundResource(R.drawable.blue_button_bg);
-            tieBtn.setBackgroundResource(R.drawable.blue_button_bg);
+            foulView.setBackgroundResource(R.drawable.button_bg_blue);
+            techView.setBackgroundResource(R.drawable.button_bg_blue);
+            yellowCardCheckBox.setBackgroundResource(R.drawable.button_bg_blue);
+            redCardCheckBox.setBackgroundResource(R.drawable.button_bg_blue);
+            blueWinBtn.setBackgroundResource(R.drawable.button_bg_blue);
+            redWinBtn.setBackgroundResource(R.drawable.button_bg_blue);
+            clearBtn1.setBackgroundResource(R.drawable.button_bg_blue);
+            zoneClearBtn2.setBackgroundResource(R.drawable.button_bg_blue);
+            tieBtn.setBackgroundResource(R.drawable.button_bg_blue);
             finalAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
         }
     }
@@ -1002,7 +1116,7 @@ public class FinalActivity extends AppCompatActivity {
                 redWinBtn.setAlpha(1.0f);
             }
             else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalDrawWinBtn);
+                winning_RG.check(R.id.finalTieBtn);
                 redWinBtn.setAlpha(0.5f);
                 blueWinBtn.setAlpha(0.5f);
                 tieBtn.setAlpha(1.0f);
@@ -1022,11 +1136,41 @@ public class FinalActivity extends AppCompatActivity {
                 blueWinBtn.setAlpha(1.0f);
             }
             else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalDrawWinBtn);
+                winning_RG.check(R.id.finalTieBtn);
                 redWinBtn.setAlpha(0.5f);
                 blueWinBtn.setAlpha(0.5f);
                 tieBtn.setAlpha(1.0f);
             }
+        }
+        if(tcode.getFinal_zone() == 1){
+            zone1btn.setAlpha(1.0f);
+            zone2btn.setAlpha(0.5f);
+            zone3btn.setAlpha(0.5f);
+            zone4btn.setAlpha(0.5f);
+        }
+        else if(tcode.getFinal_zone() == 2){
+            zone1btn.setAlpha(0.5f);
+            zone2btn.setAlpha(1.0f);
+            zone3btn.setAlpha(0.5f);
+            zone4btn.setAlpha(0.5f);
+        }
+        else if(tcode.getFinal_zone() == 3){
+            zone1btn.setAlpha(0.5f);
+            zone2btn.setAlpha(0.5f);
+            zone3btn.setAlpha(1.0f);
+            zone4btn.setAlpha(0.5f);
+        }
+        else if(tcode.getFinal_zone() == 4){
+            zone1btn.setAlpha(0.5f);
+            zone2btn.setAlpha(0.5f);
+            zone3btn.setAlpha(0.5f);
+            zone4btn.setAlpha(1.0f);
+        }
+        else{
+            zone1btn.setAlpha(1.0f);
+            zone2btn.setAlpha(1.0f);
+            zone3btn.setAlpha(1.0f);
+            zone4btn.setAlpha(1.0f);
         }
 
     }

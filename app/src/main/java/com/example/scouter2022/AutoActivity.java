@@ -79,7 +79,11 @@ public class AutoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auto);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try{
+            this.getSupportActionBar().hide();}
+        catch(NullPointerException e){
+        }
         allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
         autoTeamNumber = findViewById(R.id.qrTeamNumTextView);
         autoMatchNumber = findViewById(R.id.qrMatchNumTextView);
@@ -358,15 +362,15 @@ public class AutoActivity extends AppCompatActivity {
         if (isRed == 1) {
             autoAllianceColor.setText("Red Alliance");
             topView.setScaleX(-1);
-            shootingGrid.setBackgroundResource(R.drawable.card_bg);
-            tarmacGrid.setBackgroundResource(R.drawable.card_bg);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view);
-            scored_home_top_view.setBackgroundResource(R.drawable.card_bg);
-            scored_home_bot_view.setBackgroundResource(R.drawable.card_bg);
-            missed_home_top_view.setBackgroundResource(R.drawable.card_bg);
-            missed_home_bot_view.setBackgroundResource(R.drawable.card_bg);
-            human_scored_view.setBackgroundResource(R.drawable.card_bg);
-            human_missed_view.setBackgroundResource(R.drawable.card_bg);
+            shootingGrid.setBackgroundResource(R.drawable.card_bg_red);
+            tarmacGrid.setBackgroundResource(R.drawable.card_bg_red);
+            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
+            scored_home_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            scored_home_bot_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_home_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_red);
+            human_scored_view.setBackgroundResource(R.drawable.card_bg_red);
+            human_missed_view.setBackgroundResource(R.drawable.card_bg_red);
             scored_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
             scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
@@ -385,10 +389,10 @@ public class AutoActivity extends AppCompatActivity {
             missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             human_scored_view.setBackgroundResource(R.drawable.card_bg_blue);
             human_missed_view.setBackgroundResource(R.drawable.card_bg_blue);
-            scored_away_top_view.setBackgroundResource(R.drawable.card_bg);
-            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg);
-            missed_away_top_view.setBackgroundResource(R.drawable.card_bg);
-            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg);
+            scored_away_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_away_top_view.setBackgroundResource(R.drawable.card_bg_red);
+            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
             autoAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
 
         }

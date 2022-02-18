@@ -10,7 +10,7 @@
       android:id="@+id/softwareTitleID"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:background="@drawable/card_bg"
+      android:background="@drawable/card_bg_red"
       android:padding="3dp"
       android:text="@string/software_app_title"
       android:textAlignment="center"
