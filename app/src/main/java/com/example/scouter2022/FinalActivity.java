@@ -1022,7 +1022,7 @@ public class FinalActivity extends AppCompatActivity {
         }
     }
     private void setAllValuesFromObject() {
-        numFouls = tcode.getFinal_yellowCardCreated();
+        numFouls = tcode.getFinal_foulsCreated();
         numTech = tcode.getFinal_numTechFouls();
     }
     private void setComponentBackground(int isRed) {

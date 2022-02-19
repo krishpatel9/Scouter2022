@@ -503,22 +503,25 @@ public class TransferCode {
         tc.auto_shoot_attempt = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
 
-        tc.auto_allianceCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset++;
         tc.auto_allianceCargo_top_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+        tc.auto_allianceCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+        tc.auto_allianceCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+        tc.auto_allianceCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+
+        tc.auto_opponentCargo_top_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
         tc.auto_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.auto_opponentCargo_top_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
-        tc.auto_allianceCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset++;
-        tc.auto_allianceCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.auto_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
         tc.auto_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.auto_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
+
+
         tc.auto_humanMissed = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
         tc.auto_humanScored = Integer.parseInt(src.substring(offset, offset + 6), 2);
@@ -526,22 +529,23 @@ public class TransferCode {
 
         tc.tele_shoot_attempt = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
-        tc.tele_allianceCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset++;
         tc.tele_allianceCargo_top_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.tele_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.tele_allianceCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+        tc.tele_allianceCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+        tc.tele_allianceCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
         tc.tele_opponentCargo_top_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.tele_allianceCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset++;
-        tc.tele_allianceCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
-        tc.tele_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.tele_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
         tc.tele_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
+        tc.tele_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
+
 
 
         tc.endgame_attempt = Integer.parseInt(src.substring(offset, offset + 1), 2);
@@ -575,6 +579,7 @@ public class TransferCode {
         offset = offset + 6;
 
     }
+
     public static void main(String[] args) {
         TransferCode t = new TransferCode();
         t.setTeamNumber(75);
@@ -726,6 +731,50 @@ public class TransferCode {
                 ", final_numRegFouls=" + final_numRegFouls +
                 ", final_zone=" + final_zone +
                 '}';
+    }
+    {
+        String msg = "";
+        msg += ", matchNumber= " + matchNumber +"\n";
+        msg += "teamNumber= " + teamNumber + "\n";
+                msg += ", isRed= " + isRed +"\n";
+                msg += ", auto_cross_line= " + auto_cross_line +"\n";
+                msg += ", auto_shoot_attempt= " + auto_shoot_attempt +"\n";
+                msg += ", auto_allianceCargo_bot_s= " + auto_allianceCargo_bot_s +"\n";
+                msg += ", auto_allianceCargo_top_s= " + auto_allianceCargo_top_s +"\n";
+                msg += ", auto_opponentCargo_bot_s= " + auto_opponentCargo_bot_s +"\n";
+                msg += ", auto_opponentCargo_top_s= " + auto_opponentCargo_top_s +"\n";
+                msg += ", auto_allianceCargo_bot_f= " + auto_allianceCargo_bot_f +"\n";
+                msg += ", auto_allianceCargo_top_f= " + auto_allianceCargo_top_f +"\n";
+                msg += ", auto_opponentCargo_bot_f= " + auto_opponentCargo_bot_f +"\n";
+                msg += ", auto_opponentCargo_top_f= " + auto_opponentCargo_top_f +"\n";
+                msg += ", auto_humanMissed= " + auto_humanMissed +"\n";
+                msg += ", auto_humanScored= " + auto_humanScored +"\n";
+
+                msg += ", tele_shoot_attempt= " + tele_shoot_attempt +"\n";
+                msg += ", tele_allianceCargo_bot_s= " + tele_allianceCargo_bot_s +"\n";
+                msg += ", tele_allianceCargo_top_s= " + tele_allianceCargo_top_s +"\n";
+                msg += ", tele_opponentCargo_bot_s= " + tele_opponentCargo_bot_s +"\n";
+                msg += ", tele_opponentCargo_bot_s= " + tele_opponentCargo_top_s +"\n";
+                msg += ", tele_allianceCargo_bot_f= " + tele_allianceCargo_bot_f +"\n";
+                msg += ", tele_allianceCargo_top_f= " + tele_allianceCargo_top_f +"\n";
+                msg += ", tele_opponentCargo_bot_f= " + tele_opponentCargo_bot_f +"\n";
+                msg += ", tele_opponentCargo_top_f= " + tele_opponentCargo_top_f +"\n";
+
+                msg += ", endgame_attempt= " + endgame_attempt +"\n";
+                msg += ", endgame_park= " + endgame_park +"\n";
+                msg += ", endgame_hang= " + endgame_hang +"\n";
+                msg += ", endgame_ringContact= " + endgame_ringContact +"\n";
+                msg += ", endgame_ringFinish= " + endgame_ringFinish +"\n";
+
+                msg += ", final_winningAlliance= " + final_winningAlliance +"\n";
+                msg += ", final_disabled= " + final_disabled +"\n";
+                msg += ", final_disqualified= " + final_disqualified +"\n";
+                msg += ", final_foulsCreated= " + final_foulsCreated +"\n";
+                msg += ", final_yellowCardCreated= " + final_yellowCardCreated +"\n";
+                msg += ", final_redCardCreated= " + final_redCardCreated +"\n";
+                msg += ", final_numTechFouls= " + final_numTechFouls +"\n";
+                msg += ", final_numRegFouls= " + final_numRegFouls +"\n";
+                msg += ", final_zone= " + final_zone +"\n";
     }
     public String toComma() {
         return matchNumber +
