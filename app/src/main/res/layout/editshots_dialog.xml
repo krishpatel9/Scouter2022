@@ -268,7 +268,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
-            android:text="Auto Away Top Success"
+            android:text="Auto Away Balls"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
@@ -288,14 +288,14 @@
             app:layout_row="4">
 
             <ImageView
-                android:id="@+id/autoATSM"
+                android:id="@+id/autoAABM"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
                 android:src="@drawable/remove_black" />
 
             <TextView
-                android:id="@+id/autoATS"
+                android:id="@+id/autoAAB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -305,177 +305,13 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/autoATSP"
+                android:id="@+id/autoAABP"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/add_black" />
 
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:text="Auto Away Bot Success"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_column="0"
-            app:layout_gravity="center_horizontal"
-            app:layout_row="5" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_column="1"
-            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-            app:layout_constraintTop_toBottomOf="@id/finalTechView"
-            app:layout_gravity="center"
-            app:layout_row="5">
-
-            <ImageView
-                android:id="@+id/autoABSM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/remove_black" />
-
-            <TextView
-                android:id="@+id/autoABS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/autoABSP"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_black" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:text="Auto Away Top Fail"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_column="0"
-            app:layout_gravity="center_horizontal"
-            app:layout_row="6" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_column="1"
-            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-            app:layout_constraintTop_toBottomOf="@id/finalTechView"
-            app:layout_gravity="center"
-            app:layout_row="6">
-
-            <ImageView
-                android:id="@+id/autoATFM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/remove_black" />
-
-            <TextView
-                android:id="@+id/autoATF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/autoATFP"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_black" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:text="Auto Away Bot Fail"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_column="0"
-            app:layout_gravity="center_horizontal"
-            app:layout_row="7" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_column="1"
-            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-            app:layout_constraintTop_toBottomOf="@id/finalTechView"
-            app:layout_gravity="center"
-            app:layout_row="7">
-
-            <ImageView
-                android:id="@+id/autoABFM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/remove_black" />
-
-            <TextView
-                android:id="@+id/autoABF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/autoABFP"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_black" />
 
         </LinearLayout>
 
@@ -845,7 +681,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
-            android:text="Tele Away Top Success"
+            android:text="Tele Away Balls"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
@@ -865,14 +701,14 @@
             app:layout_row="4">
 
             <ImageView
-                android:id="@+id/teleATSM"
+                android:id="@+id/teleAABM"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
                 android:src="@drawable/remove_black" />
 
             <TextView
-                android:id="@+id/teleATS"
+                android:id="@+id/teleAAB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -882,177 +718,13 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/teleATSP"
+                android:id="@+id/teleAABP"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/add_black" />
 
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:text="Tele Away Bot Success"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_column="0"
-            app:layout_gravity="center_horizontal"
-            app:layout_row="5" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_column="1"
-            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-            app:layout_constraintTop_toBottomOf="@id/finalTechView"
-            app:layout_gravity="center"
-            app:layout_row="5">
-
-            <ImageView
-                android:id="@+id/teleABSM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/remove_black" />
-
-            <TextView
-                android:id="@+id/teleABS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/teleABSP"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_black" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:text="Tele Away Top Fail"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_column="0"
-            app:layout_gravity="center_horizontal"
-            app:layout_row="6" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_column="1"
-            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-            app:layout_constraintTop_toBottomOf="@id/finalTechView"
-            app:layout_gravity="center"
-            app:layout_row="6">
-
-            <ImageView
-                android:id="@+id/teleATFM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/remove_black" />
-
-            <TextView
-                android:id="@+id/teleATF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/teleATFP"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_black" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:text="Tele Away Bot Fail"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_column="0"
-            app:layout_gravity="center_horizontal"
-            app:layout_row="7" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_column="1"
-            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-            app:layout_constraintTop_toBottomOf="@id/finalTechView"
-            app:layout_gravity="center"
-            app:layout_row="7">
-
-            <ImageView
-                android:id="@+id/teleABFM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                android:src="@drawable/remove_black" />
-
-            <TextView
-                android:id="@+id/teleABF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/teleABFP"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/add_black" />
 
         </LinearLayout>
 

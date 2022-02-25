@@ -14,13 +14,13 @@ public class TransferCode {
 
     private int auto_allianceCargo_top_s = 0; // 4 bits
     private int auto_allianceCargo_bot_s = 0; // 4 bits
-    private int auto_opponentCargo_top_s = 0; // 4 bits
-    private int auto_opponentCargo_bot_s = 0; // 4 bits
+    private int auto_away_balls = 0; // 4 bits
+//    private int auto_opponentCargo_bot_s = 0; // 4 bits
 
     private int auto_allianceCargo_top_f = 0; // 4 bits
     private int auto_allianceCargo_bot_f = 0; // 4 bits
-    private int auto_opponentCargo_top_f = 0; // 4 bits
-    private int auto_opponentCargo_bot_f = 0; // 4 bits
+//    private int auto_opponentCargo_top_f = 0; // 4 bits
+//    private int auto_opponentCargo_bot_f = 0; // 4 bits
 
     private int auto_humanMissed = 0;
     private int auto_humanScored = 0;
@@ -28,13 +28,13 @@ public class TransferCode {
     private int tele_shoot_attempt = 0;   // 1 bit
     private int tele_allianceCargo_top_s = 0; // 4 bits
     private int tele_allianceCargo_bot_s = 0; // 4 bits
-    private int tele_opponentCargo_top_s = 0; // 4 bits
-    private int tele_opponentCargo_bot_s = 0; // 4 bits
+    private int tele_away_balls = 0; // 4 bits
+//    private int tele_opponentCargo_bot_s = 0; // 4 bits
 
     private int tele_allianceCargo_top_f = 0; // 4 bits
     private int tele_allianceCargo_bot_f = 0; // 4 bits
-    private int tele_opponentCargo_top_f = 0; // 4 bits
-    private int tele_opponentCargo_bot_f = 0; // 4 bits
+//    private int tele_opponentCargo_top_f = 0; // 4 bits
+//    private int tele_opponentCargo_bot_f = 0; // 4 bits
 
     private int endgame_attempt = 0;   // 1 bit
     private int endgame_park = 0;        // 1 bits
@@ -142,21 +142,21 @@ public class TransferCode {
         this.auto_allianceCargo_bot_s = auto_allianceCargo_bot_s;
     }
 
-    public int getAuto_opponentCargo_top_s() {
-        return auto_opponentCargo_top_s;
+    public int getAuto_away_balls() {
+        return auto_away_balls;
     }
 
-    public void setAuto_opponentCargo_top_s(int auto_opponentCargo_top_s) {
-        this.auto_opponentCargo_top_s = auto_opponentCargo_top_s;
+    public void setAuto_away_balls(int auto_away_balls) {
+        this.auto_away_balls = auto_away_balls;
     }
 
-    public int getAuto_opponentCargo_bot_s() {
-        return auto_opponentCargo_bot_s;
-    }
-
-    public void setAuto_opponentCargo_bot_s(int auto_opponentCargo_bot_s) {
-        this.auto_opponentCargo_bot_s = auto_opponentCargo_bot_s;
-    }
+//    public int getAuto_opponentCargo_bot_s() {
+//        return auto_opponentCargo_bot_s;
+//    }
+//
+//    public void setAuto_opponentCargo_bot_s(int auto_opponentCargo_bot_s) {
+//        this.auto_opponentCargo_bot_s = auto_opponentCargo_bot_s;
+//    }
 
     public int getAuto_allianceCargo_top_f() {
         return auto_allianceCargo_top_f;
@@ -166,21 +166,21 @@ public class TransferCode {
         this.auto_allianceCargo_top_f = auto_allianceCargo_top_f;
     }
 
-    public int getAuto_opponentCargo_top_f() {
-        return auto_opponentCargo_top_f;
-    }
-
-    public void setAuto_opponentCargo_top_f(int auto_opponentCargo_top_f) {
-        this.auto_opponentCargo_top_f = auto_opponentCargo_top_f;
-    }
-
-    public int getAuto_opponentCargo_bot_f() {
-        return auto_opponentCargo_bot_f;
-    }
-
-    public void setAuto_opponentCargo_bot_f(int auto_opponentCargo_bot_f) {
-        this.auto_opponentCargo_bot_f = auto_opponentCargo_bot_f;
-    }
+//    public int getAuto_opponentCargo_top_f() {
+//        return auto_opponentCargo_top_f;
+//    }
+//
+//    public void setAuto_opponentCargo_top_f(int auto_opponentCargo_top_f) {
+//        this.auto_opponentCargo_top_f = auto_opponentCargo_top_f;
+//    }
+//
+//    public int getAuto_opponentCargo_bot_f() {
+//        return auto_opponentCargo_bot_f;
+//    }
+//
+//    public void setAuto_opponentCargo_bot_f(int auto_opponentCargo_bot_f) {
+//        this.auto_opponentCargo_bot_f = auto_opponentCargo_bot_f;
+//    }
 
     public int getTele_shoot_attempt() {
         return tele_shoot_attempt;
@@ -206,21 +206,21 @@ public class TransferCode {
         this.tele_allianceCargo_bot_s = tele_allianceCargo_bot_s;
     }
 
-    public int getTele_opponentCargo_top_s() {
-        return tele_opponentCargo_top_s;
+    public int getTele_away_balls() {
+        return tele_away_balls;
     }
 
-    public void setTele_opponentCargo_top_s(int tele_opponentCargo_top_s) {
-        this.tele_opponentCargo_top_s = tele_opponentCargo_top_s;
+    public void setTele_away_balls(int tele_away_balls) {
+        this.tele_away_balls = tele_away_balls;
     }
 
-    public int getTele_opponentCargo_bot_s() {
-        return tele_opponentCargo_bot_s;
-    }
-
-    public void setTele_opponentCargo_bot_s(int tele_opponentCargo_bot_s) {
-        this.tele_opponentCargo_bot_s = tele_opponentCargo_bot_s;
-    }
+//    public int getTele_opponentCargo_bot_s() {
+//        return tele_opponentCargo_bot_s;
+//    }
+//
+//    public void setTele_opponentCargo_bot_s(int tele_opponentCargo_bot_s) {
+//        this.tele_opponentCargo_bot_s = tele_opponentCargo_bot_s;
+//    }
 
     public int getTele_allianceCargo_top_f() {
         return tele_allianceCargo_top_f;
@@ -238,21 +238,21 @@ public class TransferCode {
         this.tele_allianceCargo_bot_f = tele_allianceCargo_bot_f;
     }
 
-    public int getTele_opponentCargo_top_f() {
-        return tele_opponentCargo_top_f;
-    }
-
-    public void setTele_opponentCargo_top_f(int tele_opponentCargo_top_f) {
-        this.tele_opponentCargo_top_f = tele_opponentCargo_top_f;
-    }
-
-    public int getTele_opponentCargo_bot_f() {
-        return tele_opponentCargo_bot_f;
-    }
-
-    public void setTele_opponentCargo_bot_f(int tele_opponentCargo_bot_f) {
-        this.tele_opponentCargo_bot_f = tele_opponentCargo_bot_f;
-    }
+//    public int getTele_opponentCargo_top_f() {
+//        return tele_opponentCargo_top_f;
+//    }
+//
+//    public void setTele_opponentCargo_top_f(int tele_opponentCargo_top_f) {
+//        this.tele_opponentCargo_top_f = tele_opponentCargo_top_f;
+//    }
+//
+//    public int getTele_opponentCargo_bot_f() {
+//        return tele_opponentCargo_bot_f;
+//    }
+//
+//    public void setTele_opponentCargo_bot_f(int tele_opponentCargo_bot_f) {
+//        this.tele_opponentCargo_bot_f = tele_opponentCargo_bot_f;
+//    }
 
     public int getEndgame_attempt() {
         return endgame_attempt;
@@ -418,10 +418,10 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(auto_allianceCargo_bot_s).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_allianceCargo_top_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_allianceCargo_bot_f).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(auto_opponentCargo_top_s).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_s).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(auto_opponentCargo_top_f).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_f).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(auto_away_balls).substring(26, 32);
+//        s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_s).substring(26, 32);
+//        s += TransferCode.GetIntBinaryString(auto_opponentCargo_top_f).substring(26, 32);
+//        s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_humanMissed).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_humanScored).substring(26, 32);
 
@@ -431,10 +431,10 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(tele_allianceCargo_bot_s).substring(26, 32);
         s += TransferCode.GetIntBinaryString(tele_allianceCargo_top_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(tele_allianceCargo_bot_f).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(tele_opponentCargo_top_s).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(tele_opponentCargo_bot_s).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(tele_opponentCargo_top_f).substring(26, 32);
-        s += TransferCode.GetIntBinaryString(tele_opponentCargo_bot_f).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(tele_away_balls).substring(26, 32);
+//        s += TransferCode.GetIntBinaryString(tele_opponentCargo_bot_s).substring(26, 32);
+//        s += TransferCode.GetIntBinaryString(tele_opponentCargo_top_f).substring(26, 32);
+//        s += TransferCode.GetIntBinaryString(tele_opponentCargo_bot_f).substring(26, 32);
 
 
         s += TransferCode.GetIntBinaryString(endgame_attempt).substring(31, 32);
@@ -512,14 +512,14 @@ public class TransferCode {
         tc.auto_allianceCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
 
-        tc.auto_opponentCargo_top_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.auto_away_balls = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.auto_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
-        tc.auto_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
-        tc.auto_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
+//        tc.auto_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+//        offset = offset + 6;
+//        tc.auto_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+//        offset = offset + 6;
+//        tc.auto_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+//        offset = offset + 6;
 
 
         tc.auto_humanMissed = Integer.parseInt(src.substring(offset, offset + 6), 2);
@@ -537,14 +537,14 @@ public class TransferCode {
         offset = offset + 6;
         tc.tele_allianceCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.tele_opponentCargo_top_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        tc.tele_away_balls = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-        tc.tele_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
-        tc.tele_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
-        tc.tele_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-        offset = offset + 6;
+//        tc.tele_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
+//        offset = offset + 6;
+//        tc.tele_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+//        offset = offset + 6;
+//        tc.tele_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
+//        offset = offset + 6;
 
 
 
@@ -612,18 +612,18 @@ public class TransferCode {
             return false;
         if (auto_allianceCargo_top_s != tc.auto_allianceCargo_top_s)
             return false;
-        if (auto_opponentCargo_bot_s != tc.auto_opponentCargo_bot_s)
-            return false;
-        if (auto_opponentCargo_top_s != tc.auto_opponentCargo_top_s)
+//        if (auto_opponentCargo_bot_s != tc.auto_opponentCargo_bot_s)
+//            return false;
+        if (auto_away_balls != tc.auto_away_balls)
             return false;
         if (auto_allianceCargo_bot_f != tc.auto_allianceCargo_bot_f)
             return false;
         if (auto_allianceCargo_top_f != tc.auto_allianceCargo_top_f)
             return false;
-        if (auto_opponentCargo_bot_f != tc.auto_opponentCargo_bot_f)
-            return false;
-        if (auto_opponentCargo_top_f != tc.auto_opponentCargo_top_f)
-            return false;
+//        if (auto_opponentCargo_bot_f != tc.auto_opponentCargo_bot_f)
+//            return false;
+//        if (auto_opponentCargo_top_f != tc.auto_opponentCargo_top_f)
+//            return false;
         if (auto_humanMissed != tc.auto_humanMissed)
             return false;
         if (auto_humanScored != tc.auto_humanScored)
@@ -635,18 +635,18 @@ public class TransferCode {
             return false;
         if (tele_allianceCargo_top_s != tc.tele_allianceCargo_top_s)
             return false;
-        if (tele_opponentCargo_bot_s != tc.tele_opponentCargo_bot_s)
-            return false;
-        if (tele_opponentCargo_top_s != tc.tele_opponentCargo_top_s)
+//        if (tele_opponentCargo_bot_s != tc.tele_opponentCargo_bot_s)
+//            return false;
+        if (tele_away_balls != tc.tele_away_balls)
             return false;
         if (tele_allianceCargo_bot_f != tc.tele_allianceCargo_bot_f)
             return false;
         if (tele_allianceCargo_top_f != tc.tele_allianceCargo_top_f)
             return false;
-        if (tele_opponentCargo_bot_f != tc.tele_opponentCargo_bot_f)
-            return false;
-        if (tele_opponentCargo_top_f != tc.tele_opponentCargo_top_f)
-            return false;
+//        if (tele_opponentCargo_bot_f != tc.tele_opponentCargo_bot_f)
+//            return false;
+//        if (tele_opponentCargo_top_f != tc.tele_opponentCargo_top_f)
+//            return false;
 
 
         if (endgame_attempt != tc.endgame_attempt)
@@ -696,24 +696,24 @@ public class TransferCode {
                 ", auto_shoot_attempt=" + auto_shoot_attempt +
                 ", auto_allianceCargo_bot_s=" + auto_allianceCargo_bot_s +
                 ", auto_allianceCargo_top_s=" + auto_allianceCargo_top_s +
-                ", auto_opponentCargo_bot_s=" + auto_opponentCargo_bot_s +
-                ", auto_opponentCargo_top_s=" + auto_opponentCargo_top_s +
+//                ", auto_opponentCargo_bot_s=" + auto_opponentCargo_bot_s +
+                ", auto_opponentCargo_top_s=" + auto_away_balls +
                 ", auto_allianceCargo_bot_f=" + auto_allianceCargo_bot_f +
                 ", auto_allianceCargo_top_f=" + auto_allianceCargo_top_f +
-                ", auto_opponentCargo_bot_f=" + auto_opponentCargo_bot_f +
-                ", auto_opponentCargo_top_f=" + auto_opponentCargo_top_f +
+//                ", auto_opponentCargo_bot_f=" + auto_opponentCargo_bot_f +
+//                ", auto_opponentCargo_top_f=" + auto_opponentCargo_top_f +
                 ", auto_humanMissed=" + auto_humanMissed +
                 ", auto_humanScored=" + auto_humanScored +
 
                 ", tele_shoot_attempt=" + tele_shoot_attempt +
                 ", tele_allianceCargo_bot_s=" + tele_allianceCargo_bot_s +
                 ", tele_allianceCargo_top_s=" + tele_allianceCargo_top_s +
-                ", tele_opponentCargo_bot_s=" + tele_opponentCargo_bot_s +
-                ", tele_opponentCargo_bot_s=" + tele_opponentCargo_top_s +
+//                ", tele_opponentCargo_bot_s=" + tele_opponentCargo_bot_s +
+                ", tele_opponentCargo_bot_s=" + tele_away_balls +
                 ", tele_allianceCargo_bot_f=" + tele_allianceCargo_bot_f +
                 ", tele_allianceCargo_top_f=" + tele_allianceCargo_top_f +
-                ", tele_opponentCargo_bot_f=" + tele_opponentCargo_bot_f +
-                ", tele_opponentCargo_top_f=" + tele_opponentCargo_top_f +
+//                ", tele_opponentCargo_bot_f=" + tele_opponentCargo_bot_f +
+//                ", tele_opponentCargo_top_f=" + tele_opponentCargo_top_f +
 
                 ", endgame_attempt=" + endgame_attempt +
                 ", endgame_park=" + endgame_park +
@@ -741,24 +741,24 @@ public class TransferCode {
                 msg += ", auto_shoot_attempt= " + auto_shoot_attempt +"\n";
                 msg += ", auto_allianceCargo_bot_s= " + auto_allianceCargo_bot_s +"\n";
                 msg += ", auto_allianceCargo_top_s= " + auto_allianceCargo_top_s +"\n";
-                msg += ", auto_opponentCargo_bot_s= " + auto_opponentCargo_bot_s +"\n";
-                msg += ", auto_opponentCargo_top_s= " + auto_opponentCargo_top_s +"\n";
+//                msg += ", auto_opponentCargo_bot_s= " + auto_opponentCargo_bot_s +"\n";
+                msg += ", auto_opponentCargo_top_s= " + auto_away_balls +"\n";
                 msg += ", auto_allianceCargo_bot_f= " + auto_allianceCargo_bot_f +"\n";
                 msg += ", auto_allianceCargo_top_f= " + auto_allianceCargo_top_f +"\n";
-                msg += ", auto_opponentCargo_bot_f= " + auto_opponentCargo_bot_f +"\n";
-                msg += ", auto_opponentCargo_top_f= " + auto_opponentCargo_top_f +"\n";
+//                msg += ", auto_opponentCargo_bot_f= " + auto_opponentCargo_bot_f +"\n";
+//                msg += ", auto_opponentCargo_top_f= " + auto_opponentCargo_top_f +"\n";
                 msg += ", auto_humanMissed= " + auto_humanMissed +"\n";
                 msg += ", auto_humanScored= " + auto_humanScored +"\n";
 
                 msg += ", tele_shoot_attempt= " + tele_shoot_attempt +"\n";
                 msg += ", tele_allianceCargo_bot_s= " + tele_allianceCargo_bot_s +"\n";
                 msg += ", tele_allianceCargo_top_s= " + tele_allianceCargo_top_s +"\n";
-                msg += ", tele_opponentCargo_bot_s= " + tele_opponentCargo_bot_s +"\n";
-                msg += ", tele_opponentCargo_bot_s= " + tele_opponentCargo_top_s +"\n";
+//                msg += ", tele_opponentCargo_bot_s= " + tele_opponentCargo_bot_s +"\n";
+                msg += ", tele_opponentCargo_bot_s= " + tele_away_balls +"\n";
                 msg += ", tele_allianceCargo_bot_f= " + tele_allianceCargo_bot_f +"\n";
                 msg += ", tele_allianceCargo_top_f= " + tele_allianceCargo_top_f +"\n";
-                msg += ", tele_opponentCargo_bot_f= " + tele_opponentCargo_bot_f +"\n";
-                msg += ", tele_opponentCargo_top_f= " + tele_opponentCargo_top_f +"\n";
+//                msg += ", tele_opponentCargo_bot_f= " + tele_opponentCargo_bot_f +"\n";
+//                msg += ", tele_opponentCargo_top_f= " + tele_opponentCargo_top_f +"\n";
 
                 msg += ", endgame_attempt= " + endgame_attempt +"\n";
                 msg += ", endgame_park= " + endgame_park +"\n";
@@ -784,12 +784,12 @@ public class TransferCode {
 
                 ", " + auto_allianceCargo_bot_s +
                 ", " + auto_allianceCargo_top_s +
-                ", " + auto_opponentCargo_bot_s +
-                ", " + auto_opponentCargo_top_s +
+//                ", " + auto_opponentCargo_bot_s +
+                ", " + auto_away_balls +
                 ", " + auto_allianceCargo_bot_f +
                 ", " + auto_allianceCargo_top_f +
-                ", " + auto_opponentCargo_bot_f +
-                ", " + auto_opponentCargo_top_f +
+//                ", " + auto_opponentCargo_bot_f +
+//                ", " + auto_opponentCargo_top_f +
                 ", " + auto_humanMissed +
                 ", " + auto_humanScored +
 
@@ -797,12 +797,12 @@ public class TransferCode {
 
                 ", " + tele_allianceCargo_bot_s +
                 ", " + tele_allianceCargo_top_s +
-                ", " + tele_opponentCargo_bot_s +
-                ", " + tele_opponentCargo_top_s +
+//                ", " + tele_opponentCargo_bot_s +
+                ", " + tele_away_balls +
                 ", " + tele_allianceCargo_bot_f +
                 ", " + tele_allianceCargo_top_f +
-                ", " + tele_opponentCargo_bot_f +
-                ", " + tele_opponentCargo_top_f +
+//                ", " + tele_opponentCargo_bot_f +
+//                ", " + tele_opponentCargo_top_f +
 
                 ", " + endgame_attempt +
                 ", " + endgame_park +

@@ -435,21 +435,21 @@ public class FinalActivity extends AppCompatActivity {
         ImageView auto_HBFM = dialog.findViewById(R.id.autoHBFM);
         ImageView auto_HBFP = dialog.findViewById(R.id.autoHBFP);
 
-        TextView auto_ATS = dialog.findViewById(R.id.autoATS);
-        ImageView auto_ATSM = dialog.findViewById(R.id.autoATSM);
-        ImageView auto_ATSP = dialog.findViewById(R.id.autoATSP);
+        TextView auto_AAB = dialog.findViewById(R.id.autoAAB);
+        ImageView auto_AABM = dialog.findViewById(R.id.autoAABM);
+        ImageView auto_AABP = dialog.findViewById(R.id.autoAABP);
 
-        TextView auto_ABS = dialog.findViewById(R.id.autoABS);
-        ImageView auto_ABSM = dialog.findViewById(R.id.autoABSM);
-        ImageView auto_ABSP = dialog.findViewById(R.id.autoABSP);
-
-        TextView auto_ATF = dialog.findViewById(R.id.autoATF);
-        ImageView auto_ATFM = dialog.findViewById(R.id.autoATFM);
-        ImageView auto_ATFP = dialog.findViewById(R.id.autoATFP);
-
-        TextView auto_ABF = dialog.findViewById(R.id.autoABF);
-        ImageView auto_ABFM = dialog.findViewById(R.id.autoABFM);
-        ImageView auto_ABFP = dialog.findViewById(R.id.autoABFP);
+//        TextView auto_ABS = dialog.findViewById(R.id.autoABS);
+//        ImageView auto_ABSM = dialog.findViewById(R.id.autoABSM);
+//        ImageView auto_ABSP = dialog.findViewById(R.id.autoABSP);
+//
+//        TextView auto_ATF = dialog.findViewById(R.id.autoATF);
+//        ImageView auto_ATFM = dialog.findViewById(R.id.autoATFM);
+//        ImageView auto_ATFP = dialog.findViewById(R.id.autoATFP);
+//
+//        TextView auto_ABF = dialog.findViewById(R.id.autoABF);
+//        ImageView auto_ABFM = dialog.findViewById(R.id.autoABFM);
+//        ImageView auto_ABFP = dialog.findViewById(R.id.autoABFP);
 
         TextView auto_HPF = dialog.findViewById(R.id.autoHPF);
         ImageView auto_HPFM = dialog.findViewById(R.id.autoHPFM);
@@ -475,21 +475,21 @@ public class FinalActivity extends AppCompatActivity {
         ImageView tele_HBFM = dialog.findViewById(R.id.teleHBFM);
         ImageView tele_HBFP = dialog.findViewById(R.id.teleHBFP);
 
-        TextView tele_ATS = dialog.findViewById(R.id.teleATS);
-        ImageView tele_ATSM = dialog.findViewById(R.id.teleATSM);
-        ImageView tele_ATSP = dialog.findViewById(R.id.teleATSP);
+        TextView tele_AAB = dialog.findViewById(R.id.teleAAB);
+        ImageView tele_AABM = dialog.findViewById(R.id.teleAABM);
+        ImageView tele_AABP = dialog.findViewById(R.id.teleAABP);
 
-        TextView tele_ABS = dialog.findViewById(R.id.teleABS);
-        ImageView tele_ABSM = dialog.findViewById(R.id.teleABSM);
-        ImageView tele_ABSP = dialog.findViewById(R.id.teleABSP);
-
-        TextView tele_ATF = dialog.findViewById(R.id.teleATF);
-        ImageView tele_ATFM = dialog.findViewById(R.id.teleATFM);
-        ImageView tele_ATFP = dialog.findViewById(R.id.teleATFP);
-
-        TextView tele_ABF = dialog.findViewById(R.id.teleABF);
-        ImageView tele_ABFM = dialog.findViewById(R.id.teleABFM);
-        ImageView tele_ABFP = dialog.findViewById(R.id.teleABFP);
+//        TextView tele_ABS = dialog.findViewById(R.id.teleABS);
+//        ImageView tele_ABSM = dialog.findViewById(R.id.teleABSM);
+//        ImageView tele_ABSP = dialog.findViewById(R.id.teleABSP);
+//
+//        TextView tele_ATF = dialog.findViewById(R.id.teleATF);
+//        ImageView tele_ATFM = dialog.findViewById(R.id.teleATFM);
+//        ImageView tele_ATFP = dialog.findViewById(R.id.teleATFP);
+//
+//        TextView tele_ABF = dialog.findViewById(R.id.teleABF);
+//        ImageView tele_ABFM = dialog.findViewById(R.id.teleABFM);
+//        ImageView tele_ABFP = dialog.findViewById(R.id.teleABFP);
         
         Button done = dialog.findViewById(R.id.aboutBtnID2);
 
@@ -497,10 +497,10 @@ public class FinalActivity extends AppCompatActivity {
         auto_HBS.setText(String.valueOf(tcode.getAuto_allianceCargo_bot_s()));
         auto_HTF.setText(String.valueOf(tcode.getAuto_allianceCargo_top_f()));
         auto_HBF.setText(String.valueOf(tcode.getAuto_allianceCargo_bot_f()));
-        auto_ATS.setText(String.valueOf(tcode.getAuto_opponentCargo_top_s()));
-        auto_ABS.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_s()));
-        auto_ATF.setText(String.valueOf(tcode.getAuto_opponentCargo_top_f()));
-        auto_ABF.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_f()));
+        auto_AAB.setText(String.valueOf(tcode.getAuto_away_balls()));
+//        auto_ABS.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_s()));
+//        auto_ATF.setText(String.valueOf(tcode.getAuto_opponentCargo_top_f()));
+//        auto_ABF.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_f()));
 
         auto_HPS.setText(String.valueOf(tcode.getAuto_humanScored()));
         auto_HPF.setText(String.valueOf(tcode.getAuto_humanMissed()));
@@ -509,10 +509,10 @@ public class FinalActivity extends AppCompatActivity {
         tele_HBS.setText(String.valueOf(tcode.getTele_allianceCargo_bot_s()));
         tele_HTF.setText(String.valueOf(tcode.getTele_allianceCargo_top_f()));
         tele_HBF.setText(String.valueOf(tcode.getTele_allianceCargo_bot_f()));
-        tele_ATS.setText(String.valueOf(tcode.getTele_opponentCargo_top_s()));
-        tele_ABS.setText(String.valueOf(tcode.getTele_opponentCargo_bot_s()));
-        tele_ATF.setText(String.valueOf(tcode.getTele_opponentCargo_top_f()));
-        tele_ABF.setText(String.valueOf(tcode.getTele_opponentCargo_bot_f()));
+        tele_AAB.setText(String.valueOf(tcode.getTele_away_balls()));
+//        tele_ABS.setText(String.valueOf(tcode.getTele_opponentCargo_bot_s()));
+//        tele_ATF.setText(String.valueOf(tcode.getTele_opponentCargo_top_f()));
+//        tele_ABF.setText(String.valueOf(tcode.getTele_opponentCargo_bot_f()));
 
         auto_HTSM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -593,89 +593,89 @@ public class FinalActivity extends AppCompatActivity {
         });
 
 
-        auto_ATSM.setOnClickListener(new View.OnClickListener() {
+        auto_AABM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_top_s()>0){
-                    tcode.setAuto_opponentCargo_top_s(tcode.getAuto_opponentCargo_top_s()-1);
+                if(tcode.getAuto_away_balls()>0){
+                    tcode.setAuto_away_balls(tcode.getAuto_away_balls()-1);
                 }
-                auto_ATS.setText(String.valueOf(tcode.getAuto_opponentCargo_top_s()));
+                auto_AAB.setText(String.valueOf(tcode.getAuto_away_balls()));
 
             }
         });
-        auto_ATSP.setOnClickListener(new View.OnClickListener() {
+        auto_AABP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_top_s()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setAuto_opponentCargo_top_s(tcode.getAuto_opponentCargo_top_s()+1);
+                if(tcode.getAuto_away_balls()<Defaults.MAX_CARGO_NUMBER){
+                    tcode.setAuto_away_balls(tcode.getAuto_away_balls()+1);
                 }
-                auto_ATS.setText(String.valueOf(tcode.getAuto_opponentCargo_top_s()));
-
-            }
-        });
-
-        auto_ABSM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_bot_s()>0){
-                    tcode.setAuto_opponentCargo_bot_s(tcode.getAuto_opponentCargo_bot_s()-1);
-                }
-                auto_ABS.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_s()));
-
-            }
-        });
-        auto_ABSP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_bot_s()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setAuto_opponentCargo_bot_s(tcode.getAuto_opponentCargo_bot_s()+1);
-                }
-                auto_ABS.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_s()));
+                auto_AAB.setText(String.valueOf(tcode.getAuto_away_balls()));
 
             }
         });
 
-        auto_ATFM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_top_f()>0){
-                    tcode.setAuto_opponentCargo_top_f(tcode.getAuto_opponentCargo_top_f()-1);
-                }
-                auto_ATF.setText(String.valueOf(tcode.getAuto_opponentCargo_top_f()));
-
-            }
-        });
-        auto_ATFP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_top_f()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setAuto_opponentCargo_top_f(tcode.getAuto_opponentCargo_top_f()+1);
-                }
-                auto_ATF.setText(String.valueOf(tcode.getAuto_opponentCargo_top_f()));
-
-            }
-        });
-
-        auto_ABFM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_bot_f()>0){
-                    tcode.setAuto_opponentCargo_bot_f(tcode.getAuto_opponentCargo_bot_f()-1);
-                }
-                auto_ABF.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_f()));
-
-            }
-        });
-        auto_ABFP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getAuto_opponentCargo_bot_f()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setAuto_opponentCargo_bot_f(tcode.getAuto_opponentCargo_bot_f()+1);
-                }
-                auto_ABF.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_f()));
-
-            }
-        });
+//        auto_ABSM.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getAuto_opponentCargo_bot_s()>0){
+//                    tcode.setAuto_opponentCargo_bot_s(tcode.getAuto_opponentCargo_bot_s()-1);
+//                }
+//                auto_ABS.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_s()));
+//
+//            }
+//        });
+//        auto_ABSP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getAuto_opponentCargo_bot_s()<Defaults.MAX_CARGO_NUMBER){
+//                    tcode.setAuto_opponentCargo_bot_s(tcode.getAuto_opponentCargo_bot_s()+1);
+//                }
+//                auto_ABS.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_s()));
+//
+//            }
+//        });
+//
+//        auto_ATFM.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getAuto_opponentCargo_top_f()>0){
+//                    tcode.setAuto_opponentCargo_top_f(tcode.getAuto_opponentCargo_top_f()-1);
+//                }
+//                auto_ATF.setText(String.valueOf(tcode.getAuto_opponentCargo_top_f()));
+//
+//            }
+//        });
+//        auto_ATFP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getAuto_opponentCargo_top_f()<Defaults.MAX_CARGO_NUMBER){
+//                    tcode.setAuto_opponentCargo_top_f(tcode.getAuto_opponentCargo_top_f()+1);
+//                }
+//                auto_ATF.setText(String.valueOf(tcode.getAuto_opponentCargo_top_f()));
+//
+//            }
+//        });
+//
+//        auto_ABFM.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getAuto_opponentCargo_bot_f()>0){
+//                    tcode.setAuto_opponentCargo_bot_f(tcode.getAuto_opponentCargo_bot_f()-1);
+//                }
+//                auto_ABF.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_f()));
+//
+//            }
+//        });
+//        auto_ABFP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getAuto_opponentCargo_bot_f()<Defaults.MAX_CARGO_NUMBER){
+//                    tcode.setAuto_opponentCargo_bot_f(tcode.getAuto_opponentCargo_bot_f()+1);
+//                }
+//                auto_ABF.setText(String.valueOf(tcode.getAuto_opponentCargo_bot_f()));
+//
+//            }
+//        });
 
         auto_HPFM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -797,97 +797,97 @@ public class FinalActivity extends AppCompatActivity {
         });
 
 
-        tele_ATSM.setOnClickListener(new View.OnClickListener() {
+        tele_AABM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_top_s()>0){
-                    tcode.setTele_opponentCargo_top_s(tcode.getTele_opponentCargo_top_s()-1);
+                if(tcode.getTele_away_balls()>0){
+                    tcode.setTele_away_balls(tcode.getTele_away_balls()-1);
                 }
-                tele_ATS.setText(String.valueOf(tcode.getTele_opponentCargo_top_s()));
+                tele_AAB.setText(String.valueOf(tcode.getTele_away_balls()));
 
             }
         });
-        tele_ATSP.setOnClickListener(new View.OnClickListener() {
+        tele_AABP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_top_s()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setTele_opponentCargo_top_s(tcode.getTele_opponentCargo_top_s()+1);
+                if(tcode.getTele_away_balls()<Defaults.MAX_CARGO_NUMBER){
+                    tcode.setTele_away_balls(tcode.getTele_away_balls()+1);
                 }
-                tele_ATS.setText(String.valueOf(tcode.getTele_opponentCargo_top_s()));
+                tele_AAB.setText(String.valueOf(tcode.getTele_away_balls()));
 
             }
         });
 
-        tele_ABSM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_bot_s()>0){
-                    tcode.setTele_opponentCargo_bot_s(tcode.getTele_opponentCargo_bot_s()-1);
-                }
-                tele_ABS.setText(String.valueOf(tcode.getTele_opponentCargo_bot_s()));
-
-            }
-        });
-        tele_ABSP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_bot_s()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setTele_opponentCargo_bot_s(tcode.getTele_opponentCargo_bot_s()+1);
-                }
-                tele_ABS.setText(String.valueOf(tcode.getTele_opponentCargo_bot_s()));
-
-            }
-        });
-
-        tele_ATFM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_top_f()>0){
-                    tcode.setTele_opponentCargo_top_f(tcode.getTele_opponentCargo_top_f()-1);
-                }
-                tele_ATF.setText(String.valueOf(tcode.getTele_opponentCargo_top_f()));
-
-            }
-        });
-        tele_ATFP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_top_f()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setTele_opponentCargo_top_f(tcode.getTele_opponentCargo_top_f()+1);
-                }
-                tele_ATF.setText(String.valueOf(tcode.getTele_opponentCargo_top_f()));
-
-            }
-        });
-
-        tele_ABFM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_bot_f()>0){
-                    tcode.setTele_opponentCargo_bot_f(tcode.getTele_opponentCargo_bot_f()-1);
-                }
-                tele_ABF.setText(String.valueOf(tcode.getTele_opponentCargo_bot_f()));
-
-            }
-        });
-        tele_ABFP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tcode.getTele_opponentCargo_bot_f()<Defaults.MAX_CARGO_NUMBER){
-                    tcode.setTele_opponentCargo_bot_f(tcode.getTele_opponentCargo_bot_f()+1);
-                }
-                tele_ABF.setText(String.valueOf(tcode.getTele_opponentCargo_bot_f()));
-
-            }
-        });
-
-        done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "onClick: aboutButton has been clicked...");
-                dialog.cancel();
-            }
-        });
+//        tele_ABSM.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getTele_opponentCargo_bot_s()>0){
+//                    tcode.setTele_opponentCargo_bot_s(tcode.getTele_opponentCargo_bot_s()-1);
+//                }
+//                tele_ABS.setText(String.valueOf(tcode.getTele_opponentCargo_bot_s()));
+//
+//            }
+//        });
+//        tele_ABSP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getTele_opponentCargo_bot_s()<Defaults.MAX_CARGO_NUMBER){
+//                    tcode.setTele_opponentCargo_bot_s(tcode.getTele_opponentCargo_bot_s()+1);
+//                }
+//                tele_ABS.setText(String.valueOf(tcode.getTele_opponentCargo_bot_s()));
+//
+//            }
+//        });
+//
+//        tele_ATFM.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getTele_opponentCargo_top_f()>0){
+//                    tcode.setTele_opponentCargo_top_f(tcode.getTele_opponentCargo_top_f()-1);
+//                }
+//                tele_ATF.setText(String.valueOf(tcode.getTele_opponentCargo_top_f()));
+//
+//            }
+//        });
+//        tele_ATFP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getTele_opponentCargo_top_f()<Defaults.MAX_CARGO_NUMBER){
+//                    tcode.setTele_opponentCargo_top_f(tcode.getTele_opponentCargo_top_f()+1);
+//                }
+//                tele_ATF.setText(String.valueOf(tcode.getTele_opponentCargo_top_f()));
+//
+//            }
+//        });
+//
+//        tele_ABFM.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getTele_opponentCargo_bot_f()>0){
+//                    tcode.setTele_opponentCargo_bot_f(tcode.getTele_opponentCargo_bot_f()-1);
+//                }
+//                tele_ABF.setText(String.valueOf(tcode.getTele_opponentCargo_bot_f()));
+//
+//            }
+//        });
+//        tele_ABFP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(tcode.getTele_opponentCargo_bot_f()<Defaults.MAX_CARGO_NUMBER){
+//                    tcode.setTele_opponentCargo_bot_f(tcode.getTele_opponentCargo_bot_f()+1);
+//                }
+//                tele_ABF.setText(String.valueOf(tcode.getTele_opponentCargo_bot_f()));
+//
+//            }
+//        });
+//
+//        done.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.i(TAG, "onClick: aboutButton has been clicked...");
+//                dialog.cancel();
+//            }
+//        });
 
         dialog.show();
     }
