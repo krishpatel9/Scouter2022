@@ -54,6 +54,6 @@ public class Match {
                 ", matchNumber=" + matchNumber +
                 ", teamNumber=" + teamNumber +
                 ", isRed=" + isRed +
-                '} ';
+                '}';
     }
 }
