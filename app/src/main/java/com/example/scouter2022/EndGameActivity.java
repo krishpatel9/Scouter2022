@@ -81,8 +81,8 @@ public class EndGameActivity extends AppCompatActivity {
         endGameAttempted_RG = findViewById(R.id.endGameAttempted_RG);
         park_RG = findViewById(R.id.endGamePark_RG);
         hang_RG = findViewById(R.id.endGameHang_RG);
-        finishingRing_SB = findViewById(R.id.seekBar_contactRing);
-        contactRing_SB = findViewById(R.id.seekBar_finishingRing);
+        finishingRing_SB = findViewById(R.id.seekBar_finishingRing);
+        contactRing_SB = findViewById(R.id.seekBar_contactRing);
         phaseBarView = findViewById(R.id.EndGamePhaseViewBar);
         topView = findViewById(R.id.endGameTopView);
 
@@ -214,10 +214,11 @@ public class EndGameActivity extends AppCompatActivity {
                 }
             }
         });
-        finishingRing_SB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+
+        contactRing_SB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tcode.setEndgame_ringFinish(progress);
+                tcode.setEndgame_ringContact(progress);
             }
 
             @Override
@@ -228,10 +229,10 @@ public class EndGameActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        contactRing_SB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+        finishingRing_SB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tcode.setEndgame_ringContact(progress);
+                tcode.setEndgame_ringFinish(progress);
             }
 
             @Override

@@ -33,20 +33,20 @@ public class TeleActivity extends AppCompatActivity {
     private TextView scored_home_top_text;
     private TextView scored_home_bot_text;
     private TextView scored_away_top_text;
-    private TextView scored_away_bot_text;
+//    private TextView scored_away_bot_text;
     private TextView missed_home_top_text;
     private TextView missed_home_bot_text;
-    private TextView missed_away_top_text;
-    private TextView missed_away_bot_text;
+//    private TextView missed_away_top_text;
+//    private TextView missed_away_bot_text;
 
     private View scored_home_top_view;
     private View scored_home_bot_view;
     private View scored_away_top_view;
-    private View scored_away_bot_view;
+//    private View scored_away_bot_view;
     private View missed_home_top_view;
     private View missed_home_bot_view;
-    private View missed_away_top_view;
-    private View missed_away_bot_view;
+//    private View missed_away_top_view;
+//    private View missed_away_bot_view;
 
     private ImageView toEndGame;
     private ImageView toAuto;
@@ -56,11 +56,11 @@ public class TeleActivity extends AppCompatActivity {
     int scored_home_top = 0;
     int missed_home_top = 0;
     int scored_away_top = 0;
-    int missed_away_top = 0;
+//    int missed_away_top = 0;
     int scored_home_bot = 0;
     int missed_home_bot = 0;
-    int scored_away_bot = 0;
-    int missed_away_bot = 0;
+//    int scored_away_bot = 0;
+//    int missed_away_bot = 0;
 
 
     private TransferCode tcode;
@@ -86,23 +86,23 @@ public class TeleActivity extends AppCompatActivity {
 
         scored_home_top_text = findViewById(R.id.TeleScore1);
         scored_home_bot_text = findViewById(R.id.TeleScore2);
-        scored_away_top_text = findViewById(R.id.TeleScore3);
-        scored_away_bot_text = findViewById(R.id.TeleScore4);
+        scored_away_top_text = findViewById(R.id.TeleAwayBallsScore);
+//        scored_away_bot_text = findViewById(R.id.TeleScore4);
 
         missed_home_top_text = findViewById(R.id.TeleMiss1);
         missed_home_bot_text = findViewById(R.id.TeleMiss2);
-        missed_away_top_text = findViewById(R.id.TeleMiss3);
-        missed_away_bot_text = findViewById(R.id.TeleMiss4);
+//        missed_away_top_text = findViewById(R.id.TeleMiss3);
+//        missed_away_bot_text = findViewById(R.id.TeleMiss4);
 
         scored_home_top_view = findViewById(R.id.TeleScoredView1);
         scored_home_bot_view = findViewById(R.id.TeleScoredView2);
-        scored_away_top_view = findViewById(R.id.TeleScoredView3);
-        scored_away_bot_view = findViewById(R.id.TeleScoredView4);
+        scored_away_top_view = findViewById(R.id.TeleAwayBallsView);
+//        scored_away_bot_view = findViewById(R.id.TeleScoredView4);
 
         missed_home_top_view = findViewById(R.id.TeleMissedView1);
         missed_home_bot_view = findViewById(R.id.TeleMissedView2);
-        missed_away_top_view = findViewById(R.id.TeleMissedView3);
-        missed_away_bot_view = findViewById(R.id.TeleMissedView4);
+//        missed_away_top_view = findViewById(R.id.TeleMissedView3);
+//        missed_away_bot_view = findViewById(R.id.TeleMissedView4);
 
         shootingGrid = findViewById(R.id.teleShootingGridLayout);
         phaseBarView = findViewById(R.id.TelePhaseViewBar);
@@ -157,22 +157,22 @@ public class TeleActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(scored_away_top<= Defaults.MAX_CARGO_NUMBER) {
                     scored_away_top += 1;
-                    tcode.setTele_opponentCargo_top_s(scored_away_top);
+                    tcode.setTele_away_balls(scored_away_top);
                     scored_away_top_text.setText(String.valueOf(scored_away_top));
                 }
             }
         });
 
-        missed_away_top_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(missed_away_top<= Defaults.MAX_CARGO_NUMBER) {
-                    missed_away_top += 1;
-                    tcode.setTele_opponentCargo_top_f(missed_away_top);
-                    missed_away_top_text.setText(String.valueOf(missed_away_top));
-                }
-            }
-        });
+//        missed_away_top_view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(missed_away_top<= Defaults.MAX_CARGO_NUMBER) {
+//                    missed_away_top += 1;
+//                    tcode.setTele_opponentCargo_top_f(missed_away_top);
+//                    missed_away_top_text.setText(String.valueOf(missed_away_top));
+//                }
+//            }
+//        });
 
         scored_home_bot_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,27 +197,27 @@ public class TeleActivity extends AppCompatActivity {
         });
 
 
-        scored_away_bot_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(scored_away_bot<= Defaults.MAX_CARGO_NUMBER) {
-                    scored_away_bot += 1;
-                    tcode.setTele_opponentCargo_bot_s(scored_away_bot);
-                    scored_away_bot_text.setText(String.valueOf(scored_away_bot));
-                }
-            }
-        });
-
-        missed_away_bot_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(missed_away_bot<= Defaults.MAX_CARGO_NUMBER) {
-                    missed_away_bot += 1;
-                    tcode.setTele_opponentCargo_bot_f(missed_away_bot);
-                    missed_away_bot_text.setText(String.valueOf(missed_away_bot));
-                }
-            }
-        });
+//        scored_away_bot_view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(scored_away_bot<= Defaults.MAX_CARGO_NUMBER) {
+//                    scored_away_bot += 1;
+//                    tcode.setTele_opponentCargo_bot_s(scored_away_bot);
+//                    scored_away_bot_text.setText(String.valueOf(scored_away_bot));
+//                }
+//            }
+//        });
+//
+//        missed_away_bot_view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(missed_away_bot<= Defaults.MAX_CARGO_NUMBER) {
+//                    missed_away_bot += 1;
+//                    tcode.setTele_opponentCargo_bot_f(missed_away_bot);
+//                    missed_away_bot_text.setText(String.valueOf(missed_away_bot));
+//                }
+//            }
+//        });
 
         shootingCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -287,26 +287,26 @@ public class TeleActivity extends AppCompatActivity {
             shootingCheckBox.setChecked(true);
         }
 
-        missed_away_top_text.setText(String.valueOf(missed_away_top));
+//        missed_away_top_text.setText(String.valueOf(missed_away_top));
         missed_home_bot_text.setText(String.valueOf(missed_home_bot));
         missed_home_top_text.setText(String.valueOf(missed_home_top));
-        missed_away_bot_text.setText(String.valueOf(missed_away_bot));
+//        missed_away_bot_text.setText(String.valueOf(missed_away_bot));
         scored_away_top_text.setText(String.valueOf(scored_away_top));
         scored_home_bot_text.setText(String.valueOf(scored_home_bot));
         scored_home_top_text.setText(String.valueOf(scored_home_top));
-        scored_away_bot_text.setText(String.valueOf(scored_away_bot));
+//        scored_away_bot_text.setText(String.valueOf(scored_away_bot));
 
     }
     private void setAllValuesFromObject() {
         scored_home_top = tcode.getTele_allianceCargo_top_s();
         missed_home_top = tcode.getTele_allianceCargo_top_f();
-        scored_away_top = tcode.getTele_opponentCargo_top_s();
-        missed_away_top = tcode.getTele_opponentCargo_top_f();
+        scored_away_top = tcode.getTele_away_balls();
+//        missed_away_top = tcode.getTele_opponentCargo_top_f();
 
         scored_home_bot = tcode.getTele_allianceCargo_bot_s();
         missed_home_bot = tcode.getTele_allianceCargo_bot_f();
-        scored_away_bot = tcode.getTele_opponentCargo_bot_s();
-        missed_away_bot = tcode.getTele_opponentCargo_bot_f();
+//        scored_away_bot = tcode.getTele_opponentCargo_bot_s();
+//        missed_away_bot = tcode.getTele_opponentCargo_bot_f();
     }
     private void setComponentBackground(int isRed) {
         if (isRed == 1) {
@@ -319,9 +319,9 @@ public class TeleActivity extends AppCompatActivity {
             missed_home_top_view.setBackgroundResource(R.drawable.card_bg_red);
             missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_red);
             scored_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
-            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
-            missed_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
-            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
+//            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
+//            missed_away_top_view.setBackgroundResource(R.drawable.card_bg_blue);
+//            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             teleAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
 
         } else {
@@ -334,9 +334,9 @@ public class TeleActivity extends AppCompatActivity {
             missed_home_top_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             scored_away_top_view.setBackgroundResource(R.drawable.card_bg_red);
-            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
-            missed_away_top_view.setBackgroundResource(R.drawable.card_bg_red);
-            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
+//            scored_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
+//            missed_away_top_view.setBackgroundResource(R.drawable.card_bg_red);
+//            missed_away_bot_view.setBackgroundResource(R.drawable.card_bg_red);
             teleAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
 
         }
@@ -349,13 +349,13 @@ public class TeleActivity extends AppCompatActivity {
         }
         scored_home_top = tcode.getTele_allianceCargo_top_s();
         missed_home_top = tcode.getTele_allianceCargo_top_f();
-        scored_away_top = tcode.getTele_opponentCargo_top_s();
-        missed_away_top = tcode.getTele_opponentCargo_top_f();
+        scored_away_top = tcode.getTele_away_balls();
+//        missed_away_top = tcode.getTele_opponentCargo_top_f();
 
         scored_home_bot = tcode.getTele_allianceCargo_bot_s();
         missed_home_bot = tcode.getTele_allianceCargo_bot_f();
-        scored_away_bot = tcode.getTele_opponentCargo_bot_s();
-        missed_away_bot = tcode.getTele_opponentCargo_bot_f();
+//        scored_away_bot = tcode.getTele_opponentCargo_bot_s();
+//        missed_away_bot = tcode.getTele_opponentCargo_bot_f();
 
     }
     @Override
