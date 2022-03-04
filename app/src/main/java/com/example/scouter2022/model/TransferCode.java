@@ -49,7 +49,7 @@ public class TransferCode {
     private int final_redCardCreated = 0;      // 4 bits
     private int final_disabled = 0;         // 1 bits
     private int final_disqualified = 0;     // 1 bits
-    private int final_winningAlliance = -1;  // 1 bits
+    private int final_winningAlliance = -1;  // 4 bits
 
     private int final_zone = 0; //1,2,or 3
 
@@ -443,7 +443,7 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(endgame_ringContact).substring(26, 32);
         s += TransferCode.GetIntBinaryString(endgame_ringFinish).substring(26, 32);
 
-        s += TransferCode.GetIntBinaryString(final_winningAlliance).substring(31, 32);
+        s += TransferCode.GetIntBinaryString(final_winningAlliance).substring(26, 32);
         s += TransferCode.GetIntBinaryString(final_disqualified).substring(31, 32);
         s += TransferCode.GetIntBinaryString(final_disabled).substring(31, 32);
         s += TransferCode.GetIntBinaryString(final_foulsCreated).substring(31, 32);
@@ -559,8 +559,8 @@ public class TransferCode {
         tc.endgame_ringFinish = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
 
-        tc.final_winningAlliance = Integer.parseInt(src.substring(offset, offset + 1), 2);
-        offset++;
+        tc.final_winningAlliance = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset +6;
         tc.final_foulsCreated = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
         tc.final_disabled = Integer.parseInt(src.substring(offset, offset + 1), 2);
@@ -731,50 +731,6 @@ public class TransferCode {
                 ", final_numRegFouls=" + final_numRegFouls +
                 ", final_zone=" + final_zone +
                 '}';
-    }
-    {
-        String msg = "";
-        msg += ", matchNumber= " + matchNumber +"\n";
-        msg += "teamNumber= " + teamNumber + "\n";
-                msg += ", isRed= " + isRed +"\n";
-                msg += ", auto_cross_line= " + auto_cross_line +"\n";
-                msg += ", auto_shoot_attempt= " + auto_shoot_attempt +"\n";
-                msg += ", auto_allianceCargo_bot_s= " + auto_allianceCargo_bot_s +"\n";
-                msg += ", auto_allianceCargo_top_s= " + auto_allianceCargo_top_s +"\n";
-//                msg += ", auto_opponentCargo_bot_s= " + auto_opponentCargo_bot_s +"\n";
-                msg += ", auto_opponentCargo_top_s= " + auto_away_balls +"\n";
-                msg += ", auto_allianceCargo_bot_f= " + auto_allianceCargo_bot_f +"\n";
-                msg += ", auto_allianceCargo_top_f= " + auto_allianceCargo_top_f +"\n";
-//                msg += ", auto_opponentCargo_bot_f= " + auto_opponentCargo_bot_f +"\n";
-//                msg += ", auto_opponentCargo_top_f= " + auto_opponentCargo_top_f +"\n";
-                msg += ", auto_humanMissed= " + auto_humanMissed +"\n";
-                msg += ", auto_humanScored= " + auto_humanScored +"\n";
-
-                msg += ", tele_shoot_attempt= " + tele_shoot_attempt +"\n";
-                msg += ", tele_allianceCargo_bot_s= " + tele_allianceCargo_bot_s +"\n";
-                msg += ", tele_allianceCargo_top_s= " + tele_allianceCargo_top_s +"\n";
-//                msg += ", tele_opponentCargo_bot_s= " + tele_opponentCargo_bot_s +"\n";
-                msg += ", tele_opponentCargo_bot_s= " + tele_away_balls +"\n";
-                msg += ", tele_allianceCargo_bot_f= " + tele_allianceCargo_bot_f +"\n";
-                msg += ", tele_allianceCargo_top_f= " + tele_allianceCargo_top_f +"\n";
-//                msg += ", tele_opponentCargo_bot_f= " + tele_opponentCargo_bot_f +"\n";
-//                msg += ", tele_opponentCargo_top_f= " + tele_opponentCargo_top_f +"\n";
-
-                msg += ", endgame_attempt= " + endgame_attempt +"\n";
-                msg += ", endgame_park= " + endgame_park +"\n";
-                msg += ", endgame_hang= " + endgame_hang +"\n";
-                msg += ", endgame_ringContact= " + endgame_ringContact +"\n";
-                msg += ", endgame_ringFinish= " + endgame_ringFinish +"\n";
-
-                msg += ", final_winningAlliance= " + final_winningAlliance +"\n";
-                msg += ", final_disabled= " + final_disabled +"\n";
-                msg += ", final_disqualified= " + final_disqualified +"\n";
-                msg += ", final_foulsCreated= " + final_foulsCreated +"\n";
-                msg += ", final_yellowCardCreated= " + final_yellowCardCreated +"\n";
-                msg += ", final_redCardCreated= " + final_redCardCreated +"\n";
-                msg += ", final_numTechFouls= " + final_numTechFouls +"\n";
-                msg += ", final_numRegFouls= " + final_numRegFouls +"\n";
-                msg += ", final_zone= " + final_zone +"\n";
     }
     public String toComma() {
         return matchNumber +

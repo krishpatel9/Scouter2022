@@ -183,6 +183,39 @@ public class QRCodeActivity extends AppCompatActivity {
         else{
             disqualifiedTextView.setText("No");
         }
+
+        // 1 = Home Win     Away Loss
+        // 0 = Home Loss    Away Win
+        // 2 = Tie          Tie
+        if(tcode.getIsRed() == 0){ // BLUE
+            if(tcode.getFinal_winningAlliance() == 0){ // Blue Loss
+                qrAllianceColor.setText("Red");
+                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
+            }
+            else if(tcode.getFinal_winningAlliance() == 1){ //Blue Win
+                qrAllianceColor.setText("Blue");
+                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
+            }
+            else if(tcode.getFinal_winningAlliance() == 2){ //Tie
+                qrAllianceColor.setText("Tie");
+                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_icon, 0);
+            }
+        }
+        else if(tcode.getIsRed() == 1){ //RED
+            if(tcode.getFinal_winningAlliance() == 0){ //Red Loss
+                qrAllianceColor.setText("Blue");
+                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
+            }
+            else if(tcode.getFinal_winningAlliance() == 1){ //Red Win
+                qrAllianceColor.setText("Red");
+                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
+            }
+            else if(tcode.getFinal_winningAlliance() == 2){ //Tie
+                qrAllianceColor.setText("Tie");
+                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_icon, 0);
+            }
+        }
+
     }
     private void saveMatch() {
         String key = tcode.getTeamNumber() + "/" + tcode.getMatchNumber();
@@ -192,7 +225,6 @@ public class QRCodeActivity extends AppCompatActivity {
     }
     private void setComponentBackground(int isRed) {
         if (isRed == 1) {
-            qrAllianceColor.setText("Red");
             topView.setScaleX(-1);
             layout1.setBackgroundResource(R.drawable.card_bg_red);
             layout2.setBackgroundResource(R.drawable.card_bg_red);
@@ -201,10 +233,8 @@ public class QRCodeActivity extends AppCompatActivity {
 
             infoView.setBackgroundResource(R.drawable.button_bg_red);
             foulsView.setBackgroundResource(R.drawable.button_bg_red);
-            qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
 
         } else {
-            qrAllianceColor.setText("Blue");
             topView.setScaleX(1);
             layout1.setBackgroundResource(R.drawable.card_bg_blue);
             layout2.setBackgroundResource(R.drawable.card_bg_blue);
@@ -213,7 +243,6 @@ public class QRCodeActivity extends AppCompatActivity {
 
             infoView.setBackgroundResource(R.drawable.button_bg_blue);
             foulsView.setBackgroundResource(R.drawable.button_bg_blue);
-            qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
         }
         showQRcode();
     }
