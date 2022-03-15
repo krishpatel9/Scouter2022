@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +42,7 @@ public class FinalActivity extends AppCompatActivity {
     private ImageView clearBtn1;
     private TextView clearBtn2;
 
-    private GridLayout foulsGrid;
+    private GridLayout defenseGrid;
     private GridLayout disabledGrid;
     private GridLayout disqualifiedGrid;
     private ConstraintLayout foulsConstraint;
@@ -66,6 +67,7 @@ public class FinalActivity extends AppCompatActivity {
     private TextView zoneClearBtn2;
 
     private CheckBox foulsCheck, disabledCheck, disqualifiedCheck;
+    private SeekBar defense_SB;
     private RadioGroup winning_RG;
     private RadioButton redWinBtn;
     private RadioButton blueWinBtn;
@@ -104,38 +106,40 @@ public class FinalActivity extends AppCompatActivity {
         toQr = findViewById(R.id.FinalToQr);
         toEndGame = findViewById(R.id.FinalToEndGame);
         
-        foulsGrid = findViewById(R.id.finalFoulsCheckGridLayout);
-        foulsConstraint = findViewById(R.id.finalFoulsContraintLayout);
+//        foulsGrid = findViewById(R.id.finalFoulsCheckGridLayout);
+//        foulsConstraint = findViewById(R.id.finalFoulsContraintLayout);
         disabledGrid = findViewById(R.id.finalDisabledGridLayout);
         disqualifiedGrid = findViewById(R.id.finalDisqualifiedGridLayout);
-        winningConstraint = findViewById(R.id.finalWinningContraintLayout);
+        defenseGrid = findViewById(R.id.finalDefenseGridLayout);
+
+//        winningConstraint = findViewById(R.id.finalWinningContraintLayout);
         
-        foulsTextView = findViewById(R.id.finalFoulsTextView);
-        foulsMinusBtn = findViewById(R.id.finalFoulsMinusView);
-        foulsPlusBtn = findViewById(R.id.finalFoulsPlusView);
-        foulView = findViewById(R.id.finalRegFoulView);
+//        foulsTextView = findViewById(R.id.finalFoulsTextView);
+//        foulsMinusBtn = findViewById(R.id.finalFoulsMinusView);
+//        foulsPlusBtn = findViewById(R.id.finalFoulsPlusView);
+//        foulView = findViewById(R.id.finalRegFoulView);
 
 
-        yellowCardCheckBox = findViewById(R.id.yellowCardCheckBox);
-        redCardCheckBox = findViewById(R.id.redCardCheckBox);
+//        yellowCardCheckBox = findViewById(R.id.yellowCardCheckBox);
+//        redCardCheckBox = findViewById(R.id.redCardCheckBox);
 
         techTextView = findViewById(R.id.autoHTS);
         techMinusBtn = findViewById(R.id.autoHTSM);
         techPlusBtn = findViewById(R.id.autoHTSP);
         techView = findViewById(R.id.finalTechView);
         
-        clearBtn1 = findViewById(R.id.finalClearBtn);
-
-        clearBtn2 = findViewById(R.id.finalClearBtn2);
-
-        foulsCheck = findViewById(R.id.finalFoulsCheckBox);
+//        clearBtn1 = findViewById(R.id.finalClearBtn);
+////
+//        clearBtn2 = findViewById(R.id.finalClearBtn2);
+//
+//        foulsCheck = findViewById(R.id.finalFoulsCheckBox);
         disabledCheck = findViewById(R.id.finalDisabledCheckBox);
         disqualifiedCheck = findViewById(R.id.finalDisqualifiedCheckBox);
 
-        winning_RG = findViewById(R.id.finalWinningAlliance_RG);
-        redWinBtn = findViewById(R.id.finalRedWinBtn);
-        blueWinBtn = findViewById(R.id.finalBlueWinBtn);
-        tieBtn = findViewById(R.id.finalTieBtn);
+//        winning_RG = findViewById(R.id.finalWinningAlliance_RG);
+//        redWinBtn = findViewById(R.id.finalRedWinBtn);
+//        blueWinBtn = findViewById(R.id.finalBlueWinBtn);
+//        tieBtn = findViewById(R.id.finalTieBtn);
         showEdit = findViewById(R.id.showEditShotsBtn);
 
         zone_RG = findViewById(R.id.finalZone_RG);
@@ -146,7 +150,7 @@ public class FinalActivity extends AppCompatActivity {
         zoneClearBtn1 = findViewById(R.id.clear_zone);
         zoneClearBtn2 = findViewById(R.id.zoneClearText);
         zoneContstraint = findViewById(R.id.zoneSelectionLayout);
-
+        defense_SB = findViewById(R.id.seekBar_defense);
         Intent intent = getIntent();
         if (intent != null) {
             String json = intent.getStringExtra("code");
@@ -164,19 +168,6 @@ public class FinalActivity extends AppCompatActivity {
         finalMatchNumber.setText("Match Number: " + tcode.getMatchNumber());
 
         setComponentBackground(tcode.getIsRed());
-
-        foulsCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(((CheckBox) view).isChecked()){
-                    tcode.setFinal_foulsCreated(1);
-                } else {
-                    tcode.setFinal_foulsCreated(0);
-
-                }
-                saveMatch();
-            }
-        });
 
         disabledCheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,125 +191,18 @@ public class FinalActivity extends AppCompatActivity {
                 saveMatch();
             }
         });
-        yellowCardCheckBox.setOnClickListener(new View.OnClickListener() {
+        defense_SB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             @Override
-            public void onClick(View view) {
-                if(((CheckBox) view).isChecked()){
-                    tcode.setFinal_yellowCardCreated(1);
-                    yellowCardCheckBox.setAlpha(1.0f);
-                } else {
-                    tcode.setFinal_yellowCardCreated(0);
-                    yellowCardCheckBox.setAlpha(0.5f);                }
-                saveMatch();
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                tcode.setFinal_defense(progress);
             }
-        });
-        redCardCheckBox.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
-                if(((CheckBox) view).isChecked()){
-                    tcode.setFinal_redCardCreated(1);
-                    redCardCheckBox.setAlpha(1.0f);
-                } else {
-                    tcode.setFinal_redCardCreated(0);
-                    redCardCheckBox.setAlpha(0.5f);                }
-                saveMatch();
+            public void onStartTrackingTouch(SeekBar seekBar) {
             }
-        });
 
-        techPlusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(numTech<= Defaults.MAX_FOULS) {
-                    numTech += 1;
-                    tcode.setFinal_numTechFouls(numTech);
-                    techTextView.setText(String.valueOf(numTech));
-                }
-                saveMatch();
-            }
-        });
-        techMinusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(numTech > 0) {
-                    numTech -= 1;
-                    tcode.setFinal_numTechFouls(numTech);
-                    techTextView.setText(String.valueOf(numTech));
-                }
-                saveMatch();
-            }
-        });
-
-        foulsPlusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(numFouls<= Defaults.MAX_FOULS) {
-                    numFouls += 1;
-                    tcode.setFinal_numRegFouls(numFouls);
-                    foulsTextView.setText(String.valueOf(numFouls));
-                }
-                saveMatch();
-            }
-        });
-        foulsMinusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(numFouls > 0) {
-                    numFouls -= 1;
-                    tcode.setFinal_numRegFouls(numFouls);
-                    foulsTextView.setText(String.valueOf(numFouls));
-                }
-                saveMatch();
-            }
-        });
-
-
-        winning_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // 1 = Home Win     Away Loss
-                // 0 = Home Loss    Away Win
-                // 2 = Tie          Tie
-
-                if (checkedId == R.id.finalRedWinBtn) {
-                    Log.i(TAG, "winning_RG: finalRedWin");
-                    if (tcode.getIsRed()==1){
-                        tcode.setFinal_winningAlliance(1); //Home Win (Red)
-                    }
-                    else if(tcode.getIsRed()==0){
-                        tcode.setFinal_winningAlliance(0); //Away Win (Blue)
-
-                    }
-                    blueWinBtn.setAlpha(0.5f);
-                    tieBtn.setAlpha(0.5f);
-                    redWinBtn.setAlpha(1.0f);
-                    saveMatch();
-                } else if (checkedId == R.id.finalBlueWinBtn) {
-                    Log.i(TAG, "winning_RG: finalBlueWin");
-                    if (tcode.getIsRed()==0){
-                        tcode.setFinal_winningAlliance(1); //Home Win (Blue)
-                    }
-                    else if(tcode.getIsRed()==1) {
-                        tcode.setFinal_winningAlliance(0); //Away Win (Red)
-                    }
-                    redWinBtn.setAlpha(0.5f);
-                    tieBtn.setAlpha(0.5f);
-                    blueWinBtn.setAlpha(1.0f);
-                    saveMatch();
-                }
-                else if (checkedId == R.id.finalTieBtn) {
-                    Log.i(TAG, "winning_RG: finalTieWin");
-                    if (tcode.getIsRed()==0){
-                        tcode.setFinal_winningAlliance(2); // Tie
-                    }
-                    else if(tcode.getIsRed()==1) {
-                        tcode.setFinal_winningAlliance(2); // Tie
-                    }
-                    redWinBtn.setAlpha(0.5f);
-                    blueWinBtn.setAlpha(0.5f);
-                    tieBtn.setAlpha(1.0f);
-                    saveMatch();
-                }
-
+            public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
         zone_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -366,16 +250,16 @@ public class FinalActivity extends AppCompatActivity {
 
             }
         });
-        clearBtn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tcode.setFinal_winningAlliance(-1);
-                winning_RG.clearCheck();
-                redWinBtn.setAlpha(1.0f);
-                blueWinBtn.setAlpha(1.0f);
-                tieBtn.setAlpha(1.0f);
-                saveMatch();}
-        });
+//        clearBtn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                tcode.setFinal_winningAlliance(-1);
+//                winning_RG.clearCheck();
+//                redWinBtn.setAlpha(1.0f);
+//                blueWinBtn.setAlpha(1.0f);
+//                tieBtn.setAlpha(1.0f);
+//                saveMatch();}
+//        });
 
         zoneClearBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -921,11 +805,11 @@ public class FinalActivity extends AppCompatActivity {
         PreferenceUtility.saveAllMatches(getApplicationContext(), allMatches);
     }
     private void showAllValues() {
-        if (tcode.getFinal_foulsCreated() == 1) {
-            foulsCheck.setChecked(true);
-        }
-        foulsTextView.setText(String.valueOf(numFouls));
-        techTextView.setText(String.valueOf(numTech));
+//        if (tcode.getFinal_foulsCreated() == 1) {
+//            foulsCheck.setChecked(true);
+//        }
+//        foulsTextView.setText(String.valueOf(numFouls));
+//        techTextView.setText(String.valueOf(numTech));
 
         if (tcode.getFinal_disabled() == 1) {
             disabledCheck.setChecked(true);
@@ -933,62 +817,63 @@ public class FinalActivity extends AppCompatActivity {
         if (tcode.getFinal_disqualified() == 1) {
             disqualifiedCheck.setChecked(true);
         }
+        defense_SB.setProgress(tcode.getFinal_defense());
 
-        if(tcode.getFinal_yellowCardCreated() == 1){
-            yellowCardCheckBox.setAlpha(1.0f);
-            yellowCardCheckBox.setChecked(true);
-        }else{
-            yellowCardCheckBox.setAlpha(0.5f);
-            yellowCardCheckBox.setChecked(false);
-        }
-        if(tcode.getFinal_redCardCreated() == 1){
-            redCardCheckBox.setAlpha(1.0f);
-            redCardCheckBox.setChecked(true);
-        }else{
-            redCardCheckBox.setAlpha(0.5f);
-            redCardCheckBox.setChecked(false);
-        }
+//        if(tcode.getFinal_yellowCardCreated() == 1){
+//            yellowCardCheckBox.setAlpha(1.0f);
+//            yellowCardCheckBox.setChecked(true);
+//        }else{
+//            yellowCardCheckBox.setAlpha(0.5f);
+//            yellowCardCheckBox.setChecked(false);
+//        }
+//        if(tcode.getFinal_redCardCreated() == 1){
+//            redCardCheckBox.setAlpha(1.0f);
+//            redCardCheckBox.setChecked(true);
+//        }else{
+//            redCardCheckBox.setAlpha(0.5f);
+//            redCardCheckBox.setChecked(false);
+//        }
 
-        if(tcode.getIsRed() == 0){                              //BLUE
-            if(tcode.getFinal_winningAlliance() == 1){
-                winning_RG.check(R.id.finalBlueWinBtn);
-                redWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() == 0){
-                winning_RG.check(R.id.finalRedWinBtn);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                redWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalTieBtn);
-                redWinBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(1.0f);
-            }
-        }
-        else if(tcode.getIsRed() == 1){                         //RED
-            if(tcode.getFinal_winningAlliance() == 1){
-                winning_RG.check(R.id.finalRedWinBtn);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                redWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() ==0){
-                winning_RG.check(R.id.finalBlueWinBtn);
-                redWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalTieBtn);
-                redWinBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(1.0f);
-            }
-        }
+//        if(tcode.getIsRed() == 0){                              //BLUE
+//            if(tcode.getFinal_winningAlliance() == 1){
+//                winning_RG.check(R.id.finalBlueWinBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 0){
+//                winning_RG.check(R.id.finalRedWinBtn);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                redWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 2){
+//                winning_RG.check(R.id.finalTieBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(1.0f);
+//            }
+//        }
+//        else if(tcode.getIsRed() == 1){                         //RED
+//            if(tcode.getFinal_winningAlliance() == 1){
+//                winning_RG.check(R.id.finalRedWinBtn);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                redWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() ==0){
+//                winning_RG.check(R.id.finalBlueWinBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 2){
+//                winning_RG.check(R.id.finalTieBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(1.0f);
+//            }
+//        }
 
         if(tcode.getFinal_zone() == 1){
             zone1btn.setAlpha(1.0f);
@@ -1022,64 +907,64 @@ public class FinalActivity extends AppCompatActivity {
         }
     }
     private void setAllValuesFromObject() {
-        numFouls = tcode.getFinal_foulsCreated();
-        numTech = tcode.getFinal_numTechFouls();
+//        numFouls = tcode.getFinal_foulsCreated();
+//        numTech = tcode.getFinal_numTechFouls();
     }
     private void setComponentBackground(int isRed) {
         if (isRed == 1) {
             finalAllianceColor.setText("Red Alliance");
             topView.setScaleX(-1);
-            foulsGrid.setBackgroundResource(R.drawable.card_bg_red);
+            defenseGrid.setBackgroundResource(R.drawable.card_bg_red);
             disabledGrid.setBackgroundResource(R.drawable.card_bg_red);
             disqualifiedGrid.setBackgroundResource(R.drawable.card_bg_red);
-            foulsConstraint.setBackgroundResource(R.drawable.card_bg_red);
-            winningConstraint.setBackgroundResource(R.drawable.card_bg_red);
+//            foulsConstraint.setBackgroundResource(R.drawable.card_bg_red);
+//            winningConstraint.setBackgroundResource(R.drawable.card_bg_red);
             zoneContstraint.setBackgroundResource(R.drawable.card_bg_red);
             phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
-            foulView.setBackgroundResource(R.drawable.button_bg_red);
-            techView.setBackgroundResource(R.drawable.button_bg_red);
+//            foulView.setBackgroundResource(R.drawable.button_bg_red);
+//            techView.setBackgroundResource(R.drawable.button_bg_red);
 
 
-            yellowCardCheckBox.setBackgroundResource(R.drawable.button_bg_red);
-            redCardCheckBox.setBackgroundResource(R.drawable.button_bg_red);
-            blueWinBtn.setBackgroundResource(R.drawable.button_bg_red);
-            redWinBtn.setBackgroundResource(R.drawable.button_bg_red);
-            clearBtn1.setBackgroundResource(R.drawable.button_bg_red);
+//            yellowCardCheckBox.setBackgroundResource(R.drawable.button_bg_red);
+//            redCardCheckBox.setBackgroundResource(R.drawable.button_bg_red);
+//            blueWinBtn.setBackgroundResource(R.drawable.button_bg_red);
+//            redWinBtn.setBackgroundResource(R.drawable.button_bg_red);
+//            clearBtn1.setBackgroundResource(R.drawable.button_bg_red);
             zoneClearBtn1.setBackgroundResource(R.drawable.button_bg_red);
-            tieBtn.setBackgroundResource(R.drawable.button_bg_red);
+//            tieBtn.setBackgroundResource(R.drawable.button_bg_red);
             finalAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
 
         } else {
             finalAllianceColor.setText("Blue Alliance");
             topView.setScaleX(1);
-            foulsGrid.setBackgroundResource(R.drawable.card_bg_blue);
+            defenseGrid.setBackgroundResource(R.drawable.card_bg_blue);
             disabledGrid.setBackgroundResource(R.drawable.card_bg_blue);
             disqualifiedGrid.setBackgroundResource(R.drawable.card_bg_blue);
-            foulsConstraint.setBackgroundResource(R.drawable.card_bg_blue);
-            winningConstraint.setBackgroundResource(R.drawable.card_bg_blue);
+//            foulsConstraint.setBackgroundResource(R.drawable.card_bg_blue);
+//            winningConstraint.setBackgroundResource(R.drawable.card_bg_blue);
             zoneContstraint.setBackgroundResource(R.drawable.card_bg_blue);
             phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
 
-            foulView.setBackgroundResource(R.drawable.button_bg_blue);
-            techView.setBackgroundResource(R.drawable.button_bg_blue);
-            yellowCardCheckBox.setBackgroundResource(R.drawable.button_bg_blue);
-            redCardCheckBox.setBackgroundResource(R.drawable.button_bg_blue);
-            blueWinBtn.setBackgroundResource(R.drawable.button_bg_blue);
-            redWinBtn.setBackgroundResource(R.drawable.button_bg_blue);
-            clearBtn1.setBackgroundResource(R.drawable.button_bg_blue);
+//            foulView.setBackgroundResource(R.drawable.button_bg_blue);
+//            techView.setBackgroundResource(R.drawable.button_bg_blue);
+//            yellowCardCheckBox.setBackgroundResource(R.drawable.button_bg_blue);
+//            redCardCheckBox.setBackgroundResource(R.drawable.button_bg_blue);
+//            blueWinBtn.setBackgroundResource(R.drawable.button_bg_blue);
+//            redWinBtn.setBackgroundResource(R.drawable.button_bg_blue);
+//            clearBtn1.setBackgroundResource(R.drawable.button_bg_blue);
             zoneClearBtn2.setBackgroundResource(R.drawable.button_bg_blue);
-            tieBtn.setBackgroundResource(R.drawable.button_bg_blue);
+//            tieBtn.setBackgroundResource(R.drawable.button_bg_blue);
             finalAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
         }
     }
     protected void updateValues() {
         Log.i(TAG, "updateValues: ");
 
-        if (tcode.getFinal_foulsCreated() == 1) {
-            foulsCheck.setChecked(true);
-        }
-        numFouls = tcode.getFinal_yellowCardCreated();
-        numTech = tcode.getFinal_numTechFouls();
+//        if (tcode.getFinal_foulsCreated() == 1) {
+//            foulsCheck.setChecked(true);
+//        }
+//        numFouls = tcode.getFinal_yellowCardCreated();
+//        numTech = tcode.getFinal_numTechFouls();
 
         if (tcode.getFinal_disabled() == 1) {
             disabledCheck.setChecked(true);
@@ -1087,61 +972,62 @@ public class FinalActivity extends AppCompatActivity {
         if (tcode.getFinal_disqualified() == 1) {
             disqualifiedCheck.setChecked(true);
         }
-        if(tcode.getFinal_yellowCardCreated() == 1){
-            yellowCardCheckBox.setAlpha(1.0f);
-            yellowCardCheckBox.setChecked(true);
-        }else{
-            yellowCardCheckBox.setAlpha(0.5f);
-            yellowCardCheckBox.setChecked(false);
-        }
-        if(tcode.getFinal_redCardCreated() == 1){
-            redCardCheckBox.setAlpha(1.0f);
-            redCardCheckBox.setChecked(true);
-        }else{
-            redCardCheckBox.setAlpha(0.5f);
-            redCardCheckBox.setChecked(false);
-        }
+        defense_SB.setProgress(tcode.getFinal_defense());
+//        if(tcode.getFinal_yellowCardCreated() == 1){
+//            yellowCardCheckBox.setAlpha(1.0f);
+//            yellowCardCheckBox.setChecked(true);
+//        }else{
+//            yellowCardCheckBox.setAlpha(0.5f);
+//            yellowCardCheckBox.setChecked(false);
+//        }
+//        if(tcode.getFinal_redCardCreated() == 1){
+//            redCardCheckBox.setAlpha(1.0f);
+//            redCardCheckBox.setChecked(true);
+//        }else{
+//            redCardCheckBox.setAlpha(0.5f);
+//            redCardCheckBox.setChecked(false);
+//        }
 
-        if(tcode.getIsRed() == 0){                              //BLUE
-            if(tcode.getFinal_winningAlliance() == 1){
-                winning_RG.check(R.id.finalBlueWinBtn);
-                redWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() == 0){
-                winning_RG.check(R.id.finalRedWinBtn);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                redWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalTieBtn);
-                redWinBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(1.0f);
-            }
-        }
-        else if(tcode.getIsRed() == 1){                         //RED
-            if(tcode.getFinal_winningAlliance() == 1){
-                winning_RG.check(R.id.finalRedWinBtn);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                redWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() ==0){
-                winning_RG.check(R.id.finalBlueWinBtn);
-                redWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(1.0f);
-            }
-            else if(tcode.getFinal_winningAlliance() == 2){
-                winning_RG.check(R.id.finalTieBtn);
-                redWinBtn.setAlpha(0.5f);
-                blueWinBtn.setAlpha(0.5f);
-                tieBtn.setAlpha(1.0f);
-            }
-        }
+//        if(tcode.getIsRed() == 0){                              //BLUE
+//            if(tcode.getFinal_winningAlliance() == 1){
+//                winning_RG.check(R.id.finalBlueWinBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 0){
+//                winning_RG.check(R.id.finalRedWinBtn);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                redWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 2){
+//                winning_RG.check(R.id.finalTieBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(1.0f);
+//            }
+//        }
+//        else if(tcode.getIsRed() == 1){                         //RED
+//            if(tcode.getFinal_winningAlliance() == 1){
+//                winning_RG.check(R.id.finalRedWinBtn);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                redWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() ==0){
+//                winning_RG.check(R.id.finalBlueWinBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(1.0f);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 2){
+//                winning_RG.check(R.id.finalTieBtn);
+//                redWinBtn.setAlpha(0.5f);
+//                blueWinBtn.setAlpha(0.5f);
+//                tieBtn.setAlpha(1.0f);
+//            }
+//        }
         if(tcode.getFinal_zone() == 1){
             zone1btn.setAlpha(1.0f);
             zone2btn.setAlpha(0.5f);

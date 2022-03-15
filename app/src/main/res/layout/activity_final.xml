@@ -89,18 +89,159 @@
 
 <!--    </androidx.cardview.widget.CardView>-->
 
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/FinalPhaseViewBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finalTopView"
-        tools:ignore="SpeakableTextPresentCheck" >
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/disqualified_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disqualified_layout">
+
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/finalDefenseGridLayout"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/card_bg_red"
+                    android:foregroundGravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    app:columnCount="1"
+                    app:rowCount="2">
+
+                    <TextView
+                        android:id="@+id/final_defense_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Defense Effectiveness"
+                        android:textColor="@color/white"
+                        android:textSize="23sp"
+                        app:layout_column="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_gravity="center|center_horizontal"
+                        app:layout_row="0" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar_defense"
+                        style="@style/Widget.AppCompat.SeekBar.Discrete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="5"
+                        android:progress="0"
+                        android:textColor="@color/white"
+                        android:theme="@style/MySeekBar"
+                        app:layout_column="0"
+                        app:layout_constraintBottom_toTopOf="@+id/ll"
+                        app:layout_gravity="center"
+                        app:layout_row="1"
+                        app:tickMarkTint="@color/white"
+                        tools:layout_editor_absoluteX="9dp" />
+
+                    <LinearLayout
+                        android:id="@+id/ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:weightSum="6"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/finalDefense0"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="N/A"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:translationX="-25dp" />
+
+                        <TextView
+                            android:id="@+id/finalDefense1"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:translationX="-15dp" />
+
+                        <TextView
+                            android:id="@+id/finalDefense2"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:translationX="-5dp" />
+
+                        <TextView
+                            android:id="@+id/finalDefense3"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:translationX="5dp" />
+
+                        <TextView
+                            android:id="@+id/finalDefense4"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="4"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:translationX="15dp" />
+
+                        <TextView
+                            android:id="@+id/finalDefense5"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="5"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:translationX="25dp" />
+
+                    </LinearLayout>
+
+                </androidx.gridlayout.widget.GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/showEditShotsBtn"
@@ -113,24 +254,26 @@
                 android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/finalWinningContraintLayout"
-                app:layout_constraintStart_toStartOf="@+id/finalWinningContraintLayout"
-                app:layout_constraintTop_toBottomOf="@+id/finalWinningContraintLayout" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disqualified_layout2" />
 
             <ImageView
                 android:id="@+id/map_img"
                 android:layout_width="500dp"
-                android:layout_height="500dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/map"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/showEditShotsBtn"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/showEditShotsBtn" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/zoneSelectionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="115dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/card_bg_red"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -141,8 +284,8 @@
                     android:id="@+id/clear_zone"
                     android:layout_width="60dp"
                     android:layout_height="20dp"
-                    android:layout_marginEnd="24dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="24dp"
                     android:background="@drawable/text_bg"
                     android:textColor="@color/colorText"
                     app:backgroundTint="@null"
@@ -187,8 +330,8 @@
                     android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:gravity="center"
                     android:layout_marginBottom="10dp"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -200,9 +343,9 @@
                         android:id="@+id/finalZone_RG"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_gravity="center"
                         android:clipChildren="false"
                         android:clipToPadding="false"
-                        android:layout_gravity="center"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingStart="10dp"
@@ -235,8 +378,8 @@
                             android:layout_marginStart="20dp"
                             android:background="@drawable/green_zone_bg"
                             android:button="@drawable/card_bg_red"
-                            android:padding="15dp"
                             android:elevation="10dp"
+                            android:padding="15dp"
                             android:text="Zone 2"
                             android:textAlignment="center"
                             android:textAllCaps="false"
@@ -288,414 +431,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.gridlayout.widget.GridLayout
-                    android:id="@+id/finalFoulsCheckGridLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="68dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/card_bg_red"
-                    android:foregroundGravity="center"
-                    android:padding="15dp"
-                    app:columnCount="2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <CheckBox
-                        android:id="@+id/finalFoulsCheckBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:buttonTint="@color/white"
-                        android:gravity="center"
-                        android:minHeight="48dp"
-                        android:scaleX="1.70"
-                        android:scaleY="1.70" />
-
-                    <TextView
-                        android:id="@+id/finalFouls_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="0dp"
-                        android:text="Fouls"
-                        android:textColor="@color/white"
-                        android:textSize="23sp"
-                        app:layout_gravity="center_vertical|fill_vertical" />
-
-
-                </androidx.gridlayout.widget.GridLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/finalWinningContraintLayout"
-                android:layout_width="383dp"
-                android:layout_height="115dp"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="80dp"
-                android:background="@drawable/card_bg_red"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/disqualified_layout">
-
-                <ImageView
-                    android:id="@+id/finalClearBtn"
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="24dp"
-                    android:background="@drawable/text_bg"
-                    android:textColor="@color/colorText"
-                    app:backgroundTint="@null"
-                    app:layout_constraintBottom_toBottomOf="@+id/winning_alliance_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/winning_alliance_text" />
-
-                <TextView
-                    android:id="@+id/finalClearBtn2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="-5dp"
-                    android:layout_marginTop="-5dp"
-                    android:layout_marginEnd="-5dp"
-                    android:layout_marginBottom="-5dp"
-                    android:autoText="true"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:text="CLEAR"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold"
-                    app:autoSizeTextType="none"
-                    app:layout_constraintBottom_toBottomOf="@+id/finalClearBtn"
-                    app:layout_constraintEnd_toEndOf="@+id/finalClearBtn"
-                    app:layout_constraintStart_toStartOf="@+id/finalClearBtn"
-                    app:layout_constraintTop_toTopOf="@+id/finalClearBtn" />
-
-                <TextView
-                    android:id="@+id/winning_alliance_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Winning Alliance"
-                    android:textColor="@color/white"
-                    android:textSize="23sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/winning_alliance_text">
-
-
-                    <RadioGroup
-                        android:id="@+id/finalWinningAlliance_RG"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clipChildren="false"
-                        android:clipToPadding="false"
-                        android:orientation="horizontal"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="20dp"
-                        android:textAlignment="center">
-
-                        <RadioButton
-                            android:id="@+id/finalBlueWinBtn"
-                            android:layout_width="100dp"
-                            android:layout_height="44dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="0dp"
-                            android:background="@drawable/button_bg_red"
-                            android:button="@drawable/card_bg_red"
-                            android:elevation="10dp"
-                            android:padding="10dp"
-                            android:text="Blue"
-                            android:textAlignment="center"
-                            android:textAllCaps="false"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <RadioButton
-                            android:id="@+id/finalRedWinBtn"
-                            android:layout_width="100dp"
-                            android:layout_height="44dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="20dp"
-                            android:background="@drawable/button_bg_red"
-                            android:button="@drawable/card_bg_red"
-                            android:elevation="10dp"
-                            android:text="Red"
-                            android:textAlignment="center"
-                            android:textAllCaps="false"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
-                            tools:padding="10dp" />
-
-                        <RadioButton
-                            android:id="@+id/finalTieBtn"
-                            android:layout_width="100dp"
-                            android:layout_height="44dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="20dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/button_bg_red"
-                            android:button="@drawable/card_bg_red"
-                            android:elevation="10dp"
-                            android:padding="10dp"
-                            android:text="Tie"
-                            android:textAlignment="center"
-                            android:textAllCaps="false"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            tools:ignore="TouchTargetSizeCheck" />
-                    </RadioGroup>
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/finalFoulsContraintLayout"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="32dp"
-                android:background="@drawable/card_bg_red"
-                android:padding="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fouls"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/foulsLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <View
-                            android:id="@+id/finalRegFoulView"
-                            android:layout_width="100dp"
-                            android:layout_height="40dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="35dp"
-                            android:background="@drawable/text_bg"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/regFoulsText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fouls"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/finalRegFoulView"
-                            app:layout_constraintEnd_toEndOf="@+id/finalRegFoulView"
-                            app:layout_constraintStart_toStartOf="@+id/finalRegFoulView"
-                            app:layout_constraintTop_toTopOf="@+id/finalRegFoulView" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:orientation="horizontal"
-                            app:layout_constraintEnd_toEndOf="@+id/finalRegFoulView"
-                            app:layout_constraintStart_toStartOf="@+id/finalRegFoulView"
-                            app:layout_constraintTop_toBottomOf="@id/finalRegFoulView">
-
-                            <ImageView
-                                android:id="@+id/finalFoulsMinusView"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/remove" />
-
-                            <TextView
-                                android:id="@+id/finalFoulsTextView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:text="1"
-                                android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:id="@+id/finalFoulsPlusView"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="10dp"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/add" />
-
-
-                        </LinearLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <View
-                            android:id="@+id/finalTechView"
-                            android:layout_width="100dp"
-                            android:layout_height="40dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:background="@drawable/text_bg"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tech"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/finalTechView"
-                            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-                            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-                            app:layout_constraintTop_toTopOf="@+id/finalTechView" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:orientation="horizontal"
-                            app:layout_constraintEnd_toEndOf="@+id/finalTechView"
-                            app:layout_constraintStart_toStartOf="@+id/finalTechView"
-                            app:layout_constraintTop_toBottomOf="@id/finalTechView">
-
-                            <ImageView
-                                android:id="@+id/autoHTSM"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/remove" />
-
-                            <TextView
-                                android:id="@+id/autoHTS"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:text="1"
-                                android:textColor="@color/white"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:id="@+id/autoHTSP"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="10dp"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/add" />
-
-
-                        </LinearLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <CheckBox
-                            android:id="@+id/redCardCheckBox"
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:layout_marginTop="30dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/text_bg"
-                            android:button="@drawable/card_bg_red"
-                            android:gravity="center"
-                            android:text="Red Card"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/yellowCardCheckBox" />
-
-                        <CheckBox
-                            android:id="@+id/yellowCardCheckBox"
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/text_bg"
-                            android:button="@drawable/card_bg_red"
-                            android:gravity="center"
-                            android:text="Yellow Card"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/disqualified_layout"
@@ -754,7 +489,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/finalFoulsContraintLayout">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.gridlayout.widget.GridLayout
                     android:id="@+id/finalDisabledGridLayout"
@@ -777,8 +512,10 @@
                         android:layout_marginStart="25dp"
                         android:buttonTint="@color/white"
                         android:gravity="center"
+                        android:minHeight="48dp"
                         android:scaleX="1.70"
-                        android:scaleY="1.70" />
+                        android:scaleY="1.70"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
                         android:id="@+id/disabled_text"
@@ -797,27 +534,21 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/FinalPhaseViewBar"
         android:layout_width="0dp"
-        android:layout_height="140dp"
+        android:layout_height="135dp"
         android:background="@drawable/card_bg_red"
         android:translationY="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="40dp"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:background="@color/zxing_transparent"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -825,45 +556,44 @@
 
             <ImageView
                 android:id="@+id/FinalToEndGame"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/arrow_left" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/left_arrow_v2"
+                app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+                app:layout_constraintEnd_toStartOf="@+id/phase_text"
+                app:layout_constraintTop_toTopOf="@+id/phase_text" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/phase_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/zxing_transparent"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/phase_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Final"
-                    android:textColor="@color/white"
-                    android:textSize="34sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--            <ImageButton-->
-            <!--                android:id="@+id/imageButton"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_weight="1"-->
-            <!--                app:srcCompat="@android:drawable/ic_media_next" />-->
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:text="Final"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/FinalToQr"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/arrow_right" />
-
-        </LinearLayout>
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/right_arrow_v2"
+                app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+                app:layout_constraintStart_toEndOf="@+id/phase_text"
+                app:layout_constraintTop_toTopOf="@+id/phase_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

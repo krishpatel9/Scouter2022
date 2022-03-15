@@ -1,5 +1,6 @@
 package com.example.scouter2022;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity
     private Button autoButton;
     private Button autoSearchButton;
     private Button autoClearButton;
+    private Button noShowButton;
     private String teamNumberStrValue;
     private String matchNumberStrValue;
     private SearchResults mySelectedResults = null;
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity
         autoButton = findViewById(R.id.autoButtonID);
         autoSearchButton = findViewById(R.id.autoSearchBtnID);
         autoClearButton = findViewById(R.id.autoClearBtnID);
+        noShowButton = findViewById(R.id.noShowButtonID);
         teamNumberHint = findViewById(R.id.teamNumberHintID);
         matchNumberHint = findViewById(R.id.matchNumberHintID);
 
@@ -198,6 +202,22 @@ public class MainActivity extends AppCompatActivity
                 checkAutonomousButton("matchNumber");
             }
         });   // End of MatchNumber
+        teamNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+        matchNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
 
         teamRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -266,11 +286,10 @@ public class MainActivity extends AppCompatActivity
                 if (allMatches.containsKey(key)) {
                     showMatchFoundDialog();
                 } else {
-                    proceedSandstormActivity();
+                    proceedAutoActivity();
                 }
             }
         });  // End of AutoButton
-
         autoSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -343,7 +362,6 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });  // End of endGameQRCodeBtn
-
         autoClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -362,6 +380,53 @@ public class MainActivity extends AppCompatActivity
                 teamNumber.requestFocus();
             }
         });
+        noShowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int teamNum = 0;
+                int matchNum = 0;
+
+                allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
+
+                tcode = new TransferCode();
+
+                String teamNumberValue = teamNumber.getText().toString();
+                String matchNumberValue = matchNumber.getText().toString();
+                String key = teamNumberValue + "/" + matchNumberValue;
+                if (teamAllianceValue.equalsIgnoreCase(Defaults.RED_ALLIANCE)) {
+                    tcode.setIsRed(1);
+                }
+                Log.i(TAG, "autoButton clicked...");
+                Log.i(TAG, "teamNumberValue  ==> " + teamNumberValue);
+                Log.i(TAG, "matchNumberValue ==> " + matchNumberValue);
+                Log.i(TAG, "teamAllianceValue ==> " + teamAllianceValue);
+
+                if (teamNumberValue != null && !teamNumberValue.isEmpty()) {
+                    try {
+                        teamNum = Integer.parseInt(teamNumberStrValue);
+                        tcode.setTeamNumber(teamNum);
+                    } catch (Exception e) {
+                        Log.e(TAG, "Exception: " + e);
+                    }
+                }
+
+                if (matchNumberValue != null && !matchNumberValue.isEmpty()) {
+                    try {
+                        matchNum = Integer.parseInt(matchNumberStrValue);
+                        tcode.setMatchNumber(matchNum);
+                    } catch (Exception e) {
+                        Log.e(TAG, "Exception: " + e);
+                    }
+                }
+                tcode.setNoShow();
+
+                if (allMatches.containsKey(key)) {
+                    showMatchFoundDialogNoShow();
+                } else {
+                    noShowProceedQRActivity();
+                }
+            }
+        });  // End of noShow
     }
 
     private void checkSearchButton(String caller) {
@@ -377,15 +442,15 @@ public class MainActivity extends AppCompatActivity
             autoSearchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search_white, 0, 0, 0);
             //autoSearchButton
             autoSearchButton.setTextColor(getResources().getColor(R.color.colorText));
-            autoSearchButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            autoSearchButton.setBackground(getDrawable(R.drawable.round_grid_search_enabled));
         } else {
             autoSearchButton.setEnabled(false);
             autoSearchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search_black, 0, 0, 0);
             autoSearchButton.setTextColor(getResources().getColor(R.color.colorTextDisabledButton));
-            autoSearchButton.setBackgroundColor(getResources().getColor(R.color.colorBackgroundDisabledButton));
+            autoSearchButton.setBackground(getDrawable(R.drawable.round_grid_disabled));
         }
-
     }
+
 
     private void checkClearButton(String caller) {
         Log.i(TAG, "checkClearButton(" + caller + "):         teamError==> " + teamError);
@@ -400,12 +465,12 @@ public class MainActivity extends AppCompatActivity
             autoClearButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cross_white, 0, 0, 0);
             //autoClearButton
             autoClearButton.setTextColor(getResources().getColor(R.color.colorText));
-            autoClearButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            autoClearButton.setBackground(getDrawable(R.drawable.round_grid_clear_enabled));
         } else {
             autoClearButton.setEnabled(false);
             autoClearButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cross_black, 0, 0, 0);
             autoClearButton.setTextColor(getResources().getColor(R.color.colorTextDisabledButton));
-            autoClearButton.setBackgroundColor(getResources().getColor(R.color.colorBackgroundDisabledButton));
+            autoClearButton.setBackground(getDrawable(R.drawable.round_grid_disabled));
         }
     }
 
@@ -420,12 +485,20 @@ public class MainActivity extends AppCompatActivity
             autoButton.setEnabled(true);
             autoButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.arrow_right_white, 0, 0, 0);
             autoButton.setTextColor(getResources().getColor(R.color.colorText));
-            autoButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            autoButton.setBackground(getDrawable(R.drawable.round_grid_proceed_enabled));
+            noShowButton.setEnabled(true);
+            noShowButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.arrow_right_white, 0, 0, 0);
+            noShowButton.setTextColor(getResources().getColor(R.color.colorText));
+            noShowButton.setBackground(getDrawable(R.drawable.round_grid_noshow_enabled));
         } else {
             autoButton.setEnabled(false);
             autoButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.arrow_right_black, 0, 0, 0);
             autoButton.setTextColor(getResources().getColor(R.color.colorTextDisabledButton));
-            autoButton.setBackgroundColor(getResources().getColor(R.color.colorBackgroundDisabledButton));
+            autoButton.setBackground(getDrawable(R.drawable.round_grid_disabled));
+            noShowButton.setEnabled(false);
+            noShowButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.arrow_right_black, 0, 0, 0);
+            noShowButton.setTextColor(getResources().getColor(R.color.colorTextDisabledButton));
+            noShowButton.setBackground(getDrawable(R.drawable.round_grid_disabled));
         }
     }
 
@@ -517,7 +590,7 @@ public class MainActivity extends AppCompatActivity
         dialog.show();
     }
 
-    private void proceedSandstormActivity() {
+    private void proceedAutoActivity() {
         Gson gson = new Gson();
         String json = gson.toJson(tcode);
 
@@ -533,6 +606,23 @@ public class MainActivity extends AppCompatActivity
         tcode = allMatches.get(key);
         Log.i(TAG, "After proceedSandstormActivity(): " + tcode.toString());
     }
+    private void noShowProceedQRActivity() {
+        Gson gson = new Gson();
+        String json = gson.toJson(tcode);
+
+        Log.i(TAG, "proceedSandstormActivity: intent JSON ==> " + json);
+        saveMatch();
+
+        Intent intent = new Intent(MainActivity.this, QRCodeActivity.class);
+        intent.putExtra("code", json);
+        //startActivityForResult(intent, resultCode);
+        startActivity(intent);
+
+        String key = tcode.getTeamNumber()+ "/" + tcode.getMatchNumber();
+        tcode = allMatches.get(key);
+        Log.i(TAG, "After proceedAutoActivity(): " + tcode.toString());
+    }
+
 
     private void saveMatch() {
         String key = tcode.getTeamNumber() + "/" + tcode.getMatchNumber();
@@ -572,7 +662,12 @@ public class MainActivity extends AppCompatActivity
                         tcode = allMatches.get(key);
                         Log.i(TAG, "Existing TCODE..." + tcode.toString());
                         dialog.cancel();
-                        proceedSandstormActivity();
+                        if(tcode.getIsNoShow() == 0){
+                            proceedAutoActivity();
+                        }
+                        else{
+                            noShowProceedQRActivity();
+                        }
                         break;
 
                     case R.id.dialogOverwriteBtnID:
@@ -586,7 +681,72 @@ public class MainActivity extends AppCompatActivity
                             tcode.setIsRed(0);
                         }
                         dialog.cancel();
-                        proceedSandstormActivity();
+                        proceedAutoActivity();
+                        break;
+
+                    default:
+                        Log.e(TAG, "Something is wrong...");
+                        break;
+                }
+            }
+        };
+
+        existingButton.setOnClickListener(listener);
+        overwriteButton.setOnClickListener(listener);
+
+        dialog.show();
+    }
+    private void showMatchFoundDialogNoShow() {
+        final Dialog dialog = new Dialog(MainActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.match_found_dialog);
+
+        // set the custom dialog components - text, image and button
+        TextView teamDetails = dialog.findViewById(R.id.dialogTeamID);
+        TextView matchDetails = dialog.findViewById(R.id.dialogMatchID);
+        teamDetails.setText("Team Details: " + tcode.getTeamNumber());
+        matchDetails.setText("Match Details: " + tcode.getMatchNumber());
+
+        Button existingButton = dialog.findViewById(R.id.dialogExistingBtnID);
+        Button overwriteButton = dialog.findViewById(R.id.dialogOverwriteBtnID);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button btn = (Button) view;
+                int id = btn.getId();
+
+                String teamNumberValue = teamNumber.getText().toString();
+                String matchNumberValue = matchNumber.getText().toString();
+                String key = teamNumberValue + "/" + matchNumberValue;
+
+                switch (id) {
+                    case R.id.dialogExistingBtnID:
+                        Log.i(TAG, "Inside of use existing...");
+                        tcode = allMatches.get(key);
+                        Log.i(TAG, "Existing TCODE..." + tcode.toString());
+                        dialog.cancel();
+                        if(tcode.getIsNoShow() == 0){
+                            proceedAutoActivity();
+                        }
+                        else{
+                            noShowProceedQRActivity();
+                        }
+                        break;
+
+                    case R.id.dialogOverwriteBtnID:
+                        Log.i(TAG, "Inside of overwrite...");
+                        tcode = new TransferCode();
+                        tcode.setTeamNumber(Integer.valueOf(teamNumberValue));
+                        tcode.setMatchNumber(Integer.valueOf(matchNumberValue));
+                        tcode.setNoShow();
+                        if (teamAllianceValue.equalsIgnoreCase(Defaults.RED_ALLIANCE)) {
+                            tcode.setIsRed(1);
+                        } else {
+                            tcode.setIsRed(0);
+                        }
+                        dialog.cancel();
+                        noShowProceedQRActivity();
                         break;
 
                     default:
@@ -635,7 +795,11 @@ public class MainActivity extends AppCompatActivity
 
         dialog.show();
     }
-
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager = null;
+        inputMethodManager = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
     private void showAboutDialog() {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

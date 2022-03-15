@@ -1,6 +1,7 @@
 package com.example.scouter2022;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.example.scouter2022.model.Match;
 import com.example.scouter2022.model.TransferCode;
 import com.example.scouter2022.util.PreferenceUtility;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -36,9 +38,12 @@ public class ManageMatchActivity extends AppCompatActivity {
     private Button selectAllButton;
     private Button deselectAllButton;
     private Button removeSelectedButton;
+    private Button openSelectedButton;
+    private Button QRSelectedButton;
+
 
     private ListView listTeamMatches;
-
+    private TransferCode tcode;
     private TeamMatchAdapter teamMatchArrayAdapter;
     private ArrayList<Match> arrayOfTeamMatches;
     private Map<String, TransferCode> allMatches;
@@ -57,6 +62,8 @@ public class ManageMatchActivity extends AppCompatActivity {
         selectAllButton = findViewById(R.id.selectAllID);
         deselectAllButton = findViewById(R.id.deselectAllID);
         removeSelectedButton = findViewById(R.id.removeSelectedID);
+        openSelectedButton = findViewById(R.id.openSelectedID);
+        QRSelectedButton = findViewById(R.id.QRSelected);
         listTeamMatches = findViewById(R.id.listViewID);
 
         // Create the adapter to convert the array to views
@@ -105,9 +112,71 @@ public class ManageMatchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i(TAG, "onClick: removeSelectedButton...");
                 if (arrayOfTeamMatches.size()> 0) {
-                    showConnectDialog();
+                    if(getSelectedMatches().size() > 0){
+                        showConnectDialog();
+                    }
+                    else{
+                        Snackbar.make(constraintLayout, "Error: No Matches Selected", Snackbar.LENGTH_LONG).show();
+                    }
                 } else {
                     Snackbar.make(constraintLayout, "There are no matches...", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
+        openSelectedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick: openSelectedButton...");
+                if (getSelectedMatches().size() == 1) {
+//                    Snackbar.make(constraintLayout, "Match Selected:" + getSelectedMatches().get(0).getMatchNumber() + " Team Selected: " + getSelectedMatches().get(0).getTeamNumber() , Snackbar.LENGTH_LONG).show();
+
+                    int matchNum = getSelectedMatches().get(0).getMatchNumber();
+                    int teamNum = getSelectedMatches().get(0).getTeamNumber();
+                    int isRed = getSelectedMatches().get(0).getIsRed();
+                    allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
+                    tcode = new TransferCode();
+                    tcode.setTeamNumber(teamNum);
+                    tcode.setMatchNumber(matchNum);
+                    tcode.setIsRed(isRed);
+
+                    String key = teamNum + "/" + matchNum;
+                    tcode = allMatches.get(key);
+                    if(tcode.getIsNoShow() == 0){
+                        proceedAutoActivity();
+                    }
+                    else{
+                        proceedQRActivity();
+                    }
+                } else if (getSelectedMatches().size() > 1){
+                    Snackbar.make(constraintLayout, "Error: Multiple Matches Selected" , Snackbar.LENGTH_LONG).show();
+                } else{
+                    Snackbar.make(constraintLayout, "Error: No Matches Selected", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
+        QRSelectedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick: openSelectedButton...");
+                if (getSelectedMatches().size() == 1) {
+//                    Snackbar.make(constraintLayout, "Match Selected:" + getSelectedMatches().get(0).getMatchNumber() + " Team Selected: " + getSelectedMatches().get(0).getTeamNumber() , Snackbar.LENGTH_LONG).show();
+
+                    int matchNum = getSelectedMatches().get(0).getMatchNumber();
+                    int teamNum = getSelectedMatches().get(0).getTeamNumber();
+                    int isRed = getSelectedMatches().get(0).getIsRed();
+                    allMatches = PreferenceUtility.getAllMatches(getApplicationContext());
+                    tcode = new TransferCode();
+                    tcode.setTeamNumber(teamNum);
+                    tcode.setMatchNumber(matchNum);
+                    tcode.setIsRed(isRed);
+
+                    String key = teamNum + "/" + matchNum;
+                    tcode = allMatches.get(key);
+                    proceedQRActivity();
+                } else if (getSelectedMatches().size() > 1){
+                    Snackbar.make(constraintLayout, "Error: Multiple Matches Selected" , Snackbar.LENGTH_LONG).show();
+                } else{
+                    Snackbar.make(constraintLayout, "Error: No Matches Selected", Snackbar.LENGTH_LONG).show();
                 }
             }
         });
@@ -192,7 +261,55 @@ public class ManageMatchActivity extends AppCompatActivity {
         PreferenceUtility.saveAllMatches(getApplicationContext(), allMatches);
         populateAllTeamMatches();
     }
+    private ArrayList<Match> getSelectedMatches(){
+        ArrayList<Match> selected = new ArrayList<Match>();
+        for(Match match: arrayOfTeamMatches){
+            if (match.isChecked()) {
+                selected.add(match);
+            }
+        }
+        return selected;
+    }
 
+    private void proceedAutoActivity() {
+        Gson gson = new Gson();
+        String json = gson.toJson(tcode);
+
+        Log.i(TAG, "proceedSandstormActivity: intent JSON ==> " + json);
+        saveMatch();
+
+        Intent intent = new Intent(ManageMatchActivity.this, AutoActivity.class);
+        intent.putExtra("code", json);
+        //startActivityForResult(intent, resultCode);
+        startActivity(intent);
+
+        String key = tcode.getTeamNumber()+ "/" + tcode.getMatchNumber();
+        tcode = allMatches.get(key);
+        Log.i(TAG, "After proceedAutoActivity(): " + tcode.toString());
+    }
+    private void proceedQRActivity() {
+        Gson gson = new Gson();
+        String json = gson.toJson(tcode);
+
+        Log.i(TAG, "proceedSandstormActivity: intent JSON ==> " + json);
+        saveMatch();
+
+        Intent intent = new Intent(ManageMatchActivity.this, QRCodeActivity.class);
+        intent.putExtra("code", json);
+        //startActivityForResult(intent, resultCode);
+        startActivity(intent);
+
+        String key = tcode.getTeamNumber()+ "/" + tcode.getMatchNumber();
+        tcode = allMatches.get(key);
+        Log.i(TAG, "After proceedQRActivity(): " + tcode.toString());
+    }
+    private void saveMatch() {
+        String key = tcode.getTeamNumber() + "/" + tcode.getMatchNumber();
+        allMatches.put(key, tcode);
+
+        Snackbar.make(constraintLayout, "Match has been saved...", Snackbar.LENGTH_LONG).show();
+        PreferenceUtility.saveAllMatches(getApplicationContext(), allMatches);
+    }
     private void populateAllTeamMatches() {
         ArrayList<TransferCode> allCodes = new ArrayList<>(allMatches.values());
 

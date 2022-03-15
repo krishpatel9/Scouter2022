@@ -89,6 +89,8 @@ public class EndGameActivity extends AppCompatActivity {
         clearBtn = findViewById(R.id.endGame_clearBtn);
         toTele = findViewById(R.id.EndGameToTele);
         toFinal = findViewById(R.id.EndGameToFinal);
+
+
         tcode = new TransferCode();
 
         Intent intent = getIntent();

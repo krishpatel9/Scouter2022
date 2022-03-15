@@ -31,12 +31,17 @@ public class QRCodeActivity extends AppCompatActivity {
     private Map<String, TransferCode> allMatches;
     private String INSTANCE_STATE = "INSTANCE_STATE";
 
-    private TextView regFoulsTextView;
-    private TextView redFoulsTextView;
-    private TextView yellowCardTextView,redCardTextView;
-    private TextView techFoulsTextView;
+//    private TextView regFoulsTextView;
+//    private TextView redFoulsTextView;
+//    private TextView yellowCardTextView,redCardTextView;
+//    private TextView techFoulsTextView;
+    private TextView disabledYNTextView;
+    private TextView disqualifiedYNTextView;
+    private TextView defenseNumTextView;
     private TextView disabledTextView;
     private TextView disqualifiedTextView;
+    private TextView defenseTextView;
+    private TextView noShowTextView;
     private TextView codeTextView;
     private View phaseBarView;
     private View topView;
@@ -63,28 +68,36 @@ public class QRCodeActivity extends AppCompatActivity {
         qrAllianceColor = findViewById(R.id.qrColorTextView);
         topView = findViewById(R.id.qrTopView);
 
-        regFoulsTextView = findViewById(R.id.NumRegFouls_textView);
-        techFoulsTextView = findViewById(R.id.NumTechFouls_textView);
+//        regFoulsTextView = findViewById(R.id.NumRegFouls_textView);
+//        techFoulsTextView = findViewById(R.id.NumTechFouls_textView);
+//
+//        yellowCardTextView = findViewById(R.id.yellowFouls_textView);
+//
+//        redCardTextView = findViewById(R.id.redFouls_textView);
 
-        yellowCardTextView = findViewById(R.id.yellowFouls_textView);
+        disabledYNTextView = findViewById(R.id.disabled_YN_textView);
+        disqualifiedYNTextView = findViewById(R.id.disqualified_YN_textView);
+        defenseNumTextView = findViewById(R.id.defense_num_textView);
 
-        redCardTextView = findViewById(R.id.redFouls_textView);
-
-        disabledTextView = findViewById(R.id.disabled_YN_textView);
-        disqualifiedTextView = findViewById(R.id.disqualified_YN_textView);
-        
-        foulsView = findViewById(R.id.qrFouls_View);
+        disabledTextView = findViewById(R.id.disabled_textView);
+        disqualifiedTextView = findViewById(R.id.disqualified_textView);
+        defenseTextView = findViewById(R.id.defense_textView);
+        noShowTextView = findViewById(R.id.noShow_textView);
+//        foulsView = findViewById(R.id.qrFouls_View);
         infoView = findViewById(R.id.qrInfo_View);
         codeTextView = findViewById(R.id.qrCodeTextView);
         layout1 = findViewById(R.id.qrInfoLayout);
-        layout2 = findViewById(R.id.qrDisabledLayout);
-        layout3 = findViewById(R.id.qrDisqualifiedLayout);
-        layout4 = findViewById(R.id.qrFoulsLayout);
+//        layout2 = findViewById(R.id.qrDisabledLayout);
+//        layout3 = findViewById(R.id.qrDisqualifiedLayout);
+//        layout4 = findViewById(R.id.qrFoulsLayout);
         
         toFinal = findViewById(R.id.QRtoFinal);
         toMain = findViewById(R.id.QRtoMain);
         QRCODE = findViewById(R.id.QRcode_imageView);
         Intent intent = getIntent();
+
+
+
         if (intent != null) {
             String json = intent.getStringExtra("code");
             Log.i(TAG, "onCreate: intent JSON ==> " + json);
@@ -95,8 +108,30 @@ public class QRCodeActivity extends AppCompatActivity {
             
             showAllValues();
         }
+
+//        if(tcode.getIsNoShow() == 0){
+//            toFinal.setEnabled(true);
+//            toFinal.setVisibility(View.VISIBLE);
+//        }
+//        else if(tcode.getIsNoShow() == 1){
+//            toFinal.setEnabled(false);
+//            toFinal.setVisibility(View.INVISIBLE);
+//        }
+
         qrTeamNumber.setText(String.valueOf(tcode.getTeamNumber()));
         qrMatchNumber.setText(String.valueOf(tcode.getMatchNumber()));
+        if(tcode.getIsNoShow() ==0){
+            disabledTextView.setText("Disabled: ");
+            disqualifiedTextView.setText("Disqualified: ");
+            defenseTextView.setText("Defense: ");
+            noShowTextView.setText("0");
+        }
+        else{
+            disabledTextView.setText("");
+            disqualifiedTextView.setText("");
+            defenseTextView.setText("");
+            noShowTextView.setText("NO SHOW");
+        }
 
         setComponentBackground(tcode.getIsRed());
 
@@ -156,65 +191,94 @@ public class QRCodeActivity extends AppCompatActivity {
     }
 
     private void showAllValues(){
-        regFoulsTextView.setText(String.valueOf(tcode.getFinal_numRegFouls()));
-        techFoulsTextView.setText(String.valueOf(tcode.getFinal_numTechFouls()));
+//        regFoulsTextView.setText(String.valueOf(tcode.getFinal_numRegFouls()));
+//        techFoulsTextView.setText(String.valueOf(tcode.getFinal_numTechFouls()));
 
-        if (tcode.getFinal_redCardCreated() == 1){
-            redCardTextView.setText("Red: Yes");
-        }else{
-            redCardTextView.setText("Red: No");
-        }
+//        if (tcode.getFinal_redCardCreated() == 1){
+//            redCardTextView.setText("Red: Yes");
+//        }else{
+//            redCardTextView.setText("Red: No");
+//        }
+//
+//        if (tcode.getFinal_yellowCardCreated() == 1){
+//            yellowCardTextView.setText("Yellow: Yes");
+//        }else{
+//            yellowCardTextView.setText("Yellow: No");
+//        }
+//        if(tcode.getIsNoShow() == 0){
+//            toFinal.setEnabled(true);
+//        }
+//        else if(tcode.getIsNoShow() == 1){
+//            toFinal.setEnabled(false);
+//        }
+        if(tcode.getIsNoShow() ==0) {
+            if (tcode.getFinal_disabled() == 1) {
+                disabledYNTextView.setText("Yes");
+            } else {
+                disabledYNTextView.setText("No");
+            }
+            if (tcode.getFinal_disqualified() == 1) {
+                disqualifiedYNTextView.setText("Yes");
+            } else {
+                disqualifiedYNTextView.setText("No");
+            }
+            if(tcode.getFinal_defense() == 0){
+                defenseNumTextView.setText("N/A");
+            }
+            else{
+                defenseNumTextView.setText(tcode.getFinal_defense());
+            }
+            disabledTextView.setText("Disabled: ");
+            disqualifiedTextView.setText("Disqualified: ");
+            defenseTextView.setText("Defense: ");
+            noShowTextView.setText("");
+            toFinal.setEnabled(true);
+            toFinal.setVisibility(View.VISIBLE);
 
-        if (tcode.getFinal_yellowCardCreated() == 1){
-            yellowCardTextView.setText("Yellow: Yes");
-        }else{
-            yellowCardTextView.setText("Yellow: No");
-        }
-
-        if(tcode.getFinal_disabled() == 1){
-            disabledTextView.setText("Yes");
         }
         else{
-            disabledTextView.setText("No");
-        }
-        if(tcode.getFinal_disqualified() == 1){
-            disqualifiedTextView.setText("Yes");
-        }
-        else{
-            disqualifiedTextView.setText("No");
+            disabledTextView.setText("");
+            disqualifiedTextView.setText("");
+            defenseTextView.setText("");
+            disabledYNTextView.setText("");
+            disqualifiedYNTextView.setText("");
+            defenseNumTextView.setText("");
+            noShowTextView.setText("NO SHOW");
+            toFinal.setEnabled(false);
+            toFinal.setVisibility(View.INVISIBLE);
         }
 
         // 1 = Home Win     Away Loss
         // 0 = Home Loss    Away Win
         // 2 = Tie          Tie
-        if(tcode.getIsRed() == 0){ // BLUE
-            if(tcode.getFinal_winningAlliance() == 0){ // Blue Loss
-                qrAllianceColor.setText("Red");
-                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
-            }
-            else if(tcode.getFinal_winningAlliance() == 1){ //Blue Win
-                qrAllianceColor.setText("Blue");
-                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
-            }
-            else if(tcode.getFinal_winningAlliance() == 2){ //Tie
-                qrAllianceColor.setText("Tie");
-                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_icon, 0);
-            }
-        }
-        else if(tcode.getIsRed() == 1){ //RED
-            if(tcode.getFinal_winningAlliance() == 0){ //Red Loss
-                qrAllianceColor.setText("Blue");
-                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
-            }
-            else if(tcode.getFinal_winningAlliance() == 1){ //Red Win
-                qrAllianceColor.setText("Red");
-                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
-            }
-            else if(tcode.getFinal_winningAlliance() == 2){ //Tie
-                qrAllianceColor.setText("Tie");
-                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_icon, 0);
-            }
-        }
+//        if(tcode.getIsRed() == 0){ // BLUE
+//            if(tcode.getFinal_winningAlliance() == 0){ // Blue Loss
+//                qrAllianceColor.setText("Red");
+//                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 1){ //Blue Win
+//                qrAllianceColor.setText("Blue");
+//                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 2){ //Tie
+//                qrAllianceColor.setText("Tie");
+//                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_icon, 0);
+//            }
+//        }
+//        else if(tcode.getIsRed() == 1){ //RED
+//            if(tcode.getFinal_winningAlliance() == 0){ //Red Loss
+//                qrAllianceColor.setText("Blue");
+//                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 1){ //Red Win
+//                qrAllianceColor.setText("Red");
+//                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
+//            }
+//            else if(tcode.getFinal_winningAlliance() == 2){ //Tie
+//                qrAllianceColor.setText("Tie");
+//                qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_icon, 0);
+//            }
+//        }
 
     }
     private void saveMatch() {
@@ -227,22 +291,26 @@ public class QRCodeActivity extends AppCompatActivity {
         if (isRed == 1) {
             topView.setScaleX(-1);
             layout1.setBackgroundResource(R.drawable.card_bg_red);
-            layout2.setBackgroundResource(R.drawable.card_bg_red);
-            layout3.setBackgroundResource(R.drawable.card_bg_red);
-            layout4.setBackgroundResource(R.drawable.card_bg_red);
+//            layout2.setBackgroundResource(R.drawable.card_bg_red);
+//            layout3.setBackgroundResource(R.drawable.card_bg_red);
+//            layout4.setBackgroundResource(R.drawable.card_bg_red);
 
             infoView.setBackgroundResource(R.drawable.button_bg_red);
-            foulsView.setBackgroundResource(R.drawable.button_bg_red);
+//            foulsView.setBackgroundResource(R.drawable.button_bg_red);
+            qrAllianceColor.setText("Red");
+            qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
 
         } else {
             topView.setScaleX(1);
             layout1.setBackgroundResource(R.drawable.card_bg_blue);
-            layout2.setBackgroundResource(R.drawable.card_bg_blue);
-            layout3.setBackgroundResource(R.drawable.card_bg_blue);
-            layout4.setBackgroundResource(R.drawable.card_bg_blue);
+//            layout2.setBackgroundResource(R.drawable.card_bg_blue);
+//            layout3.setBackgroundResource(R.drawable.card_bg_blue);
+//            layout4.setBackgroundResource(R.drawable.card_bg_blue);
 
             infoView.setBackgroundResource(R.drawable.button_bg_blue);
-            foulsView.setBackgroundResource(R.drawable.button_bg_blue);
+//            foulsView.setBackgroundResource(R.drawable.button_bg_blue);
+            qrAllianceColor.setText("Blue");
+            qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
         }
         showQRcode();
     }
