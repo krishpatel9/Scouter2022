@@ -440,62 +440,67 @@
         app:layout_constraintStart_toStartOf="@+id/autoHumanScoredView"
         app:layout_constraintTop_toTopOf="@+id/autoHumanScoredView" />
 
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/autoPhaseViewBar"
-        android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:background="@drawable/bottom_view_red"
+        android:layout_width="0dp"
+        android:layout_height="135dp"
+        android:background="@drawable/card_bg_red"
+        android:translationY="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <View
-        android:id="@+id/autoPhaseView"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:background="@color/zxing_transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/autoPhaseViewBar"
-        app:layout_constraintTop_toTopOf="@+id/autoPhaseViewBar" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/zxing_transparent"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/autoPhaseTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Autonomous"
-        android:textColor="#ffffff"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoPhaseView"
-        app:layout_constraintEnd_toEndOf="@+id/autoPhaseView"
-        app:layout_constraintStart_toStartOf="@+id/autoPhaseView"
-        app:layout_constraintTop_toTopOf="@+id/autoPhaseView" />
+            <ImageView
+                android:id="@+id/AutoToMain"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/left_arrow_v2"
+                app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+                app:layout_constraintEnd_toStartOf="@+id/phase_text"
+                app:layout_constraintTop_toTopOf="@+id/phase_text" />
 
-    <ImageView
-        android:id="@+id/AutoToTele"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#C52736"
-        android:src="@drawable/ic_baseline_arrow_right"
-        app:layout_constraintBottom_toBottomOf="@+id/autoPhaseViewBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.200"
-        app:layout_constraintStart_toEndOf="@+id/autoPhaseView"
-        app:layout_constraintTop_toTopOf="@+id/autoPhaseViewBar"
-        app:layout_constraintVertical_bias="0.500" />
+            <TextView
+                android:id="@+id/phase_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:text="Auto"
+                android:textColor="@color/white"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/AutoToMain"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#C52736"
-        android:src="@drawable/ic_baseline_arrow_left"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/autoPhaseView"
-        app:layout_constraintHorizontal_bias="0.800"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/autoPhaseViewBar"
-        app:layout_constraintVertical_bias="0.500" />
+            <ImageView
+                android:id="@+id/AutoToTele"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/right_arrow_v2"
+                app:layout_constraintBottom_toBottomOf="@+id/phase_text"
+                app:layout_constraintStart_toEndOf="@+id/phase_text"
+                app:layout_constraintTop_toTopOf="@+id/phase_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

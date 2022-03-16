@@ -8,15 +8,22 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#C52736</color>//8D0000
-    <color name="colorPrimaryDark">#490303</color>//490303
-    <color name="colorAccent">#CC0620</color>//021CA2
+    <color name="colorPrimary">#3E3F3E</color>//8D0000 3E3F3E C52736
+    <color name="colorPrimaryAlt">#C52736</color>//8D0000 3E3F3E C52736
+
+    <color name="colorPrimaryDark">#272727</color>//490303
+    <color name="colorPrimaryDarkAlt">#490303</color>//490303
+
+    <color name="colorAccent">#3C3C3C</color>//CC0620
+    <color name="colorAccentAlt">#CC0620</color>//CC0620
+
     <color name="colorSecondary">#CF7900</color>
     <color name="colorText">#FFFFFF</color>
     <color name="colorHint">#FFFFFF</color>
+    <color name="colorSearch">#66BB6A</color>
     <color name="rippleColor">#ffffff</color>
     <color name="colorTextDisabledButton">#999999</color>
-    <color name="colorBackgroundDisabledButton">#cccccc</color>
+    <color name="colorBackgroundDisabledButton">#28050505</color>
     <color name="colorBlue">#0324CC</color>
     <color name="colorRed">#C52736</color>
     <color name="colorGreen">#00A50D</color>

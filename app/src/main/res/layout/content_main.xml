@@ -8,7 +8,9 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
 
     <ImageView
         android:id="@+id/Main_BG"
@@ -27,10 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:alpha=".75"
         app:cardCornerRadius="20dp"
@@ -38,13 +38,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19999999">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/card_bg_red"
-            android:padding="20dp">
+            android:background="@drawable/card_bg_main"
+            android:padding="40dp">
 
             <TextView
                 android:id="@+id/matchDetailTitleID"
@@ -69,9 +70,9 @@
                 android:layout_marginEnd="8dp"
                 android:drawableStart="@drawable/team"
                 android:drawablePadding="8dp"
+                android:drawableTint="@color/white"
                 android:ems="10"
                 android:hint="Team Number"
-                android:drawableTint="@color/white"
                 android:inputType="number"
                 android:maxLength="5"
                 android:paddingTop="10dp"
@@ -101,9 +102,9 @@
                 android:layout_marginEnd="8dp"
                 android:drawableStart="@drawable/robot"
                 android:drawablePadding="8dp"
+                android:drawableTint="@color/white"
                 android:ems="10"
                 android:hint="Match Number"
-                android:drawableTint="@color/white"
                 android:inputType="number"
                 android:maxLength="3"
                 android:paddingTop="10dp"
@@ -128,11 +129,10 @@
                 android:id="@+id/teleAllianceFlagID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:padding="3dp"
+                android:padding="2dp"
                 app:layout_constraintBottom_toBottomOf="@+id/teamRadioGroupID"
                 app:layout_constraintStart_toStartOf="@+id/matchNumberID"
-                app:layout_constraintTop_toBottomOf="@+id/matchNumberHintID"
+                app:layout_constraintTop_toTopOf="@+id/teamRadioGroupID"
                 app:srcCompat="@drawable/flag_icon" />
 
             <TextView
@@ -189,15 +189,15 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.5" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/autoSearchBtnID"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/round_grid_disabled"
-                app:icon="@drawable/search_black"
+                android:drawableLeft="@drawable/search_black"
                 android:drawablePadding="10dp"
                 android:enabled="false"
                 android:paddingStart="10dp"
@@ -209,12 +209,11 @@
                 android:textColor="@color/colorTextDisabledButton"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintHorizontal_bias="0.9"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/autoButtonID" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/autoButtonID"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
@@ -222,6 +221,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/round_grid_disabled"
+                android:drawableLeft="@drawable/arrow_right_black"
                 android:drawablePadding="8dp"
                 android:enabled="false"
                 android:labelFor="@+id/matchDetailTitleID"
@@ -235,21 +235,45 @@
                 android:textColor="@color/colorTextDisabledButton"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:icon="@drawable/arrow_right_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/allianceHintID" />
 
-            <Button
-                android:id="@+id/autoClearBtnID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/noShowButtonID"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/round_grid_disabled"
-                app:icon="@drawable/cross_black"
+                android:drawableLeft="@drawable/arrow_right_black"
+                android:drawablePadding="8dp"
+                android:enabled="false"
+                android:labelFor="@+id/matchDetailTitleID"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="2dp"
+                android:text="No Show"
+                android:textColor="@color/colorTextDisabledButton"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/autoButtonID" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/autoClearBtnID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_grid_disabled"
+                android:drawableLeft="@drawable/cross_black"
                 android:drawablePadding="10dp"
                 android:paddingStart="10dp"
                 android:paddingLeft="10dp"
@@ -261,9 +285,8 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/autoButtonID" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/autoSearchBtnID" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
