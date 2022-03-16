@@ -70,6 +70,7 @@ public class ManageMatchActivity extends AppCompatActivity {
         teamMatchArrayAdapter = new TeamMatchAdapter(this, arrayOfTeamMatches);
         View header = getLayoutInflater().inflate(R.layout.manage_header, null);
         listTeamMatches.addHeaderView(header);
+//        listTeamMatches.
         listTeamMatches.setAdapter(teamMatchArrayAdapter);
 
         listTeamMatches.setOnItemClickListener(teamMatchesItemClickListener);

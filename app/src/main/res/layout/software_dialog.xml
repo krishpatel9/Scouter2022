@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:layout_margin="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card_bg_main">
 
   <TextView
       android:id="@+id/softwareTitleID"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:background="@drawable/card_bg_red"
+      android:layout_margin="10dp"
+      android:background="@drawable/card_bg_grey"
       android:padding="3dp"
       android:text="@string/software_app_title"
       android:textAlignment="center"
@@ -22,36 +23,37 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <ImageView
-    android:id="@+id/softwareImageID"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/softwareTitleID"
-    app:srcCompat="@drawable/pc_download" />
+      android:id="@+id/softwareImageID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="8dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/softwareTitleID"
+      app:srcCompat="@drawable/pc_download" />
 
   <TextView
-    android:id="@+id/softwareDetailsID"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:paddingStart="16dp"
-    android:paddingLeft="16dp"
-    android:paddingEnd="16dp"
+      android:id="@+id/softwareDetailsID"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:paddingStart="16dp"
+      android:paddingLeft="16dp"
+      android:paddingEnd="16dp"
 
-    android:paddingRight="16dp"
-    android:text="@string/software_details"
-    android:textAlignment="center"
-    android:textSize="18sp"
-    android:textStyle="bold"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/softwareImageID" />
+      android:paddingRight="16dp"
+      android:text="@string/software_details"
+      android:textAlignment="textStart"
+      android:textColor="@color/colorText"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/softwareImageID" />
 
   <TextView
       android:id="@+id/softwareURLID"
@@ -80,27 +82,28 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/softwareDetailsID" />
 
-    <Button
-        android:id="@+id/softwareBtnID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/round_grid_red"
-        android:paddingStart="20dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="10dp"
-        android:text="@string/about_ok"
-        android:textAlignment="center"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/softwareURLID" />
+  <Button
+      android:id="@+id/softwareBtnID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="8dp"
+      android:background="@drawable/card_bg_lightgrey"
+      android:paddingStart="20dp"
+      android:paddingLeft="20dp"
+      android:paddingTop="10dp"
+      android:paddingEnd="20dp"
+      android:paddingRight="20dp"
+      android:paddingBottom="10dp"
+      android:text="@string/about_ok"
+      android:textAlignment="center"
+      android:textColor="@color/colorText"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/softwareURLID" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
