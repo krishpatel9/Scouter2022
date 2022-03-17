@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:layout_margin="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card_bg_main">
 
   <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/guidelineID"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.5017857" />
+      android:id="@+id/guidelineID"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.5017857" />
 
   <TextView
       android:id="@+id/codeTitleID"
       android:layout_width="0dp"
       android:layout_height="42dp"
-      android:background="@drawable/card_bg_red"
+      android:layout_margin="20dp"
+      android:background="@drawable/card_bg_grey"
       android:padding="5dp"
       android:text="@string/search_dialog_title"
       android:textAlignment="center"
@@ -30,24 +31,28 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <ListView
-    android:id="@+id/searchListViewID"
-    android:layout_width="match_parent"
-    android:layout_height="500dp"
-    android:layout_marginTop="8dp"
-    android:fadingEdge="vertical"
-    android:headerDividersEnabled="true"
-    android:listSelector="@color/colorYellow"
-    android:requiresFadingEdge="horizontal"
-    app:layout_constraintTop_toBottomOf="@+id/codeTitleID"
-    tools:layout_editor_absoluteX="0dp" />
+      android:id="@+id/searchListViewID"
+      android:layout_width="match_parent"
+      android:layout_height="500dp"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="20dp"
+      android:fadingEdge="vertical"
+      android:headerDividersEnabled="true"
+      android:listSelector="@color/colorYellow"
+      android:requiresFadingEdge="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/codeTitleID" />
 
   <Button
       android:id="@+id/searchOkID"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
-      android:layout_marginEnd="24dp"
-      android:background="@drawable/round_grid_green"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="24dp"
+      android:background="@drawable/round_grid_proceed_enabled"
       android:drawableStart="@drawable/search_white"
       android:drawableLeft="@drawable/search_white"
       android:drawablePadding="10dp"
@@ -61,6 +66,7 @@
       android:textColor="@color/colorText"
       android:textSize="18sp"
       android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@+id/guidelineID"
       app:layout_constraintTop_toBottomOf="@+id/searchListViewID" />
 
@@ -68,9 +74,10 @@
       android:id="@+id/searchCancelID"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="24dp"
+      android:layout_marginStart="16dp"
       android:layout_marginTop="16dp"
-      android:background="@drawable/round_grid_red"
+      android:layout_marginBottom="24dp"
+      android:background="@drawable/round_grid_clear_enabled"
       android:drawableStart="@drawable/cross_white"
       android:drawablePadding="10dp"
       android:paddingStart="20dp"
@@ -83,6 +90,7 @@
       android:textColor="@color/colorText"
       android:textSize="18sp"
       android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="@+id/guidelineID"
       app:layout_constraintTop_toBottomOf="@+id/searchListViewID" />
 

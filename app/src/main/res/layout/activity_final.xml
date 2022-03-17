@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
 
@@ -15,6 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/finalTeamNumTextView"
         android:layout_width="wrap_content"
@@ -68,26 +70,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/finalTopView" />
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="70dp"-->
-<!--        app:cardCornerRadius="15dp"-->
-<!--        android:layout_margin="30dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:elevation="10dp"-->
-<!--        android:outlineAmbientShadowColor="#C52736"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/bg">-->
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="70dp"-->
+    <!--        app:cardCornerRadius="15dp"-->
+    <!--        android:layout_margin="30dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:elevation="10dp"-->
+    <!--        android:outlineAmbientShadowColor="#C52736"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/bg">-->
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@drawable/card_bg">-->
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="@drawable/card_bg">-->
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-<!--    </androidx.cardview.widget.CardView>-->
+    <!--    </androidx.cardview.widget.CardView>-->
 
 
     <ScrollView
@@ -118,16 +120,16 @@
                 <androidx.gridlayout.widget.GridLayout
                     android:id="@+id/finalDefenseGridLayout"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/card_bg_red"
                     android:foregroundGravity="center"
+                    android:padding="10dp"
+                    app:columnCount="1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    app:columnCount="1"
                     app:rowCount="2">
 
                     <TextView
@@ -538,7 +540,7 @@
         android:id="@+id/FinalPhaseViewBar"
         android:layout_width="0dp"
         android:layout_height="135dp"
-        android:background="@drawable/card_bg_red"
+        android:background="@drawable/card_bg_main"
         android:translationY="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -598,21 +600,21 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    <androidx.cardview.widget.CardView-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="120dp"-->
-        <!--        android:background="@drawable/gradient_bg"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toTopOf="parent"-->
-        <!--        app:cardCornerRadius="20dp">-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="120dp"-->
+    <!--        android:background="@drawable/gradient_bg"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:cardCornerRadius="20dp">-->
 
-        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:background="@drawable/gradient_bg">-->
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="@drawable/gradient_bg">-->
 
-        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
-        <!--    </androidx.cardview.widget.CardView>-->
+    <!--    </androidx.cardview.widget.CardView>-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

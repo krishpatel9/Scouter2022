@@ -11,12 +11,16 @@
         <entry key="app/src/main/res/drawable/bottomReversed_view.xml" value="0.4890625" />
         <entry key="app/src/main/res/drawable/bottom_view.xml" value="0.4890625" />
         <entry key="app/src/main/res/drawable/bottom_view_blue.xml" value="0.4671875" />
+        <entry key="app/src/main/res/drawable/button_bg_red.xml" value="0.43625" />
         <entry key="app/src/main/res/drawable/card_bg.xml" value="0.4671875" />
         <entry key="app/src/main/res/drawable/card_bg_blue.xml" value="0.4671875" />
         <entry key="app/src/main/res/drawable/card_bg_grey.xml" value="0.4890625" />
         <entry key="app/src/main/res/drawable/card_bg_lightgrey.xml" value="0.2765625" />
         <entry key="app/src/main/res/drawable/card_bg_main.xml" value="0.4425" />
+        <entry key="app/src/main/res/drawable/card_bg_red.xml" value="0.43625" />
+        <entry key="app/src/main/res/drawable/card_bg_transparent.xml" value="0.43625" />
         <entry key="app/src/main/res/drawable/carg_bg.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/drawable/gradient_bg.xml" value="0.43625" />
         <entry key="app/src/main/res/drawable/remove.xml" value="0.4671875" />
         <entry key="app/src/main/res/drawable/remove_black.xml" value="0.4875" />
         <entry key="app/src/main/res/drawable/round_grid_clear_enabled.xml" value="0.4425" />
@@ -28,16 +32,17 @@
         <entry key="app/src/main/res/drawable/text_bg.xml" value="0.4671875" />
         <entry key="app/src/main/res/drawable/text_bg_tech.xml" value="0.4671875" />
         <entry key="app/src/main/res/drawable/text_bg_yellow.xml" value="0.4671875" />
+        <entry key="app/src/main/res/drawable/top_view.xml" value="0.43625" />
         <entry key="app/src/main/res/drawable/yellow_zone_bg.xml" value="0.4671875" />
-        <entry key="app/src/main/res/layout/about_dialog.xml" value="0.625" />
-        <entry key="app/src/main/res/layout/activity_auto.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/about_dialog.xml" value="0.43239795918367346" />
+        <entry key="app/src/main/res/layout/activity_auto.xml" value="0.75" />
         <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.46484375" />
         <entry key="app/src/main/res/layout/activity_final.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.44296875" />
         <entry key="app/src/main/res/layout/activity_manage_match.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_manage_matchv2.xml" value="0.4375" />
         <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.5210084033613446" />
-        <entry key="app/src/main/res/layout/activity_tele.xml" value="0.46484375" />
+        <entry key="app/src/main/res/layout/activity_tele.xml" value="0.55" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.5908639523336644" />
         <entry key="app/src/main/res/layout/content_managematch.xml" value="0.5" />
@@ -45,10 +50,14 @@
         <entry key="app/src/main/res/layout/content_managematch3.xml" value="0.3875" />
         <entry key="app/src/main/res/layout/editshots_dialog.xml" value="0.6268115942028986" />
         <entry key="app/src/main/res/layout/manage_details.xml" value="0.4375" />
+        <entry key="app/src/main/res/layout/manage_dialog.xml" value="1.0" />
         <entry key="app/src/main/res/layout/manage_header.xml" value="0.4375" />
+        <entry key="app/src/main/res/layout/match_found_dialog.xml" value="0.42375" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.4375" />
         <entry key="app/src/main/res/layout/search_details.xml" value="0.45" />
         <entry key="app/src/main/res/layout/search_dialog.xml" value="0.46484375" />
+        <entry key="app/src/main/res/layout/search_header.xml" value="0.42375" />
+        <entry key="app/src/main/res/layout/search_not_found.xml" value="0.42375" />
         <entry key="app/src/main/res/layout/software_dialog.xml" value="0.46314972847168345" />
       </map>
     </option>
@@ -58,5 +67,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.5210084033613446" />
+      </ProjectState>
+    </option>
   </component>
 </project>

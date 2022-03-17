@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".TeleActivity">
 
     <View
@@ -108,22 +109,24 @@
                 android:id="@+id/TelefinalFouls_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
                 android:text="Shooting Attempted?"
                 android:textColor="@color/white"
                 android:textSize="23sp"
-                android:paddingStart="20dp"
-                android:paddingEnd="0dp"
                 app:layout_gravity="center_vertical|fill_vertical" />
 
 
         </androidx.gridlayout.widget.GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
+    <ImageView
         android:id="@+id/TeleHub"
-        android:layout_width="523.5dp"
+        android:layout_width="400.5dp"
         android:layout_height="427.5dp"
-        android:background="@drawable/hub_image"
+        android:adjustViewBounds="true"
+        android:background="@drawable/new_hub"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/TelePhaseViewBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +136,7 @@
         android:id="@+id/TeleScoredView1"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/card_bg_red"
         app:layout_constraintStart_toStartOf="@+id/TeleHub"
@@ -158,6 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="0"
+        android:textColor="@color/colorText"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/TeleScoredView1"
@@ -169,7 +173,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="56dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="90dp"
         android:background="@drawable/card_bg_red"
         app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintTop_toTopOf="@+id/TeleHub" />
@@ -193,6 +197,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="0"
+        android:textColor="@color/colorText"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/TeleMissedView1"
@@ -203,7 +208,7 @@
         android:id="@+id/TeleScoredView2"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="200dp"
         android:background="@drawable/card_bg_red"
         app:layout_constraintStart_toStartOf="@+id/TeleHub"
@@ -228,6 +233,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="0"
+        android:textColor="@color/colorText"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/TeleScoredView2"
@@ -239,7 +245,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="202dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="80dp"
         android:background="@drawable/card_bg_red"
         app:layout_constraintEnd_toEndOf="@+id/TeleHub"
         app:layout_constraintTop_toTopOf="@+id/TeleHub" />
@@ -263,18 +269,81 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="0"
+        android:textColor="@color/colorText"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/TeleMissedView2"
         app:layout_constraintStart_toEndOf="@+id/TeleMissedView2"
         app:layout_constraintTop_toTopOf="@+id/TeleMissedView2" />
+    <TextView
+        android:id="@+id/teleTopScoredMinus"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/card_bg_transparent"
+        android:gravity="center"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleScore1"
+        app:layout_constraintEnd_toStartOf="@+id/TeleScore1"
+        app:layout_constraintTop_toTopOf="@+id/TeleScore1" />
 
+    <TextView
+        android:id="@+id/teleTopMissedMinus"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/card_bg_transparent"
+        android:gravity="center"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleMiss1"
+        app:layout_constraintStart_toEndOf="@+id/TeleMiss1"
+        app:layout_constraintTop_toTopOf="@+id/TeleMiss1" />
+
+    <TextView
+        android:id="@+id/teleBotMissedMinus"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/card_bg_transparent"
+        android:gravity="center"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleMiss2"
+        app:layout_constraintStart_toEndOf="@+id/TeleMiss2"
+        app:layout_constraintTop_toTopOf="@+id/TeleMiss2"
+        app:layout_constraintVertical_bias="0.489" />
+    <TextView
+        android:id="@+id/teleBotScoredMinus"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/card_bg_transparent"
+        android:gravity="center"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleScore2"
+        app:layout_constraintEnd_toStartOf="@+id/TeleScore2"
+        app:layout_constraintTop_toTopOf="@+id/TeleScore2" />
     <View
         android:id="@+id/TeleAwayBallsView"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/view3"
+        android:background="@drawable/card_bg_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TeleshootingAttemptedLayout" />
@@ -296,20 +365,37 @@
         android:id="@+id/TeleAwayBallsScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="0"
+        android:textColor="@color/colorText"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsView"
-        app:layout_constraintEnd_toStartOf="@+id/TeleAwayBallsView"
+        app:layout_constraintStart_toEndOf="@+id/TeleAwayBallsView"
         app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsView" />
+
+    <TextView
+        android:id="@+id/teleAwayBallsMinus"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/card_bg_transparent"
+        android:gravity="center"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsScore"
+        app:layout_constraintStart_toEndOf="@+id/TeleAwayBallsScore"
+        app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsScore" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/TelePhaseViewBar"
         android:layout_width="0dp"
         android:layout_height="135dp"
-        android:background="@drawable/card_bg_red"
+        android:background="@drawable/card_bg_main"
         android:translationY="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

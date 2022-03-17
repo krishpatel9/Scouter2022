@@ -92,16 +92,16 @@
     <string name="software_app_title">Additional Software</string>
     <string name="software_details">
         To use this application, PC/Mac companion software is required.<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;1) Download companion software from link below<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;2) Move the contents of the folder to the root of the drive (C:/ Drive or Macintosh HD)<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;3) Move the shortcuts from the folder to the desktop<br/>
+             1) Download companion software from link below<br/>
+             2) Move the contents of the folder to the root of the drive (C:/ Drive or Macintosh HD)<br/>
+             3) Move the shortcuts from the folder to the desktop<br/>
         <br/>
         Set-up is now complete! Following are the instructions for use:<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;a) Scout on through this app until you reach QR-Code screen<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;b) Scan code on laptop and input into scouter.txt (you can use the shortcut file)<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;c) Run the .jar or .command file<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;d) Open scouter.csv and the data from all codes is entered into the excel file<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;e) You may copy the data from the CSV to another spreadsheet, or do with it as you wish!<br/>
+             a) Scout on through this app until you reach QR-Code screen<br/>
+             b) Scan code on laptop and input into scouter.txt (you can use the shortcut file)<br/>
+             c) Run the .jar or .command file<br/>
+             d) Open scouter.csv and the data from all codes is entered into the excel file<br/>
+             e) You may copy the data from the CSV to another spreadsheet, or do with it as you wish!<br/>
     </string>
     <string name="software_url">https://www.roboraiders.com/resources/strategy-app</string>
 

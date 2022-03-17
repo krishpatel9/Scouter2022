@@ -2,6 +2,8 @@ package com.example.scouter2022;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -209,6 +211,9 @@ public class ManageMatchActivity extends AppCompatActivity {
     private void showConnectDialog() {
         final Dialog dialog = new Dialog(ManageMatchActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
         dialog.setContentView(R.layout.manage_dialog);
 
         // set the custom dialog components - text, image and button

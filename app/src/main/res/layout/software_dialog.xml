@@ -10,7 +10,7 @@
       android:id="@+id/softwareTitleID"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_margin="10dp"
+      android:layout_margin="20dp"
       android:background="@drawable/card_bg_grey"
       android:padding="3dp"
       android:text="@string/software_app_title"
@@ -39,11 +39,12 @@
       android:id="@+id/softwareDetailsID"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:layout_margin="20dp"
       android:layout_marginTop="8dp"
       android:paddingStart="16dp"
       android:paddingLeft="16dp"
-      android:paddingEnd="16dp"
 
+      android:paddingEnd="16dp"
       android:paddingRight="16dp"
       android:text="@string/software_details"
       android:textAlignment="textStart"
@@ -82,13 +83,14 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/softwareDetailsID" />
 
-  <Button
+  <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/softwareBtnID"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="8dp"
       android:layout_marginTop="24dp"
       android:layout_marginEnd="8dp"
+      android:layout_marginBottom="24dp"
       android:background="@drawable/card_bg_lightgrey"
       android:paddingStart="20dp"
       android:paddingLeft="20dp"

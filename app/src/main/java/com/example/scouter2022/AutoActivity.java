@@ -48,6 +48,14 @@ public class AutoActivity extends AppCompatActivity {
     private TextView human_missed_TextView;
     private TextView human_scored_TextView;
 
+    private TextView topScoredMinus;
+    private TextView botScoredMinus;
+    private TextView topMissedMinus;
+    private TextView botMissedMinus;
+    private TextView awayBallsMinus;
+    private TextView humanScoredMinus;
+    private TextView humanMissedMinus;
+
     private ImageView toTele;
     private ImageView toMain;
 
@@ -102,6 +110,15 @@ public class AutoActivity extends AppCompatActivity {
         human_missed_TextView = findViewById(R.id.humanMissedNumText);
         human_scored_TextView = findViewById(R.id.humanScoredNumText);
 
+        topScoredMinus = findViewById(R.id.autoTopScoredMinus);
+        botScoredMinus = findViewById(R.id.autoBotScoredMinus);
+        topMissedMinus = findViewById(R.id.autoTopMissedMinus);
+        botMissedMinus = findViewById(R.id.autoBotMissedMinus);
+        awayBallsMinus = findViewById(R.id.autoAwayBallsMinus);
+        humanScoredMinus = findViewById(R.id.autoHPScoredMinus);
+        humanMissedMinus = findViewById(R.id.autoHPMissedMinus);
+
+
         shootingGrid = findViewById(R.id.qrInfoLayout);
         tarmacGrid = findViewById(R.id.tarmacGridLayout);
         phaseBarView = findViewById(R.id.autoPhaseViewBar);
@@ -148,6 +165,7 @@ public class AutoActivity extends AppCompatActivity {
                 }
             }
         });
+        
         scored_home_top_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,7 +176,6 @@ public class AutoActivity extends AppCompatActivity {
                 }
             }
         });
-
         missed_home_top_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,7 +186,26 @@ public class AutoActivity extends AppCompatActivity {
                 }
             }
         });
-
+        scored_home_bot_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(scored_home_bot<= Defaults.MAX_CARGO_NUMBER) {
+                    scored_home_bot += 1;
+                    tcode.setAuto_allianceCargo_bot_s(scored_home_bot);
+                    scored_home_bot_text.setText(String.valueOf(scored_home_bot));
+                }
+            }
+        });
+        missed_home_bot_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(missed_home_bot<= Defaults.MAX_CARGO_NUMBER) {
+                    missed_home_bot += 1;
+                    tcode.setAuto_allianceCargo_bot_f(missed_home_bot);
+                    missed_home_bot_text.setText(String.valueOf(missed_home_bot));
+                }
+            }
+        });
         away_balls_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,30 +217,77 @@ public class AutoActivity extends AppCompatActivity {
             }
         });
 
-
-
-        scored_home_bot_view.setOnClickListener(new View.OnClickListener() {
+        topScoredMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(scored_home_bot<= Defaults.MAX_CARGO_NUMBER) {
-                    scored_home_bot += 1;
+                if(scored_home_top>0) {
+                    scored_home_top -= 1;
+                    tcode.setAuto_allianceCargo_top_s(scored_home_top);
+                    scored_home_top_text.setText(String.valueOf(scored_home_top));
+                }
+            }
+        });
+        topMissedMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(missed_home_top>0) {
+                    missed_home_top -= 1;
+                    tcode.setAuto_allianceCargo_top_f(missed_home_top);
+                    missed_home_top_text.setText(String.valueOf(missed_home_top));
+                }
+            }
+        });
+        botScoredMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(scored_home_bot>0) {
+                    scored_home_bot -= 1;
                     tcode.setAuto_allianceCargo_bot_s(scored_home_bot);
                     scored_home_bot_text.setText(String.valueOf(scored_home_bot));
                 }
             }
         });
-
-        missed_home_bot_view.setOnClickListener(new View.OnClickListener() {
+        botMissedMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(missed_home_bot<= Defaults.MAX_CARGO_NUMBER) {
-                    missed_home_bot += 1;
+                if(missed_home_bot>0) {
+                    missed_home_bot -= 1;
                     tcode.setAuto_allianceCargo_bot_f(missed_home_bot);
                     missed_home_bot_text.setText(String.valueOf(missed_home_bot));
                 }
             }
         });
-
+        awayBallsMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(away_balls>0) {
+                    away_balls -= 1;
+                    tcode.setAuto_away_balls(away_balls);
+                    away_balls_text.setText(String.valueOf(away_balls));
+                }
+            }
+        });
+        humanScoredMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(human_scored>0) {
+                    human_scored -= 1;
+                    tcode.setAuto_away_balls(human_scored);
+                    human_scored_TextView.setText(String.valueOf(human_scored));
+                }
+            }
+        });
+        humanMissedMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(human_missed>0) {
+                    human_missed -= 1;
+                    tcode.setAuto_away_balls(human_missed);
+                    human_missed_TextView.setText(String.valueOf(human_missed));
+                }
+            }
+        });
+        
 
         shootingCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -310,10 +393,10 @@ public class AutoActivity extends AppCompatActivity {
     private void setComponentBackground(int isRed) {
         if (isRed == 1) {
             autoAllianceColor.setText("Red Alliance");
-            topView.setScaleX(-1);
+//            topView.setScaleX(-1);
             shootingGrid.setBackgroundResource(R.drawable.card_bg_red);
             tarmacGrid.setBackgroundResource(R.drawable.card_bg_red);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
+//            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
             scored_home_top_view.setBackgroundResource(R.drawable.card_bg_red);
             scored_home_bot_view.setBackgroundResource(R.drawable.card_bg_red);
             missed_home_top_view.setBackgroundResource(R.drawable.card_bg_red);
@@ -325,10 +408,10 @@ public class AutoActivity extends AppCompatActivity {
 
         } else {
             autoAllianceColor.setText("Blue Alliance");
-            topView.setScaleX(1);
+//            topView.setScaleX(1);
             shootingGrid.setBackgroundResource(R.drawable.card_bg_blue);
             tarmacGrid.setBackgroundResource(R.drawable.card_bg_blue);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
+//            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
             scored_home_top_view.setBackgroundResource(R.drawable.card_bg_blue);
             scored_home_bot_view.setBackgroundResource(R.drawable.card_bg_blue);
             missed_home_top_view.setBackgroundResource(R.drawable.card_bg_blue);
