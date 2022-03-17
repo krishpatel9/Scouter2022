@@ -116,6 +116,9 @@
     <string name="team75">Team 75</string>
     <string name="data">Data</string>
     <string name="generate">Generate</string>
+    <string name="team">Team: ####</string>
+    <string name="match">Match: ####</string>
+    <string name="_15">15</string>
 
 
 </resources>
