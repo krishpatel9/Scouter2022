@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/card_bg_transparent.xml" value="0.43625" />
         <entry key="app/src/main/res/drawable/carg_bg.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/gradient_bg.xml" value="0.43625" />
+        <entry key="app/src/main/res/drawable/minusbutton.xml" value="0.43" />
         <entry key="app/src/main/res/drawable/remove.xml" value="0.4671875" />
         <entry key="app/src/main/res/drawable/remove_black.xml" value="0.4875" />
         <entry key="app/src/main/res/drawable/round_grid_clear_enabled.xml" value="0.4425" />
@@ -48,7 +49,7 @@
         <entry key="app/src/main/res/layout/content_managematch.xml" value="0.5" />
         <entry key="app/src/main/res/layout/content_managematch2.xml" value="0.4375" />
         <entry key="app/src/main/res/layout/content_managematch3.xml" value="0.3875" />
-        <entry key="app/src/main/res/layout/editshots_dialog.xml" value="0.6268115942028986" />
+        <entry key="app/src/main/res/layout/editshots_dialog.xml" value="0.5988023952095808" />
         <entry key="app/src/main/res/layout/manage_details.xml" value="0.4375" />
         <entry key="app/src/main/res/layout/manage_dialog.xml" value="1.0" />
         <entry key="app/src/main/res/layout/manage_header.xml" value="0.4375" />

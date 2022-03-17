@@ -4,31 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="00dp">
-
-    <Button
-        android:id="@+id/aboutBtnID2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/round_grid_red"
-        android:paddingStart="20dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="10dp"
-        android:text="@string/about_ok"
-        android:textAlignment="center"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/teleGrid" />
+    android:layout_margin="00dp"
+    android:background="@drawable/card_bg_main">
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/autoGrid"
@@ -55,7 +32,8 @@
             android:textStyle="bold"
             app:layout_column="0"
             app:layout_gravity="center_horizontal"
-            app:layout_row="0" />
+            app:layout_row="0"
+            android:textColor="@color/colorText"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -80,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -107,6 +85,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
+            android:textColor="@color/colorText"
             app:layout_gravity="center_horizontal"
             app:layout_row="1" />
 
@@ -135,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -159,6 +138,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
             android:text="Auto Home Top Fail"
+            android:textColor="@color/colorText"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
@@ -190,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -217,6 +197,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
+            android:textColor="@color/colorText"
             app:layout_gravity="center_horizontal"
             app:layout_row="3" />
 
@@ -245,7 +226,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -269,6 +250,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
             android:text="Auto Away Balls"
+            android:textColor="@color/colorText"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
@@ -300,7 +282,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -325,6 +307,7 @@
             android:layout_marginBottom="8dp"
             android:text="Auto Human Player Success"
             android:textSize="18sp"
+            android:textColor="@color/colorText"
             android:textStyle="bold"
             app:layout_column="0"
             app:layout_gravity="center_horizontal"
@@ -355,7 +338,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -379,6 +362,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
             android:text="Auto Human Player Fail"
+            android:textColor="@color/colorText"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
@@ -410,7 +394,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -430,7 +414,7 @@
         android:id="@+id/titleView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottom_reversed_view"
+        android:background="@drawable/card_bg_grey"
         android:padding="3dp"
         android:text="Edit Shots"
         android:textAlignment="center"
@@ -464,6 +448,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
             android:text="Tele Home Top Success"
+            android:textColor="@color/colorText"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_column="0"
@@ -493,7 +478,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -518,6 +503,7 @@
             android:layout_marginBottom="8dp"
             android:text="Tele Home Bot Success"
             android:textSize="18sp"
+            android:textColor="@color/colorText"
             android:textStyle="bold"
             app:layout_column="0"
             app:layout_gravity="center_horizontal"
@@ -548,7 +534,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -573,6 +559,7 @@
             android:layout_marginBottom="8dp"
             android:text="Tele Home Top Fail"
             android:textSize="18sp"
+            android:textColor="@color/colorText"
             android:textStyle="bold"
             app:layout_column="0"
             app:layout_gravity="center_horizontal"
@@ -603,7 +590,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -626,6 +613,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
+            android:textColor="@color/colorText"
             android:text="Tele Home Bot Fail"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -658,7 +646,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -683,6 +671,7 @@
             android:layout_marginBottom="8dp"
             android:text="Tele Away Balls"
             android:textSize="18sp"
+            android:textColor="@color/colorText"
             android:textStyle="bold"
             app:layout_column="0"
             app:layout_gravity="center_horizontal"
@@ -713,7 +702,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="0"
-                android:textColor="@color/black"
+                android:textColor="@color/colorText"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

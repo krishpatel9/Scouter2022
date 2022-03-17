@@ -375,7 +375,7 @@ public class FinalActivity extends AppCompatActivity {
 //        ImageView tele_ABFM = dialog.findViewById(R.id.teleABFM);
 //        ImageView tele_ABFP = dialog.findViewById(R.id.teleABFP);
         
-        Button done = dialog.findViewById(R.id.aboutBtnID2);
+//        Button done = dialog.findViewById(R.id.aboutBtnID2);
 
         auto_HTS.setText(String.valueOf(tcode.getAuto_allianceCargo_top_s()));
         auto_HBS.setText(String.valueOf(tcode.getAuto_allianceCargo_bot_s()));
