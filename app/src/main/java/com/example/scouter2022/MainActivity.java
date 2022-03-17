@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -85,6 +87,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        AppCompatDelegate.setDefaultNightMode(
+//                AppCompatDelegate.MODE_NIGHT_YES);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -507,6 +512,9 @@ public class MainActivity extends AppCompatActivity
         mySelectedResults = null;
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
         dialog.setContentView(R.layout.search_dialog);
         Window window = dialog.getWindow();
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -570,6 +578,9 @@ public class MainActivity extends AppCompatActivity
         final Dialog dialog = new Dialog(context);
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
         dialog.setContentView(R.layout.search_not_found);
         Window window = dialog.getWindow();
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -635,6 +646,9 @@ public class MainActivity extends AppCompatActivity
     private void showMatchFoundDialog() {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
         dialog.setContentView(R.layout.match_found_dialog);
 
         // set the custom dialog components - text, image and button
@@ -699,6 +713,9 @@ public class MainActivity extends AppCompatActivity
     private void showMatchFoundDialogNoShow() {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
         dialog.setContentView(R.layout.match_found_dialog);
 
         // set the custom dialog components - text, image and button
@@ -765,9 +782,14 @@ public class MainActivity extends AppCompatActivity
     private void showSoftwareDialog() {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.software_dialog);
         Window window = dialog.getWindow();
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
 
         // set the custom dialog components - text, image and button
         TextView aboutTitle = dialog.findViewById(R.id.softwareTitleID);
@@ -803,8 +825,13 @@ public class MainActivity extends AppCompatActivity
     private void showAboutDialog() {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        View v = getWindow().getDecorView();
+        v.setBackgroundResource(android.R.color.transparent);
+
         dialog.setContentView(R.layout.about_dialog);
         Window window = dialog.getWindow();
+
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
         // set the custom dialog components - text, image and button

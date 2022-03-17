@@ -9,18 +9,15 @@ public class TransferCode {
     private int teamNumber = 0;     // 14 bits   (max 16383)
     private int isRed = 0;         // 1 bit     (0=blue, 1=red)
     private int isNoShow = 0;       // 1 bit
+
     private int auto_cross_line = 0;   // 1 bit
     private int auto_shoot_attempt = 0;   // 1 bit
 
     private int auto_allianceCargo_top_s = 0; // 4 bits
     private int auto_allianceCargo_bot_s = 0; // 4 bits
-    private int auto_away_balls = 0; // 4 bits
-//    private int auto_opponentCargo_bot_s = 0; // 4 bits
-
     private int auto_allianceCargo_top_f = 0; // 4 bits
     private int auto_allianceCargo_bot_f = 0; // 4 bits
-//    private int auto_opponentCargo_top_f = 0; // 4 bits
-//    private int auto_opponentCargo_bot_f = 0; // 4 bits
+    private int auto_away_balls = 0; // 4 bits
 
     private int auto_humanMissed = 0;
     private int auto_humanScored = 0;
@@ -28,13 +25,9 @@ public class TransferCode {
     private int tele_shoot_attempt = 0;   // 1 bit
     private int tele_allianceCargo_top_s = 0; // 4 bits
     private int tele_allianceCargo_bot_s = 0; // 4 bits
-    private int tele_away_balls = 0; // 4 bits
-//    private int tele_opponentCargo_bot_s = 0; // 4 bits
-
     private int tele_allianceCargo_top_f = 0; // 4 bits
     private int tele_allianceCargo_bot_f = 0; // 4 bits
-//    private int tele_opponentCargo_top_f = 0; // 4 bits
-//    private int tele_opponentCargo_bot_f = 0; // 4 bits
+    private int tele_away_balls = 0; // 4 bits
 
     private int endgame_attempt = 0;   // 1 bit
     private int endgame_park = 0;        // 1 bits
@@ -42,16 +35,9 @@ public class TransferCode {
     private int endgame_ringContact = 0;     // 4 bits
     private int endgame_ringFinish = 0;        // 4 bits
 
-//    private int final_foulsCreated = 0;     // 1 bits
-//    private int final_numTechFouls = 0;     // 4 bits
-//    private int final_numRegFouls = 0;      // 4 bits
-//    private int final_yellowCardCreated = 0;   // 4 bits
-//    private int final_redCardCreated = 0;      // 4 bits
     private int final_disabled = 0;         // 1 bits
     private int final_disqualified = 0;     // 1 bits
     private int final_defense = 0;     // 1 bits
-
-//    private int final_winningAlliance = -1;  // 4 bits
 
     private int final_zone = 0; //1,2,or 3
 
@@ -87,7 +73,7 @@ public class TransferCode {
     public int getIsNoShow() {
         return isNoShow;
     }
-public void setNoShow(){
+    public void setNoShow(){
         this.isNoShow = 1;
         this.auto_cross_line =0;
         this.auto_shoot_attempt = 0;
@@ -187,14 +173,6 @@ public void setNoShow(){
         this.auto_away_balls = auto_away_balls;
     }
 
-//    public int getAuto_opponentCargo_bot_s() {
-//        return auto_opponentCargo_bot_s;
-//    }
-//
-//    public void setAuto_opponentCargo_bot_s(int auto_opponentCargo_bot_s) {
-//        this.auto_opponentCargo_bot_s = auto_opponentCargo_bot_s;
-//    }
-
     public int getAuto_allianceCargo_top_f() {
         return auto_allianceCargo_top_f;
     }
@@ -202,22 +180,6 @@ public void setNoShow(){
     public void setAuto_allianceCargo_top_f(int auto_allianceCargo_top_f) {
         this.auto_allianceCargo_top_f = auto_allianceCargo_top_f;
     }
-
-//    public int getAuto_opponentCargo_top_f() {
-//        return auto_opponentCargo_top_f;
-//    }
-//
-//    public void setAuto_opponentCargo_top_f(int auto_opponentCargo_top_f) {
-//        this.auto_opponentCargo_top_f = auto_opponentCargo_top_f;
-//    }
-//
-//    public int getAuto_opponentCargo_bot_f() {
-//        return auto_opponentCargo_bot_f;
-//    }
-//
-//    public void setAuto_opponentCargo_bot_f(int auto_opponentCargo_bot_f) {
-//        this.auto_opponentCargo_bot_f = auto_opponentCargo_bot_f;
-//    }
 
     public int getTele_shoot_attempt() {
         return tele_shoot_attempt;
@@ -251,14 +213,6 @@ public void setNoShow(){
         this.tele_away_balls = tele_away_balls;
     }
 
-//    public int getTele_opponentCargo_bot_s() {
-//        return tele_opponentCargo_bot_s;
-//    }
-//
-//    public void setTele_opponentCargo_bot_s(int tele_opponentCargo_bot_s) {
-//        this.tele_opponentCargo_bot_s = tele_opponentCargo_bot_s;
-//    }
-
     public int getTele_allianceCargo_top_f() {
         return tele_allianceCargo_top_f;
     }
@@ -274,22 +228,6 @@ public void setNoShow(){
     public void setTele_allianceCargo_bot_f(int tele_allianceCargo_bot_f) {
         this.tele_allianceCargo_bot_f = tele_allianceCargo_bot_f;
     }
-
-//    public int getTele_opponentCargo_top_f() {
-//        return tele_opponentCargo_top_f;
-//    }
-//
-//    public void setTele_opponentCargo_top_f(int tele_opponentCargo_top_f) {
-//        this.tele_opponentCargo_top_f = tele_opponentCargo_top_f;
-//    }
-//
-//    public int getTele_opponentCargo_bot_f() {
-//        return tele_opponentCargo_bot_f;
-//    }
-//
-//    public void setTele_opponentCargo_bot_f(int tele_opponentCargo_bot_f) {
-//        this.tele_opponentCargo_bot_f = tele_opponentCargo_bot_f;
-//    }
 
     public int getEndgame_attempt() {
         return endgame_attempt;
@@ -331,46 +269,6 @@ public void setNoShow(){
         this.endgame_ringFinish = endgame_ringFinish;
     }
 
-//    public int getFinal_foulsCreated() {
-//        return final_foulsCreated;
-//    }
-//
-//    public void setFinal_foulsCreated(int final_foulsCreated) {
-//        this.final_foulsCreated = final_foulsCreated;
-//    }
-//
-//    public int getFinal_numTechFouls() {
-//        return final_numTechFouls;
-//    }
-//
-//    public void setFinal_numTechFouls(int final_numTechFouls) {
-//        this.final_numTechFouls = final_numTechFouls;
-//    }
-//
-//    public int getFinal_numRegFouls() {
-//        return final_numRegFouls;
-//    }
-//
-//    public void setFinal_numRegFouls(int final_numRegFouls) {
-//        this.final_numRegFouls = final_numRegFouls;
-//    }
-//
-//    public int getFinal_yellowCardCreated() {
-//        return final_yellowCardCreated;
-//    }
-//
-//    public void setFinal_yellowCardCreated(int final_yellowCardCreated) {
-//        this.final_yellowCardCreated = final_yellowCardCreated;
-//    }
-//
-//    public int getFinal_redCardCreated() {
-//        return final_redCardCreated;
-//    }
-//
-//    public void setFinal_redCardCreated(int final_redCardCreated) {
-//        this.final_redCardCreated = final_redCardCreated;
-//    }
-
     public int getFinal_defense() {
         return final_defense;
     }
@@ -394,14 +292,6 @@ public void setNoShow(){
     public void setFinal_disqualified(int final_disqualified) {
         this.final_disqualified = final_disqualified;
     }
-//
-//    public int getFinal_winningAlliance() {
-//        return final_winningAlliance;
-//    }
-//
-//    public void setFinal_winningAlliance(int final_winningAlliance) {
-//        this.final_winningAlliance = final_winningAlliance;
-//    }
 
     public int getFinal_zone() {
         return final_zone;
@@ -466,9 +356,7 @@ public void setNoShow(){
         s += TransferCode.GetIntBinaryString(auto_allianceCargo_top_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_allianceCargo_bot_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_away_balls).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_s).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(auto_opponentCargo_top_f).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(auto_opponentCargo_bot_f).substring(26, 32);
+
         s += TransferCode.GetIntBinaryString(auto_humanMissed).substring(26, 32);
         s += TransferCode.GetIntBinaryString(auto_humanScored).substring(26, 32);
 
@@ -479,10 +367,6 @@ public void setNoShow(){
         s += TransferCode.GetIntBinaryString(tele_allianceCargo_top_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(tele_allianceCargo_bot_f).substring(26, 32);
         s += TransferCode.GetIntBinaryString(tele_away_balls).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(tele_opponentCargo_bot_s).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(tele_opponentCargo_top_f).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(tele_opponentCargo_bot_f).substring(26, 32);
-
 
         s += TransferCode.GetIntBinaryString(endgame_attempt).substring(31, 32);
         s += TransferCode.GetIntBinaryString(endgame_park).substring(31, 32);
@@ -493,11 +377,7 @@ public void setNoShow(){
         s += TransferCode.GetIntBinaryString(final_defense).substring(26, 32);
         s += TransferCode.GetIntBinaryString(final_disqualified).substring(31, 32);
         s += TransferCode.GetIntBinaryString(final_disabled).substring(31, 32);
-//        s += TransferCode.GetIntBinaryString(final_foulsCreated).substring(31, 32);
-//        s += TransferCode.GetIntBinaryString(final_yellowCardCreated).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(final_redCardCreated).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(final_numTechFouls).substring(26, 32);
-//        s += TransferCode.GetIntBinaryString(final_numRegFouls).substring(26, 32);
+
         s += TransferCode.GetIntBinaryString(final_zone).substring(26, 32);
 
 
@@ -563,13 +443,6 @@ public void setNoShow(){
 
         tc.auto_away_balls = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-//        tc.auto_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-//        tc.auto_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-//        tc.auto_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-
 
         tc.auto_humanMissed = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
@@ -588,14 +461,6 @@ public void setNoShow(){
         offset = offset + 6;
         tc.tele_away_balls = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
-//        tc.tele_opponentCargo_bot_s = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-//        tc.tele_opponentCargo_top_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-//        tc.tele_opponentCargo_bot_f = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-
-
 
         tc.endgame_attempt = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
@@ -610,20 +475,12 @@ public void setNoShow(){
 
         tc.final_defense = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset +6;
-//        tc.final_foulsCreated = Integer.parseInt(src.substring(offset, offset + 1), 2);
-//        offset++;
+
         tc.final_disabled = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
         tc.final_disqualified = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
-//        tc.final_yellowCardCreated = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-//        tc.final_redCardCreated = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-//        tc.final_numTechFouls = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
-//        tc.final_numRegFouls = Integer.parseInt(src.substring(offset, offset + 6), 2);
-//        offset = offset + 6;
+
         tc.final_zone = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
 
@@ -663,18 +520,13 @@ public void setNoShow(){
             return false;
         if (auto_allianceCargo_top_s != tc.auto_allianceCargo_top_s)
             return false;
-//        if (auto_opponentCargo_bot_s != tc.auto_opponentCargo_bot_s)
-//            return false;
+
         if (auto_away_balls != tc.auto_away_balls)
             return false;
         if (auto_allianceCargo_bot_f != tc.auto_allianceCargo_bot_f)
             return false;
         if (auto_allianceCargo_top_f != tc.auto_allianceCargo_top_f)
             return false;
-//        if (auto_opponentCargo_bot_f != tc.auto_opponentCargo_bot_f)
-//            return false;
-//        if (auto_opponentCargo_top_f != tc.auto_opponentCargo_top_f)
-//            return false;
         if (auto_humanMissed != tc.auto_humanMissed)
             return false;
         if (auto_humanScored != tc.auto_humanScored)
@@ -686,18 +538,14 @@ public void setNoShow(){
             return false;
         if (tele_allianceCargo_top_s != tc.tele_allianceCargo_top_s)
             return false;
-//        if (tele_opponentCargo_bot_s != tc.tele_opponentCargo_bot_s)
-//            return false;
+
         if (tele_away_balls != tc.tele_away_balls)
             return false;
         if (tele_allianceCargo_bot_f != tc.tele_allianceCargo_bot_f)
             return false;
         if (tele_allianceCargo_top_f != tc.tele_allianceCargo_top_f)
             return false;
-//        if (tele_opponentCargo_bot_f != tc.tele_opponentCargo_bot_f)
-//            return false;
-//        if (tele_opponentCargo_top_f != tc.tele_opponentCargo_top_f)
-//            return false;
+
 
 
         if (endgame_attempt != tc.endgame_attempt)
@@ -717,16 +565,7 @@ public void setNoShow(){
             return false;
         if (final_disqualified != tc.final_disqualified)
             return false;
-//        if (final_foulsCreated != tc.final_foulsCreated)
-//            return false;
-//        if (final_yellowCardCreated != tc.final_yellowCardCreated)
-//            return false;
-//        if (final_redCardCreated != tc.final_redCardCreated)
-//            return false;
-//        if (final_numTechFouls != tc.final_numTechFouls)
-//            return false;
-//        if (final_numRegFouls!= tc.final_numRegFouls)
-//            return false;
+
         if (final_zone!= tc.final_zone)
             return false;
         return true;
@@ -789,16 +628,16 @@ public void setNoShow(){
                 ", " + teamNumber +
                 ", " + isRed +
                 ", " + isNoShow +
+
                 ", " + auto_cross_line +
+                ", " + auto_shoot_attempt +
 
                 ", " + auto_allianceCargo_bot_s +
                 ", " + auto_allianceCargo_top_s +
-//                ", " + auto_opponentCargo_bot_s +
-                ", " + auto_away_balls +
                 ", " + auto_allianceCargo_bot_f +
                 ", " + auto_allianceCargo_top_f +
-//                ", " + auto_opponentCargo_bot_f +
-//                ", " + auto_opponentCargo_top_f +
+                ", " + auto_away_balls +
+
                 ", " + auto_humanMissed +
                 ", " + auto_humanScored +
 
@@ -806,12 +645,9 @@ public void setNoShow(){
 
                 ", " + tele_allianceCargo_bot_s +
                 ", " + tele_allianceCargo_top_s +
-//                ", " + tele_opponentCargo_bot_s +
-                ", " + tele_away_balls +
                 ", " + tele_allianceCargo_bot_f +
                 ", " + tele_allianceCargo_top_f +
-//                ", " + tele_opponentCargo_bot_f +
-//                ", " + tele_opponentCargo_top_f +
+                ", " + tele_away_balls +
 
                 ", " + endgame_attempt +
                 ", " + endgame_park +
@@ -822,10 +658,7 @@ public void setNoShow(){
                 ", " + final_defense +
                 ", " + final_disabled+
                 ", " + final_disqualified +
-//                ", " + final_yellowCardCreated +
-//                ", " + final_redCardCreated +
-//                ", " + final_numTechFouls +
-//                ", " + final_numRegFouls +
+
                 ", " + final_zone
 
         ;

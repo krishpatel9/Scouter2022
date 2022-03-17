@@ -913,14 +913,14 @@ public class FinalActivity extends AppCompatActivity {
     private void setComponentBackground(int isRed) {
         if (isRed == 1) {
             finalAllianceColor.setText("Red Alliance");
-            topView.setScaleX(-1);
+//            topView.setScaleX(-1);
             defenseGrid.setBackgroundResource(R.drawable.card_bg_red);
             disabledGrid.setBackgroundResource(R.drawable.card_bg_red);
             disqualifiedGrid.setBackgroundResource(R.drawable.card_bg_red);
 //            foulsConstraint.setBackgroundResource(R.drawable.card_bg_red);
 //            winningConstraint.setBackgroundResource(R.drawable.card_bg_red);
             zoneContstraint.setBackgroundResource(R.drawable.card_bg_red);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
+//            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
 //            foulView.setBackgroundResource(R.drawable.button_bg_red);
 //            techView.setBackgroundResource(R.drawable.button_bg_red);
 
@@ -936,14 +936,14 @@ public class FinalActivity extends AppCompatActivity {
 
         } else {
             finalAllianceColor.setText("Blue Alliance");
-            topView.setScaleX(1);
+//            topView.setScaleX(1);
             defenseGrid.setBackgroundResource(R.drawable.card_bg_blue);
             disabledGrid.setBackgroundResource(R.drawable.card_bg_blue);
             disqualifiedGrid.setBackgroundResource(R.drawable.card_bg_blue);
 //            foulsConstraint.setBackgroundResource(R.drawable.card_bg_blue);
 //            winningConstraint.setBackgroundResource(R.drawable.card_bg_blue);
             zoneContstraint.setBackgroundResource(R.drawable.card_bg_blue);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
+//            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
 
 //            foulView.setBackgroundResource(R.drawable.button_bg_blue);
 //            techView.setBackgroundResource(R.drawable.button_bg_blue);

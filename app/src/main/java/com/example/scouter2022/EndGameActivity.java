@@ -372,9 +372,9 @@ public class EndGameActivity extends AppCompatActivity {
     private void setComponentBackground(int isRed) {
         if (isRed == 1) {
             endGameAllianceColor.setText("Red Alliance");
-            topView.setScaleX(-1);
+//            topView.setScaleX(-1);
             attemptedGrid.setBackgroundResource(R.drawable.card_bg_red);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
+//            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
             parkGrid.setBackgroundResource(R.drawable.card_bg_red);
             hangGrid.setBackgroundResource(R.drawable.card_bg_red);
             finishingGrid.setBackgroundResource(R.drawable.card_bg_red);
@@ -383,9 +383,9 @@ public class EndGameActivity extends AppCompatActivity {
 
         } else {
             endGameAllianceColor.setText("Blue Alliance");
-            topView.setScaleX(1);
+//            topView.setScaleX(1);
             attemptedGrid.setBackgroundResource(R.drawable.card_bg_blue);
-            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
+//            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
             parkGrid.setBackgroundResource(R.drawable.card_bg_blue);
             hangGrid.setBackgroundResource(R.drawable.card_bg_blue);
             finishingGrid.setBackgroundResource(R.drawable.card_bg_blue);

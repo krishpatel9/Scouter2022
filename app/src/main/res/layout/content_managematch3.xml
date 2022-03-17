@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/constraintLayout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="10dp"
+  tools:context=".ManageMatchActivity">
+
+  <LinearLayout
+      android:id="@+id/linearLayout3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <GridLayout
+        android:id="@+id/gridLayoutID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="2">
+
+      <Button
+          android:id="@+id/selectAllID"
+          android:layout_width="200dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginRight="10dp"
+          android:drawableLeft="@drawable/select_all"
+          android:text="@string/managematch_select_btn"
+          android:textStyle="bold" />
+
+      <Button
+          android:id="@+id/deselectAllID"
+          android:layout_width="200dp"
+          android:layout_height="wrap_content"
+          android:layout_row="1"
+          android:layout_column="0"
+          android:layout_marginStart="10dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginRight="10dp"
+          android:drawableLeft="@drawable/deselect_all"
+          android:text="@string/managematch_deselect_btn"
+          android:textStyle="bold" />
+
+      <Button
+          android:id="@+id/removeSelectedID"
+          android:layout_width="200dp"
+          android:layout_height="wrap_content"
+          android:layout_row="0"
+          android:layout_column="1"
+          android:layout_marginStart="10dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginRight="10dp"
+          android:drawableLeft="@drawable/cross"
+          android:text="@string/managematch_remove_selected_btn"
+          android:textStyle="bold" />
+
+      <Button
+          android:id="@+id/openSelectedID"
+          android:layout_width="200dp"
+          android:layout_height="wrap_content"
+          android:layout_row="1"
+          android:layout_column="1"
+          android:layout_marginStart="10dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginRight="10dp"
+          android:drawableLeft="@android:drawable/ic_media_next"
+          android:text="OPEN"
+          android:textStyle="bold" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/QRSelected"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:drawableLeft="@drawable/qrcode"
+        android:gravity="center"
+        android:text="QR"
+        android:textStyle="bold"
+        tools:layout_column="3" />
+
+  </LinearLayout>
+
+  <TextView
+      android:id="@+id/listViewTitleID"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="8dp"
+      android:background="@drawable/card_bg_main"
+      android:padding="6dp"
+      android:text="@string/managematch_listview_title"
+      android:textAlignment="center"
+      android:textAllCaps="true"
+      android:textColor="@color/colorText"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+  <ListView
+      android:id="@+id/listViewID"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_margin="10dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="32dp"
+      android:divider="@color/colorLightGray"
+      android:dividerHeight=".5dp"
+      android:padding="5dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/listViewTitleID"
+      app:layout_constraintVertical_bias="1.0"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
