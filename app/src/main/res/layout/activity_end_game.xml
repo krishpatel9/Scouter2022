@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="Team: ####"
+        android:text="@string/team"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -32,7 +32,7 @@
         android:id="@+id/endGameMatchNumTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Match: ####"
+        android:text="@string/match"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -46,14 +46,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:drawableRight="@drawable/flag_blue"
         android:drawablePadding="4dp"
         android:text="#### Alliance"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/endGameMatchNumTextView"
-        app:layout_constraintTop_toBottomOf="@+id/endGameMatchNumTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/endGameMatchNumTextView"
+        app:drawableEndCompat="@drawable/flag_blue" />
 
     <TextView
         android:id="@+id/endGameTitleView"
@@ -91,246 +91,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/endGameAttemptedGridLayout"
-                android:layout_width="0dp"
-                android:layout_height="68dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:background="@drawable/card_bg_red"
-                android:foregroundGravity="center"
-                android:padding="10dp"
-                app:columnCount="3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/endGameAttempted_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/end_game_attempted"
-                    android:textColor="@color/white"
-                    android:textSize="23sp"
-                    app:layout_gravity="center" />
-
-                <Button
-                    android:id="@+id/endGame_clearBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/zxing_transparent"
-                    android:scaleY="1"
-                    android:text="@string/endGame_clear"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <RadioGroup
-                    android:id="@+id/endGameAttempted_RG"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/endGameAttemptedYes_RB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:buttonTint="@color/white"
-                        android:text="@string/yes"
-                        android:textColor="@color/white" />
-
-                    <RadioButton
-                        android:id="@+id/endGameAttemptedNo_RB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:buttonTint="@color/white"
-                        android:text="@string/no"
-                        android:textColor="@color/white" />
-                </RadioGroup>
-            </androidx.gridlayout.widget.GridLayout>
-
-            <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/endGameParkGridLayout"
-                android:layout_width="0dp"
-                android:layout_height="68dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/card_bg_red"
-                android:padding="10dp"
-                app:columnCount="3"
-                app:layout_constraintEnd_toEndOf="@+id/endGameAttemptedGridLayout"
-                app:layout_constraintStart_toStartOf="@+id/endGameAttemptedGridLayout"
-                app:layout_constraintTop_toBottomOf="@+id/endGameAttemptedGridLayout">
-
-                <TextView
-                    android:id="@+id/endGamePark_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Park"
-                    android:textColor="@color/white"
-                    android:textSize="23sp"
-                    app:layout_columnSpan="2"
-                    app:layout_gravity="center" />
-
-                <RadioGroup
-                    android:id="@+id/endGamePark_RG"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/endGameParkSuccess_RB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:buttonTint="@color/white"
-                        android:text="Success"
-                        android:textColor="@color/white" />
-
-                    <RadioButton
-                        android:id="@+id/endGameParkFail_RB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:buttonTint="@color/white"
-                        android:text="Fail"
-                        android:textColor="@color/white" />
-                </RadioGroup>
-            </androidx.gridlayout.widget.GridLayout>
-
-            <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/endGameHangGridLayout"
-                android:layout_width="0dp"
-                android:layout_height="68dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/card_bg_red"
-                app:layout_constraintEnd_toEndOf="@+id/endGameParkGridLayout"
-                app:layout_constraintStart_toStartOf="@+id/endGameParkGridLayout"
-                app:layout_constraintTop_toBottomOf="@id/endGameParkGridLayout">
-
-                <TextView
-                    android:id="@+id/endGameHang_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hang"
-                    android:textColor="@color/white"
-                    android:textSize="23sp"
-                    app:layout_gravity="center" />
-
-                <RadioGroup
-                    android:id="@+id/endGameHang_RG"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_gravity="center_vertical">
-
-                    <RadioButton
-                        android:id="@+id/endGameHangSuccess_RB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:buttonTint="@color/white"
-                        android:text="Success"
-                        android:textColor="@color/white" />
-
-                    <RadioButton
-                        android:id="@+id/endGameHangFail_RB"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:buttonTint="@color/white"
-                        android:text="Fail"
-                        android:textColor="@color/white" />
-                </RadioGroup>
-
-            </androidx.gridlayout.widget.GridLayout>
-
-            <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/endGameContactRingGridLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/card_bg_red"
-
-                android:padding="10dp"
-                app:columnCount="1"
-                app:layout_constraintEnd_toEndOf="@+id/endGameHangGridLayout"
-                app:layout_constraintStart_toStartOf="@+id/endGameHangGridLayout"
-                app:layout_constraintTop_toBottomOf="@id/endGameHangGridLayout"
-                app:rowCount="2">
-
-                <TextView
-                    android:id="@+id/contactRing_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Contact Ring"
-                    android:textColor="@color/white"
-                    android:textSize="23sp"
-                    app:layout_column="0"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_gravity="center|center_horizontal"
-                    app:layout_row="0" />
-
-                <SeekBar
-                    android:id="@+id/seekBar_contactRing"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="1"
-                    android:progress="0"
-                    android:textColor="@color/white"
-                    android:theme="@style/MySeekBar"
-                    app:layout_column="0"
-                    app:layout_constraintBottom_toTopOf="@+id/ll"
-                    app:layout_gravity="center"
-                    app:layout_row="1"
-                    app:tickMarkTint="@color/white"
-                    tools:layout_editor_absoluteX="9dp" />
-
-                <LinearLayout
-                    android:id="@+id/ll"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:weightSum="2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_gravity="center">
-
-                    <TextView
-                        android:id="@+id/finishingLow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Low"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:translationX="-35dp" />
-
-                    <TextView
-                        android:id="@+id/finishingMid"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:focusable="false"
-                        android:gravity="center"
-                        android:text="Mid"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:translationX="35dp" />
-
-                </LinearLayout>
-
-            </androidx.gridlayout.widget.GridLayout>
-
-            <androidx.gridlayout.widget.GridLayout
                 android:id="@+id/endGameFinishingRingGridLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -338,7 +98,6 @@
                 android:background="@drawable/card_bg_red"
                 android:padding="10dp"
                 app:columnCount="1"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/endGameContactRingGridLayout"
                 app:layout_constraintStart_toStartOf="@+id/endGameContactRingGridLayout"
                 app:layout_constraintTop_toBottomOf="@id/endGameContactRingGridLayout"
@@ -429,6 +188,409 @@
 
             </androidx.gridlayout.widget.GridLayout>
 
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/endGameAttemptedGridLayout"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/card_bg_red"
+                android:foregroundGravity="center"
+                android:padding="10dp"
+                app:columnCount="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/endGameAttempted_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end_game_attempted"
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    app:layout_gravity="center" />
+
+                <Button
+                    android:id="@+id/endGame_clearBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/zxing_transparent"
+                    android:scaleY="1"
+                    android:text="@string/endGame_clear"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/endGameAttempted_RG"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/endGameAttemptedYes_RB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/white"
+                        android:text="@string/yes"
+                        android:textColor="@color/white"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/endGameAttemptedNo_RB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/white"
+                        android:text="@string/no"
+                        android:textColor="@color/white"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </RadioGroup>
+            </androidx.gridlayout.widget.GridLayout>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/endGameHangGridLayout"
+                android:layout_width="0dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_bg_red"
+                app:layout_constraintEnd_toEndOf="@+id/endGameAttemptedGridLayout"
+                app:layout_constraintStart_toStartOf="@+id/endGameAttemptedGridLayout"
+                app:layout_constraintTop_toBottomOf="@+id/endGameAttemptedGridLayout">
+
+                <TextView
+                    android:id="@+id/endGameHang_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hang"
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    app:layout_gravity="center" />
+
+                <RadioGroup
+                    android:id="@+id/endGameHang_RG"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_gravity="center_vertical">
+
+                    <RadioButton
+                        android:id="@+id/endGameHangSuccess_RB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/white"
+                        android:text="Success"
+                        android:textColor="@color/white"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/endGameHangFail_RB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/white"
+                        android:text="Fail"
+                        android:textColor="@color/white"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </RadioGroup>
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/endGameContactRingGridLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_bg_red"
+
+                android:padding="10dp"
+                app:columnCount="1"
+                app:layout_constraintEnd_toEndOf="@+id/endGameHangGridLayout"
+                app:layout_constraintStart_toStartOf="@+id/endGameHangGridLayout"
+                app:layout_constraintTop_toBottomOf="@id/endGameHangGridLayout"
+                app:rowCount="2">
+
+                <TextView
+                    android:id="@+id/contactRing_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Contact Ring"
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    app:layout_column="0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_gravity="center|center_horizontal"
+                    app:layout_row="0" />
+
+                <SeekBar
+                    android:id="@+id/seekBar_contactRing"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="1"
+                    android:progress="0"
+                    android:textColor="@color/white"
+                    android:theme="@style/MySeekBar"
+                    app:layout_column="0"
+                    app:layout_constraintBottom_toTopOf="@+id/ll"
+                    app:layout_gravity="center"
+                    app:layout_row="1"
+                    app:tickMarkTint="@color/white"
+                    tools:layout_editor_absoluteX="9dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:weightSum="2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/finishingLow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Low"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:translationX="-35dp" />
+
+                    <TextView
+                        android:id="@+id/finishingMid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:text="Mid"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:translationX="35dp" />
+
+                </LinearLayout>
+
+            </androidx.gridlayout.widget.GridLayout>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/endGameTimerGridLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_bg_red"
+                android:padding="10dp"
+                android:visibility="visible"
+                app:columnCount="1"
+                app:layout_constraintEnd_toEndOf="@+id/endGameContactRingGridLayout"
+                app:layout_constraintStart_toStartOf="@+id/endGameContactRingGridLayout"
+                app:layout_constraintTop_toBottomOf="@+id/endGameFinishingRingGridLayout"
+                app:rowCount="3">
+
+                <TextView
+                    android:id="@+id/timer_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Climb Time (seconds)"
+                    android:textColor="@color/white"
+                    android:textSize="23sp"
+                    app:layout_column="0"
+                    app:layout_gravity="center|center_horizontal"
+                    app:layout_row="0" />
+
+                <TextView
+                    android:id="@+id/endGame_timerProgressMark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/colorText"
+                    android:visibility="invisible" />
+
+                <SeekBar
+                    android:id="@+id/seekBar_timer"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="60"
+                    android:progress="45"
+                    android:theme="@style/MySeekBar"
+                    app:layout_column="0"
+                    app:layout_gravity="center"
+                    app:layout_row="2"
+                    app:tickMarkTint="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/ll3"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:weightSum="13"
+                    app:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/time1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:rotationX="0"
+                        android:rotationY="0"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:text="@string/_15"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:text="30"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time9"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time10"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:text="45"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time11"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time12"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time13"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:rotation="-0"
+                        android:text="60+"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.gridlayout.widget.GridLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -471,7 +633,8 @@
                 android:src="@drawable/left_arrow_v2"
                 app:layout_constraintBottom_toBottomOf="@+id/phase_text"
                 app:layout_constraintEnd_toStartOf="@+id/phase_text"
-                app:layout_constraintTop_toTopOf="@+id/phase_text" />
+                app:layout_constraintTop_toTopOf="@+id/phase_text"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/phase_text"
@@ -498,7 +661,8 @@
                 android:src="@drawable/right_arrow_v2"
                 app:layout_constraintBottom_toBottomOf="@+id/phase_text"
                 app:layout_constraintStart_toEndOf="@+id/phase_text"
-                app:layout_constraintTop_toTopOf="@+id/phase_text" />
+                app:layout_constraintTop_toTopOf="@+id/phase_text"
+                android:contentDescription="TODO" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,6 +34,7 @@ public class TransferCode {
     private int endgame_hang = 0;        // 4 bits
     private int endgame_ringContact = 0;     // 4 bits
     private int endgame_ringFinish = 0;        // 4 bits
+    private int endgame_climbTime = 0;        // 4 bits
 
     private int final_disabled = 0;         // 1 bits
     private int final_disqualified = 0;     // 1 bits
@@ -301,6 +302,30 @@ public class TransferCode {
         this.final_zone = final_zone;
     }
 
+    public void setEndgame_climbTime(int endgame_climbTime) {
+        this.endgame_climbTime = endgame_climbTime;
+    }
+
+    public int getEndgame_climbTime() {
+        return endgame_climbTime;
+    }
+    public static void main(String[] args) {
+        TransferCode t = new TransferCode();
+        t.setTeamNumber(75);
+        t.setMatchNumber(23);
+        t.setIsRed(0);
+        t.setAuto_cross_line(1);
+        t.setAuto_allianceCargo_bot_f(1);
+        t.setAuto_allianceCargo_bot_s(2);
+        t.setEndgame_hang(1);
+        String n = t.getBinaryString();
+        String s = t.GenerateCode(n);
+        TransferCode tc2 = t.Decode(s);
+        boolean b = t.issame(tc2);
+        if (b)
+            System.out.println("they are the same");
+        System.out.println(s);
+    }
     public String[] getMap() {
         return map;
     }
@@ -323,7 +348,6 @@ public class TransferCode {
         }
         return pos;
     }
-
     private TransferCode Decode(String code) {//loop thru code string, make binary string, use binary string to assign each field value
         int pos = 0;
         StringBuilder bitPattern = new StringBuilder();
@@ -340,6 +364,46 @@ public class TransferCode {
         GetFieldsFromBinaryString(tc, bitPattern.toString());
         return tc;
     }
+    private static String GetIntBinaryString(int n) {
+        char[] b = new char[32];
+        int pos = 31;
+        int i = 0;
+
+        while (i < 32) {
+            if ((n & (1 << i)) != 0) {
+                b[pos] = '1';
+            } else {
+                b[pos] = '0';
+            }
+            pos--;
+            i++;
+        }
+        return new String(b);
+    }
+    public String GenerateCode(String bstring) {
+        //loop thru , take 5 bits at a time, convert to int and lookup character, handle last char may be less than 5
+        int pos = 0;
+        StringBuilder code = new StringBuilder();
+        while (pos < bstring.length()) {
+            int l = 5;
+            int nl = bstring.length() - pos;
+            if (nl < 5)
+                l = nl;
+            String s = bstring.substring(pos, pos + l);
+            int a = Integer.parseInt(s, 2);
+            code.append(map[a]);
+            pos = pos + 5;
+        }
+        return code.toString().toUpperCase();
+    }
+    private int rangeCheck(int low, int high, int val) {
+        if (val > high)
+            val = high;
+        if ((val < low))
+            val = low;
+        return val;
+    }
+
     public String getBinaryString() {
         String s = "";
         s += TransferCode.GetIntBinaryString(matchNumber).substring(25, 32);
@@ -373,6 +437,7 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(endgame_hang).substring(26, 32);
         s += TransferCode.GetIntBinaryString(endgame_ringContact).substring(26, 32);
         s += TransferCode.GetIntBinaryString(endgame_ringFinish).substring(26, 32);
+        s += TransferCode.GetIntBinaryString(endgame_climbTime).substring(26, 32);
 
         s += TransferCode.GetIntBinaryString(final_defense).substring(26, 32);
         s += TransferCode.GetIntBinaryString(final_disqualified).substring(31, 32);
@@ -383,38 +448,6 @@ public class TransferCode {
 
         s += TransferCode.GetIntBinaryString(0).substring(27 , 32);//filler
         return s;
-    }
-    private static String GetIntBinaryString(int n) {
-        char[] b = new char[32];
-        int pos = 31;
-        int i = 0;
-
-        while (i < 32) {
-            if ((n & (1 << i)) != 0) {
-                b[pos] = '1';
-            } else {
-                b[pos] = '0';
-            }
-            pos--;
-            i++;
-        }
-        return new String(b);
-    }
-    public String GenerateCode(String bstring) {
-        //loop thru , take 5 bits at a time, convert to int and lookup character, handle last char may be less than 5
-        int pos = 0;
-        StringBuilder code = new StringBuilder();
-        while (pos < bstring.length()) {
-            int l = 5;
-            int nl = bstring.length() - pos;
-            if (nl < 5)
-                l = nl;
-            String s = bstring.substring(pos, pos + l);
-            int a = Integer.parseInt(s, 2);
-            code.append(map[a]);
-            pos = pos + 5;
-        }
-        return code.toString().toUpperCase();
     }
     private void GetFieldsFromBinaryString(TransferCode tc, String src) {
         int offset = 0;
@@ -472,6 +505,8 @@ public class TransferCode {
         offset = offset + 6;
         tc.endgame_ringFinish = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
+        tc.endgame_climbTime = Integer.parseInt(src.substring(offset, offset + 6), 2);
+        offset = offset + 6;
 
         tc.final_defense = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset +6;
@@ -484,24 +519,6 @@ public class TransferCode {
         tc.final_zone = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
 
-    }
-
-    public static void main(String[] args) {
-        TransferCode t = new TransferCode();
-        t.setTeamNumber(75);
-        t.setMatchNumber(23);
-        t.setIsRed(0);
-        t.setAuto_cross_line(1);
-        t.setAuto_allianceCargo_bot_f(1);
-        t.setAuto_allianceCargo_bot_s(2);
-        t.setEndgame_hang(1);
-        String n = t.getBinaryString();
-        String s = t.GenerateCode(n);
-        TransferCode tc2 = t.Decode(s);
-        boolean b = t.issame(tc2);
-        if (b)
-            System.out.println("they are the same");
-        System.out.println(s);
     }
     private boolean issame(TransferCode tc) {
         if (matchNumber != tc.matchNumber)
@@ -558,6 +575,8 @@ public class TransferCode {
             return false;
         if (endgame_ringFinish != tc.endgame_ringFinish)
             return false;
+        if (endgame_climbTime != tc.endgame_climbTime)
+            return false;
 
         if (final_defense != tc.final_defense)
             return false;
@@ -570,13 +589,6 @@ public class TransferCode {
             return false;
         return true;
     }
-    private int rangeCheck(int low, int high, int val) {
-        if (val > high)
-            val = high;
-        if ((val < low))
-            val = low;
-        return val;
-    }@Override
     public String toString() {
         return "TransferCode{" +
                 ", matchNumber=" + matchNumber +
@@ -611,6 +623,7 @@ public class TransferCode {
                 ", endgame_hang=" + endgame_hang +
                 ", endgame_ringContact=" + endgame_ringContact +
                 ", endgame_ringFinish=" + endgame_ringFinish +
+                ", endgame_climbTime=" + endgame_climbTime +
 
                 ", final_defense=" + final_defense +
                 ", final_disabled=" + final_disabled +
@@ -654,6 +667,7 @@ public class TransferCode {
                 ", " + endgame_hang+
                 ", " + endgame_ringContact +
                 ", " + endgame_ringFinish +
+                ", " + endgame_climbTime +
 
                 ", " + final_defense +
                 ", " + final_disabled+
