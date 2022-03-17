@@ -30,7 +30,6 @@ public class TransferCode {
     private int tele_away_balls = 0; // 4 bits
 
     private int endgame_attempt = 0;   // 1 bit
-    private int endgame_park = 0;        // 1 bits
     private int endgame_hang = 0;        // 4 bits
     private int endgame_ringContact = 0;     // 4 bits
     private int endgame_ringFinish = 0;        // 4 bits
@@ -92,7 +91,6 @@ public class TransferCode {
         this.tele_allianceCargo_top_f = 0;
         this.tele_away_balls = 0;
         this.endgame_attempt = 0;
-        this.endgame_park = 0;
         this.endgame_hang = 0;
         this.endgame_ringContact = 0;
         this.endgame_ringFinish = 0;
@@ -236,14 +234,6 @@ public class TransferCode {
 
     public void setEndgame_attempt(int endgame_attempt) {
         this.endgame_attempt = endgame_attempt;
-    }
-
-    public int getEndgame_park() {
-        return endgame_park;
-    }
-
-    public void setEndgame_park(int endgame_park) {
-        this.endgame_park = endgame_park;
     }
 
     public int getEndgame_hang() {
@@ -433,7 +423,6 @@ public class TransferCode {
         s += TransferCode.GetIntBinaryString(tele_away_balls).substring(26, 32);
 
         s += TransferCode.GetIntBinaryString(endgame_attempt).substring(31, 32);
-        s += TransferCode.GetIntBinaryString(endgame_park).substring(31, 32);
         s += TransferCode.GetIntBinaryString(endgame_hang).substring(26, 32);
         s += TransferCode.GetIntBinaryString(endgame_ringContact).substring(26, 32);
         s += TransferCode.GetIntBinaryString(endgame_ringFinish).substring(26, 32);
@@ -496,8 +485,6 @@ public class TransferCode {
         offset = offset + 6;
 
         tc.endgame_attempt = Integer.parseInt(src.substring(offset, offset + 1), 2);
-        offset++;
-        tc.endgame_park = Integer.parseInt(src.substring(offset, offset + 1), 2);
         offset++;
         tc.endgame_hang = Integer.parseInt(src.substring(offset, offset + 6), 2);
         offset = offset + 6;
@@ -567,8 +554,6 @@ public class TransferCode {
 
         if (endgame_attempt != tc.endgame_attempt)
             return false;
-        if (endgame_park != tc.endgame_park)
-            return false;
         if (endgame_hang != tc.endgame_hang)
             return false;
         if (endgame_ringContact != tc.endgame_ringContact)
@@ -619,7 +604,6 @@ public class TransferCode {
 //                ", tele_opponentCargo_top_f=" + tele_opponentCargo_top_f +
 
                 ", endgame_attempt=" + endgame_attempt +
-                ", endgame_park=" + endgame_park +
                 ", endgame_hang=" + endgame_hang +
                 ", endgame_ringContact=" + endgame_ringContact +
                 ", endgame_ringFinish=" + endgame_ringFinish +
@@ -663,7 +647,6 @@ public class TransferCode {
                 ", " + tele_away_balls +
 
                 ", " + endgame_attempt +
-                ", " + endgame_park +
                 ", " + endgame_hang+
                 ", " + endgame_ringContact +
                 ", " + endgame_ringFinish +
