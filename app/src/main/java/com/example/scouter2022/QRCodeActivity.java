@@ -226,7 +226,7 @@ public class QRCodeActivity extends AppCompatActivity {
                 defenseNumTextView.setText("N/A");
             }
             else{
-                defenseNumTextView.setText(tcode.getFinal_defense());
+                defenseNumTextView.setText(Integer.toString(tcode.getFinal_defense()));
             }
             disabledTextView.setText("Disabled: ");
             disqualifiedTextView.setText("Disqualified: ");

@@ -39,18 +39,21 @@ public class EndGameActivity extends AppCompatActivity {
     private String INSTANCE_STATE = "INSTANCE_STATE";
 
     private RadioGroup endGameAttempted_RG;
-    private RadioGroup park_RG;
     private RadioGroup hang_RG;
     private RadioButton radioBtnEgAttempted, radioButtonEgNotAttempted, radioBtnPark, radioBtnHang;
 
     private SeekBar finishingRing_SB;
     private SeekBar contactRing_SB;
+    private SeekBar timer_SB;
+    private TextView timerProgressMark;
+
 
     private GridLayout attemptedGrid;
-    private GridLayout parkGrid;
+    private GridLayout timerGrid;
     private GridLayout hangGrid;
     private GridLayout contactGrid;
     private GridLayout finishingGrid;
+
 
     private Button clearBtn;
 
@@ -71,7 +74,7 @@ public class EndGameActivity extends AppCompatActivity {
         endGameAllianceColor = findViewById(R.id.endGameColorTextView);
 
         attemptedGrid = findViewById(R.id.endGameAttemptedGridLayout);
-        parkGrid = findViewById(R.id.endGameParkGridLayout);
+        timerGrid = findViewById(R.id.endGameTimerGridLayout);
         hangGrid = findViewById(R.id.endGameHangGridLayout);
         finishingGrid = findViewById(R.id.endGameContactRingGridLayout);
         contactGrid = findViewById(R.id.endGameFinishingRingGridLayout);
@@ -79,18 +82,17 @@ public class EndGameActivity extends AppCompatActivity {
 
 
         endGameAttempted_RG = findViewById(R.id.endGameAttempted_RG);
-        park_RG = findViewById(R.id.endGamePark_RG);
         hang_RG = findViewById(R.id.endGameHang_RG);
         finishingRing_SB = findViewById(R.id.seekBar_finishingRing);
         contactRing_SB = findViewById(R.id.seekBar_contactRing);
+        timer_SB = findViewById(R.id.seekBar_timer);
+        timerProgressMark = findViewById(R.id.endGame_timerProgressMark);
         phaseBarView = findViewById(R.id.EndGamePhaseViewBar);
         topView = findViewById(R.id.endGameTopView);
 
         clearBtn = findViewById(R.id.endGame_clearBtn);
         toTele = findViewById(R.id.EndGameToTele);
         toFinal = findViewById(R.id.EndGameToFinal);
-
-
         tcode = new TransferCode();
 
         Intent intent = getIntent();
@@ -117,101 +119,73 @@ public class EndGameActivity extends AppCompatActivity {
                 if (checkedId == R.id.endGameAttemptedYes_RB) {
                     Log.i(TAG, "endGameAttempted_RG: YES");
                     tcode.setEndgame_attempt(1);
-                    parkGrid.setAlpha(ENABLED);
+
                     hangGrid.setAlpha(ENABLED);
                     finishingGrid.setAlpha(ENABLED);
                     contactGrid.setAlpha(ENABLED);
+                    timerGrid.setAlpha(ENABLED);
 
                     enableRadioButtons(hang_RG);
-                    enableRadioButtons(park_RG);
                     finishingRing_SB.setEnabled(true);
                     contactRing_SB.setEnabled(true);
+                    timer_SB.setEnabled(true);
+
                     saveMatch();
                 } else if (checkedId == R.id.endGameAttemptedNo_RB) {
                     Log.i(TAG, "endGameAttempted_RG: YES");
                     tcode.setEndgame_attempt(0);
-                    tcode.setEndgame_park(0);
+                    tcode.setEndgame_climbTime(0);
                     tcode.setEndgame_hang(0);
                     tcode.setEndgame_ringFinish(0);
                     tcode.setEndgame_ringContact(0);
-                    parkGrid.setAlpha(DISABLED);
+
+                    timerGrid.setAlpha(DISABLED);
                     hangGrid.setAlpha(DISABLED);
                     finishingGrid.setAlpha(DISABLED);
                     contactGrid.setAlpha(DISABLED);
+
                     disableRadioButtons(hang_RG);
-                    disableRadioButtons(park_RG);
                     finishingRing_SB.setEnabled(false);
                     contactRing_SB.setEnabled(false);
+                    timer_SB.setEnabled(false);
+
                     saveMatch();
                 }
             }
         });
-        park_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.endGameParkSuccess_RB) {
-                    Log.i(TAG, "park_RG: YES");
-                    tcode.setEndgame_attempt(1);
-                    tcode.setEndgame_park(1);
-                    tcode.setEndgame_hang(0);
-                    tcode.setEndgame_ringFinish(0);
-                    tcode.setEndgame_ringContact(0);
-                    hangGrid.setAlpha(DISABLED);
-                    finishingGrid.setAlpha(DISABLED);
-                    contactGrid.setAlpha(DISABLED);
-                    disableRadioButtons(hang_RG);
-                    finishingRing_SB.setEnabled(false);
-                    contactRing_SB.setEnabled(false);
-                    hang_RG.clearCheck();
-                    saveMatch();
-                } else if (checkedId == R.id.endGameParkFail_RB) {
-                    Log.i(TAG, "park_RG: NO");
-                    tcode.setEndgame_attempt(1);
-                    tcode.setEndgame_park(0);
-                    tcode.setEndgame_hang(0);
-                    tcode.setEndgame_ringFinish(0);
-                    tcode.setEndgame_ringContact(0);
-                    hangGrid.setAlpha(DISABLED);
-                    finishingGrid.setAlpha(DISABLED);
-                    contactGrid.setAlpha(DISABLED);
-                    disableRadioButtons(hang_RG);
-                    finishingRing_SB.setEnabled(false);
-                    contactRing_SB.setEnabled(false);
-                    hang_RG.clearCheck();
-                    saveMatch();
-                }
-            }
-        });
+
         hang_RG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.endGameHangSuccess_RB) {
                     Log.i(TAG, "hang_RG: YES");
                     tcode.setEndgame_attempt(1);
-                    tcode.setEndgame_park(0);
                     tcode.setEndgame_hang(1);
+
+                    endGameAttempted_RG.check(R.id.endGameAttemptedYes_RB);
+
                     finishingGrid.setAlpha(ENABLED);
                     contactGrid.setAlpha(ENABLED);
-                    parkGrid.setAlpha(DISABLED);
-                    disableRadioButtons(park_RG);
                     finishingRing_SB.setEnabled(true);
                     contactRing_SB.setEnabled(true);
-                    park_RG.clearCheck();
+                    timer_SB.setEnabled(true);
+
                     saveMatch();
                 } else if (checkedId == R.id.endGameHangFail_RB) {
                     Log.i(TAG, "hang_RG: NO");
                     tcode.setEndgame_attempt(1);
-                    tcode.setEndgame_park(0);
                     tcode.setEndgame_hang(0);
                     tcode.setEndgame_ringFinish(0);
                     tcode.setEndgame_ringContact(0);
+
+                    endGameAttempted_RG.check(R.id.endGameAttemptedYes_RB);
+
                     finishingGrid.setAlpha(DISABLED);
                     contactGrid.setAlpha(DISABLED);
-                    parkGrid.setAlpha(DISABLED);
-                    disableRadioButtons(park_RG);
                     finishingRing_SB.setEnabled(false);
                     contactRing_SB.setEnabled(false);
-                    park_RG.clearCheck();
+                    timer_SB.setEnabled(false);
+
                     saveMatch();
                 }
             }
@@ -245,27 +219,59 @@ public class EndGameActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+        timer_SB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                tcode.setEndgame_climbTime(progress);
+
+                timerProgressMark.setText(String.valueOf(progress));
+
+                int width = seekBar.getWidth() - seekBar.getPaddingLeft() - seekBar.getPaddingRight();
+                int thumbPos = seekBar.getPaddingLeft() + width * seekBar.getProgress() / seekBar.getMax();
+
+                timerProgressMark.measure(0, 0);
+                int txtW = timerProgressMark.getMeasuredWidth();
+                int delta = txtW / 2;
+                timerProgressMark.setX((seekBar.getX() + thumbPos - delta));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                timerProgressMark.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                timerProgressMark.setVisibility(View.INVISIBLE);
+            }
+        });
+
         clearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 hang_RG.clearCheck();
-                park_RG.clearCheck();
+                endGameAttempted_RG.clearCheck();
+
                 tcode.setEndgame_attempt(0);
-                tcode.setEndgame_park(0);
                 tcode.setEndgame_hang(0);
                 tcode.setEndgame_ringFinish(0);
                 tcode.setEndgame_ringContact(0);
+
                 enableRadioButtons(hang_RG);
-                enableRadioButtons(park_RG);
                 finishingRing_SB.setEnabled(true);
                 contactRing_SB.setEnabled(true);
+                timer_SB.setEnabled(true);
+
                 finishingRing_SB.setProgress(0);
                 contactRing_SB.setProgress(0);
+                timer_SB.setProgress(0);
+
                 attemptedGrid.setAlpha(ENABLED);
-                parkGrid.setAlpha(ENABLED);
+                timerGrid.setAlpha(ENABLED);
                 hangGrid.setAlpha(ENABLED);
                 finishingGrid.setAlpha(ENABLED);
                 contactGrid.setAlpha(ENABLED);
+
                 saveMatch();
             }
         });  // End of endGameClearBtn
@@ -339,19 +345,7 @@ public class EndGameActivity extends AppCompatActivity {
         }
         else{
             endGameAttempted_RG.check(R.id.endGameAttemptedYes_RB);
-            if(tcode.getEndgame_park() == 1){
-                park_RG.check(R.id.endGameParkSuccess_RB);
-//                hangGrid.setAlpha(DISABLED);
-//                finishingGrid.setAlpha(DISABLED);
-//                contactGrid.setAlpha(DISABLED);
-//                disableRadioButtons(hang_RG);
-//                finishingRing_SB.setEnabled(false);
-//                contactRing_SB.setEnabled(false);
-//                finishingRing_SB.setProgress(0);
-//                contactRing_SB.setProgress(0);
-//                hang_RG.clearCheck();
-            }
-            else if(tcode.getEndgame_hang() ==1){
+            if(tcode.getEndgame_hang() ==1){
                 hang_RG.check(R.id.endGameHangSuccess_RB);
 //                finishingGrid.setAlpha(ENABLED);
 //                contactGrid.setAlpha(ENABLED);
@@ -365,6 +359,7 @@ public class EndGameActivity extends AppCompatActivity {
                 contactRing_SB.setProgress(tcode.getEndgame_ringContact());
             }
         }
+        timer_SB.setProgress(tcode.getEndgame_climbTime());
     }
     private void setAllValuesFromObject() {
 
@@ -375,7 +370,7 @@ public class EndGameActivity extends AppCompatActivity {
 //            topView.setScaleX(-1);
             attemptedGrid.setBackgroundResource(R.drawable.card_bg_red);
 //            phaseBarView.setBackgroundResource(R.drawable.bottom_view_red);
-            parkGrid.setBackgroundResource(R.drawable.card_bg_red);
+            timerGrid.setBackgroundResource(R.drawable.card_bg_red);
             hangGrid.setBackgroundResource(R.drawable.card_bg_red);
             finishingGrid.setBackgroundResource(R.drawable.card_bg_red);
             contactGrid.setBackgroundResource(R.drawable.card_bg_red);
@@ -386,7 +381,7 @@ public class EndGameActivity extends AppCompatActivity {
 //            topView.setScaleX(1);
             attemptedGrid.setBackgroundResource(R.drawable.card_bg_blue);
 //            phaseBarView.setBackgroundResource(R.drawable.bottom_view_blue);
-            parkGrid.setBackgroundResource(R.drawable.card_bg_blue);
+            timerGrid.setBackgroundResource(R.drawable.card_bg_blue);
             hangGrid.setBackgroundResource(R.drawable.card_bg_blue);
             finishingGrid.setBackgroundResource(R.drawable.card_bg_blue);
             contactGrid.setBackgroundResource(R.drawable.card_bg_blue);
@@ -403,12 +398,6 @@ public class EndGameActivity extends AppCompatActivity {
         else{
             endGameAttempted_RG.check(R.id.endGameAttemptedNo_RB);
         }
-        if (tcode.getEndgame_park() == 1) {
-            park_RG.check(R.id.endGameParkSuccess_RB);
-        }
-        else{
-            park_RG.check(R.id.endGameParkFail_RB);
-        }
         if (tcode.getEndgame_hang() == 1) {
             hang_RG.check(R.id.endGameHangSuccess_RB);
         }
@@ -417,6 +406,7 @@ public class EndGameActivity extends AppCompatActivity {
         }
         finishingRing_SB.setProgress(tcode.getEndgame_ringFinish());
         contactRing_SB.setProgress(tcode.getEndgame_ringContact());
+        timer_SB.setProgress(tcode.getEndgame_climbTime());
     }
     @Override
     protected void onStart() {

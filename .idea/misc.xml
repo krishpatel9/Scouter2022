@@ -35,8 +35,8 @@
         <entry key="app/src/main/res/drawable/top_view.xml" value="0.43625" />
         <entry key="app/src/main/res/drawable/yellow_zone_bg.xml" value="0.4671875" />
         <entry key="app/src/main/res/layout/about_dialog.xml" value="0.43239795918367346" />
-        <entry key="app/src/main/res/layout/activity_auto.xml" value="0.75" />
-        <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.46484375" />
+        <entry key="app/src/main/res/layout/activity_auto.xml" value="0.40875" />
+        <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.55" />
         <entry key="app/src/main/res/layout/activity_final.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.44296875" />
         <entry key="app/src/main/res/layout/activity_manage_match.xml" value="0.5" />
