@@ -12,7 +12,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Scouter2022"
+            android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name=".ManageMatchActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".QRCodeActivity"
             android:exported="false" />
@@ -38,6 +39,7 @@
         <activity
             android:name=".AutoActivity"
             android:exported="false" />
-    </application>
 
+    </application>
+    <supports-screens android:compatibleWidthLimitDp="320"/>
 </manifest>

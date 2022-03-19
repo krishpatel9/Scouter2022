@@ -656,9 +656,90 @@ public class TransferCode {
                 ", " + final_disabled+
                 ", " + final_disqualified +
 
-                ", " + final_zone
+                ", " + final_zone + "\n"
 
         ;
     }
+    public String toQuoteComma() {
+        return "\"" +matchNumber +"\"" +
+                ", " + "\"" +teamNumber +"\"" +
+                ", " + "\"" +isRed +"\"" +
+                ", " + "\"" +isNoShow +"\"" +
+
+                ", " +"\"" + auto_cross_line +"\"" +
+                ", " +"\"" + auto_shoot_attempt +"\"" +
+
+                ", " +"\"" + auto_allianceCargo_bot_s +"\"" +
+                ", " + "\"" +auto_allianceCargo_top_s +"\"" +
+                ", " + "\"" +auto_allianceCargo_bot_f +"\"" +
+                ", " +"\"" + auto_allianceCargo_top_f +"\"" +
+                ", " + "\"" +auto_away_balls +"\"" +
+
+                ", " + "\"" +auto_humanMissed +"\"" +
+                ", " +"\"" + auto_humanScored +"\"" +
+
+                ", " +"\"" + tele_shoot_attempt +"\"" +
+
+                ", " +"\"" + tele_allianceCargo_bot_s +"\"" +
+                ", " +"\"" + tele_allianceCargo_top_s +"\"" +
+                ", " +"\"" + tele_allianceCargo_bot_f +"\"" +
+                ", " +"\"" + tele_allianceCargo_top_f +"\"" +
+                ", " +"\"" + tele_away_balls +"\"" +
+
+                ", " + "\"" +endgame_attempt +"\"" +
+                ", " + "\"" +endgame_hang+"\"" +
+                ", " +"\"" + endgame_ringContact +"\"" +
+                ", " +"\"" + endgame_ringFinish +"\"" +
+                ", " + "\"" +endgame_climbTime +"\"" +
+
+                ", " + "\"" +final_defense +"\"" +
+                ", " + "\"" +final_disabled+"\"" +
+                ", " + "\"" +final_disqualified +"\"" +
+
+                ", " + "\"" +final_zone+ "\""
+
+                ;
+    }
+    public String toTabComma() {
+        return matchNumber +
+                "\t" +teamNumber +
+                "\t" +isRed +
+                "\t" +isNoShow +
+
+                "\t" + auto_cross_line +
+                "\t" + auto_shoot_attempt +
+
+                "\t" + auto_allianceCargo_bot_s +
+                "\t" +auto_allianceCargo_top_s +
+                "\t" +auto_allianceCargo_bot_f +
+                "\t" + auto_allianceCargo_top_f +
+                "\t" +auto_away_balls +
+
+                "\t" +auto_humanMissed +
+                "\t" + auto_humanScored +
+
+                "\t" + tele_shoot_attempt +
+
+                "\t" + tele_allianceCargo_bot_s +
+                "\t" + tele_allianceCargo_top_s +
+                "\t" + tele_allianceCargo_bot_f +
+                "\t" + tele_allianceCargo_top_f +
+                "\t" + tele_away_balls +
+
+                  "\t" +endgame_attempt +
+                  "\t" +endgame_hang+
+                 "\t" + endgame_ringContact +
+                 "\t" + endgame_ringFinish +
+                  "\t" +endgame_climbTime +
+
+                  "\t" +final_defense +
+                  "\t" +final_disabled+
+                  "\t" +final_disqualified +
+
+                  "\t" +final_zone
+
+                ;
+    }
+
 }
 

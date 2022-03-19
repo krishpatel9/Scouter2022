@@ -286,20 +286,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <ImageView
-        android:id="@+id/QRcode_imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
-        android:elevation="20dp"
-        android:padding="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrInfoLayout"
-        app:srcCompat="@color/purple_200" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
@@ -317,11 +303,42 @@
         android:gravity="center"
         android:text="Code"
         android:textAllCaps="true"
-        android:textColor="@color/black"
+        android:textColor="#616161"
+        android:textIsSelectable="true"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/QRcode_imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/QRcode_imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:elevation="20dp"
+        android:padding="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrInfoLayout"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@color/purple_200" />
+
+    <Switch
+        android:id="@+id/settingSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:rotation="0"
+        android:text="Decoded"
+        android:textColor="@color/colorLightGray"
+        android:thumbTint="@color/colorLightGray"
+        app:layout_constraintBottom_toBottomOf="@+id/QRcode_imageView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

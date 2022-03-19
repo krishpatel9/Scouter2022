@@ -780,7 +780,6 @@ public class FinalActivity extends AppCompatActivity {
 
         dialog.show();
     }
-
     private void proceedToQrActivity() {
         Gson gson = new Gson();
         String json = gson.toJson(tcode);

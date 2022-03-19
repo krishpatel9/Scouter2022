@@ -2,10 +2,17 @@ package com.example.scouter2022;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +31,9 @@ import java.util.Map;
 
 public class QRCodeActivity extends AppCompatActivity {
     private static final String TAG = "QRCodeActivity";
+    private static final int ENCODED = 0;
+    private static final int DECODED = 1;
+
     private TextView qrTeamNumber;
     private TextView qrMatchNumber;
     private TextView qrAllianceColor;
@@ -31,10 +41,6 @@ public class QRCodeActivity extends AppCompatActivity {
     private Map<String, TransferCode> allMatches;
     private String INSTANCE_STATE = "INSTANCE_STATE";
 
-//    private TextView regFoulsTextView;
-//    private TextView redFoulsTextView;
-//    private TextView yellowCardTextView,redCardTextView;
-//    private TextView techFoulsTextView;
     private TextView disabledYNTextView;
     private TextView disqualifiedYNTextView;
     private TextView defenseNumTextView;
@@ -48,9 +54,12 @@ public class QRCodeActivity extends AppCompatActivity {
     private ImageView QRCODE;
     private ImageView toMain;
     private ImageView toFinal;
+    private Switch settingsSwitch;
+    private int settingNum;
     
     private ConstraintLayout layout1,layout2,layout3,layout4;
     private View foulsView, infoView;
+
 
 
     @Override
@@ -68,13 +77,6 @@ public class QRCodeActivity extends AppCompatActivity {
         qrAllianceColor = findViewById(R.id.qrColorTextView);
         topView = findViewById(R.id.qrTopView);
 
-//        regFoulsTextView = findViewById(R.id.NumRegFouls_textView);
-//        techFoulsTextView = findViewById(R.id.NumTechFouls_textView);
-//
-//        yellowCardTextView = findViewById(R.id.yellowFouls_textView);
-//
-//        redCardTextView = findViewById(R.id.redFouls_textView);
-
         disabledYNTextView = findViewById(R.id.disabled_YN_textView);
         disqualifiedYNTextView = findViewById(R.id.disqualified_YN_textView);
         defenseNumTextView = findViewById(R.id.defense_num_textView);
@@ -83,19 +85,14 @@ public class QRCodeActivity extends AppCompatActivity {
         disqualifiedTextView = findViewById(R.id.disqualified_textView);
         defenseTextView = findViewById(R.id.defense_textView);
         noShowTextView = findViewById(R.id.noShow_textView);
-//        foulsView = findViewById(R.id.qrFouls_View);
         infoView = findViewById(R.id.qrInfo_View);
         codeTextView = findViewById(R.id.qrCodeTextView);
         layout1 = findViewById(R.id.qrInfoLayout);
-//        layout2 = findViewById(R.id.qrDisabledLayout);
-//        layout3 = findViewById(R.id.qrDisqualifiedLayout);
-//        layout4 = findViewById(R.id.qrFoulsLayout);
-        
+        settingsSwitch = findViewById(R.id.settingSwitch);
         toFinal = findViewById(R.id.QRtoFinal);
         toMain = findViewById(R.id.QRtoMain);
         QRCODE = findViewById(R.id.QRcode_imageView);
         Intent intent = getIntent();
-
 
 
         if (intent != null) {
@@ -108,16 +105,29 @@ public class QRCodeActivity extends AppCompatActivity {
             
             showAllValues();
         }
-
-//        if(tcode.getIsNoShow() == 0){
-//            toFinal.setEnabled(true);
-//            toFinal.setVisibility(View.VISIBLE);
-//        }
-//        else if(tcode.getIsNoShow() == 1){
-//            toFinal.setEnabled(false);
-//            toFinal.setVisibility(View.INVISIBLE);
-//        }
-
+        if(settingsSwitch.isChecked()){
+            settingsSwitch.setText("Encoded");
+            showQRcode(ENCODED);
+        }
+        else{
+            settingsSwitch.setText("Decoded");
+            showQRcode(DECODED);
+        }
+        settingsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){ //ENCODED
+                    settingsSwitch.setText("Encoded");
+                    showQRcode(ENCODED);
+                }
+                else{
+                    settingsSwitch.setText("Decoded");
+                    showQRcode(DECODED);
+                }
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+            }
+        });
+//        showQRcode(DECODED);
         qrTeamNumber.setText(String.valueOf(tcode.getTeamNumber()));
         qrMatchNumber.setText(String.valueOf(tcode.getMatchNumber()));
         if(tcode.getIsNoShow() ==0){
@@ -174,43 +184,58 @@ public class QRCodeActivity extends AppCompatActivity {
         intent.putExtra("code", json);
         startActivity(intent);
     }
-    private void showQRcode(){
+    private void showQRcode(int setting){
         String alphaCode = tcode.GenerateCode(tcode.getBinaryString());
-
+        String commaCode = tcode.toTabComma();
         codeTextView.setText(alphaCode);
 
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-        try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(alphaCode, BarcodeFormat.QR_CODE, 300, 300);
-            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-            QRCODE.setImageBitmap(bitmap);
-        } catch (WriterException e) {
-            e.printStackTrace();
+
+        if (setting == ENCODED){
+            try {
+                BitMatrix bitMatrix = multiFormatWriter.encode(alphaCode, BarcodeFormat.QR_CODE, 300, 300);
+                BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+
+                QRCODE.setImageBitmap(createInvertedBitmap(bitmap));
+            } catch (WriterException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (setting == DECODED){
+            try {
+                BitMatrix bitMatrix = multiFormatWriter.encode(commaCode, BarcodeFormat.QR_CODE, 300, 300);
+                BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                QRCODE.setImageBitmap(createInvertedBitmap(bitmap));
+            } catch (WriterException e) {
+                e.printStackTrace();
+            }
         }
     }
+    private Bitmap createInvertedBitmap(Bitmap src) {
+        ColorMatrix colorMatrix_Inverted =
+                new ColorMatrix(new float[] {
+                        -1,  0,  0,  0, 255,
+                        0, -1,  0,  0, 255,
+                        0,  0, -1,  0, 255,
+                        0,  0,  0,  1,   0});
 
+        ColorFilter ColorFilter_Sepia = new ColorMatrixColorFilter(
+                colorMatrix_Inverted);
+
+        Bitmap bitmap = Bitmap.createBitmap(src.getWidth(), src.getHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+
+        Paint paint = new Paint();
+
+        paint.setColorFilter(ColorFilter_Sepia);
+        canvas.drawBitmap(src, 0, 0, paint);
+
+        return bitmap;
+    }
     private void showAllValues(){
-//        regFoulsTextView.setText(String.valueOf(tcode.getFinal_numRegFouls()));
-//        techFoulsTextView.setText(String.valueOf(tcode.getFinal_numTechFouls()));
-
-//        if (tcode.getFinal_redCardCreated() == 1){
-//            redCardTextView.setText("Red: Yes");
-//        }else{
-//            redCardTextView.setText("Red: No");
-//        }
-//
-//        if (tcode.getFinal_yellowCardCreated() == 1){
-//            yellowCardTextView.setText("Yellow: Yes");
-//        }else{
-//            yellowCardTextView.setText("Yellow: No");
-//        }
-//        if(tcode.getIsNoShow() == 0){
-//            toFinal.setEnabled(true);
-//        }
-//        else if(tcode.getIsNoShow() == 1){
-//            toFinal.setEnabled(false);
-//        }
         if(tcode.getIsNoShow() ==0) {
             if (tcode.getFinal_disabled() == 1) {
                 disabledYNTextView.setText("Yes");
@@ -312,7 +337,6 @@ public class QRCodeActivity extends AppCompatActivity {
             qrAllianceColor.setText("Blue");
             qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
         }
-        showQRcode();
     }
     @Override
     protected void onStart() {
