@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/QRtoFinal"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:scaleX="0.9"
             android:scaleY="0.9"
@@ -46,7 +46,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="QR Code"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <!--            <ImageButton-->
         <!--                android:id="@+id/imageButton"-->
@@ -57,8 +57,8 @@
 
         <ImageView
             android:id="@+id/QRtoMain"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:backgroundTint="@color/colorWhite"
             android:src="@drawable/save_icon" />
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:text="Scouter App"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/qrTopView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,28 +94,15 @@
         android:padding="15dp"
         app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/qrTopView">
-
-        <TextView
-            android:id="@+id/noShow_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/qrMatchNumTextView"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/qrInfo_View"
             android:layout_width="90dp"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/text_bg_phase"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -138,10 +125,9 @@
             android:id="@+id/qrFouls_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="-48dp"
             android:text="Match:"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             app:layout_constraintBottom_toTopOf="@+id/endGameAttempted_textView3"
             app:layout_constraintEnd_toEndOf="@+id/endGameAttempted_textView3"
             app:layout_constraintTop_toBottomOf="@+id/winningAlliance_textView" />
@@ -150,16 +136,15 @@
             android:id="@+id/qrMatchNumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
             android:text="01"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/qrFouls_textView"
-            app:layout_constraintStart_toEndOf="@+id/qrFouls_textView"
-            app:layout_constraintTop_toTopOf="@+id/qrFouls_textView"
-            app:layout_constraintVertical_bias="0.0"
-            tools:gravity="center" />
+            app:layout_constraintBottom_toTopOf="@+id/qrColorTextView"
+            app:layout_constraintStart_toEndOf="@+id/endGameAttempted_textView3"
+            app:layout_constraintStart_toStartOf="@+id/qrColorTextView"
+            app:layout_constraintTop_toBottomOf="@+id/qrTeamNumTextView" />
 
         <TextView
             android:id="@+id/winningAlliance_textView"
@@ -168,7 +153,7 @@
             android:layout_marginTop="8dp"
             android:text="Team:"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             app:layout_constraintEnd_toEndOf="@+id/qrFouls_textView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -176,11 +161,11 @@
             android:id="@+id/endGameAttempted_textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="50dp"
             android:layout_marginBottom="8dp"
             android:text="Alliance Color"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -189,29 +174,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
             android:drawableRight="@drawable/flag_red"
-            android:gravity="center"
             android:text="Red"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintStart_toEndOf="@+id/endGameAttempted_textView3"
-            app:layout_constraintTop_toTopOf="@+id/endGameAttempted_textView3" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/endGameAttempted_textView3" />
 
         <TextView
             android:id="@+id/qrTeamNumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="####"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/winningAlliance_textView"
-            app:layout_constraintStart_toEndOf="@+id/winningAlliance_textView"
-            app:layout_constraintTop_toTopOf="@+id/winningAlliance_textView"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/disabled_textView"
@@ -220,7 +202,7 @@
             android:layout_marginEnd="16dp"
             android:text="Disabled:"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             app:layout_constraintEnd_toStartOf="@+id/disabled_YN_textView"
             app:layout_constraintTop_toTopOf="@+id/qrTeamNumTextView" />
 
@@ -231,7 +213,7 @@
             android:layout_marginEnd="16dp"
             android:text="No"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/disabled_textView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -244,10 +226,9 @@
             android:layout_marginEnd="16dp"
             android:text="Disqualified:"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="@+id/qrColorTextView"
-            app:layout_constraintEnd_toStartOf="@+id/disqualified_YN_textView"
-            app:layout_constraintTop_toTopOf="@+id/qrColorTextView" />
+            app:layout_constraintEnd_toStartOf="@+id/disqualified_YN_textView" />
 
         <TextView
             android:id="@+id/defense_textView"
@@ -256,7 +237,7 @@
             android:layout_marginEnd="16dp"
             android:text="Defense:"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             app:layout_constraintBottom_toTopOf="@+id/disqualified_textView"
             app:layout_constraintEnd_toStartOf="@+id/disqualified_YN_textView"
             app:layout_constraintTop_toBottomOf="@+id/disabled_textView" />
@@ -268,7 +249,7 @@
             android:layout_marginEnd="16dp"
             android:text="No"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/disqualified_textView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -281,14 +262,29 @@
             android:layout_marginEnd="16dp"
             android:text="No"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/defense_textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/defense_textView" />
 
+        <TextView
+            android:id="@+id/noShow_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/qrColorTextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -333,17 +329,16 @@
     <Switch
         android:id="@+id/settingSwitch"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:padding="1dp"
-        android:rotation="-90"
+        android:rotation="0"
         android:text="Decoded"
         android:textColor="@color/colorLightGray"
         android:thumbTint="@color/colorLightGray"
-        app:layout_constraintBottom_toBottomOf="@+id/qrCodeTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/qrCodeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/qrInfoLayout" />
+        app:layout_constraintBottom_toBottomOf="@+id/QRcode_imageView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

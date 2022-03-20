@@ -27,7 +27,7 @@
         android:layout_marginBottom="4dp"
         android:text="Team: ####"
         android:textColor="#ffffff"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/qrMatchNumTextView"
         app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView" />
@@ -38,10 +38,11 @@
         android:layout_height="wrap_content"
         android:text="Match: ####"
         android:textColor="#ffffff"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/autoTitleView"
         app:layout_constraintEnd_toEndOf="@+id/autoTopView"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/autoTitleView"
         app:layout_constraintTop_toTopOf="@+id/autoTitleView" />
 
@@ -53,7 +54,7 @@
         android:drawablePadding="4dp"
         android:text="#### Alliance"
         android:textColor="#ffffff"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:drawableRightCompat="@drawable/flag_blue"
         app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView"
@@ -65,7 +66,7 @@
         android:layout_height="wrap_content"
         android:text="Scouter App"
         android:textColor="#ffffff"
-        android:textSize="50sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/autoTopView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,498 +75,548 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.500" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/shootingAttemptedLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/autoTopView">
-
-        <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/qrInfoLayout"
-            android:layout_width="0dp"
-            android:layout_height="68dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/card_bg_red"
-            android:foregroundGravity="center"
-            android:padding="15dp"
-            app:columnCount="2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <CheckBox
-                android:id="@+id/checkbox_shooting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:buttonTint="@color/white"
-                android:gravity="center"
-                android:minHeight="48dp"
-                android:scaleX="1.70"
-                android:scaleY="1.70"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/finalFouls_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingEnd="0dp"
-                android:text="Shooting Attempted?"
-                android:textColor="@color/white"
-                android:textSize="23sp"
-                app:layout_gravity="center_vertical|fill_vertical" />
-
-
-        </androidx.gridlayout.widget.GridLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/exitedTarmacLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shootingAttemptedLayout">
-
-        <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/tarmacGridLayout"
-            android:layout_width="0dp"
-            android:layout_height="68dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/card_bg_red"
-            android:foregroundGravity="center"
-            android:padding="15dp"
-            app:columnCount="2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <CheckBox
-                android:id="@+id/checkbox_tarmac"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:buttonTint="@color/white"
-                android:gravity="center"
-                android:minHeight="48dp"
-                android:scaleX="1.70"
-                android:scaleY="1.70"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/tarmac_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingEnd="0dp"
-                android:text="Exited Tarmac?"
-                android:textColor="@color/white"
-                android:textSize="23sp"
-                app:layout_gravity="center_vertical|fill_vertical" />
-
-
-        </androidx.gridlayout.widget.GridLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/Hub"
-        android:layout_width="400.5dp"
-        android:layout_height="427.5dp"
-        android:layout_marginStart="32dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/new_hub"
-        android:scaleType="fitCenter"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/autoPhaseViewBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exitedTarmacLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/autoTopView">
 
-    <View
-        android:id="@+id/autoScoredView1"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/card_bg_red"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/shootingAttemptedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/autoHPScoredMinus"
-        android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/card_bg_transparent"
-        android:gravity="center"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/humanScoredNumText"
-        app:layout_constraintStart_toEndOf="@+id/humanScoredNumText"
-        app:layout_constraintTop_toTopOf="@+id/humanScoredNumText" />
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/qrInfoLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/card_bg_red"
+                    android:foregroundGravity="center"
+                    android:padding="15dp"
+                    app:columnCount="2"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/autoAwayBallsMinus"
-        android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/card_bg_transparent"
-        android:gravity="center"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoAwayBallsScore"
-        app:layout_constraintStart_toEndOf="@+id/autoAwayBallsScore"
-        app:layout_constraintTop_toTopOf="@+id/autoAwayBallsScore" />
+                    <CheckBox
+                        android:id="@+id/checkbox_shooting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:buttonTint="@color/white"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        android:scaleX="1.70"
+                        android:scaleY="1.70"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/autoHPMissedMinus"
-        android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/card_bg_transparent"
-        android:gravity="center"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/humanMissedNumText"
-        app:layout_constraintStart_toEndOf="@+id/humanMissedNumText"
-        app:layout_constraintTop_toTopOf="@+id/humanMissedNumText" />
-    <TextView
-        android:id="@+id/autoTopScoredMinus"
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/card_bg_transparent"
-        android:gravity="center"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoScore1"
-        app:layout_constraintEnd_toStartOf="@+id/autoScore1"
-        app:layout_constraintTop_toTopOf="@+id/autoScore1" />
-
-    <TextView
-        android:id="@+id/autoTopMissedMinus"
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/card_bg_transparent"
-        android:gravity="center"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoMiss1"
-        app:layout_constraintStart_toEndOf="@+id/autoMiss1"
-        app:layout_constraintTop_toTopOf="@+id/autoMiss1" />
-
-    <TextView
-        android:id="@+id/autoBotMissedMinus"
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/card_bg_transparent"
-        android:gravity="center"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoMiss2"
-        app:layout_constraintStart_toEndOf="@+id/autoMiss2"
-        app:layout_constraintTop_toTopOf="@+id/autoMiss2"
-        app:layout_constraintVertical_bias="0.489" />
-    <TextView
-        android:id="@+id/autoBotScoredMinus"
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/card_bg_transparent"
-        android:gravity="center"
-        android:text="-"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoScore2"
-        app:layout_constraintEnd_toStartOf="@+id/autoScore2"
-        app:layout_constraintTop_toTopOf="@+id/autoScore2" />
-    <TextView
-        android:id="@+id/autoScoredTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scored"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoScoredView1"
-        app:layout_constraintEnd_toEndOf="@+id/autoScoredView1"
-        app:layout_constraintStart_toStartOf="@+id/autoScoredView1"
-        app:layout_constraintTop_toTopOf="@+id/autoScoredView1" />
+                    <TextView
+                        android:id="@+id/finalFouls_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="0dp"
+                        android:text="Shooting\nAttempted?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_gravity="center_vertical|fill_vertical" />
 
 
+                </androidx.gridlayout.widget.GridLayout>
 
-    <TextView
-        android:id="@+id/autoScore1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="0"
-        android:textColor="@color/colorText"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoScoredView1"
-        app:layout_constraintEnd_toStartOf="@+id/autoScoredView1"
-        app:layout_constraintTop_toTopOf="@+id/autoScoredView1" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.50" />
 
-    <View
-        android:id="@+id/autoMissedView"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="90dp"
-        android:background="@drawable/card_bg_red"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/tarmacGridLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/card_bg_red"
+                    android:foregroundGravity="center"
+                    android:padding="15dp"
+                    app:columnCount="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline5"
+                    app:layout_constraintTop_toTopOf="parent">
 
-    <View
-        android:id="@+id/autoHumanMissedView"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="29dp"
-        android:background="@drawable/card_bg_red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toEndOf="@+id/Hub"
-        app:layout_constraintTop_toBottomOf="@+id/autoHumanScoredView" />
+                    <CheckBox
+                        android:id="@+id/checkbox_tarmac"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:buttonTint="@color/white"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        android:scaleX="1.70"
+                        android:scaleY="1.70"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-    <View
-        android:id="@+id/autoHumanScoredView"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/card_bg_red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toEndOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+                    <TextView
+                        android:id="@+id/tarmac_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="0dp"
+                        android:text="Exited\nTarmac?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_gravity="center_vertical|fill_vertical" />
 
-    <TextView
-        android:id="@+id/autoMissedTextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Missed"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoMissedView"
-        app:layout_constraintEnd_toEndOf="@+id/autoMissedView"
-        app:layout_constraintStart_toStartOf="@+id/autoMissedView"
-        app:layout_constraintTop_toTopOf="@+id/autoMissedView" />
 
-    <TextView
-        android:id="@+id/humanMissedNumText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="0"
-        android:textColor="@color/colorText"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoHumanMissedView"
-        app:layout_constraintStart_toEndOf="@+id/autoHumanMissedView"
-        app:layout_constraintTop_toTopOf="@+id/autoHumanMissedView" />
+                </androidx.gridlayout.widget.GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/humanScoredNumText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="0"
-        android:textColor="@color/colorText"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoHumanScoredView"
-        app:layout_constraintStart_toEndOf="@+id/autoHumanScoredView"
-        app:layout_constraintTop_toTopOf="@+id/autoHumanScoredView" />
+            <ImageView
+                android:id="@+id/Hub"
+                android:layout_width="400.5dp"
+                android:layout_height="427.5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/new_hub"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shootingAttemptedLayout" />
 
-    <TextView
-        android:id="@+id/humanScoredNumText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Human Player:"
-        android:textColor="@color/colorText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+            <View
+                android:id="@+id/autoMissedView"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="90dp"
+                android:background="@drawable/card_bg_red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Hub" />
 
-    <TextView
-        android:id="@+id/autoMiss1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="0"
-        android:textColor="@color/colorText"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoMissedView"
-        app:layout_constraintStart_toEndOf="@+id/autoMissedView"
-        app:layout_constraintTop_toTopOf="@+id/autoMissedView" />
+            <TextView
+                android:id="@+id/autoMiss1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="0"
+                android:textColor="@color/colorText"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoMissedView"
+                app:layout_constraintStart_toEndOf="@+id/autoMissedView"
+                app:layout_constraintTop_toTopOf="@+id/autoMissedView" />
 
-    <View
-        android:id="@+id/autoScoredView2"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="202dp"
-        android:background="@drawable/card_bg_red"
-        app:layout_constraintStart_toStartOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+            <TextView
+                android:id="@+id/autoTopMissedMinus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/card_bg_transparent"
+                android:gravity="center"
+                android:text="-"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoMiss1"
+                app:layout_constraintStart_toEndOf="@+id/autoMiss1"
+                app:layout_constraintTop_toTopOf="@+id/autoMiss1" />
 
-    <TextView
-        android:id="@+id/autoScoredTextcard_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scored"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoScoredView2"
-        app:layout_constraintEnd_toEndOf="@+id/autoScoredView2"
-        app:layout_constraintStart_toStartOf="@+id/autoScoredView2"
-        app:layout_constraintTop_toTopOf="@+id/autoScoredView2" />
+            <TextView
+                android:id="@+id/autoMissedTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Missed"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoMissedView"
+                app:layout_constraintEnd_toEndOf="@+id/autoMissedView"
+                app:layout_constraintStart_toStartOf="@+id/autoMissedView"
+                app:layout_constraintTop_toTopOf="@+id/autoMissedView" />
 
-    <TextView
-        android:id="@+id/autoScore2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="0"
-        android:textColor="@color/colorText"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoScoredView2"
-        app:layout_constraintEnd_toStartOf="@+id/autoScoredView2"
-        app:layout_constraintTop_toTopOf="@+id/autoScoredView2" />
+            <View
+                android:id="@+id/autoMissedView2"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginEnd="95dp"
+                android:background="@drawable/card_bg_red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Hub" />
 
-    <View
-        android:id="@+id/autoMissedView2"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="202dp"
-        android:layout_marginEnd="95dp"
-        android:background="@drawable/card_bg_red"
-        app:layout_constraintEnd_toEndOf="@+id/Hub"
-        app:layout_constraintTop_toTopOf="@+id/Hub" />
+            <TextView
+                android:id="@+id/autoMiss2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="0"
+                android:textColor="@color/colorText"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoMissedView2"
+                app:layout_constraintStart_toEndOf="@+id/autoMissedView2"
+                app:layout_constraintTop_toTopOf="@+id/autoMissedView2" />
 
-    <TextView
-        android:id="@+id/autoMissedTextcard_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Missed"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoMissedView2"
-        app:layout_constraintEnd_toEndOf="@+id/autoMissedView2"
-        app:layout_constraintStart_toStartOf="@+id/autoMissedView2"
-        app:layout_constraintTop_toTopOf="@+id/autoMissedView2" />
+            <TextView
+                android:id="@+id/autoMissedTextcard_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Missed"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoMissedView2"
+                app:layout_constraintEnd_toEndOf="@+id/autoMissedView2"
+                app:layout_constraintStart_toStartOf="@+id/autoMissedView2"
+                app:layout_constraintTop_toTopOf="@+id/autoMissedView2" />
 
-    <TextView
-        android:id="@+id/autoMiss2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="0"
-        android:textColor="@color/colorText"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoMissedView2"
-        app:layout_constraintStart_toEndOf="@+id/autoMissedView2"
-        app:layout_constraintTop_toTopOf="@+id/autoMissedView2" />
+            <TextView
+                android:id="@+id/autoBotMissedMinus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/card_bg_transparent"
+                android:gravity="center"
+                android:text="-"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoMiss2"
+                app:layout_constraintStart_toEndOf="@+id/autoMiss2"
+                app:layout_constraintTop_toTopOf="@+id/autoMiss2" />
 
-    <View
-        android:id="@+id/autoAwayBallsView"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/card_bg_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toEndOf="@+id/Hub"
-        app:layout_constraintTop_toBottomOf="@+id/autoHumanMissedView" />
+            <View
+                android:id="@+id/autoScoredView1"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/card_bg_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Hub" />
 
-    <TextView
-        android:id="@+id/autoAwayBallsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Away Balls"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoAwayBallsView"
-        app:layout_constraintEnd_toEndOf="@+id/autoAwayBallsView"
-        app:layout_constraintStart_toStartOf="@+id/autoAwayBallsView"
-        app:layout_constraintTop_toTopOf="@+id/autoAwayBallsView" />
+            <TextView
+                android:id="@+id/autoScore1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="0"
+                android:textColor="@color/colorText"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoScoredView1"
+                app:layout_constraintEnd_toStartOf="@+id/autoScoredView1"
+                app:layout_constraintTop_toTopOf="@+id/autoScoredView1" />
 
-    <TextView
-        android:id="@+id/autoAwayBallsScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="0"
-        android:textColor="@color/colorText"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoAwayBallsView"
-        app:layout_constraintStart_toEndOf="@+id/autoAwayBallsView"
-        app:layout_constraintTop_toTopOf="@+id/autoAwayBallsView" />
+            <TextView
+                android:id="@+id/autoTopScoredMinus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/card_bg_transparent"
+                android:gravity="center"
+                android:text="-"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoScore1"
+                app:layout_constraintEnd_toStartOf="@+id/autoScore1"
+                app:layout_constraintTop_toTopOf="@+id/autoScore1" />
 
-    <TextView
-        android:id="@+id/autoHumanMissedTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Missed"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoHumanMissedView"
-        app:layout_constraintEnd_toEndOf="@+id/autoHumanMissedView"
-        app:layout_constraintStart_toStartOf="@+id/autoHumanMissedView"
-        app:layout_constraintTop_toTopOf="@+id/autoHumanMissedView" />
+            <TextView
+                android:id="@+id/autoScoredTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scored"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoScoredView1"
+                app:layout_constraintEnd_toEndOf="@+id/autoScoredView1"
+                app:layout_constraintStart_toStartOf="@+id/autoScoredView1"
+                app:layout_constraintTop_toTopOf="@+id/autoScoredView1" />
 
-    <TextView
-        android:id="@+id/autoHumanScoredTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scored"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/autoHumanScoredView"
-        app:layout_constraintEnd_toEndOf="@+id/autoHumanScoredView"
-        app:layout_constraintStart_toStartOf="@+id/autoHumanScoredView"
-        app:layout_constraintTop_toTopOf="@+id/autoHumanScoredView" />
+            <View
+                android:id="@+id/autoScoredView2"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/card_bg_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Hub" />
+
+            <TextView
+                android:id="@+id/autoScoredTextcard_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scored"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoScoredView2"
+                app:layout_constraintEnd_toEndOf="@+id/autoScoredView2"
+                app:layout_constraintStart_toStartOf="@+id/autoScoredView2"
+                app:layout_constraintTop_toTopOf="@+id/autoScoredView2" />
+
+            <TextView
+                android:id="@+id/autoBotScoredMinus"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/card_bg_transparent"
+                android:gravity="center"
+                android:text="-"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoScore2"
+                app:layout_constraintEnd_toStartOf="@+id/autoScore2"
+                app:layout_constraintTop_toTopOf="@+id/autoScore2" />
+
+            <TextView
+                android:id="@+id/autoScore2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="0"
+                android:textColor="@color/colorText"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/autoScoredView2"
+                app:layout_constraintEnd_toStartOf="@+id/autoScoredView2"
+                app:layout_constraintTop_toTopOf="@+id/autoScoredView2" />
+
+            <TextView
+                android:id="@+id/humanScoredNumText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Human Player:"
+                android:textColor="@color/colorText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Hub" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/humanScoredNumText2">
+
+                <View
+                    android:id="@+id/autoHumanMissedView"
+                    android:layout_width="90dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/card_bg_red"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/autoHumanMissedTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Missed"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/autoHumanMissedView"
+                    app:layout_constraintEnd_toEndOf="@+id/autoHumanMissedView"
+                    app:layout_constraintStart_toStartOf="@+id/autoHumanMissedView"
+                    app:layout_constraintTop_toTopOf="@+id/autoHumanMissedView" />
+
+                <TextView
+                    android:id="@+id/humanMissedNumText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="0"
+                    android:textColor="@color/colorText"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/autoHumanMissedView"
+                    app:layout_constraintStart_toEndOf="@+id/autoHumanMissedView"
+                    app:layout_constraintTop_toTopOf="@+id/autoHumanMissedView" />
+
+                <TextView
+                    android:id="@+id/autoHPMissedMinus"
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/card_bg_transparent"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/humanMissedNumText"
+                    app:layout_constraintStart_toEndOf="@+id/humanMissedNumText"
+                    app:layout_constraintTop_toTopOf="@+id/humanMissedNumText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/autoScoredView2">
+
+                <View
+                    android:id="@+id/autoAwayBallsView"
+                    android:layout_width="90dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/card_bg_blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/autoAwayBallsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Away Balls"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/autoAwayBallsView"
+                    app:layout_constraintEnd_toEndOf="@+id/autoAwayBallsView"
+                    app:layout_constraintStart_toStartOf="@+id/autoAwayBallsView"
+                    app:layout_constraintTop_toTopOf="@+id/autoAwayBallsView" />
+
+                <TextView
+                    android:id="@+id/autoAwayBallsScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="0"
+                    android:textColor="@color/colorText"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/autoAwayBallsView"
+                    app:layout_constraintStart_toEndOf="@+id/autoAwayBallsView"
+                    app:layout_constraintTop_toTopOf="@+id/autoAwayBallsView" />
+
+                <TextView
+                    android:id="@+id/autoAwayBallsMinus"
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/card_bg_transparent"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/autoAwayBallsScore"
+                    app:layout_constraintStart_toEndOf="@+id/autoAwayBallsScore"
+                    app:layout_constraintTop_toTopOf="@+id/autoAwayBallsScore" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/humanScoredNumText2">
+
+                <View
+                    android:id="@+id/autoHumanScoredView"
+                    android:layout_width="90dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/card_bg_red"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/autoHumanScoredTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scored"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/autoHumanScoredView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/autoHumanScoredView"
+                    app:layout_constraintTop_toTopOf="@+id/autoHumanScoredView" />
+
+                <TextView
+                    android:id="@+id/humanScoredNumText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="0"
+                    android:textColor="@color/colorText"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/autoHumanScoredView"
+                    app:layout_constraintEnd_toStartOf="@+id/autoHumanScoredView"
+                    app:layout_constraintTop_toTopOf="@+id/autoHumanScoredView" />
+
+                <TextView
+                    android:id="@+id/autoHPScoredMinus"
+                    android:layout_width="50dp"
+                    android:layout_height="80dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/card_bg_transparent"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/humanScoredNumText"
+                    app:layout_constraintEnd_toStartOf="@+id/humanScoredNumText"
+                    app:layout_constraintTop_toTopOf="@+id/humanScoredNumText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/autoPhaseViewBar"

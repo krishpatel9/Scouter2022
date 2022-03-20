@@ -24,7 +24,7 @@
         android:layout_marginBottom="4dp"
         android:text="Team: ####"
         android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/finalMatchNumTextView"
         app:layout_constraintStart_toStartOf="@+id/finalMatchNumTextView" />
@@ -35,11 +35,10 @@
         android:layout_height="wrap_content"
         android:text="Match: ####"
         android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/finalTitleView"
         app:layout_constraintEnd_toEndOf="@+id/finalTopView"
-        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/finalTitleView"
         app:layout_constraintTop_toTopOf="@+id/finalTitleView" />
 
@@ -52,7 +51,7 @@
         android:drawablePadding="4dp"
         android:text="#### Alliance"
         android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/finalMatchNumTextView"
         app:layout_constraintTop_toBottomOf="@+id/finalMatchNumTextView" />
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="Scouter App"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/finalTopView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,114 +108,14 @@
             android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/disabled_layout"
+                android:id="@+id/disqualified_layout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.gridlayout.widget.GridLayout
-                    android:id="@+id/finalDisabledGridLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="68dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/card_bg_red"
-                    android:foregroundGravity="center"
-                    android:padding="15dp"
-                    app:columnCount="2"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline6"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <CheckBox
-                        android:id="@+id/finalDisabledCheckBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:buttonTint="@color/white"
-                        android:gravity="center"
-                        android:minHeight="48dp"
-                        android:scaleX="1.70"
-                        android:scaleY="1.70"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <TextView
-                        android:id="@+id/disabled_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        android:text="Disabled"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        app:layout_gravity="center_vertical|fill_vertical" />
-
-
-                </androidx.gridlayout.widget.GridLayout>
-
-                <androidx.gridlayout.widget.GridLayout
-                    android:id="@+id/finalDisqualifiedGridLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="32dp"
-                    android:background="@drawable/card_bg_red"
-                    android:foregroundGravity="center"
-                    android:padding="15dp"
-                    app:columnCount="2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline6"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <CheckBox
-                        android:id="@+id/finalDisqualifiedCheckBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:buttonTint="@color/white"
-                        android:gravity="center"
-                        android:minHeight="48dp"
-                        android:scaleX="1.70"
-                        android:scaleY="1.70"
-                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-                    <TextView
-                        android:id="@+id/disqualified_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        android:text="Disqualified"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        app:layout_gravity="center_vertical|fill_vertical" />
-
-
-                </androidx.gridlayout.widget.GridLayout>
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.5" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/disqualified_layout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/disabled_layout">
+                app:layout_constraintTop_toBottomOf="@+id/disqualified_layout">
 
                 <androidx.gridlayout.widget.GridLayout
                     android:id="@+id/finalDefenseGridLayout"
@@ -240,7 +139,7 @@
                         android:gravity="center"
                         android:text="Defense Effectiveness"
                         android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:textSize="23sp"
                         app:layout_column="0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -277,69 +176,69 @@
 
                         <TextView
                             android:id="@+id/finalDefense0"
-                            android:layout_width="5dp"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="N/A"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:translationX="-10dp" />
+                            android:textSize="18sp"
+                            android:translationX="-25dp" />
 
                         <TextView
                             android:id="@+id/finalDefense1"
-                            android:layout_width="5dp"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="1"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:translationX="-7dp" />
+                            android:textSize="18sp"
+                            android:translationX="-15dp" />
 
                         <TextView
                             android:id="@+id/finalDefense2"
-                            android:layout_width="5dp"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="2"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:translationX="-2dp" />
+                            android:textSize="18sp"
+                            android:translationX="-5dp" />
 
                         <TextView
                             android:id="@+id/finalDefense3"
-                            android:layout_width="5dp"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="3"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:translationX="2dp" />
+                            android:textSize="18sp"
+                            android:translationX="5dp" />
 
                         <TextView
                             android:id="@+id/finalDefense4"
-                            android:layout_width="5dp"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="4"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:translationX="7dp" />
+                            android:textSize="18sp"
+                            android:translationX="15dp" />
 
                         <TextView
                             android:id="@+id/finalDefense5"
-                            android:layout_width="5dp"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="5"
                             android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:translationX="10dp" />
+                            android:textSize="18sp"
+                            android:translationX="25dp" />
 
                     </LinearLayout>
 
@@ -348,14 +247,9 @@
 
             <ImageView
                 android:id="@+id/map_img"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_marginStart="32dp"
+                android:layout_width="500dp"
+                android:layout_height="350dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:adjustViewBounds="true"
-                android:cropToPadding="true"
-                android:scaleType="fitCenter"
                 android:src="@drawable/map"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -413,7 +307,7 @@
                     android:layout_marginTop="10dp"
                     android:text="Zone"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="23sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -454,12 +348,12 @@
                             android:background="@drawable/yellow_zone_bg"
                             android:button="@drawable/card_bg_red"
                             android:elevation="10dp"
-                            android:padding="10dp"
+                            android:padding="15dp"
                             android:text="Zone 1"
                             android:textAlignment="center"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
 
@@ -472,14 +366,15 @@
                             android:background="@drawable/green_zone_bg"
                             android:button="@drawable/card_bg_red"
                             android:elevation="10dp"
-                            android:padding="10dp"
+                            android:padding="15dp"
                             android:text="Zone 2"
                             android:textAlignment="center"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
-                            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+                            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                            tools:padding="10dp" />
 
                         <RadioButton
                             android:id="@+id/finalZone3Btn"
@@ -490,12 +385,12 @@
                             android:background="@drawable/blue_zone_bg"
                             android:button="@drawable/card_bg_red"
                             android:elevation="10dp"
-                            android:padding="10dp"
+                            android:padding="15dp"
                             android:text="Zone 3"
                             android:textAlignment="center"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
 
@@ -508,12 +403,12 @@
                             android:background="@drawable/pink_zone_bg"
                             android:button="@drawable/card_bg_red"
                             android:elevation="10dp"
-                            android:padding="10dp"
+                            android:padding="15dp"
                             android:text="Zone 4"
                             android:textAlignment="center"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
                     </RadioGroup>
@@ -524,6 +419,105 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/disqualified_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disabled_layout">
+
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/finalDisqualifiedGridLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/card_bg_red"
+                    android:foregroundGravity="center"
+                    android:padding="15dp"
+                    app:columnCount="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <CheckBox
+                        android:id="@+id/finalDisqualifiedCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:buttonTint="@color/white"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        android:scaleX="1.70"
+                        android:scaleY="1.70"
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/disqualified_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="0dp"
+                        android:text="Disqualified"
+                        android:textColor="@color/white"
+                        android:textSize="23sp"
+                        app:layout_gravity="center_vertical|fill_vertical" />
+
+
+                </androidx.gridlayout.widget.GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/disabled_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/finalDisabledGridLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/card_bg_red"
+                    android:foregroundGravity="center"
+                    android:padding="15dp"
+                    app:columnCount="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <CheckBox
+                        android:id="@+id/finalDisabledCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:buttonTint="@color/white"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        android:scaleX="1.70"
+                        android:scaleY="1.70"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/disabled_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="0dp"
+                        android:text="Disabled"
+                        android:textColor="@color/white"
+                        android:textSize="23sp"
+                        app:layout_gravity="center_vertical|fill_vertical" />
+
+
+                </androidx.gridlayout.widget.GridLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -593,19 +587,19 @@
             android:id="@+id/showEditShotsBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/card_bg_grey"
             android:padding="10dp"
-            android:rotation="-90"
-            android:text="Edit\nShots"
+            android:text="Edit Shots"
             android:textColor="@color/colorText"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
-            app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

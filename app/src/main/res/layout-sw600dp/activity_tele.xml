@@ -24,7 +24,7 @@
         android:layout_marginBottom="4dp"
         android:text="Team: ####"
         android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/qrMatchNumTextView"
         app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView" />
@@ -35,11 +35,10 @@
         android:layout_height="wrap_content"
         android:text="Match: ####"
         android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/teleTitleView"
         app:layout_constraintEnd_toEndOf="@+id/teleTopView"
-        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/teleTitleView"
         app:layout_constraintTop_toTopOf="@+id/teleTitleView" />
 
@@ -52,7 +51,7 @@
         android:drawablePadding="4dp"
         android:text="#### Alliance"
         android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/qrMatchNumTextView"
         app:layout_constraintTop_toBottomOf="@+id/qrMatchNumTextView" />
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="Scouter App"
         android:textColor="#ffffff"
-        android:textSize="34sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/teleTopView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,13 +82,15 @@
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/teleShootingGridLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="68dp"
             android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/card_bg_red"
             android:foregroundGravity="center"
             android:padding="15dp"
             app:columnCount="2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -97,7 +98,7 @@
                 android:id="@+id/tele_checkbox_shooting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="25dp"
                 android:buttonTint="@color/white"
                 android:gravity="center"
                 android:minHeight="48dp"
@@ -110,66 +111,13 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="20dp"
                 android:paddingEnd="0dp"
-                android:text="Shooting\nAttempted?"
+                android:text="Shooting Attempted?"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="23sp"
                 app:layout_gravity="center_vertical|fill_vertical" />
 
 
         </androidx.gridlayout.widget.GridLayout>
-
-        <TextView
-            android:id="@+id/teleAwayBallsMinus"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/card_bg_transparent"
-            android:gravity="center"
-            android:text="-"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsScore"
-            app:layout_constraintStart_toEndOf="@+id/TeleAwayBallsScore"
-            app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsScore" />
-
-        <TextView
-            android:id="@+id/TeleAwayBallsScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="0"
-            android:textColor="@color/colorText"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsView"
-            app:layout_constraintStart_toEndOf="@+id/TeleAwayBallsView"
-            app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsView" />
-
-        <View
-            android:id="@+id/TeleAwayBallsView"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/card_bg_blue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/teleShootingGridLayout"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/TeleAwayBallsText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Away Balls"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsView"
-            app:layout_constraintEnd_toEndOf="@+id/TeleAwayBallsView"
-            app:layout_constraintStart_toStartOf="@+id/TeleAwayBallsView"
-            app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsView" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -390,6 +338,57 @@
         app:layout_constraintBottom_toBottomOf="@+id/TeleScore2"
         app:layout_constraintEnd_toStartOf="@+id/TeleScore2"
         app:layout_constraintTop_toTopOf="@+id/TeleScore2" />
+    <View
+        android:id="@+id/TeleAwayBallsView"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/card_bg_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TeleshootingAttemptedLayout" />
+
+    <TextView
+        android:id="@+id/TeleAwayBallsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Away Balls"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsView"
+        app:layout_constraintEnd_toEndOf="@+id/TeleAwayBallsView"
+        app:layout_constraintStart_toStartOf="@+id/TeleAwayBallsView"
+        app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsView" />
+
+    <TextView
+        android:id="@+id/TeleAwayBallsScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        android:textColor="@color/colorText"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsView"
+        app:layout_constraintStart_toEndOf="@+id/TeleAwayBallsView"
+        app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsView" />
+
+    <TextView
+        android:id="@+id/teleAwayBallsMinus"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/card_bg_transparent"
+        android:gravity="center"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TeleAwayBallsScore"
+        app:layout_constraintStart_toEndOf="@+id/TeleAwayBallsScore"
+        app:layout_constraintTop_toTopOf="@+id/TeleAwayBallsScore" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

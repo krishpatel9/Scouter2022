@@ -37,22 +37,31 @@
         <entry key="app/src/main/res/drawable/yellow_zone_bg.xml" value="0.4671875" />
         <entry key="app/src/main/res/layout-small/about_dialog.xml" value="0.19381107491856678" />
         <entry key="app/src/main/res/layout-small/activity_auto.xml" value="1.082142857142857" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_auto.xml" value="0.415" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_end_game.xml" value="0.37875" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_final.xml" value="0.37875" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_qrcode.xml" value="0.37875" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_tele.xml" value="0.37875" />
+        <entry key="app/src/main/res/layout-sw600dp/content_managematch.xml" value="0.37875" />
+        <entry key="app/src/main/res/layout-sw600dp/manage_details.xml" value="0.37875" />
+        <entry key="app/src/main/res/layout-sw600dp/manage_header.xml" value="0.37875" />
+        <entry key="app/src/main/res/layout-w400dp/activity_auto.xml" value="0.28055555555555556" />
         <entry key="app/src/main/res/layout/about_dialog.xml" value="0.43239795918367346" />
-        <entry key="app/src/main/res/layout/activity_auto.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.55" />
-        <entry key="app/src/main/res/layout/activity_final.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_auto.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.18925081433224755" />
+        <entry key="app/src/main/res/layout/activity_final.xml" value="0.19381107491856678" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.44296875" />
         <entry key="app/src/main/res/layout/activity_manage_match.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_manage_matchv2.xml" value="0.4375" />
-        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.10625" />
-        <entry key="app/src/main/res/layout/activity_tele.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/activity_qrcode.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_tele.xml" value="0.19381107491856678" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.5908639523336644" />
-        <entry key="app/src/main/res/layout/content_managematch.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/content_managematch.xml" value="0.19381107491856678" />
         <entry key="app/src/main/res/layout/content_managematch2.xml" value="0.4375" />
         <entry key="app/src/main/res/layout/content_managematch3.xml" value="0.3875" />
         <entry key="app/src/main/res/layout/editshots_dialog.xml" value="0.5988023952095808" />
-        <entry key="app/src/main/res/layout/manage_details.xml" value="0.4375" />
+        <entry key="app/src/main/res/layout/manage_details.xml" value="0.19381107491856678" />
         <entry key="app/src/main/res/layout/manage_dialog.xml" value="1.0" />
         <entry key="app/src/main/res/layout/manage_header.xml" value="0.4375" />
         <entry key="app/src/main/res/layout/match_found_dialog.xml" value="0.42375" />

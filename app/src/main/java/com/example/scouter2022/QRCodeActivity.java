@@ -268,7 +268,7 @@ public class QRCodeActivity extends AppCompatActivity {
             disabledYNTextView.setText("");
             disqualifiedYNTextView.setText("");
             defenseNumTextView.setText("");
-            noShowTextView.setText("NO SHOW");
+            noShowTextView.setText("NO\nSHOW");
             toFinal.setEnabled(false);
             toFinal.setVisibility(View.INVISIBLE);
         }

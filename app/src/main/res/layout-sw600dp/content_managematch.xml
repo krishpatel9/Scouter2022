@@ -26,19 +26,18 @@
 
       <Button
           android:id="@+id/selectAllID"
-          android:layout_width="120dp"
+          android:layout_width="200dp"
           android:layout_height="match_parent"
           android:layout_margin="5dp"
           android:background="@drawable/card_bg_lightgrey"
           android:drawableLeft="@drawable/check_all"
           android:padding="10dp"
-          android:text="SELECT\nALL"
-          android:textSize="12sp"
+          android:text="@string/managematch_select_btn"
           android:textStyle="bold" />
 
       <Button
           android:id="@+id/deselectAllID"
-          android:layout_width="120dp"
+          android:layout_width="200dp"
           android:layout_height="wrap_content"
           android:layout_row="1"
           android:layout_column="0"
@@ -46,13 +45,12 @@
           android:background="@drawable/card_bg_lightgrey"
           android:drawableLeft="@drawable/uncheck_all"
           android:padding="10dp"
-          android:text="DESELECT\nALL"
-          android:textSize="12sp"
+          android:text="@string/managematch_deselect_btn"
           android:textStyle="bold" />
 
       <Button
           android:id="@+id/removeSelectedID"
-          android:layout_width="120dp"
+          android:layout_width="200dp"
           android:layout_height="wrap_content"
           android:layout_row="0"
           android:layout_column="1"
@@ -60,24 +58,20 @@
           android:background="@drawable/card_bg_lightgrey"
           android:drawableLeft="@drawable/close_icon"
           android:padding="10dp"
-          android:text="REMOVE\nSELECTED"
-          android:textSize="12sp"
-          android:textStyle="bold"
-          tools:textSize="12sp" />
+          android:text="@string/managematch_remove_selected_btn"
+          android:textStyle="bold" />
 
       <Button
           android:id="@+id/openSelectedID"
-          android:layout_width="120dp"
+          android:layout_width="200dp"
           android:layout_height="wrap_content"
           android:layout_row="1"
           android:layout_column="1"
           android:layout_margin="5dp"
           android:background="@drawable/card_bg_lightgrey"
           android:drawableLeft="@drawable/open_icon"
-          android:foregroundGravity="center"
           android:padding="10dp"
-          android:text="OPEN\nMATCH"
-          android:textSize="12sp"
+          android:text="OPEN"
           android:textStyle="bold" />
 
     </GridLayout>
