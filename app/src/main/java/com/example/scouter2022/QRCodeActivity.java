@@ -85,7 +85,7 @@ public class QRCodeActivity extends AppCompatActivity {
         disqualifiedTextView = findViewById(R.id.disqualified_textView);
         defenseTextView = findViewById(R.id.defense_textView);
         noShowTextView = findViewById(R.id.noShow_textView);
-        infoView = findViewById(R.id.qrInfo_View);
+//        infoView = findViewById(R.id.qrInfo_View);
         codeTextView = findViewById(R.id.qrCodeTextView);
         layout1 = findViewById(R.id.qrInfoLayout);
         settingsSwitch = findViewById(R.id.settingSwitch);
@@ -320,7 +320,7 @@ public class QRCodeActivity extends AppCompatActivity {
 //            layout3.setBackgroundResource(R.drawable.card_bg_red);
 //            layout4.setBackgroundResource(R.drawable.card_bg_red);
 
-            infoView.setBackgroundResource(R.drawable.button_bg_red);
+//            infoView.setBackgroundResource(R.drawable.button_bg_red);
 //            foulsView.setBackgroundResource(R.drawable.button_bg_red);
             qrAllianceColor.setText("Red");
             qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_red, 0);
@@ -332,7 +332,7 @@ public class QRCodeActivity extends AppCompatActivity {
 //            layout3.setBackgroundResource(R.drawable.card_bg_blue);
 //            layout4.setBackgroundResource(R.drawable.card_bg_blue);
 
-            infoView.setBackgroundResource(R.drawable.button_bg_blue);
+//            infoView.setBackgroundResource(R.drawable.button_bg_blue);
 //            foulsView.setBackgroundResource(R.drawable.button_bg_blue);
             qrAllianceColor.setText("Blue");
             qrAllianceColor.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.flag_blue, 0);
